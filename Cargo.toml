@@ -1,8 +1,15 @@
 [package]
 name = "cryptoapis"
 version = "1.1.0"
-authors = ["OpenAPI Generator team and contributors"]
+description = "Rust library/SDK for Crypto APIs 2.0"
+authors = ["CryptoAPIs"]
 edition = "2018"
+license = "MIT"
+keywords = ["cryptoapis", "blockchain", "crypto"]
+documentation = "https://developers.cryptoapis.io/"
+readme = "README.md"
+homepage = "https://cryptoapis.io/"
+repository = "https://github.com/Crypto-APIs/Crypto_APIs_2.0_SDK_Rust"
 
 [dependencies]
 serde = "^1.0"
