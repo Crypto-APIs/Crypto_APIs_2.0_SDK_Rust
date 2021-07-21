@@ -167,12 +167,12 @@ pub enum ListTransactionsByBlockHeightError {
 
 
 /// Through this endpoint the customer can receive basic information about a given address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.
-pub async fn get_address_details(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>) -> Result<crate::models::GetAddressDetailsResponse, Error<GetAddressDetailsError>> {
+pub async fn get_address_details(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>) -> Result<crate::models::GetAddressDetailsR, Error<GetAddressDetailsError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -205,12 +205,12 @@ pub async fn get_address_details(configuration: &configuration::Configuration, b
 }
 
 /// Through this endpoint customers can obtain basic information about a given mined block, specifically by using the `hash` parameter. These block details could include the hash of the specific, the previous and the next block, its transactions count, its height, etc.     Blockchain specific data is information such as version, nonce, size, bits, merkleroot, etc.
-pub async fn get_block_details_by_block_hash(configuration: &configuration::Configuration, blockchain: &str, network: &str, block_hash: &str, context: Option<&str>) -> Result<crate::models::GetBlockDetailsByBlockHashResponse, Error<GetBlockDetailsByBlockHashError>> {
+pub async fn get_block_details_by_block_hash(configuration: &configuration::Configuration, blockchain: &str, network: &str, block_hash: &str, context: Option<&str>) -> Result<crate::models::GetBlockDetailsByBlockHashR, Error<GetBlockDetailsByBlockHashError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/hash/{blockHash}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -243,12 +243,12 @@ pub async fn get_block_details_by_block_hash(configuration: &configuration::Conf
 }
 
 /// Through this endpoint customers can obtain basic information about a given mined block, specifically by using the `height` parameter. These block details could include the hash of the specific, the previous and the next block, its transactions count, its height, etc.     Blockchain specific data is information such as version, nonce, size, bits, merkleroot, etc.
-pub async fn get_block_details_by_block_height(configuration: &configuration::Configuration, blockchain: &str, network: &str, height: i32, context: Option<&str>) -> Result<crate::models::GetBlockDetailsByBlockHeightResponse, Error<GetBlockDetailsByBlockHeightError>> {
+pub async fn get_block_details_by_block_height(configuration: &configuration::Configuration, blockchain: &str, network: &str, height: i32, context: Option<&str>) -> Result<crate::models::GetBlockDetailsByBlockHeightR, Error<GetBlockDetailsByBlockHeightError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/height/{height}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), height=height);
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -281,12 +281,12 @@ pub async fn get_block_details_by_block_height(configuration: &configuration::Co
 }
 
 /// Through this endpoint customers can obtain fee recommendations. Our fees recommendations are based on Mempool data which makes them much more accurate than fees based on already mined blocks. Calculations are done in real time live. Using this endpoint customers can get gas price for Ethereum, fee per byte for Bitcoin, etc.
-pub async fn get_fee_recommendations(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>) -> Result<crate::models::GetFeeRecommendationsResponse, Error<GetFeeRecommendationsError>> {
+pub async fn get_fee_recommendations(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>) -> Result<crate::models::GetFeeRecommendationsR, Error<GetFeeRecommendationsError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/mempool/fees", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -319,12 +319,12 @@ pub async fn get_fee_recommendations(configuration: &configuration::Configuratio
 }
 
 /// Through this endpoint customers can fetch the last mined block in a specific blockchain network, along with its details. These could include the hash of the specific, the previous and the next block, its transactions count, its height, etc.     Blockchain specific data is information such as version, nonce, size, bits, merkleroot, etc.
-pub async fn get_latest_mined_block(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>) -> Result<crate::models::GetLatestMinedBlockResponse, Error<GetLatestMinedBlockError>> {
+pub async fn get_latest_mined_block(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>) -> Result<crate::models::GetLatestMinedBlockR, Error<GetLatestMinedBlockError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/last", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -357,12 +357,12 @@ pub async fn get_latest_mined_block(configuration: &configuration::Configuration
 }
 
 /// Through this endpoint customers can obtain details about a transaction by the transaction's unique identifier. In UTXO-based protocols like BTC there are attributes such as `transactionId` and transaction `hash`. They still could be different. In protocols like Ethereum there is only one unique value and it's `hash`.
-pub async fn get_transaction_details_by_transaction_id(configuration: &configuration::Configuration, blockchain: &str, network: &str, transaction_id: &str, context: Option<&str>) -> Result<crate::models::GetTransactionDetailsByTransactionIdResponse, Error<GetTransactionDetailsByTransactionIdError>> {
+pub async fn get_transaction_details_by_transaction_id(configuration: &configuration::Configuration, blockchain: &str, network: &str, transaction_id: &str, context: Option<&str>) -> Result<crate::models::GetTransactionDetailsByTransactionIdr, Error<GetTransactionDetailsByTransactionIdError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/transactions/{transactionId}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), transactionId=crate::apis::urlencode(transaction_id));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -394,13 +394,13 @@ pub async fn get_transaction_details_by_transaction_id(configuration: &configura
     }
 }
 
-/// This endpoint will list transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
-pub async fn list_transactions_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByAddressResponse, Error<ListTransactionsByAddressError>> {
+/// This endpoint will list transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+pub async fn list_transactions_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByAddressR, Error<ListTransactionsByAddressError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}/transactions", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -438,13 +438,13 @@ pub async fn list_transactions_by_address(configuration: &configuration::Configu
     }
 }
 
-/// This endpoint will list transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
-pub async fn list_transactions_by_block_hash(configuration: &configuration::Configuration, blockchain: &str, network: &str, block_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByBlockHashResponse, Error<ListTransactionsByBlockHashError>> {
+/// This endpoint will list transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+pub async fn list_transactions_by_block_hash(configuration: &configuration::Configuration, blockchain: &str, network: &str, block_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByBlockHashR, Error<ListTransactionsByBlockHashError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/hash/{blockHash}/transactions", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -482,13 +482,13 @@ pub async fn list_transactions_by_block_hash(configuration: &configuration::Conf
     }
 }
 
-/// This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
-pub async fn list_transactions_by_block_height(configuration: &configuration::Configuration, blockchain: &str, network: &str, height: i32, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByBlockHeightResponse, Error<ListTransactionsByBlockHeightError>> {
+/// This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+pub async fn list_transactions_by_block_height(configuration: &configuration::Configuration, blockchain: &str, network: &str, height: i32, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByBlockHeightR, Error<ListTransactionsByBlockHeightError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/height/{height}/transactions", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), height=height);
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);

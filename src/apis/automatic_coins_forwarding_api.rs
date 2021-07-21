@@ -68,12 +68,12 @@ pub enum ListCoinsForwardingAutomationsError {
 
 
 /// Through this endpoint customers can set up an automatic forwarding function specifically for coins (**not** tokens). They can have a `toAddress` which is essentially the main address and the destination for the automatic coins forwarding.     There is also a `minimumTransferAmount` which only when reached will then trigger the forwarding. Through this the customer can save from fees.    Moreover, `feePriority` can be also set,  which defines how quickly to move the coins once they are received. The higher priority, the larger the fee will be. It can be \"SLOW\", \"STANDARD\" or \"FAST\".    The response of this endpoint contains an attribute `fromAddress` which can be used as a deposit address. Any funds received by this address will be automatically forwarded to `toAddress` based on what the customer has set for the automation.    For this automatic forwarding the customer can set a callback subscription.    {warning}The subscription will work for all incoming transactions until it is deleted. There is no need to do that for every transaction.{/warning}    {note}This endpoint generates a new `fromAddress` each time.{/note}
-pub async fn create_automatic_coins_forwarding(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, create_automatic_coins_forwarding_request_body: Option<crate::models::CreateAutomaticCoinsForwardingRequestBody>) -> Result<crate::models::CreateAutomaticCoinsForwardingResponse, Error<CreateAutomaticCoinsForwardingError>> {
+pub async fn create_automatic_coins_forwarding(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, create_automatic_coins_forwarding_rb: Option<crate::models::CreateAutomaticCoinsForwardingRb>) -> Result<crate::models::CreateAutomaticCoinsForwardingR, Error<CreateAutomaticCoinsForwardingError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-automations/{blockchain}/{network}/coins-forwarding/automations", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
-    let mut local_var_req_builder = local_var_client.post(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -89,7 +89,7 @@ pub async fn create_automatic_coins_forwarding(configuration: &configuration::Co
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&create_automatic_coins_forwarding_request_body);
+    local_var_req_builder = local_var_req_builder.json(&create_automatic_coins_forwarding_rb);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -107,12 +107,12 @@ pub async fn create_automatic_coins_forwarding(configuration: &configuration::Co
 }
 
 /// Through this endpoint customers can delete a forwarding function they have set for **coins** (**not** tokens).    By setting a `fromAddress` and a `toAddress`, and specifying the amount, coins can be transferred between addresses.     A `feePriority` will be returned which represents the fee priority of the automation whether it is \"SLOW\", \"STANDARD\" OR \"FAST\".    {warning}The subscription will work for all incoming transactions until it is deleted. There is no need to do that for every transaction.{/warning}
-pub async fn delete_automatic_coins_forwarding(configuration: &configuration::Configuration, blockchain: &str, network: &str, reference_id: &str, context: Option<&str>) -> Result<crate::models::DeleteAutomaticCoinsForwardingResponse, Error<DeleteAutomaticCoinsForwardingError>> {
+pub async fn delete_automatic_coins_forwarding(configuration: &configuration::Configuration, blockchain: &str, network: &str, reference_id: &str, context: Option<&str>) -> Result<crate::models::DeleteAutomaticCoinsForwardingR, Error<DeleteAutomaticCoinsForwardingError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-automations/{blockchain}/{network}/coins-forwarding/automations/{referenceId}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), referenceId=crate::apis::urlencode(reference_id));
-    let mut local_var_req_builder = local_var_client.delete(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -144,13 +144,13 @@ pub async fn delete_automatic_coins_forwarding(configuration: &configuration::Co
     }
 }
 
-/// Through this endpoint customers can list all of their **coins** forwarding automations (**not** tokens).    Customers can set up automatic forwarding functions for coins by setting a `fromAddress` and a `toAddress`, and specifying the amount that can be transferred between addresses.     A `feePriority` will be returned which represents the fee priority of the automation whether it is \"SLOW\", \"STANDARD\" OR \"FAST\".    {warning}The subscription will work for all incoming transactions until it is deleted. There is no need to do that for every transaction.{/warning}
-pub async fn list_coins_forwarding_automations(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListCoinsForwardingAutomationsResponse, Error<ListCoinsForwardingAutomationsError>> {
+/// Through this endpoint customers can list all of their **coins** forwarding automations (**not** tokens).    Customers can set up automatic forwarding functions for coins by setting a `fromAddress` and a `toAddress`, and specifying the amount that can be transferred between addresses.     A `feePriority` will be returned which represents the fee priority of the automation whether it is \"SLOW\", \"STANDARD\" OR \"FAST\".    {warning}The subscription will work for all incoming transactions until it is deleted. There is no need to do that for every transaction.{/warning}    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+pub async fn list_coins_forwarding_automations(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListCoinsForwardingAutomationsR, Error<ListCoinsForwardingAutomationsError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-automations/{blockchain}/{network}/coins-forwarding/automations", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);

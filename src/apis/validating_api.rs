@@ -33,12 +33,12 @@ pub enum ValidateAddressError {
 
 
 /// This endpoint checks user public addresses whether they are valid or not.
-pub async fn validate_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, validate_address_request_body: Option<crate::models::ValidateAddressRequestBody>) -> Result<crate::models::ValidateAddressResponse, Error<ValidateAddressError>> {
+pub async fn validate_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, validate_address_rb: Option<crate::models::ValidateAddressRb>) -> Result<crate::models::ValidateAddressR, Error<ValidateAddressError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-tools/{blockchain}/{network}/addresses/validate", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
-    let mut local_var_req_builder = local_var_client.post(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -54,7 +54,7 @@ pub async fn validate_address(configuration: &configuration::Configuration, bloc
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&validate_address_request_body);
+    local_var_req_builder = local_var_req_builder.json(&validate_address_rb);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

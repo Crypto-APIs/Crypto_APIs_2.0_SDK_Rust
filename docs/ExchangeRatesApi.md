@@ -4,14 +4,14 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_exchange_rate_by_asset_symbols**](ExchangeRatesApi.md#get_exchange_rate_by_asset_symbols) | **get** /market-data/exchange-rates/by-symbols/{fromAssetSymbol}/{toAssetSymbol} | Get Exchange Rate By Asset Symbols
-[**get_exchange_rate_by_assets_ids**](ExchangeRatesApi.md#get_exchange_rate_by_assets_ids) | **get** /market-data/exchange-rates/by-asset-ids/{fromAssetId}/{toAssetId} | Get Exchange Rate By Assets IDs
+[**get_exchange_rate_by_asset_symbols**](ExchangeRatesApi.md#get_exchange_rate_by_asset_symbols) | **GET** /market-data/exchange-rates/by-symbols/{fromAssetSymbol}/{toAssetSymbol} | Get Exchange Rate By Asset Symbols
+[**get_exchange_rate_by_assets_ids**](ExchangeRatesApi.md#get_exchange_rate_by_assets_ids) | **GET** /market-data/exchange-rates/by-asset-ids/{fromAssetId}/{toAssetId} | Get Exchange Rate By Assets IDs
 
 
 
 ## get_exchange_rate_by_asset_symbols
 
-> crate::models::GetExchangeRateByAssetSymbolsResponse get_exchange_rate_by_asset_symbols(from_asset_symbol, to_asset_symbol, context)
+> crate::models::GetExchangeRateByAssetSymbolsR get_exchange_rate_by_asset_symbols(from_asset_symbol, to_asset_symbol, context, calculation_timestamp)
 Get Exchange Rate By Asset Symbols
 
 Through this endpoint customers can obtain exchange rates by asset symbols. The process represents the exchange rate value of a single unit of one asset versus another one. Data is provided per unique asset symbol.
@@ -24,10 +24,11 @@ Name | Type | Description  | Required | Notes
 **from_asset_symbol** | **String** | Defines the base asset symbol to get a rate for. | [required] |
 **to_asset_symbol** | **String** | Defines the relation asset symbol in which the base asset rate will be displayed. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+**calculation_timestamp** | Option<**i32**> | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. |  |
 
 ### Return type
 
-[**crate::models::GetExchangeRateByAssetSymbolsResponse**](GetExchangeRateByAssetSymbolsResponse.md)
+[**crate::models::GetExchangeRateByAssetSymbolsR**](GetExchangeRateByAssetSymbolsR.md)
 
 ### Authorization
 
@@ -43,7 +44,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_exchange_rate_by_assets_ids
 
-> crate::models::GetExchangeRateByAssetsIdsResponse get_exchange_rate_by_assets_ids(from_asset_id, to_asset_id, context)
+> crate::models::GetExchangeRateByAssetsIdsR get_exchange_rate_by_assets_ids(from_asset_id, to_asset_id, context, calculation_timestamp)
 Get Exchange Rate By Assets IDs
 
 Through this endpoint customers can obtain exchange rates by asset IDs. The process represents the exchange rate value of a single unit of one asset versus another one. Data is provided per unique asset Reference ID.
@@ -56,10 +57,11 @@ Name | Type | Description  | Required | Notes
 **from_asset_id** | **String** | Defines the base asset Reference ID to get a rate for. | [required] |
 **to_asset_id** | **String** | Defines the relation asset Reference ID in which the base asset rate will be displayed. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+**calculation_timestamp** | Option<**i32**> | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. |  |
 
 ### Return type
 
-[**crate::models::GetExchangeRateByAssetsIdsResponse**](GetExchangeRateByAssetsIDsResponse.md)
+[**crate::models::GetExchangeRateByAssetsIdsR**](GetExchangeRateByAssetsIDsR.md)
 
 ### Authorization
 

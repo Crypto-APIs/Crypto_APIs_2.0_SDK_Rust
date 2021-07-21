@@ -32,13 +32,13 @@ pub enum ListSupportedAssetsError {
 }
 
 
-/// This endpoint will return a list of supported assets. The asset could be a cryptocurrency or FIAT assets that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".
-pub async fn list_supported_assets(configuration: &configuration::Configuration, context: Option<&str>, asset_type: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListSupportedAssetsResponse, Error<ListSupportedAssetsError>> {
+/// This endpoint will return a list of supported assets. The asset could be a cryptocurrency or FIAT assets that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+pub async fn list_supported_assets(configuration: &configuration::Configuration, context: Option<&str>, asset_type: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListSupportedAssetsR, Error<ListSupportedAssetsError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/market-data/assets/supported", configuration.base_path);
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);

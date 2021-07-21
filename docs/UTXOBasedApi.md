@@ -4,15 +4,15 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_hd_wallet__x_pub_y_pub_z_pub_details**](UTXOBasedApi.md#get_hd_wallet__x_pub_y_pub_z_pub_details) | **get** /blockchain-data/{blockchain}/{network}/hd/{extendedPublicKey}/details | Get HD Wallet (xPub, yPub, zPub) Details
-[**list_hd_wallet__x_pub_y_pub_z_pub_transactions**](UTXOBasedApi.md#list_hd_wallet__x_pub_y_pub_z_pub_transactions) | **get** /blockchain-data/{blockchain}/{network}/hd/{extendedPublicKey}/transactions | List HD Wallet (xPub, yPub, zPub) Transactions
-[**sync_hd_wallet__x_pub_y_pub_z_pub**](UTXOBasedApi.md#sync_hd_wallet__x_pub_y_pub_z_pub) | **post** /blockchain-data/{blockchain}/{network}/hd/sync | Sync HD Wallet (xPub, yPub, zPub)
+[**get_hd_wallet__x_pub_y_pub_z_pub_details**](UTXOBasedApi.md#get_hd_wallet__x_pub_y_pub_z_pub_details) | **GET** /blockchain-data/{blockchain}/{network}/hd/{extendedPublicKey}/details | Get HD Wallet (xPub, yPub, zPub) Details
+[**list_hd_wallet__x_pub_y_pub_z_pub_transactions**](UTXOBasedApi.md#list_hd_wallet__x_pub_y_pub_z_pub_transactions) | **GET** /blockchain-data/{blockchain}/{network}/hd/{extendedPublicKey}/transactions | List HD Wallet (xPub, yPub, zPub) Transactions
+[**sync_hd_wallet__x_pub_y_pub_z_pub**](UTXOBasedApi.md#sync_hd_wallet__x_pub_y_pub_z_pub) | **POST** /blockchain-data/{blockchain}/{network}/hd/sync | Sync HD Wallet (xPub, yPub, zPub)
 
 
 
 ## get_hd_wallet__x_pub_y_pub_z_pub_details
 
-> crate::models::GetHdWalletxPubYPubZPubDetailsResponse get_hd_wallet__x_pub_y_pub_z_pub_details(blockchain, extended_public_key, network, context, derivation)
+> crate::models::GetHdWalletXPubYPubZPubDetailsR get_hd_wallet__x_pub_y_pub_z_pub_details(blockchain, extended_public_key, network, context, derivation)
 Get HD Wallet (xPub, yPub, zPub) Details
 
 HD wallet details is useful endpoint to get the most important data about HD wallet without the need to do a lot of calculations, once the HD Wallet is synced using Sync endpoint we keep it up to date and we calculate these details in advance.
@@ -30,7 +30,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetHdWalletxPubYPubZPubDetailsResponse**](GetHDWalletxPubYPubZPubDetailsResponse.md)
+[**crate::models::GetHdWalletXPubYPubZPubDetailsR**](GetHDWalletXPubYPubZPubDetailsR.md)
 
 ### Authorization
 
@@ -46,10 +46,10 @@ Name | Type | Description  | Required | Notes
 
 ## list_hd_wallet__x_pub_y_pub_z_pub_transactions
 
-> crate::models::ListHdWalletxPubYPubZPubTransactionsResponse list_hd_wallet__x_pub_y_pub_z_pub_transactions(blockchain, extended_public_key, network, context, derivation, limit, offset)
+> crate::models::ListHdWalletXPubYPubZPubTransactionsR list_hd_wallet__x_pub_y_pub_z_pub_transactions(blockchain, extended_public_key, network, context, derivation, limit, offset)
 List HD Wallet (xPub, yPub, zPub) Transactions
 
-This endpoint will list HD Wallet transactions.
+This endpoint will list HD Wallet transactions.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Parameters
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListHdWalletxPubYPubZPubTransactionsResponse**](ListHDWalletxPubYPubZPubTransactionsResponse.md)
+[**crate::models::ListHdWalletXPubYPubZPubTransactionsR**](ListHDWalletXPubYPubZPubTransactionsR.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Required | Notes
 
 ## sync_hd_wallet__x_pub_y_pub_z_pub
 
-> crate::models::SyncHdWalletxPubYPubZPubResponse sync_hd_wallet__x_pub_y_pub_z_pub(blockchain, network, context, sync_hd_walletx_pub_y_pub_z_pub_request_body)
+> crate::models::SyncHdWalletXPubYPubZPubR sync_hd_wallet__x_pub_y_pub_z_pub(blockchain, network, context, sync_hd_wallet_x_pub_y_pub_z_pub_rb)
 Sync HD Wallet (xPub, yPub, zPub)
 
 HD wallets usually have a lot of addresses and transactions, getting the data on demand is a heavy operation. That's why we have created this feature, to be able to get HD wallet details or transactions this HD wallet must be synced first. In addition to the initial sync we keep updating the synced HD wallets all the time.
@@ -95,11 +95,11 @@ Name | Type | Description  | Required | Notes
 **blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [required] |
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
-**sync_hd_walletx_pub_y_pub_z_pub_request_body** | Option<[**SyncHdWalletxPubYPubZPubRequestBody**](SyncHdWalletxPubYPubZPubRequestBody.md)> |  |  |
+**sync_hd_wallet_x_pub_y_pub_z_pub_rb** | Option<[**SyncHdWalletXPubYPubZPubRb**](SyncHdWalletXPubYPubZPubRb.md)> |  |  |
 
 ### Return type
 
-[**crate::models::SyncHdWalletxPubYPubZPubResponse**](SyncHDWalletxPubYPubZPubResponse.md)
+[**crate::models::SyncHdWalletXPubYPubZPubR**](SyncHDWalletXPubYPubZPubR.md)
 
 ### Authorization
 

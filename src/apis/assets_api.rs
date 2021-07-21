@@ -32,13 +32,13 @@ pub enum ListAssetsDetailsError {
 }
 
 
-/// This endpoint will return details on a requested asset. The asset could be a cryptocurrency or FIAT asset that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".    The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.
-pub async fn list_assets_details(configuration: &configuration::Configuration, context: Option<&str>, asset_type: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListAssetsDetailsResponse, Error<ListAssetsDetailsError>> {
+/// This endpoint will return details on a requested asset. The asset could be a cryptocurrency or FIAT asset that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".    The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+pub async fn list_assets_details(configuration: &configuration::Configuration, context: Option<&str>, asset_type: Option<&str>, crypto_type: Option<&str>, limit: Option<i32>, offset: Option<i32>, waas_enabled: Option<bool>) -> Result<crate::models::ListAssetsDetailsR, Error<ListAssetsDetailsError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/market-data/assets/details", configuration.base_path);
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -46,11 +46,17 @@ pub async fn list_assets_details(configuration: &configuration::Configuration, c
     if let Some(ref local_var_str) = asset_type {
         local_var_req_builder = local_var_req_builder.query(&[("assetType", &local_var_str.to_string())]);
     }
+    if let Some(ref local_var_str) = crypto_type {
+        local_var_req_builder = local_var_req_builder.query(&[("cryptoType", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_str) = limit {
         local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = waas_enabled {
+        local_var_req_builder = local_var_req_builder.query(&[("waasEnabled", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

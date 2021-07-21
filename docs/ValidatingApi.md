@@ -4,13 +4,13 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**validate_address**](ValidatingApi.md#validate_address) | **post** /blockchain-tools/{blockchain}/{network}/addresses/validate | Validate Address
+[**validate_address**](ValidatingApi.md#validate_address) | **POST** /blockchain-tools/{blockchain}/{network}/addresses/validate | Validate Address
 
 
 
 ## validate_address
 
-> crate::models::ValidateAddressResponse validate_address(blockchain, network, context, validate_address_request_body)
+> crate::models::ValidateAddressR validate_address(blockchain, network, context, validate_address_rb)
 Validate Address
 
 This endpoint checks user public addresses whether they are valid or not.
@@ -23,11 +23,11 @@ Name | Type | Description  | Required | Notes
 **blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [required] |
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
-**validate_address_request_body** | Option<[**ValidateAddressRequestBody**](ValidateAddressRequestBody.md)> |  |  |
+**validate_address_rb** | Option<[**ValidateAddressRb**](ValidateAddressRb.md)> |  |  |
 
 ### Return type
 
-[**crate::models::ValidateAddressResponse**](ValidateAddressResponse.md)
+[**crate::models::ValidateAddressR**](ValidateAddressR.md)
 
 ### Authorization
 

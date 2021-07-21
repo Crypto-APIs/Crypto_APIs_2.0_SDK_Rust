@@ -65,12 +65,12 @@ pub enum SyncHdWalletXPubYPubZPubError {
 
 
 /// HD wallet details is useful endpoint to get the most important data about HD wallet without the need to do a lot of calculations, once the HD Wallet is synced using Sync endpoint we keep it up to date and we calculate these details in advance.
-pub async fn get_hd_wallet__x_pub_y_pub_z_pub_details(configuration: &configuration::Configuration, blockchain: &str, extended_public_key: &str, network: &str, context: Option<&str>, derivation: Option<&str>) -> Result<crate::models::GetHdWalletxPubYPubZPubDetailsResponse, Error<GetHdWalletXPubYPubZPubDetailsError>> {
+pub async fn get_hd_wallet__x_pub_y_pub_z_pub_details(configuration: &configuration::Configuration, blockchain: &str, extended_public_key: &str, network: &str, context: Option<&str>, derivation: Option<&str>) -> Result<crate::models::GetHdWalletXPubYPubZPubDetailsR, Error<GetHdWalletXPubYPubZPubDetailsError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/hd/{extendedPublicKey}/details", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), extendedPublicKey=crate::apis::urlencode(extended_public_key), network=crate::apis::urlencode(network));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -105,13 +105,13 @@ pub async fn get_hd_wallet__x_pub_y_pub_z_pub_details(configuration: &configurat
     }
 }
 
-/// This endpoint will list HD Wallet transactions.
-pub async fn list_hd_wallet__x_pub_y_pub_z_pub_transactions(configuration: &configuration::Configuration, blockchain: &str, extended_public_key: &str, network: &str, context: Option<&str>, derivation: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListHdWalletxPubYPubZPubTransactionsResponse, Error<ListHdWalletXPubYPubZPubTransactionsError>> {
+/// This endpoint will list HD Wallet transactions.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+pub async fn list_hd_wallet__x_pub_y_pub_z_pub_transactions(configuration: &configuration::Configuration, blockchain: &str, extended_public_key: &str, network: &str, context: Option<&str>, derivation: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListHdWalletXPubYPubZPubTransactionsR, Error<ListHdWalletXPubYPubZPubTransactionsError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/hd/{extendedPublicKey}/transactions", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), extendedPublicKey=crate::apis::urlencode(extended_public_key), network=crate::apis::urlencode(network));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -153,12 +153,12 @@ pub async fn list_hd_wallet__x_pub_y_pub_z_pub_transactions(configuration: &conf
 }
 
 /// HD wallets usually have a lot of addresses and transactions, getting the data on demand is a heavy operation. That's why we have created this feature, to be able to get HD wallet details or transactions this HD wallet must be synced first. In addition to the initial sync we keep updating the synced HD wallets all the time.
-pub async fn sync_hd_wallet__x_pub_y_pub_z_pub(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, sync_hd_walletx_pub_y_pub_z_pub_request_body: Option<crate::models::SyncHdWalletxPubYPubZPubRequestBody>) -> Result<crate::models::SyncHdWalletxPubYPubZPubResponse, Error<SyncHdWalletXPubYPubZPubError>> {
+pub async fn sync_hd_wallet__x_pub_y_pub_z_pub(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, sync_hd_wallet_x_pub_y_pub_z_pub_rb: Option<crate::models::SyncHdWalletXPubYPubZPubRb>) -> Result<crate::models::SyncHdWalletXPubYPubZPubR, Error<SyncHdWalletXPubYPubZPubError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/hd/sync", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
-    let mut local_var_req_builder = local_var_client.post(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -174,7 +174,7 @@ pub async fn sync_hd_wallet__x_pub_y_pub_z_pub(configuration: &configuration::Co
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&sync_hd_walletx_pub_y_pub_z_pub_request_body);
+    local_var_req_builder = local_var_req_builder.json(&sync_hd_wallet_x_pub_y_pub_z_pub_rb);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

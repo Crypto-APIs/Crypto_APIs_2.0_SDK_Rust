@@ -147,12 +147,12 @@ pub enum ListUnconfirmedOmniTransactionsByPropertyIdError {
 
 
 /// Through this endpoint customers can obtain details about an Omni transaction by the transaction's unique identifier. The transaction can return information such as hash, height, time of creation in Unix timestamp, etc.
-pub async fn get_omni_transaction_details_by_transaction_id__txid(configuration: &configuration::Configuration, network: &str, blockchain: &str, transaction_id: &str, context: Option<&str>) -> Result<crate::models::GetOmniTransactionDetailsByTransactionIdTxidResponse, Error<GetOmniTransactionDetailsByTransactionIdTxidError>> {
+pub async fn get_omni_transaction_details_by_transaction_id__txid(configuration: &configuration::Configuration, network: &str, blockchain: &str, transaction_id: &str, context: Option<&str>) -> Result<crate::models::GetOmniTransactionDetailsByTransactionIdTxidR, Error<GetOmniTransactionDetailsByTransactionIdTxidError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/transactions/{transactionId}", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), transactionId=crate::apis::urlencode(transaction_id));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -185,12 +185,12 @@ pub async fn get_omni_transaction_details_by_transaction_id__txid(configuration:
 }
 
 /// Through this endpoint customers can obtain information on unconfirmed Omni transactions by an attribute `transactionId`. The transaction can have information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
-pub async fn get_unconfirmed_omni_transaction_by_transaction_id__txid(configuration: &configuration::Configuration, network: &str, blockchain: &str, transaction_id: &str, context: Option<&str>) -> Result<crate::models::GetUnconfirmedOmniTransactionByTransactionIdTxidResponse, Error<GetUnconfirmedOmniTransactionByTransactionIdTxidError>> {
+pub async fn get_unconfirmed_omni_transaction_by_transaction_id__txid(configuration: &configuration::Configuration, network: &str, blockchain: &str, transaction_id: &str, context: Option<&str>) -> Result<crate::models::GetUnconfirmedOmniTransactionByTransactionIdTxidR, Error<GetUnconfirmedOmniTransactionByTransactionIdTxidError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/transactions-unconfirmed/{transactionId}", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), transactionId=crate::apis::urlencode(transaction_id));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -222,13 +222,13 @@ pub async fn get_unconfirmed_omni_transaction_by_transaction_id__txid(configurat
     }
 }
 
-/// Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.
-pub async fn list_omni_tokens_by_address(configuration: &configuration::Configuration, network: &str, blockchain: &str, address: &str, context: Option<&str>) -> Result<crate::models::ListOmniTokensByAddressResponse, Error<ListOmniTokensByAddressError>> {
+/// Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+pub async fn list_omni_tokens_by_address(configuration: &configuration::Configuration, network: &str, blockchain: &str, address: &str, context: Option<&str>) -> Result<crate::models::ListOmniTokensByAddressR, Error<ListOmniTokensByAddressError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/addresses/{address}", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), address=crate::apis::urlencode(address));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -260,13 +260,13 @@ pub async fn list_omni_tokens_by_address(configuration: &configuration::Configur
     }
 }
 
-/// This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
-pub async fn list_omni_transactions_by_address(configuration: &configuration::Configuration, network: &str, blockchain: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListOmniTransactionsByAddressResponse, Error<ListOmniTransactionsByAddressError>> {
+/// This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+pub async fn list_omni_transactions_by_address(configuration: &configuration::Configuration, network: &str, blockchain: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListOmniTransactionsByAddressR, Error<ListOmniTransactionsByAddressError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/addresses/{address}/transactions", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), address=crate::apis::urlencode(address));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -304,13 +304,13 @@ pub async fn list_omni_transactions_by_address(configuration: &configuration::Co
     }
 }
 
-/// This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
-pub async fn list_omni_transactions_by_block_hash(configuration: &configuration::Configuration, network: &str, blockchain: &str, block_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListOmniTransactionsByBlockHashResponse, Error<ListOmniTransactionsByBlockHashError>> {
+/// This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+pub async fn list_omni_transactions_by_block_hash(configuration: &configuration::Configuration, network: &str, blockchain: &str, block_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListOmniTransactionsByBlockHashR, Error<ListOmniTransactionsByBlockHashError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/blocks/hash/{blockHash}/transactions", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), blockHash=crate::apis::urlencode(block_hash));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -348,13 +348,13 @@ pub async fn list_omni_transactions_by_block_hash(configuration: &configuration:
     }
 }
 
-/// This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
-pub async fn list_omni_transactions_by_block_height(configuration: &configuration::Configuration, network: &str, blockchain: &str, block_height: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListOmniTransactionsByBlockHeightResponse, Error<ListOmniTransactionsByBlockHeightError>> {
+/// This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+pub async fn list_omni_transactions_by_block_height(configuration: &configuration::Configuration, network: &str, blockchain: &str, block_height: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListOmniTransactionsByBlockHeightR, Error<ListOmniTransactionsByBlockHeightError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/blocks/height/{blockHeight}/transactions", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), blockHeight=crate::apis::urlencode(block_height));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -392,13 +392,13 @@ pub async fn list_omni_transactions_by_block_height(configuration: &configuratio
     }
 }
 
-/// This endpoint will list unconfirmed Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
-pub async fn list_unconfirmed_omni_transactions_by_address(configuration: &configuration::Configuration, network: &str, blockchain: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListUnconfirmedOmniTransactionsByAddressResponse, Error<ListUnconfirmedOmniTransactionsByAddressError>> {
+/// This endpoint will list unconfirmed Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+pub async fn list_unconfirmed_omni_transactions_by_address(configuration: &configuration::Configuration, network: &str, blockchain: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListUnconfirmedOmniTransactionsByAddressR, Error<ListUnconfirmedOmniTransactionsByAddressError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/address-transactions-unconfirmed/{address}", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), address=crate::apis::urlencode(address));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
@@ -436,13 +436,13 @@ pub async fn list_unconfirmed_omni_transactions_by_address(configuration: &confi
     }
 }
 
-/// This endpoint will list unconfirmed Omni transactions by an attribute `propertyId`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
-pub async fn list_unconfirmed_omni_transactions_by_property_id(configuration: &configuration::Configuration, network: &str, blockchain: &str, property_id: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListUnconfirmedOmniTransactionsByPropertyIdResponse, Error<ListUnconfirmedOmniTransactionsByPropertyIdError>> {
+/// This endpoint will list unconfirmed Omni transactions by an attribute `propertyId`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+pub async fn list_unconfirmed_omni_transactions_by_property_id(configuration: &configuration::Configuration, network: &str, blockchain: &str, property_id: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListUnconfirmedOmniTransactionsByPropertyIdr, Error<ListUnconfirmedOmniTransactionsByPropertyIdError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/properties/{propertyId}/transactions", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), propertyId=crate::apis::urlencode(property_id));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);

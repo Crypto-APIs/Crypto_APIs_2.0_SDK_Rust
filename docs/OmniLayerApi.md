@@ -4,20 +4,20 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_omni_transaction_details_by_transaction_id__txid**](OmniLayerApi.md#get_omni_transaction_details_by_transaction_id__txid) | **get** /blockchain-data/{blockchain}/{network}/omni/transactions/{transactionId} | Get Omni Transaction Details By Transaction ID (Txid)
-[**get_unconfirmed_omni_transaction_by_transaction_id__txid**](OmniLayerApi.md#get_unconfirmed_omni_transaction_by_transaction_id__txid) | **get** /blockchain-data/{blockchain}/{network}/omni/transactions-unconfirmed/{transactionId} | Get Unconfirmed Omni Transaction By Transaction ID (Txid)
-[**list_omni_tokens_by_address**](OmniLayerApi.md#list_omni_tokens_by_address) | **get** /blockchain-data/{blockchain}/{network}/omni/addresses/{address} | List Omni Tokens By Address
-[**list_omni_transactions_by_address**](OmniLayerApi.md#list_omni_transactions_by_address) | **get** /blockchain-data/{blockchain}/{network}/omni/addresses/{address}/transactions | List Omni Transactions By Address
-[**list_omni_transactions_by_block_hash**](OmniLayerApi.md#list_omni_transactions_by_block_hash) | **get** /blockchain-data/{blockchain}/{network}/omni/blocks/hash/{blockHash}/transactions | List Omni Transactions By Block Hash
-[**list_omni_transactions_by_block_height**](OmniLayerApi.md#list_omni_transactions_by_block_height) | **get** /blockchain-data/{blockchain}/{network}/omni/blocks/height/{blockHeight}/transactions | List Omni Transactions By Block Height
-[**list_unconfirmed_omni_transactions_by_address**](OmniLayerApi.md#list_unconfirmed_omni_transactions_by_address) | **get** /blockchain-data/{blockchain}/{network}/omni/address-transactions-unconfirmed/{address} | List Unconfirmed Omni Transactions By Address
-[**list_unconfirmed_omni_transactions_by_property_id**](OmniLayerApi.md#list_unconfirmed_omni_transactions_by_property_id) | **get** /blockchain-data/{blockchain}/{network}/omni/properties/{propertyId}/transactions | List Unconfirmed Omni Transactions By Property ID
+[**get_omni_transaction_details_by_transaction_id__txid**](OmniLayerApi.md#get_omni_transaction_details_by_transaction_id__txid) | **GET** /blockchain-data/{blockchain}/{network}/omni/transactions/{transactionId} | Get Omni Transaction Details By Transaction ID (Txid)
+[**get_unconfirmed_omni_transaction_by_transaction_id__txid**](OmniLayerApi.md#get_unconfirmed_omni_transaction_by_transaction_id__txid) | **GET** /blockchain-data/{blockchain}/{network}/omni/transactions-unconfirmed/{transactionId} | Get Unconfirmed Omni Transaction By Transaction ID (Txid)
+[**list_omni_tokens_by_address**](OmniLayerApi.md#list_omni_tokens_by_address) | **GET** /blockchain-data/{blockchain}/{network}/omni/addresses/{address} | List Omni Tokens By Address
+[**list_omni_transactions_by_address**](OmniLayerApi.md#list_omni_transactions_by_address) | **GET** /blockchain-data/{blockchain}/{network}/omni/addresses/{address}/transactions | List Omni Transactions By Address
+[**list_omni_transactions_by_block_hash**](OmniLayerApi.md#list_omni_transactions_by_block_hash) | **GET** /blockchain-data/{blockchain}/{network}/omni/blocks/hash/{blockHash}/transactions | List Omni Transactions By Block Hash
+[**list_omni_transactions_by_block_height**](OmniLayerApi.md#list_omni_transactions_by_block_height) | **GET** /blockchain-data/{blockchain}/{network}/omni/blocks/height/{blockHeight}/transactions | List Omni Transactions By Block Height
+[**list_unconfirmed_omni_transactions_by_address**](OmniLayerApi.md#list_unconfirmed_omni_transactions_by_address) | **GET** /blockchain-data/{blockchain}/{network}/omni/address-transactions-unconfirmed/{address} | List Unconfirmed Omni Transactions By Address
+[**list_unconfirmed_omni_transactions_by_property_id**](OmniLayerApi.md#list_unconfirmed_omni_transactions_by_property_id) | **GET** /blockchain-data/{blockchain}/{network}/omni/properties/{propertyId}/transactions | List Unconfirmed Omni Transactions By Property ID
 
 
 
 ## get_omni_transaction_details_by_transaction_id__txid
 
-> crate::models::GetOmniTransactionDetailsByTransactionIdTxidResponse get_omni_transaction_details_by_transaction_id__txid(network, blockchain, transaction_id, context)
+> crate::models::GetOmniTransactionDetailsByTransactionIdTxidR get_omni_transaction_details_by_transaction_id__txid(network, blockchain, transaction_id, context)
 Get Omni Transaction Details By Transaction ID (Txid)
 
 Through this endpoint customers can obtain details about an Omni transaction by the transaction's unique identifier. The transaction can return information such as hash, height, time of creation in Unix timestamp, etc.
@@ -34,7 +34,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetOmniTransactionDetailsByTransactionIdTxidResponse**](GetOmniTransactionDetailsByTransactionIDTxidResponse.md)
+[**crate::models::GetOmniTransactionDetailsByTransactionIdTxidR**](GetOmniTransactionDetailsByTransactionIDTxidR.md)
 
 ### Authorization
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_unconfirmed_omni_transaction_by_transaction_id__txid
 
-> crate::models::GetUnconfirmedOmniTransactionByTransactionIdTxidResponse get_unconfirmed_omni_transaction_by_transaction_id__txid(network, blockchain, transaction_id, context)
+> crate::models::GetUnconfirmedOmniTransactionByTransactionIdTxidR get_unconfirmed_omni_transaction_by_transaction_id__txid(network, blockchain, transaction_id, context)
 Get Unconfirmed Omni Transaction By Transaction ID (Txid)
 
 Through this endpoint customers can obtain information on unconfirmed Omni transactions by an attribute `transactionId`. The transaction can have information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
@@ -67,7 +67,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetUnconfirmedOmniTransactionByTransactionIdTxidResponse**](GetUnconfirmedOmniTransactionByTransactionIDTxidResponse.md)
+[**crate::models::GetUnconfirmedOmniTransactionByTransactionIdTxidR**](GetUnconfirmedOmniTransactionByTransactionIDTxidR.md)
 
 ### Authorization
 
@@ -83,10 +83,10 @@ Name | Type | Description  | Required | Notes
 
 ## list_omni_tokens_by_address
 
-> crate::models::ListOmniTokensByAddressResponse list_omni_tokens_by_address(network, blockchain, address, context)
+> crate::models::ListOmniTokensByAddressR list_omni_tokens_by_address(network, blockchain, address, context)
 List Omni Tokens By Address
 
-Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.
+Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Parameters
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListOmniTokensByAddressResponse**](ListOmniTokensByAddressResponse.md)
+[**crate::models::ListOmniTokensByAddressR**](ListOmniTokensByAddressR.md)
 
 ### Authorization
 
@@ -116,10 +116,10 @@ Name | Type | Description  | Required | Notes
 
 ## list_omni_transactions_by_address
 
-> crate::models::ListOmniTransactionsByAddressResponse list_omni_transactions_by_address(network, blockchain, address, context, limit, offset)
+> crate::models::ListOmniTransactionsByAddressR list_omni_transactions_by_address(network, blockchain, address, context, limit, offset)
 List Omni Transactions By Address
 
-This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
+This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Parameters
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListOmniTransactionsByAddressResponse**](ListOmniTransactionsByAddressResponse.md)
+[**crate::models::ListOmniTransactionsByAddressR**](ListOmniTransactionsByAddressR.md)
 
 ### Authorization
 
@@ -151,10 +151,10 @@ Name | Type | Description  | Required | Notes
 
 ## list_omni_transactions_by_block_hash
 
-> crate::models::ListOmniTransactionsByBlockHashResponse list_omni_transactions_by_block_hash(network, blockchain, block_hash, context, limit, offset)
+> crate::models::ListOmniTransactionsByBlockHashR list_omni_transactions_by_block_hash(network, blockchain, block_hash, context, limit, offset)
 List Omni Transactions By Block Hash
 
-This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
+This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Parameters
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListOmniTransactionsByBlockHashResponse**](ListOmniTransactionsByBlockHashResponse.md)
+[**crate::models::ListOmniTransactionsByBlockHashR**](ListOmniTransactionsByBlockHashR.md)
 
 ### Authorization
 
@@ -186,10 +186,10 @@ Name | Type | Description  | Required | Notes
 
 ## list_omni_transactions_by_block_height
 
-> crate::models::ListOmniTransactionsByBlockHeightResponse list_omni_transactions_by_block_height(network, blockchain, block_height, context, limit, offset)
+> crate::models::ListOmniTransactionsByBlockHeightR list_omni_transactions_by_block_height(network, blockchain, block_height, context, limit, offset)
 List Omni Transactions By Block Height
 
-This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
+This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Parameters
 
@@ -205,7 +205,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListOmniTransactionsByBlockHeightResponse**](ListOmniTransactionsByBlockHeightResponse.md)
+[**crate::models::ListOmniTransactionsByBlockHeightR**](ListOmniTransactionsByBlockHeightR.md)
 
 ### Authorization
 
@@ -221,10 +221,10 @@ Name | Type | Description  | Required | Notes
 
 ## list_unconfirmed_omni_transactions_by_address
 
-> crate::models::ListUnconfirmedOmniTransactionsByAddressResponse list_unconfirmed_omni_transactions_by_address(network, blockchain, address, context, limit, offset)
+> crate::models::ListUnconfirmedOmniTransactionsByAddressR list_unconfirmed_omni_transactions_by_address(network, blockchain, address, context, limit, offset)
 List Unconfirmed Omni Transactions By Address
 
-This endpoint will list unconfirmed Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
+This endpoint will list unconfirmed Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Parameters
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListUnconfirmedOmniTransactionsByAddressResponse**](ListUnconfirmedOmniTransactionsByAddressResponse.md)
+[**crate::models::ListUnconfirmedOmniTransactionsByAddressR**](ListUnconfirmedOmniTransactionsByAddressR.md)
 
 ### Authorization
 
@@ -256,10 +256,10 @@ Name | Type | Description  | Required | Notes
 
 ## list_unconfirmed_omni_transactions_by_property_id
 
-> crate::models::ListUnconfirmedOmniTransactionsByPropertyIdResponse list_unconfirmed_omni_transactions_by_property_id(network, blockchain, property_id, context, limit, offset)
+> crate::models::ListUnconfirmedOmniTransactionsByPropertyIdr list_unconfirmed_omni_transactions_by_property_id(network, blockchain, property_id, context, limit, offset)
 List Unconfirmed Omni Transactions By Property ID
 
-This endpoint will list unconfirmed Omni transactions by an attribute `propertyId`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
+This endpoint will list unconfirmed Omni transactions by an attribute `propertyId`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Parameters
 
@@ -275,7 +275,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListUnconfirmedOmniTransactionsByPropertyIdResponse**](ListUnconfirmedOmniTransactionsByPropertyIDResponse.md)
+[**crate::models::ListUnconfirmedOmniTransactionsByPropertyIdr**](ListUnconfirmedOmniTransactionsByPropertyIDR.md)
 
 ### Authorization
 

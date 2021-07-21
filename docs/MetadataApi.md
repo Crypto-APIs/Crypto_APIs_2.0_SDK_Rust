@@ -4,16 +4,16 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_supported_assets**](MetadataApi.md#list_supported_assets) | **get** /market-data/assets/supported | List Supported Assets
+[**list_supported_assets**](MetadataApi.md#list_supported_assets) | **GET** /market-data/assets/supported | List Supported Assets
 
 
 
 ## list_supported_assets
 
-> crate::models::ListSupportedAssetsResponse list_supported_assets(context, asset_type, limit, offset)
+> crate::models::ListSupportedAssetsR list_supported_assets(context, asset_type, limit, offset)
 List Supported Assets
 
-This endpoint will return a list of supported assets. The asset could be a cryptocurrency or FIAT assets that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".
+This endpoint will return a list of supported assets. The asset could be a cryptocurrency or FIAT assets that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
 
 ### Parameters
 
@@ -27,7 +27,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListSupportedAssetsResponse**](ListSupportedAssetsResponse.md)
+[**crate::models::ListSupportedAssetsR**](ListSupportedAssetsR.md)
 
 ### Authorization
 
