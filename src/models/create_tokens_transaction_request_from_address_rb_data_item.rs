@@ -16,27 +16,31 @@ pub struct CreateTokensTransactionRequestFromAddressRbDataItem {
     /// Represents the specific amount of the transaction.
     #[serde(rename = "amount")]
     pub amount: String,
-    /// Represents the URL that is set by the customer where the callback will be received at.
+    /// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.
+    #[serde(rename = "callbackSecretKey", skip_serializing_if = "Option::is_none")]
+    pub callback_secret_key: Option<String>,
+    /// Verified URL for sending callbacks
     #[serde(rename = "callbackUrl", skip_serializing_if = "Option::is_none")]
     pub callback_url: Option<String>,
     /// Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
     #[serde(rename = "feePriority")]
     pub fee_priority: FeePriority,
     /// Defines the specific recipient address for the transaction.
-    #[serde(rename = "toAddress")]
-    pub to_address: String,
+    #[serde(rename = "recipientAddress")]
+    pub recipient_address: String,
     /// Defines the specific token identifier. For Bitcoin-based transactions it should be the `propertyId` and for Ethereum-based transactions - the `contract`.
     #[serde(rename = "tokenIdentifier")]
     pub token_identifier: String,
 }
 
 impl CreateTokensTransactionRequestFromAddressRbDataItem {
-    pub fn new(amount: String, fee_priority: FeePriority, to_address: String, token_identifier: String) -> CreateTokensTransactionRequestFromAddressRbDataItem {
+    pub fn new(amount: String, fee_priority: FeePriority, recipient_address: String, token_identifier: String) -> CreateTokensTransactionRequestFromAddressRbDataItem {
         CreateTokensTransactionRequestFromAddressRbDataItem {
             amount,
+            callback_secret_key: None,
             callback_url: None,
             fee_priority,
-            to_address,
+            recipient_address,
             token_identifier,
         }
     }

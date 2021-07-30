@@ -222,7 +222,7 @@ pub async fn get_unconfirmed_omni_transaction_by_transaction_id__txid(configurat
     }
 }
 
-/// Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.
 pub async fn list_omni_tokens_by_address(configuration: &configuration::Configuration, network: &str, blockchain: &str, address: &str, context: Option<&str>) -> Result<crate::models::ListOmniTokensByAddressR, Error<ListOmniTokensByAddressError>> {
 
     let local_var_client = &configuration.client;
@@ -260,7 +260,7 @@ pub async fn list_omni_tokens_by_address(configuration: &configuration::Configur
     }
 }
 
-/// This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
 pub async fn list_omni_transactions_by_address(configuration: &configuration::Configuration, network: &str, blockchain: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListOmniTransactionsByAddressR, Error<ListOmniTransactionsByAddressError>> {
 
     let local_var_client = &configuration.client;
@@ -304,7 +304,7 @@ pub async fn list_omni_transactions_by_address(configuration: &configuration::Co
     }
 }
 
-/// This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
 pub async fn list_omni_transactions_by_block_hash(configuration: &configuration::Configuration, network: &str, blockchain: &str, block_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListOmniTransactionsByBlockHashR, Error<ListOmniTransactionsByBlockHashError>> {
 
     let local_var_client = &configuration.client;
@@ -348,7 +348,7 @@ pub async fn list_omni_transactions_by_block_hash(configuration: &configuration:
     }
 }
 
-/// This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
 pub async fn list_omni_transactions_by_block_height(configuration: &configuration::Configuration, network: &str, blockchain: &str, block_height: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListOmniTransactionsByBlockHeightR, Error<ListOmniTransactionsByBlockHeightError>> {
 
     let local_var_client = &configuration.client;
@@ -392,7 +392,7 @@ pub async fn list_omni_transactions_by_block_height(configuration: &configuratio
     }
 }
 
-/// This endpoint will list unconfirmed Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// This endpoint will list unconfirmed Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
 pub async fn list_unconfirmed_omni_transactions_by_address(configuration: &configuration::Configuration, network: &str, blockchain: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListUnconfirmedOmniTransactionsByAddressR, Error<ListUnconfirmedOmniTransactionsByAddressError>> {
 
     let local_var_client = &configuration.client;
@@ -436,7 +436,7 @@ pub async fn list_unconfirmed_omni_transactions_by_address(configuration: &confi
     }
 }
 
-/// This endpoint will list unconfirmed Omni transactions by an attribute `propertyId`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// This endpoint will list unconfirmed Omni transactions by an attribute `propertyId`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
 pub async fn list_unconfirmed_omni_transactions_by_property_id(configuration: &configuration::Configuration, network: &str, blockchain: &str, property_id: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListUnconfirmedOmniTransactionsByPropertyIdr, Error<ListUnconfirmedOmniTransactionsByPropertyIdError>> {
 
     let local_var_client = &configuration.client;

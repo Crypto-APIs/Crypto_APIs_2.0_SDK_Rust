@@ -142,12 +142,12 @@ pub async fn create_coins_transaction_request_from_wallet(configuration: &config
     }
 }
 
-/// Through this endpoint users can make a single token transaction.    {warning}This applies only to **fungible** tokens, **not** NFTs (non-fungible tokens).{/warning}
-pub async fn create_tokens_transaction_request_from_address(configuration: &configuration::Configuration, address: &str, blockchain: &str, network: &str, wallet_id: &str, context: Option<&str>, create_tokens_transaction_request_from_address_rb: Option<crate::models::CreateTokensTransactionRequestFromAddressRb>) -> Result<crate::models::CreateTokensTransactionRequestFromAddressR, Error<CreateTokensTransactionRequestFromAddressError>> {
+/// Through this endpoint users can make a single token transaction.    {warning}This applies only to **fungible** tokens, **not** NFTs (non-fungible tokens).{/warning}    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
+pub async fn create_tokens_transaction_request_from_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, sender_address: &str, wallet_id: &str, context: Option<&str>, create_tokens_transaction_request_from_address_rb: Option<crate::models::CreateTokensTransactionRequestFromAddressRb>) -> Result<crate::models::CreateTokensTransactionRequestFromAddressR, Error<CreateTokensTransactionRequestFromAddressError>> {
 
     let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/token-transaction-requests", configuration.base_path, address=crate::apis::urlencode(address), blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), walletId=crate::apis::urlencode(wallet_id));
+    let local_var_uri_str = format!("{}/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{senderAddress}/token-transaction-requests", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), senderAddress=crate::apis::urlencode(sender_address), walletId=crate::apis::urlencode(wallet_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {

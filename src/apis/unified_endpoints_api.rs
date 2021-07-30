@@ -394,7 +394,7 @@ pub async fn get_transaction_details_by_transaction_id(configuration: &configura
     }
 }
 
-/// This endpoint will list transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// This endpoint will list transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
 pub async fn list_transactions_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByAddressR, Error<ListTransactionsByAddressError>> {
 
     let local_var_client = &configuration.client;
@@ -438,7 +438,7 @@ pub async fn list_transactions_by_address(configuration: &configuration::Configu
     }
 }
 
-/// This endpoint will list transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// This endpoint will list transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
 pub async fn list_transactions_by_block_hash(configuration: &configuration::Configuration, blockchain: &str, network: &str, block_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByBlockHashR, Error<ListTransactionsByBlockHashError>> {
 
     let local_var_client = &configuration.client;
@@ -482,7 +482,7 @@ pub async fn list_transactions_by_block_hash(configuration: &configuration::Conf
     }
 }
 
-/// This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
 pub async fn list_transactions_by_block_height(configuration: &configuration::Configuration, blockchain: &str, network: &str, height: i32, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByBlockHeightR, Error<ListTransactionsByBlockHeightError>> {
 
     let local_var_client = &configuration.client;

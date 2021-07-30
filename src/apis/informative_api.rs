@@ -32,10 +32,10 @@ pub enum GetWalletAssetDetailsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `list_receiving_addresses`
+/// struct for typed errors of method `list_deposit_addresses`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ListReceivingAddressesError {
+pub enum ListDepositAddressesError {
     Status400(crate::models::InvalidPagination),
     Status401(crate::models::InvalidApiKey),
     Status402(crate::models::InsufficientCredits),
@@ -104,8 +104,8 @@ pub async fn get_wallet_asset_details(configuration: &configuration::Configurati
     }
 }
 
-/// Through this endpoint customers can pull a list of Deposit Addresses they have already generated. Deposit addresses are listed with their specific details such as unique ID.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
-pub async fn list_receiving_addresses(configuration: &configuration::Configuration, blockchain: &str, network: &str, wallet_id: &str, context: Option<&str>) -> Result<crate::models::ListReceivingAddressesR, Error<ListReceivingAddressesError>> {
+/// Through this endpoint customers can pull a list of Deposit/Receiving Addresses they have already generated.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+pub async fn list_deposit_addresses(configuration: &configuration::Configuration, blockchain: &str, network: &str, wallet_id: &str, context: Option<&str>) -> Result<crate::models::ListDepositAddressesR, Error<ListDepositAddressesError>> {
 
     let local_var_client = &configuration.client;
 
@@ -136,13 +136,13 @@ pub async fn list_receiving_addresses(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ListReceivingAddressesError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ListDepositAddressesError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-/// Through this endpoint customers can obtain information on multiple tokens at once.     {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// Through this endpoint customers can obtain information on multiple tokens at once.
 pub async fn list_supported_tokens(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListSupportedTokensR, Error<ListSupportedTokensError>> {
 
     let local_var_client = &configuration.client;

@@ -16,7 +16,6 @@ pub struct GetAddressDetailsRiTotalReceived {
     /// Defines the total amount of all coins received to the address, based on confirmed transactions.
     #[serde(rename = "amount")]
     pub amount: String,
-    /// Defines the unit of the received amount, e.g. BTC, ETH, XRP.
     #[serde(rename = "unit")]
     pub unit: String,
 }

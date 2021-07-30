@@ -22,10 +22,10 @@ pub struct GetAddressDetailsRi {
     pub total_received: Box<crate::models::GetAddressDetailsRiTotalReceived>,
     #[serde(rename = "totalSpent")]
     pub total_spent: Box<crate::models::GetAddressDetailsRiTotalSpent>,
-    /// Defines the count of all confirmed incoming transactions from the address for coins. This applies to **coins** only, **not** to tokens transfers e.g. for Ethereum.
+    /// Numeric representation of the received transaction count of the address
     #[serde(rename = "incomingTransactionsCount")]
     pub incoming_transactions_count: i32,
-    /// Defines the count of all confirmed outgoing transactions from the address for coins. This applies to **coins** only, **not** to tokens transfers e.g. for Ethereum.
+    /// Numeric representation of the sent transaction count of the address
     #[serde(rename = "outgoingTransactionsCount")]
     pub outgoing_transactions_count: i32,
 }

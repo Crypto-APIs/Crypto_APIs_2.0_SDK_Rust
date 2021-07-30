@@ -16,7 +16,6 @@ pub struct GetAddressDetailsRiConfirmedBalance {
     /// Defines the total balance of the address that is confirmed. It doesn't include unconfirmed transactions.
     #[serde(rename = "amount")]
     pub amount: String,
-    /// Defines the unit of the confirmed balance amount, e.g. BTC, ETH, XRP.
     #[serde(rename = "unit")]
     pub unit: String,
 }

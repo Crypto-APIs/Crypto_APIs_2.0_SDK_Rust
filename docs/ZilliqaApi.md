@@ -179,7 +179,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListZilliqaTransactionsByAddressR list_zilliqa_transactions_by_address(network, address, context, limit, offset)
 List Zilliqa Transactions by Address
 
-Through this endpoint customers can list transactions on the Zilliqa blockchain by the address parameter.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+Through this endpoint customers can list transactions on the Zilliqa blockchain by the address parameter.
 
 ### Parameters
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListZilliqaTransactionsByBlockHashR list_zilliqa_transactions_by_block_hash(network, block_hash, context, limit, offset)
 List Zilliqa Transactions By Block Hash
 
-Through this endpoint customers can list transactions on the Zilliqa blockchain by the block hash parameter.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+Through this endpoint customers can list transactions on the Zilliqa blockchain by the block hash parameter.
 
 ### Parameters
 
@@ -247,7 +247,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListZilliqaTransactionsByBlockHeightR list_zilliqa_transactions_by_block_height(network, block_height, context, limit, offset)
 List Zilliqa Transactions By Block Height
 
-Through this endpoint customers can list transactions on the Zilliqa blockchain by the block height parameter.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+Through this endpoint customers can list transactions on the Zilliqa blockchain by the block height parameter.
 
 ### Parameters
 

@@ -118,7 +118,7 @@ pub async fn get_contract_details_by_address(configuration: &configuration::Conf
     }
 }
 
-/// Through this endpoint customers can obtain token data by providing an attribute - `address`.  The information that can be returned can include the contract address, the token symbol, type and balance.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// Through this endpoint customers can obtain token data by providing an attribute - `address`.  The information that can be returned can include the contract address, the token symbol, type and balance.
 pub async fn list_tokens_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTokensByAddressR, Error<ListTokensByAddressError>> {
 
     let local_var_client = &configuration.client;
@@ -162,7 +162,7 @@ pub async fn list_tokens_by_address(configuration: &configuration::Configuration
     }
 }
 
-/// Through this endpoint customers can obtain a list with token transfers by the `address` attribute. Token transfers may include information such as addresses of the sender and recipient, token name, token symbol, etc.    {note}This refers only to transfers done for **tokens** not coins.{/note}    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// Through this endpoint customers can obtain a list with token transfers by the `address` attribute. Token transfers may include information such as addresses of the sender and recipient, token name, token symbol, etc.    {note}This refers only to transfers done for **tokens** not coins.{/note}
 pub async fn list_tokens_transfers_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTokensTransfersByAddressR, Error<ListTokensTransfersByAddressError>> {
 
     let local_var_client = &configuration.client;
@@ -206,7 +206,7 @@ pub async fn list_tokens_transfers_by_address(configuration: &configuration::Con
     }
 }
 
-/// Through this endpoint customers can obtain a list with token transfers by the `transactionHash` attribute. Token transfers may include information such as addresses of the sender and recipient, token name, token symbol, etc.    {note}This refers only to transfers done for **tokens** not coins.{/note}    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// Through this endpoint customers can obtain a list with token transfers by the `transactionHash` attribute. Token transfers may include information such as addresses of the sender and recipient, token name, token symbol, etc.    {note}This refers only to transfers done for **tokens** not coins.{/note}
 pub async fn list_tokens_transfers_by_transaction_hash(configuration: &configuration::Configuration, blockchain: &str, network: &str, transaction_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTokensTransfersByTransactionHashR, Error<ListTokensTransfersByTransactionHashError>> {
 
     let local_var_client = &configuration.client;

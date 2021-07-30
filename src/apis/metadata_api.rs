@@ -32,7 +32,7 @@ pub enum ListSupportedAssetsError {
 }
 
 
-/// This endpoint will return a list of supported assets. The asset could be a cryptocurrency or FIAT assets that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// This endpoint will return a list of supported assets. The asset could be a cryptocurrency or FIAT assets that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".
 pub async fn list_supported_assets(configuration: &configuration::Configuration, context: Option<&str>, asset_type: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListSupportedAssetsR, Error<ListSupportedAssetsError>> {
 
     let local_var_client = &configuration.client;

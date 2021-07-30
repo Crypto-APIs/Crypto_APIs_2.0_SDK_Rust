@@ -176,10 +176,10 @@ Name | Type | Description  | Required | Notes
 
 ## list_xrp__ripple_transactions_by_address
 
-> crate::models::ListXrpRippleTransactionsByAddressR list_xrp__ripple_transactions_by_address(network, address, context, limit, offset)
+> crate::models::ListXrpRippleTransactionsByAddressR list_xrp__ripple_transactions_by_address(network, address, context, limit, offset, transaction_type)
 List XRP (Ripple) Transactions by Address
 
-This endpoint will list XRP transactions by a attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list XRP transactions by a attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 
 ### Parameters
 
@@ -191,6 +191,7 @@ Name | Type | Description  | Required | Notes
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
 **limit** | Option<**i32**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
 **offset** | Option<**i32**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+**transaction_type** | Option<**String**> |  |  |
 
 ### Return type
 
@@ -213,7 +214,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListXrpRippleTransactionsByBlockHashR list_xrp__ripple_transactions_by_block_hash(network, block_hash, context, limit, offset)
 List XRP (Ripple) Transactions By Block Hash
 
-This endpoint will list transactions by an attribute `blockHash`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list transactions by an attribute `blockHash`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 
 ### Parameters
 
@@ -247,7 +248,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListXrpRippleTransactionsByBlockHeightR list_xrp__ripple_transactions_by_block_height(network, block_height, context, limit, offset)
 List XRP (Ripple) Transactions By Block Height
 
-This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 
 ### Parameters
 

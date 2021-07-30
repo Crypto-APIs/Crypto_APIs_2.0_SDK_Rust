@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **confirmed_balance** | [**crate::models::GetAddressDetailsRiConfirmedBalance**](GetAddressDetailsRI_confirmedBalance.md) |  | 
 **total_received** | [**crate::models::GetAddressDetailsRiTotalReceived**](GetAddressDetailsRI_totalReceived.md) |  | 
 **total_spent** | [**crate::models::GetAddressDetailsRiTotalSpent**](GetAddressDetailsRI_totalSpent.md) |  | 
-**incoming_transactions_count** | **i32** | Defines the count of all confirmed incoming transactions from the address for coins. This applies to **coins** only, **not** to tokens transfers e.g. for Ethereum. | 
-**outgoing_transactions_count** | **i32** | Defines the count of all confirmed outgoing transactions from the address for coins. This applies to **coins** only, **not** to tokens transfers e.g. for Ethereum. | 
+**incoming_transactions_count** | **i32** | Numeric representation of the received transaction count of the address | 
+**outgoing_transactions_count** | **i32** | Numeric representation of the sent transaction count of the address | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

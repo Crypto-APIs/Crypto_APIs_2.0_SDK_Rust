@@ -36,11 +36,11 @@ pub struct ListAssetsDetailsRi {
     #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
     pub slug: Option<String>,
     #[serde(rename = "specificData")]
-    pub specific_data: Box<crate::models::ListAssetsDetailsRiSpecificData>,
+    pub specific_data: Box<crate::models::ListAssetsDetailsRis>,
 }
 
 impl ListAssetsDetailsRi {
-    pub fn new(asset_id: String, asset_logo: crate::models::ListAssetsDetailsRiAssetLogo, asset_name: String, asset_original_symbol: String, asset_symbol: String, asset_type: AssetType, latest_rate: crate::models::ListAssetsDetailsRiLatestRate, specific_data: crate::models::ListAssetsDetailsRiSpecificData) -> ListAssetsDetailsRi {
+    pub fn new(asset_id: String, asset_logo: crate::models::ListAssetsDetailsRiAssetLogo, asset_name: String, asset_original_symbol: String, asset_symbol: String, asset_type: AssetType, latest_rate: crate::models::ListAssetsDetailsRiLatestRate, specific_data: crate::models::ListAssetsDetailsRis) -> ListAssetsDetailsRi {
         ListAssetsDetailsRi {
             asset_id,
             asset_logo: Box::new(asset_logo),

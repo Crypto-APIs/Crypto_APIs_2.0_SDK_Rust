@@ -49,7 +49,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListTokensByAddressR list_tokens_by_address(blockchain, network, address, context, limit, offset)
 List Tokens By Address
 
-Through this endpoint customers can obtain token data by providing an attribute - `address`.  The information that can be returned can include the contract address, the token symbol, type and balance.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+Through this endpoint customers can obtain token data by providing an attribute - `address`.  The information that can be returned can include the contract address, the token symbol, type and balance.
 
 ### Parameters
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListTokensTransfersByAddressR list_tokens_transfers_by_address(blockchain, network, address, context, limit, offset)
 List Tokens Transfers By Address
 
-Through this endpoint customers can obtain a list with token transfers by the `address` attribute. Token transfers may include information such as addresses of the sender and recipient, token name, token symbol, etc.    {note}This refers only to transfers done for **tokens** not coins.{/note}    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+Through this endpoint customers can obtain a list with token transfers by the `address` attribute. Token transfers may include information such as addresses of the sender and recipient, token name, token symbol, etc.    {note}This refers only to transfers done for **tokens** not coins.{/note}
 
 ### Parameters
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListTokensTransfersByTransactionHashR list_tokens_transfers_by_transaction_hash(blockchain, network, transaction_hash, context, limit, offset)
 List Tokens Transfers By Transaction Hash
 
-Through this endpoint customers can obtain a list with token transfers by the `transactionHash` attribute. Token transfers may include information such as addresses of the sender and recipient, token name, token symbol, etc.    {note}This refers only to transfers done for **tokens** not coins.{/note}    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+Through this endpoint customers can obtain a list with token transfers by the `transactionHash` attribute. Token transfers may include information such as addresses of the sender and recipient, token name, token symbol, etc.    {note}This refers only to transfers done for **tokens** not coins.{/note}
 
 ### Parameters
 

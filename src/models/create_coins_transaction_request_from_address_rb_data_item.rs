@@ -16,20 +16,28 @@ pub struct CreateCoinsTransactionRequestFromAddressRbDataItem {
     /// Represents the specific amount of the transaction.
     #[serde(rename = "amount")]
     pub amount: String,
+    /// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.
+    #[serde(rename = "callbackSecretKey", skip_serializing_if = "Option::is_none")]
+    pub callback_secret_key: Option<String>,
+    /// Verified URL for sending callbacks
+    #[serde(rename = "callbackUrl", skip_serializing_if = "Option::is_none")]
+    pub callback_url: Option<String>,
     /// Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
     #[serde(rename = "feePriority")]
     pub fee_priority: FeePriority,
     /// Defines the specific recipient address for the transaction.
-    #[serde(rename = "toAddress")]
-    pub to_address: String,
+    #[serde(rename = "recipientAddress")]
+    pub recipient_address: String,
 }
 
 impl CreateCoinsTransactionRequestFromAddressRbDataItem {
-    pub fn new(amount: String, fee_priority: FeePriority, to_address: String) -> CreateCoinsTransactionRequestFromAddressRbDataItem {
+    pub fn new(amount: String, fee_priority: FeePriority, recipient_address: String) -> CreateCoinsTransactionRequestFromAddressRbDataItem {
         CreateCoinsTransactionRequestFromAddressRbDataItem {
             amount,
+            callback_secret_key: None,
+            callback_url: None,
             fee_priority,
-            to_address,
+            recipient_address,
         }
     }
 }

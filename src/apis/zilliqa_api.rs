@@ -338,7 +338,7 @@ pub async fn get_zilliqa_transaction_details_by_transaction_id(configuration: &c
     }
 }
 
-/// Through this endpoint customers can list transactions on the Zilliqa blockchain by the address parameter.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// Through this endpoint customers can list transactions on the Zilliqa blockchain by the address parameter.
 pub async fn list_zilliqa_transactions_by_address(configuration: &configuration::Configuration, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListZilliqaTransactionsByAddressR, Error<ListZilliqaTransactionsByAddressError>> {
 
     let local_var_client = &configuration.client;
@@ -382,7 +382,7 @@ pub async fn list_zilliqa_transactions_by_address(configuration: &configuration:
     }
 }
 
-/// Through this endpoint customers can list transactions on the Zilliqa blockchain by the block hash parameter.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// Through this endpoint customers can list transactions on the Zilliqa blockchain by the block hash parameter.
 pub async fn list_zilliqa_transactions_by_block_hash(configuration: &configuration::Configuration, network: &str, block_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListZilliqaTransactionsByBlockHashR, Error<ListZilliqaTransactionsByBlockHashError>> {
 
     let local_var_client = &configuration.client;
@@ -426,7 +426,7 @@ pub async fn list_zilliqa_transactions_by_block_hash(configuration: &configurati
     }
 }
 
-/// Through this endpoint customers can list transactions on the Zilliqa blockchain by the block height parameter.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// Through this endpoint customers can list transactions on the Zilliqa blockchain by the block height parameter.
 pub async fn list_zilliqa_transactions_by_block_height(configuration: &configuration::Configuration, network: &str, block_height: i32, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListZilliqaTransactionsByBlockHeightR, Error<ListZilliqaTransactionsByBlockHeightError>> {
 
     let local_var_client = &configuration.client;

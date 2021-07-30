@@ -13,9 +13,6 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListXrpRippleTransactionsByAddressRi {
-    /// Represents any additional data that may be needed.
-    #[serde(rename = "additionalData")]
-    pub additional_data: String,
     /// Represents the index position of the transaction in the block.
     #[serde(rename = "index")]
     pub index: i32,
@@ -57,9 +54,8 @@ pub struct ListXrpRippleTransactionsByAddressRi {
 }
 
 impl ListXrpRippleTransactionsByAddressRi {
-    pub fn new(additional_data: String, index: i32, mined_in_block_hash: String, mined_in_block_height: i32, recipients: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriRecipients>, senders: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriSenders>, sequence: i32, status: String, timestamp: i32, transaction_hash: String, _type: String, fee: crate::models::ListXrpRippleTransactionsByAddressRiFee, offer: crate::models::ListXrpRippleTransactionsByAddressRiOffer, receive: crate::models::ListXrpRippleTransactionsByAddressRiReceive, value: crate::models::ListXrpRippleTransactionsByAddressRiValue) -> ListXrpRippleTransactionsByAddressRi {
+    pub fn new(index: i32, mined_in_block_hash: String, mined_in_block_height: i32, recipients: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriRecipients>, senders: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriSenders>, sequence: i32, status: String, timestamp: i32, transaction_hash: String, _type: String, fee: crate::models::ListXrpRippleTransactionsByAddressRiFee, offer: crate::models::ListXrpRippleTransactionsByAddressRiOffer, receive: crate::models::ListXrpRippleTransactionsByAddressRiReceive, value: crate::models::ListXrpRippleTransactionsByAddressRiValue) -> ListXrpRippleTransactionsByAddressRi {
         ListXrpRippleTransactionsByAddressRi {
-            additional_data,
             index,
             mined_in_block_hash,
             mined_in_block_height,

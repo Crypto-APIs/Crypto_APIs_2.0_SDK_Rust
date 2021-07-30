@@ -105,7 +105,7 @@ pub async fn get_hd_wallet__x_pub_y_pub_z_pub_details(configuration: &configurat
     }
 }
 
-/// This endpoint will list HD Wallet transactions.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// This endpoint will list HD Wallet transactions.
 pub async fn list_hd_wallet__x_pub_y_pub_z_pub_transactions(configuration: &configuration::Configuration, blockchain: &str, extended_public_key: &str, network: &str, context: Option<&str>, derivation: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListHdWalletXPubYPubZPubTransactionsR, Error<ListHdWalletXPubYPubZPubTransactionsError>> {
 
     let local_var_client = &configuration.client;

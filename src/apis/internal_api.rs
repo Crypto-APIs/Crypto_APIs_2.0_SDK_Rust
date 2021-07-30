@@ -87,7 +87,7 @@ pub async fn get_internal_transaction_by_transaction_hash_and_operation_id(confi
     }
 }
 
-/// Through this endpoint customers can list internal transactions along with their details by a specific attribute `transactionHash`, which is the parent transaction's Hash.    An internal transaction is the result of a smart contract being triggered by an EOA or a subsequent contract call.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+/// Through this endpoint customers can list internal transactions along with their details by a specific attribute `transactionHash`, which is the parent transaction's Hash.    An internal transaction is the result of a smart contract being triggered by an EOA or a subsequent contract call.
 pub async fn list_internal_transaction_details_by_transaction_hash(configuration: &configuration::Configuration, blockchain: &str, network: &str, transaction_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListInternalTransactionDetailsByTransactionHashR, Error<ListInternalTransactionDetailsByTransactionHashError>> {
 
     let local_var_client = &configuration.client;

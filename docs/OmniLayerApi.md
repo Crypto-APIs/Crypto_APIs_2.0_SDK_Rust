@@ -86,7 +86,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListOmniTokensByAddressR list_omni_tokens_by_address(network, blockchain, address, context)
 List Omni Tokens By Address
 
-Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.
 
 ### Parameters
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListOmniTransactionsByAddressR list_omni_transactions_by_address(network, blockchain, address, context, limit, offset)
 List Omni Transactions By Address
 
-This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
 
 ### Parameters
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListOmniTransactionsByBlockHashR list_omni_transactions_by_block_hash(network, blockchain, block_hash, context, limit, offset)
 List Omni Transactions By Block Hash
 
-This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
 
 ### Parameters
 
@@ -189,7 +189,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListOmniTransactionsByBlockHeightR list_omni_transactions_by_block_height(network, blockchain, block_height, context, limit, offset)
 List Omni Transactions By Block Height
 
-This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
 
 ### Parameters
 
@@ -224,7 +224,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListUnconfirmedOmniTransactionsByAddressR list_unconfirmed_omni_transactions_by_address(network, blockchain, address, context, limit, offset)
 List Unconfirmed Omni Transactions By Address
 
-This endpoint will list unconfirmed Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list unconfirmed Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
 
 ### Parameters
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListUnconfirmedOmniTransactionsByPropertyIdr list_unconfirmed_omni_transactions_by_property_id(network, blockchain, property_id, context, limit, offset)
 List Unconfirmed Omni Transactions By Property ID
 
-This endpoint will list unconfirmed Omni transactions by an attribute `propertyId`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list unconfirmed Omni transactions by an attribute `propertyId`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
 
 ### Parameters
 

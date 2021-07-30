@@ -15,10 +15,10 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `generate_receiving_address`
+/// struct for typed errors of method `generate_deposit_address`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GenerateReceivingAddressError {
+pub enum GenerateDepositAddressError {
     Status400(crate::models::InvalidPagination),
     Status401(crate::models::InvalidApiKey),
     Status402(crate::models::InsufficientCredits),
@@ -34,7 +34,7 @@ pub enum GenerateReceivingAddressError {
 
 
 /// Through this endpoint customers can generate a new Receiving/Deposit Addresses into their Wallet.
-pub async fn generate_receiving_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, wallet_id: &str, context: Option<&str>, generate_receiving_address_rb: Option<crate::models::GenerateReceivingAddressRb>) -> Result<crate::models::GenerateReceivingAddressR, Error<GenerateReceivingAddressError>> {
+pub async fn generate_deposit_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, wallet_id: &str, context: Option<&str>, generate_deposit_address_rb: Option<crate::models::GenerateDepositAddressRb>) -> Result<crate::models::GenerateDepositAddressR, Error<GenerateDepositAddressError>> {
 
     let local_var_client = &configuration.client;
 
@@ -55,7 +55,7 @@ pub async fn generate_receiving_address(configuration: &configuration::Configura
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&generate_receiving_address_rb);
+    local_var_req_builder = local_var_req_builder.json(&generate_deposit_address_rb);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -66,7 +66,7 @@ pub async fn generate_receiving_address(configuration: &configuration::Configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GenerateReceivingAddressError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GenerateDepositAddressError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

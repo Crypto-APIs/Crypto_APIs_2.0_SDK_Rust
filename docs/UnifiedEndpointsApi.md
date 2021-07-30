@@ -217,7 +217,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListTransactionsByAddressR list_transactions_by_address(blockchain, network, address, context, limit, offset)
 List Transactions By Address
 
-This endpoint will list transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
 
 ### Parameters
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListTransactionsByBlockHashR list_transactions_by_block_hash(blockchain, network, block_hash, context, limit, offset)
 List Transactions by Block Hash
 
-This endpoint will list transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
 
 ### Parameters
 
@@ -287,7 +287,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListTransactionsByBlockHeightR list_transactions_by_block_height(blockchain, network, height, context, limit, offset)
 List Transactions by Block Height
 
-This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
 
 ### Parameters
 

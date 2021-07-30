@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **asset_type** | **String** | Defines the type of the supported asset. This could be either \"crypto\" or \"fiat\". | 
 **latest_rate** | [**crate::models::ListAssetsDetailsRiLatestRate**](ListAssetsDetailsRI_latestRate.md) |  | 
 **slug** | Option<**String**> | Asset`s unique slug string in Crypto APIs listings | [optional]
-**specific_data** | [**crate::models::ListAssetsDetailsRiSpecificData**](ListAssetsDetailsRISpecificData.md) |  | 
+**specific_data** | [**crate::models::ListAssetsDetailsRis**](ListAssetsDetailsRIS.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -49,7 +49,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListHdWalletXPubYPubZPubTransactionsR list_hd_wallet__x_pub_y_pub_z_pub_transactions(blockchain, extended_public_key, network, context, derivation, limit, offset)
 List HD Wallet (xPub, yPub, zPub) Transactions
 
-This endpoint will list HD Wallet transactions.    {note}Please note that listing data from the same type will apply pagination on the results.{/note}
+This endpoint will list HD Wallet transactions.
 
 ### Parameters
 

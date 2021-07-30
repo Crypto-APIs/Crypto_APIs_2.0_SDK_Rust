@@ -13,6 +13,12 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateCoinsTransactionRequestFromAddressRi {
+    /// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.
+    #[serde(rename = "callbackSecretKey", skip_serializing_if = "Option::is_none")]
+    pub callback_secret_key: Option<String>,
+    /// Verified URL for sending callbacks
+    #[serde(rename = "callbackUrl", skip_serializing_if = "Option::is_none")]
+    pub callback_url: Option<String>,
     /// Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
     #[serde(rename = "feePriority")]
     pub fee_priority: FeePriority,
@@ -29,6 +35,8 @@ pub struct CreateCoinsTransactionRequestFromAddressRi {
 impl CreateCoinsTransactionRequestFromAddressRi {
     pub fn new(fee_priority: FeePriority, recipients: Vec<crate::models::CreateCoinsTransactionRequestFromAddressRiRecipients>, senders: crate::models::CreateCoinsTransactionRequestFromAddressRiSenders, transaction_request_status: TransactionRequestStatus) -> CreateCoinsTransactionRequestFromAddressRi {
         CreateCoinsTransactionRequestFromAddressRi {
+            callback_secret_key: None,
+            callback_url: None,
             fee_priority,
             recipients,
             senders: Box::new(senders),

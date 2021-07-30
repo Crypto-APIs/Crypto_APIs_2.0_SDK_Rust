@@ -13,6 +13,12 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateTokensTransactionRequestFromAddressRi {
+    /// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.
+    #[serde(rename = "callbackSecretKey")]
+    pub callback_secret_key: String,
+    /// Verified URL for sending callbacks
+    #[serde(rename = "callbackUrl")]
+    pub callback_url: String,
     /// Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
     #[serde(rename = "feePriority")]
     pub fee_priority: FeePriority,
@@ -22,12 +28,14 @@ pub struct CreateTokensTransactionRequestFromAddressRi {
     #[serde(rename = "senders")]
     pub senders: Box<crate::models::CreateTokensTransactionRequestFromAddressRiSenders>,
     #[serde(rename = "tokenTypeSpecificData")]
-    pub token_type_specific_data: Box<crate::models::CreateTokensTransactionRequestFromAddressRiTokenTypeSpecificData>,
+    pub token_type_specific_data: Box<crate::models::CreateTokensTransactionRequestFromAddressRis>,
 }
 
 impl CreateTokensTransactionRequestFromAddressRi {
-    pub fn new(fee_priority: FeePriority, recipients: Vec<crate::models::CreateTokensTransactionRequestFromAddressRiRecipients>, senders: crate::models::CreateTokensTransactionRequestFromAddressRiSenders, token_type_specific_data: crate::models::CreateTokensTransactionRequestFromAddressRiTokenTypeSpecificData) -> CreateTokensTransactionRequestFromAddressRi {
+    pub fn new(callback_secret_key: String, callback_url: String, fee_priority: FeePriority, recipients: Vec<crate::models::CreateTokensTransactionRequestFromAddressRiRecipients>, senders: crate::models::CreateTokensTransactionRequestFromAddressRiSenders, token_type_specific_data: crate::models::CreateTokensTransactionRequestFromAddressRis) -> CreateTokensTransactionRequestFromAddressRi {
         CreateTokensTransactionRequestFromAddressRi {
+            callback_secret_key,
+            callback_url,
             fee_priority,
             recipients,
             senders: Box::new(senders),

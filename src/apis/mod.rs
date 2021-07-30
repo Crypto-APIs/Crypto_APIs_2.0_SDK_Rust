@@ -66,6 +66,7 @@ pub mod automatic_coins_forwarding_api;
 pub mod automatic_tokens_forwarding_api;
 pub mod create_subscriptions_for_api;
 pub mod exchange_rates_api;
+pub mod features_api;
 pub mod generating_api;
 pub mod informative_api;
 pub mod internal_api;
@@ -76,7 +77,6 @@ pub mod tokens_api;
 pub mod transactions_api;
 pub mod utxo_based_api;
 pub mod unified_endpoints_api;
-pub mod validating_api;
 pub mod xrp_ripple_api;
 pub mod zilliqa_api;
 

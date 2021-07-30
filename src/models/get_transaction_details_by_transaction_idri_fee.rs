@@ -16,7 +16,6 @@ pub struct GetTransactionDetailsByTransactionIdriFee {
     /// Defines the amount of the transaction fee.
     #[serde(rename = "amount")]
     pub amount: String,
-    /// Defines the unit of the fee amount, e.g. BTC, ETH, XRP.
     #[serde(rename = "unit")]
     pub unit: String,
 }
