@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListConfirmedTransactionsByAddressRibszVShieldedOutput {
     /// Represents the 𝑢-coordinate of the note commitment for the output note.
     #[serde(rename = "cmu")]

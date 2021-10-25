@@ -15,7 +15,7 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`get_exchange_rate_by_asset_symbols`]
+/// struct for typed errors of method `get_exchange_rate_by_asset_symbols`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetExchangeRateByAssetSymbolsError {
@@ -31,7 +31,7 @@ pub enum GetExchangeRateByAssetSymbolsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_exchange_rate_by_assets_ids`]
+/// struct for typed errors of method `get_exchange_rate_by_assets_ids`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetExchangeRateByAssetsIdsError {
@@ -50,11 +50,10 @@ pub enum GetExchangeRateByAssetsIdsError {
 
 /// Through this endpoint customers can obtain exchange rates by asset symbols. The process represents the exchange rate value of a single unit of one asset versus another one. Data is provided per unique asset symbol.
 pub async fn get_exchange_rate_by_asset_symbols(configuration: &configuration::Configuration, from_asset_symbol: &str, to_asset_symbol: &str, context: Option<&str>, calculation_timestamp: Option<i32>) -> Result<crate::models::GetExchangeRateByAssetSymbolsR, Error<GetExchangeRateByAssetSymbolsError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/market-data/exchange-rates/by-symbols/{fromAssetSymbol}/{toAssetSymbol}", local_var_configuration.base_path, fromAssetSymbol=crate::apis::urlencode(from_asset_symbol), toAssetSymbol=crate::apis::urlencode(to_asset_symbol));
+    let local_var_uri_str = format!("{}/market-data/exchange-rates/by-symbols/{fromAssetSymbol}/{toAssetSymbol}", configuration.base_path, fromAssetSymbol=crate::apis::urlencode(from_asset_symbol), toAssetSymbol=crate::apis::urlencode(to_asset_symbol));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -63,10 +62,10 @@ pub async fn get_exchange_rate_by_asset_symbols(configuration: &configuration::C
     if let Some(ref local_var_str) = calculation_timestamp {
         local_var_req_builder = local_var_req_builder.query(&[("calculationTimestamp", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -92,11 +91,10 @@ pub async fn get_exchange_rate_by_asset_symbols(configuration: &configuration::C
 
 /// Through this endpoint customers can obtain exchange rates by asset IDs. The process represents the exchange rate value of a single unit of one asset versus another one. Data is provided per unique asset Reference ID.
 pub async fn get_exchange_rate_by_assets_ids(configuration: &configuration::Configuration, from_asset_id: &str, to_asset_id: &str, context: Option<&str>, calculation_timestamp: Option<i32>) -> Result<crate::models::GetExchangeRateByAssetsIdsR, Error<GetExchangeRateByAssetsIdsError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/market-data/exchange-rates/by-asset-ids/{fromAssetId}/{toAssetId}", local_var_configuration.base_path, fromAssetId=crate::apis::urlencode(from_asset_id), toAssetId=crate::apis::urlencode(to_asset_id));
+    let local_var_uri_str = format!("{}/market-data/exchange-rates/by-asset-ids/{fromAssetId}/{toAssetId}", configuration.base_path, fromAssetId=crate::apis::urlencode(from_asset_id), toAssetId=crate::apis::urlencode(to_asset_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -105,10 +103,10 @@ pub async fn get_exchange_rate_by_assets_ids(configuration: &configuration::Conf
     if let Some(ref local_var_str) = calculation_timestamp {
         local_var_req_builder = local_var_req_builder.query(&[("calculationTimestamp", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

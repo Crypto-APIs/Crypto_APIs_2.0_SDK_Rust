@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListAssetsDetailsRis {
     /// Represents the percentage of the asset's current price against the its price from 1 hour ago.
     #[serde(rename = "1HourPriceChangeInPercentage")]

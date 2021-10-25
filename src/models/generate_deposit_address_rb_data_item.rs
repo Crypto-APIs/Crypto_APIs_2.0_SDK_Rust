@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GenerateDepositAddressRbDataItem {
     /// Represents a custom tag that customers can set up for their Wallets and addresses. E.g. custom label named \"Special addresses\".
     #[serde(rename = "label")]

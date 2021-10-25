@@ -15,7 +15,7 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`create_coins_transaction_from_address_for_whole_amount`]
+/// struct for typed errors of method `create_coins_transaction_from_address_for_whole_amount`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCoinsTransactionFromAddressForWholeAmountError {
@@ -31,7 +31,7 @@ pub enum CreateCoinsTransactionFromAddressForWholeAmountError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`create_coins_transaction_request_from_address`]
+/// struct for typed errors of method `create_coins_transaction_request_from_address`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCoinsTransactionRequestFromAddressError {
@@ -47,7 +47,7 @@ pub enum CreateCoinsTransactionRequestFromAddressError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`create_coins_transaction_request_from_wallet`]
+/// struct for typed errors of method `create_coins_transaction_request_from_wallet`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCoinsTransactionRequestFromWalletError {
@@ -63,7 +63,7 @@ pub enum CreateCoinsTransactionRequestFromWalletError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`create_tokens_transaction_request_from_address`]
+/// struct for typed errors of method `create_tokens_transaction_request_from_address`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateTokensTransactionRequestFromAddressError {
@@ -82,20 +82,19 @@ pub enum CreateTokensTransactionRequestFromAddressError {
 
 /// Through this endpoint customers can create a new transaction from address for **coins** specifically, which will transfer over the entire available amount.
 pub async fn create_coins_transaction_from_address_for_whole_amount(configuration: &configuration::Configuration, address: &str, blockchain: &str, network: &str, wallet_id: &str, context: Option<&str>, create_coins_transaction_from_address_for_whole_amount_rb: Option<crate::models::CreateCoinsTransactionFromAddressForWholeAmountRb>) -> Result<crate::models::CreateCoinsTransactionFromAddressForWholeAmountR, Error<CreateCoinsTransactionFromAddressForWholeAmountError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/all-transaction-requests", local_var_configuration.base_path, address=crate::apis::urlencode(address), blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), walletId=crate::apis::urlencode(wallet_id));
+    let local_var_uri_str = format!("{}/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/all-transaction-requests", configuration.base_path, address=crate::apis::urlencode(address), blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), walletId=crate::apis::urlencode(wallet_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -122,20 +121,19 @@ pub async fn create_coins_transaction_from_address_for_whole_amount(configuratio
 
 /// Through this endpoint users can create a new single transaction request from one address to another.
 pub async fn create_coins_transaction_request_from_address(configuration: &configuration::Configuration, address: &str, blockchain: &str, network: &str, wallet_id: &str, context: Option<&str>, create_coins_transaction_request_from_address_rb: Option<crate::models::CreateCoinsTransactionRequestFromAddressRb>) -> Result<crate::models::CreateCoinsTransactionRequestFromAddressR, Error<CreateCoinsTransactionRequestFromAddressError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/transaction-requests", local_var_configuration.base_path, address=crate::apis::urlencode(address), blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), walletId=crate::apis::urlencode(wallet_id));
+    let local_var_uri_str = format!("{}/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/transaction-requests", configuration.base_path, address=crate::apis::urlencode(address), blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), walletId=crate::apis::urlencode(wallet_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -162,20 +160,19 @@ pub async fn create_coins_transaction_request_from_address(configuration: &confi
 
 /// Through this endpoint users can create a new transaction request from the entire Wallet instead from just a specific address. This endpoint can generate transactions from multiple to multiple addresses.    {warning}This is available **only** for UTXO-based protocols such as Bitcoin, Bitcoin Cash, Litecoin, etc. It **is not** available for Account-based protocols like Ethereum.{/warning}
 pub async fn create_coins_transaction_request_from_wallet(configuration: &configuration::Configuration, blockchain: &str, network: &str, wallet_id: &str, context: Option<&str>, create_coins_transaction_request_from_wallet_rb: Option<crate::models::CreateCoinsTransactionRequestFromWalletRb>) -> Result<crate::models::CreateCoinsTransactionRequestFromWalletR, Error<CreateCoinsTransactionRequestFromWalletError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/transaction-requests", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), walletId=crate::apis::urlencode(wallet_id));
+    let local_var_uri_str = format!("{}/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/transaction-requests", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), walletId=crate::apis::urlencode(wallet_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -202,20 +199,19 @@ pub async fn create_coins_transaction_request_from_wallet(configuration: &config
 
 /// Through this endpoint users can make a single token transaction.    {warning}This applies only to **fungible** tokens, **not** NFTs (non-fungible tokens).{/warning}    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 pub async fn create_tokens_transaction_request_from_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, sender_address: &str, wallet_id: &str, context: Option<&str>, create_tokens_transaction_request_from_address_rb: Option<crate::models::CreateTokensTransactionRequestFromAddressRb>) -> Result<crate::models::CreateTokensTransactionRequestFromAddressR, Error<CreateTokensTransactionRequestFromAddressError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{senderAddress}/token-transaction-requests", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), senderAddress=crate::apis::urlencode(sender_address), walletId=crate::apis::urlencode(wallet_id));
+    let local_var_uri_str = format!("{}/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{senderAddress}/token-transaction-requests", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), senderAddress=crate::apis::urlencode(sender_address), walletId=crate::apis::urlencode(wallet_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

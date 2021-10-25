@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListTokensTransfersByTransactionHashRi {
     /// Represents the contract address of the token, which controls its logic. It is not the address that holds the tokens.
     #[serde(rename = "contractAddress")]

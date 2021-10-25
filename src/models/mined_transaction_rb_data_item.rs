@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MinedTransactionRbDataItem {
     /// Specifies a flag that permits or denies the creation of duplicate addresses.
     #[serde(rename = "allowDuplicates", skip_serializing_if = "Option::is_none")]

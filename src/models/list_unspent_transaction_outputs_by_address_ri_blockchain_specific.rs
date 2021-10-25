@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListUnspentTransactionOutputsByAddressRiBlockchainSpecific {
     /// Represents the virtual size of this transaction
     #[serde(rename = "vSize")]

@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListTransactionsByBlockHeightRibsdScriptSig {
     /// The asm strands for assembly, which is the symbolic representation of the Bitcoin's Script language op-codes.
     #[serde(rename = "asm")]

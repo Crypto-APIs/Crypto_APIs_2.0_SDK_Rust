@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateCoinsTransactionRequestFromWalletRiRecipients {
     /// Defines the specific destination address.
     #[serde(rename = "address")]

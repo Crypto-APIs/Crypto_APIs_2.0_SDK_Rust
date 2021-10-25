@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListLatestMinedBlocksRibsz {
     /// Represents the Directory Service block which contains metadata about the miners who participate in the consensus protocol.
     #[serde(rename = "dsBlock")]

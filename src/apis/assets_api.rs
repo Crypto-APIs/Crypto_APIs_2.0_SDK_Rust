@@ -15,7 +15,7 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`list_assets_details`]
+/// struct for typed errors of method `list_assets_details`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListAssetsDetailsError {
@@ -34,11 +34,10 @@ pub enum ListAssetsDetailsError {
 
 /// This endpoint will return a list of details on assets. These could be cryptocurrencies or FIAT assets that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".    The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.
 pub async fn list_assets_details(configuration: &configuration::Configuration, context: Option<&str>, asset_type: Option<&str>, crypto_type: Option<&str>, limit: Option<i32>, offset: Option<i32>, waas_enabled: Option<bool>) -> Result<crate::models::ListAssetsDetailsR, Error<ListAssetsDetailsError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/market-data/assets/details", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/market-data/assets/details", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -59,10 +58,10 @@ pub async fn list_assets_details(configuration: &configuration::Configuration, c
     if let Some(ref local_var_str) = waas_enabled {
         local_var_req_builder = local_var_req_builder.query(&[("waasEnabled", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

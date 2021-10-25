@@ -15,7 +15,7 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`get_latest_mined_zilliqa_block`]
+/// struct for typed errors of method `get_latest_mined_zilliqa_block`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLatestMinedZilliqaBlockError {
@@ -32,7 +32,7 @@ pub enum GetLatestMinedZilliqaBlockError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_zilliqa_address_details`]
+/// struct for typed errors of method `get_zilliqa_address_details`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetZilliqaAddressDetailsError {
@@ -48,7 +48,7 @@ pub enum GetZilliqaAddressDetailsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_zilliqa_block_details_by_block_hash`]
+/// struct for typed errors of method `get_zilliqa_block_details_by_block_hash`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetZilliqaBlockDetailsByBlockHashError {
@@ -65,7 +65,7 @@ pub enum GetZilliqaBlockDetailsByBlockHashError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_zilliqa_block_details_by_block_height`]
+/// struct for typed errors of method `get_zilliqa_block_details_by_block_height`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetZilliqaBlockDetailsByBlockHeightError {
@@ -82,7 +82,7 @@ pub enum GetZilliqaBlockDetailsByBlockHeightError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_zilliqa_transaction_details_by_transaction_id`]
+/// struct for typed errors of method `get_zilliqa_transaction_details_by_transaction_id`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetZilliqaTransactionDetailsByTransactionIdError {
@@ -99,7 +99,7 @@ pub enum GetZilliqaTransactionDetailsByTransactionIdError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`list_zilliqa_transactions_by_address`]
+/// struct for typed errors of method `list_zilliqa_transactions_by_address`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListZilliqaTransactionsByAddressError {
@@ -115,7 +115,7 @@ pub enum ListZilliqaTransactionsByAddressError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`list_zilliqa_transactions_by_block_hash`]
+/// struct for typed errors of method `list_zilliqa_transactions_by_block_hash`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListZilliqaTransactionsByBlockHashError {
@@ -131,7 +131,7 @@ pub enum ListZilliqaTransactionsByBlockHashError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`list_zilliqa_transactions_by_block_height`]
+/// struct for typed errors of method `list_zilliqa_transactions_by_block_height`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListZilliqaTransactionsByBlockHeightError {
@@ -150,20 +150,19 @@ pub enum ListZilliqaTransactionsByBlockHeightError {
 
 /// Through this endpoint users can obtain information on the latest block that has been mined on the Zilliqa blockchain. Data could include the current and previous block hashes, transaction count, and more.
 pub async fn get_latest_mined_zilliqa_block(configuration: &configuration::Configuration, network: &str, context: Option<&str>) -> Result<crate::models::GetLatestMinedZilliqaBlockR, Error<GetLatestMinedZilliqaBlockError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/blocks/last", local_var_configuration.base_path, network=crate::apis::urlencode(network));
+    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/blocks/last", configuration.base_path, network=crate::apis::urlencode(network));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -189,20 +188,19 @@ pub async fn get_latest_mined_zilliqa_block(configuration: &configuration::Confi
 
 /// Through this endpoint customers can obtain information address details from the Zilliqa blockchain.
 pub async fn get_zilliqa_address_details(configuration: &configuration::Configuration, network: &str, address: &str, context: Option<&str>) -> Result<crate::models::GetZilliqaAddressDetailsR, Error<GetZilliqaAddressDetailsError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/addresses/{address}", local_var_configuration.base_path, network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/addresses/{address}", configuration.base_path, network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -228,20 +226,19 @@ pub async fn get_zilliqa_address_details(configuration: &configuration::Configur
 
 /// Through this endpoint customers can obtain block details from the Zilliqa blockchain by providing the block Hash parameter.
 pub async fn get_zilliqa_block_details_by_block_hash(configuration: &configuration::Configuration, network: &str, block_hash: &str, context: Option<&str>) -> Result<crate::models::GetZilliqaBlockDetailsByBlockHashR, Error<GetZilliqaBlockDetailsByBlockHashError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/blocks/hash/{blockHash}", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
+    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/blocks/hash/{blockHash}", configuration.base_path, network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -267,20 +264,19 @@ pub async fn get_zilliqa_block_details_by_block_hash(configuration: &configurati
 
 /// Through this endpoint customers can obtain block details from the Zilliqa blockchain by providing the block Height parameter.
 pub async fn get_zilliqa_block_details_by_block_height(configuration: &configuration::Configuration, network: &str, block_height: i32, context: Option<&str>) -> Result<crate::models::GetZilliqaBlockDetailsByBlockHeightR, Error<GetZilliqaBlockDetailsByBlockHeightError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight}", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockHeight=block_height);
+    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight}", configuration.base_path, network=crate::apis::urlencode(network), blockHeight=block_height);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -306,20 +302,19 @@ pub async fn get_zilliqa_block_details_by_block_height(configuration: &configura
 
 /// Through this endpoint customers can obtain transaction details on the Zilliqa blockchain by providing a Transaction ID parameter.
 pub async fn get_zilliqa_transaction_details_by_transaction_id(configuration: &configuration::Configuration, network: &str, transaction_hash: &str, context: Option<&str>) -> Result<crate::models::GetZilliqaTransactionDetailsByTransactionIdr, Error<GetZilliqaTransactionDetailsByTransactionIdError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/transactions/{transactionHash}", local_var_configuration.base_path, network=crate::apis::urlencode(network), transactionHash=crate::apis::urlencode(transaction_hash));
+    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/transactions/{transactionHash}", configuration.base_path, network=crate::apis::urlencode(network), transactionHash=crate::apis::urlencode(transaction_hash));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -345,11 +340,10 @@ pub async fn get_zilliqa_transaction_details_by_transaction_id(configuration: &c
 
 /// Through this endpoint customers can list transactions on the Zilliqa blockchain by the address parameter.
 pub async fn list_zilliqa_transactions_by_address(configuration: &configuration::Configuration, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListZilliqaTransactionsByAddressR, Error<ListZilliqaTransactionsByAddressError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/addresses/{address}/transactions", local_var_configuration.base_path, network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/addresses/{address}/transactions", configuration.base_path, network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -361,10 +355,10 @@ pub async fn list_zilliqa_transactions_by_address(configuration: &configuration:
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -390,11 +384,10 @@ pub async fn list_zilliqa_transactions_by_address(configuration: &configuration:
 
 /// Through this endpoint customers can list transactions on the Zilliqa blockchain by the block hash parameter.
 pub async fn list_zilliqa_transactions_by_block_hash(configuration: &configuration::Configuration, network: &str, block_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListZilliqaTransactionsByBlockHashR, Error<ListZilliqaTransactionsByBlockHashError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/blocks/hash/{blockHash}/transactions", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
+    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/blocks/hash/{blockHash}/transactions", configuration.base_path, network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -406,10 +399,10 @@ pub async fn list_zilliqa_transactions_by_block_hash(configuration: &configurati
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -435,11 +428,10 @@ pub async fn list_zilliqa_transactions_by_block_hash(configuration: &configurati
 
 /// Through this endpoint customers can list transactions on the Zilliqa blockchain by the block height parameter.
 pub async fn list_zilliqa_transactions_by_block_height(configuration: &configuration::Configuration, network: &str, block_height: i32, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListZilliqaTransactionsByBlockHeightR, Error<ListZilliqaTransactionsByBlockHeightError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight}/transactions", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockHeight=block_height);
+    let local_var_uri_str = format!("{}/blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight}/transactions", configuration.base_path, network=crate::apis::urlencode(network), blockHeight=block_height);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -451,10 +443,10 @@ pub async fn list_zilliqa_transactions_by_block_height(configuration: &configura
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

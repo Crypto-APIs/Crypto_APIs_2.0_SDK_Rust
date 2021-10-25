@@ -15,7 +15,7 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`broadcast_locally_signed_transaction`]
+/// struct for typed errors of method `broadcast_locally_signed_transaction`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BroadcastLocallySignedTransactionError {
@@ -32,7 +32,7 @@ pub enum BroadcastLocallySignedTransactionError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`generate_address`]
+/// struct for typed errors of method `generate_address`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GenerateAddressError {
@@ -48,7 +48,7 @@ pub enum GenerateAddressError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_eip_1559_fee_recommendations`]
+/// struct for typed errors of method `get_eip_1559_fee_recommendations`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetEip1559FeeRecommendationsError {
@@ -65,7 +65,7 @@ pub enum GetEip1559FeeRecommendationsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`validate_address`]
+/// struct for typed errors of method `validate_address`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ValidateAddressError {
@@ -84,20 +84,19 @@ pub enum ValidateAddressError {
 
 /// Through this endpoint customers can broadcast transactions that have been already signed locally. Instead of using a node for broadcasting a signed transaction users can use this endpoint. We then keep the user posted about the status by sending you a callback with a success or failure status.
 pub async fn broadcast_locally_signed_transaction(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, broadcast_locally_signed_transaction_rb: Option<crate::models::BroadcastLocallySignedTransactionRb>) -> Result<crate::models::BroadcastLocallySignedTransactionR, Error<BroadcastLocallySignedTransactionError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-tools/{blockchain}/{network}/transactions/broadcast", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
+    let local_var_uri_str = format!("{}/blockchain-tools/{blockchain}/{network}/transactions/broadcast", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -124,20 +123,19 @@ pub async fn broadcast_locally_signed_transaction(configuration: &configuration:
 
 /// This endpoint will generate a unique address for the user along with the specific transaction script, e.g. P2PKH, a private and a public key, and WIF.     Users **must** keep their private keys and WIFs secure and accessible to only them at all times. Losing those exposes a risk of losing their funds associated with the respective address.     {warning}We generate, but **do not** save or record the response in any data base, log or anywhere else on our side! In the case a user loses their private key or WIF, Crypto APIs 2.0 **will not be able** to retrieve it.{/warning}
 pub async fn generate_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, generate_address_rb: Option<crate::models::GenerateAddressRb>) -> Result<crate::models::GenerateAddressR, Error<GenerateAddressError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-tools/{blockchain}/{network}/addresses/generate", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
+    let local_var_uri_str = format!("{}/blockchain-tools/{blockchain}/{network}/addresses/generate", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -164,20 +162,19 @@ pub async fn generate_address(configuration: &configuration::Configuration, bloc
 
 /// Through this endpoint customers can obtain fee recommendations specifically for EIP 1559.
 pub async fn get_eip_1559_fee_recommendations(configuration: &configuration::Configuration, network: &str, blockchain: &str, context: Option<&str>) -> Result<crate::models::GetEip1559FeeRecommendationsR, Error<GetEip1559FeeRecommendationsError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-tools/{blockchain}/{network}/fees/eip1559", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain));
+    let local_var_uri_str = format!("{}/blockchain-tools/{blockchain}/{network}/fees/eip1559", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -203,20 +200,19 @@ pub async fn get_eip_1559_fee_recommendations(configuration: &configuration::Con
 
 /// This endpoint checks user public addresses whether they are valid or not.
 pub async fn validate_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, validate_address_rb: Option<crate::models::ValidateAddressRb>) -> Result<crate::models::ValidateAddressR, Error<ValidateAddressError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-tools/{blockchain}/{network}/addresses/validate", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
+    let local_var_uri_str = format!("{}/blockchain-tools/{blockchain}/{network}/addresses/validate", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

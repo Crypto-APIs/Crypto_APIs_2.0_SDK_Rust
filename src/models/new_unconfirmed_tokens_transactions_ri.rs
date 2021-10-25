@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct NewUnconfirmedTokensTransactionsRi {
     /// Defines the type of the specific event available for the customer to subscribe to for callback notification.
     #[serde(rename = "address")]

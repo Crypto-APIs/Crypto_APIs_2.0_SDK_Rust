@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetXrpRippleAddressDetailsRiBalance {
     /// Represents the total amount of the balance.
     #[serde(rename = "amount")]

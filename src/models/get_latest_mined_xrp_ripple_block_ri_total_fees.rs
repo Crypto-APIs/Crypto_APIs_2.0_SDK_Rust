@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetLatestMinedXrpRippleBlockRiTotalFees {
     /// Defines the amount of all fees.
     #[serde(rename = "amount")]

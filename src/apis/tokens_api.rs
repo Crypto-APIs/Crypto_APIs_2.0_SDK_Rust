@@ -15,7 +15,7 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`get_token_details_by_contract_address`]
+/// struct for typed errors of method `get_token_details_by_contract_address`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTokenDetailsByContractAddressError {
@@ -31,7 +31,7 @@ pub enum GetTokenDetailsByContractAddressError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`list_confirmed_tokens_transfers_by_address`]
+/// struct for typed errors of method `list_confirmed_tokens_transfers_by_address`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListConfirmedTokensTransfersByAddressError {
@@ -47,7 +47,7 @@ pub enum ListConfirmedTokensTransfersByAddressError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`list_tokens_by_address`]
+/// struct for typed errors of method `list_tokens_by_address`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListTokensByAddressError {
@@ -63,7 +63,7 @@ pub enum ListTokensByAddressError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`list_tokens_transfers_by_transaction_hash`]
+/// struct for typed errors of method `list_tokens_transfers_by_transaction_hash`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListTokensTransfersByTransactionHashError {
@@ -82,20 +82,19 @@ pub enum ListTokensTransfersByTransactionHashError {
 
 /// Though this endpoint customers can obtain information about token details. This can be done by providing the `contact address` parameter.    {note}This address is **not** the same as the smart contract creator address.{/note}
 pub async fn get_token_details_by_contract_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, contract_address: &str, context: Option<&str>) -> Result<crate::models::GetTokenDetailsByContractAddressR, Error<GetTokenDetailsByContractAddressError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{contractAddress}/contract", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), contractAddress=crate::apis::urlencode(contract_address));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{contractAddress}/contract", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), contractAddress=crate::apis::urlencode(contract_address));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -121,11 +120,10 @@ pub async fn get_token_details_by_contract_address(configuration: &configuration
 
 /// Through this endpoint customers can obtain a list with **confirmed** token transfers by the `address` attribute. Token transfers may include information such as addresses of the sender and recipient, token name, token symbol, etc.    {note}This refers only to transfers done for **confirmed tokens** not coins.{/note}
 pub async fn list_confirmed_tokens_transfers_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListConfirmedTokensTransfersByAddressR, Error<ListConfirmedTokensTransfersByAddressError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}/tokens-transfers", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}/tokens-transfers", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -137,10 +135,10 @@ pub async fn list_confirmed_tokens_transfers_by_address(configuration: &configur
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -166,11 +164,10 @@ pub async fn list_confirmed_tokens_transfers_by_address(configuration: &configur
 
 /// Through this endpoint customers can obtain token data by providing an attribute - `address`.  The information that can be returned can include the contract address, the token symbol, type and balance.
 pub async fn list_tokens_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTokensByAddressR, Error<ListTokensByAddressError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}/tokens", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}/tokens", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -182,10 +179,10 @@ pub async fn list_tokens_by_address(configuration: &configuration::Configuration
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -211,11 +208,10 @@ pub async fn list_tokens_by_address(configuration: &configuration::Configuration
 
 /// Through this endpoint customers can obtain a list with token transfers by the `transactionHash` attribute. Token transfers may include information such as addresses of the sender and recipient, token name, token symbol, etc.    {note}This refers only to transfers done for **tokens** not coins.{/note}
 pub async fn list_tokens_transfers_by_transaction_hash(configuration: &configuration::Configuration, blockchain: &str, network: &str, transaction_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTokensTransfersByTransactionHashR, Error<ListTokensTransfersByTransactionHashError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/transactions/{transactionHash}/tokens-transfers", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), transactionHash=crate::apis::urlencode(transaction_hash));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/transactions/{transactionHash}/tokens-transfers", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), transactionHash=crate::apis::urlencode(transaction_hash));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -227,10 +223,10 @@ pub async fn list_tokens_transfers_by_transaction_hash(configuration: &configura
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+    if let Some(ref local_var_apikey) = configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

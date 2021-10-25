@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AddressTokensTransactionConfirmedEachConfirmationToken {
     /// Specifies the name of the token.
     #[serde(rename = "name")]

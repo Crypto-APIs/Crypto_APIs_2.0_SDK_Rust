@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListSupportedTokensRi {
     /// Defines the token's decimal number or all of its points after the zero.
     #[serde(rename = "decimals")]

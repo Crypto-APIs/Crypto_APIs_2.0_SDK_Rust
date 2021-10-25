@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetFeeRecommendationsRi {
     /// Defines the unit of the fee, e.g. BTC.
     #[serde(rename = "unit")]

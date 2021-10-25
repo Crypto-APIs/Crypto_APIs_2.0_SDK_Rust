@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetXrpRippleTransactionDetailsByTransactionIdriReceive {
     /// Defines the amount of the funds for which an offer is made.
     #[serde(rename = "amount")]

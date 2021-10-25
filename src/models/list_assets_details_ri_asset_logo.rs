@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListAssetsDetailsRiAssetLogo {
     /// Defines the encoding of the image data which is usually base64.
     #[serde(rename = "encoding")]

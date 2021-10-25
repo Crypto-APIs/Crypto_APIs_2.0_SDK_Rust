@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListOmniTransactionsByAddressRi {
     /// Defines the amount of the sent tokens.
     #[serde(rename = "amount")]

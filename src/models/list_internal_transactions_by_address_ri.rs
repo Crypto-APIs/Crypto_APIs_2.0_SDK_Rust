@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListInternalTransactionsByAddressRi {
     /// Defines the specific amount of the transaction.
     #[serde(rename = "amount")]

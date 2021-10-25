@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetTransactionDetailsByTransactionIdribse {
     /// Represents the specific transaction contract.
     #[serde(rename = "contract")]

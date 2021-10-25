@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListAssetsDetailsRiLatestRate {
     /// Specifies the amount of the latest price of the asset.
     #[serde(rename = "amount")]

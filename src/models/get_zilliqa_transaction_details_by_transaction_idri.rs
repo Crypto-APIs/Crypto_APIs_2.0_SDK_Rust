@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetZilliqaTransactionDetailsByTransactionIdri {
     #[serde(rename = "fee")]
     pub fee: Box<crate::models::GetZilliqaTransactionDetailsByTransactionIdriFee>,

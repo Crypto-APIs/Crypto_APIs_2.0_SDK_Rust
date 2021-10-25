@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetXrpRippleBlockDetailsByBlockHeightRiTotalFees {
     /// Defines the amount of all fees included in the specific block.
     #[serde(rename = "amount")]

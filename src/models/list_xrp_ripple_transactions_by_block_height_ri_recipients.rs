@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListXrpRippleTransactionsByBlockHeightRiRecipients {
     /// String representation of the receiver address
     #[serde(rename = "address")]

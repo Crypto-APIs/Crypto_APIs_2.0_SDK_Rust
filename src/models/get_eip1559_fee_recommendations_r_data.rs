@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetEip1559FeeRecommendationsRData {
     #[serde(rename = "item")]
     pub item: Box<crate::models::GetEip1559FeeRecommendationsRi>,

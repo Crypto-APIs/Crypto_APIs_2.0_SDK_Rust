@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListHdWalletXPubYPubZPubTransactionsRi {
     /// Represents the index position of the transaction in the block.
     #[serde(rename = "index")]

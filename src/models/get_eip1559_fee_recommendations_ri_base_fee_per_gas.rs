@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetEip1559FeeRecommendationsRiBaseFeePerGas {
     /// Represents the unit of the base fee per gas.
     #[serde(rename = "unit")]

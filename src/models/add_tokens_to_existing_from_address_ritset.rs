@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AddTokensToExistingFromAddressRitset {
     /// Token contract address to be transferred
     #[serde(rename = "contractAddress")]

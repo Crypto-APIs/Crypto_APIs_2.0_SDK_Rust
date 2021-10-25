@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListLatestMinedBlocksRibsec {
     /// Represents any data that can be included by the miner in the block.
     #[serde(rename = "extraData")]

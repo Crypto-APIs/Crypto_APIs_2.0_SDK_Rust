@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetFeeRecommendationsRData {
     #[serde(rename = "item")]
     pub item: Box<crate::models::GetFeeRecommendationsRi>,

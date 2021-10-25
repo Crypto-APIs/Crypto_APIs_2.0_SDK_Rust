@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetXrpRippleBlockDetailsByBlockHeightRiTotalCoins {
     /// Represents the total amount of all Coins of the block as a string.
     #[serde(rename = "amount")]

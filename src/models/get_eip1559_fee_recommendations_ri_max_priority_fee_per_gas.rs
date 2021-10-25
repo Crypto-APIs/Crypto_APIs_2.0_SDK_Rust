@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetEip1559FeeRecommendationsRiMaxPriorityFeePerGas {
     /// Represents the fast maximum priority fee per gas, calculated from unconfirmed transactions.
     #[serde(rename = "fast")]

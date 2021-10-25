@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetXrpRippleTransactionDetailsByTransactionIdri {
     /// Represents additional data that may be needed.
     #[serde(rename = "additionalData")]

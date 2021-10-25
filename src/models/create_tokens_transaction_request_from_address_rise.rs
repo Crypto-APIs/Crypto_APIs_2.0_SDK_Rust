@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateTokensTransactionRequestFromAddressRise {
     /// Defines the contract address in the blockchain for an ERC20 token.
     #[serde(rename = "contractAddress")]

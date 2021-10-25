@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListLatestMinedBlocksRibsz2 {
     /// Represents a specific sub-unit of Zcash. Bits have two-decimal precision
     #[serde(rename = "bits")]

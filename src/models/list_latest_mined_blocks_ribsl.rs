@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListLatestMinedBlocksRibsl {
     /// Represents a specific sub-unit of Litecoin. Bits have two-decimal precision.
     #[serde(rename = "bits")]

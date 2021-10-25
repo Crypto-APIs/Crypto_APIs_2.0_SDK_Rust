@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetEip1559FeeRecommendationsRi {
     #[serde(rename = "baseFeePerGas")]
     pub base_fee_per_gas: Box<crate::models::GetEip1559FeeRecommendationsRiBaseFeePerGas>,

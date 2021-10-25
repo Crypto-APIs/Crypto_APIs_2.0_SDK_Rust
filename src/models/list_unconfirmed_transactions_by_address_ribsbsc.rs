@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListUnconfirmedTransactionsByAddressRibsbsc {
     /// Represents the amount of gas used by this specific transaction alone.
     #[serde(rename = "gasLimit")]

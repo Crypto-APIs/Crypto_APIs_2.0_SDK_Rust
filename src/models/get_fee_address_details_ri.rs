@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetFeeAddressDetailsRi {
     /// Represents the specific fee address, which is always automatically generated. Users must fund it.
     #[serde(rename = "address")]

@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListConfirmedTransactionsByAddressRibsz {
     /// It is used to enforce balance of Spend and Output transfers, in order to prevent their replay across transactions.
     #[serde(rename = "bindingSig")]

@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListWalletTransactionsRiFee {
     /// Defines the fee for the transaction.
     #[serde(rename = "amount")]

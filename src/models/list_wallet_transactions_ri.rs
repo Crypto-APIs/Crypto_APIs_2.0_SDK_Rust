@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListWalletTransactionsRi {
     /// Defines the direction of the transaction, e.g. incoming.
     #[serde(rename = "direction")]
