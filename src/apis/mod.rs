@@ -68,6 +68,7 @@ pub mod create_subscriptions_for_api;
 pub mod exchange_rates_api;
 pub mod features_api;
 pub mod generating_api;
+pub mod hd_wallets_api;
 pub mod informative_api;
 pub mod internal_api;
 pub mod manage_subscriptions_api;

@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ValidateAddressRi {
     /// Represents the specific address that will be checked if it's valid or not.
     #[serde(rename = "address")]

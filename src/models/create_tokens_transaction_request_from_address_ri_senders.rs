@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CreateTokensTransactionRequestFromAddressRiSenders {
     /// Defines the sender's public address.
     #[serde(rename = "address")]

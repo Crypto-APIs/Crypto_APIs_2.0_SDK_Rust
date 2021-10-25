@@ -15,7 +15,7 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `get_latest_mined_xrp__ripple_block`
+/// struct for typed errors of method [`get_latest_mined_xrp__ripple_block`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLatestMinedXrpRippleBlockError {
@@ -32,7 +32,7 @@ pub enum GetLatestMinedXrpRippleBlockError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `get_xrp__ripple_address_details`
+/// struct for typed errors of method [`get_xrp__ripple_address_details`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetXrpRippleAddressDetailsError {
@@ -48,7 +48,7 @@ pub enum GetXrpRippleAddressDetailsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `get_xrp__ripple_block_details_by_block_hash`
+/// struct for typed errors of method [`get_xrp__ripple_block_details_by_block_hash`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetXrpRippleBlockDetailsByBlockHashError {
@@ -65,7 +65,7 @@ pub enum GetXrpRippleBlockDetailsByBlockHashError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `get_xrp__ripple_block_details_by_block_height`
+/// struct for typed errors of method [`get_xrp__ripple_block_details_by_block_height`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetXrpRippleBlockDetailsByBlockHeightError {
@@ -82,7 +82,7 @@ pub enum GetXrpRippleBlockDetailsByBlockHeightError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `get_xrp__ripple_transaction_details_by_transaction_id`
+/// struct for typed errors of method [`get_xrp__ripple_transaction_details_by_transaction_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetXrpRippleTransactionDetailsByTransactionIdError {
@@ -99,7 +99,7 @@ pub enum GetXrpRippleTransactionDetailsByTransactionIdError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `list_xrp__ripple_transactions_by_address`
+/// struct for typed errors of method [`list_xrp__ripple_transactions_by_address`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListXrpRippleTransactionsByAddressError {
@@ -115,7 +115,7 @@ pub enum ListXrpRippleTransactionsByAddressError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `list_xrp__ripple_transactions_by_block_hash`
+/// struct for typed errors of method [`list_xrp__ripple_transactions_by_block_hash`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListXrpRippleTransactionsByBlockHashError {
@@ -131,7 +131,7 @@ pub enum ListXrpRippleTransactionsByBlockHashError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `list_xrp__ripple_transactions_by_block_height`
+/// struct for typed errors of method [`list_xrp__ripple_transactions_by_block_height`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListXrpRippleTransactionsByBlockHeightError {
@@ -150,19 +150,20 @@ pub enum ListXrpRippleTransactionsByBlockHeightError {
 
 /// Through this endpoint customers can fetch the last mined XRP block in the blockchain, along with its details. These could include the hash of the specific, the previous and the next block, its transactions count, its height, etc.     Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 pub async fn get_latest_mined_xrp__ripple_block(configuration: &configuration::Configuration, network: &str, context: Option<&str>) -> Result<crate::models::GetLatestMinedXrpRippleBlockR, Error<GetLatestMinedXrpRippleBlockError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/blocks/last", configuration.base_path, network=crate::apis::urlencode(network));
+    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/blocks/last", local_var_configuration.base_path, network=crate::apis::urlencode(network));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -188,19 +189,20 @@ pub async fn get_latest_mined_xrp__ripple_block(configuration: &configuration::C
 
 /// Through this endpoint the customer can receive basic information about a given XRP address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 pub async fn get_xrp__ripple_address_details(configuration: &configuration::Configuration, network: &str, address: &str, context: Option<&str>) -> Result<crate::models::GetXrpRippleAddressDetailsR, Error<GetXrpRippleAddressDetailsError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/addresses/{address}", configuration.base_path, network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/addresses/{address}", local_var_configuration.base_path, network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -226,19 +228,20 @@ pub async fn get_xrp__ripple_address_details(configuration: &configuration::Conf
 
 /// Through this endpoint customers can obtain basic information about a given XRP block (a block on the XRP blockchain), specifically by using the `hash` parameter. These block details could include the hash of the specific, the previous and the next block, the number of included transactions, etc.     Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 pub async fn get_xrp__ripple_block_details_by_block_hash(configuration: &configuration::Configuration, network: &str, block_hash: &str, context: Option<&str>) -> Result<crate::models::GetXrpRippleBlockDetailsByBlockHashR, Error<GetXrpRippleBlockDetailsByBlockHashError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}", configuration.base_path, network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
+    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -264,19 +267,20 @@ pub async fn get_xrp__ripple_block_details_by_block_hash(configuration: &configu
 
 /// Through this endpoint customers can obtain basic information about a given XRP block (a block on the XRP blockchain), specifically by using the `height` parameter. These block details could include the hash of the specific, the previous and the next block, its transactions count, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 pub async fn get_xrp__ripple_block_details_by_block_height(configuration: &configuration::Configuration, network: &str, block_height: &str, context: Option<&str>) -> Result<crate::models::GetXrpRippleBlockDetailsByBlockHeightR, Error<GetXrpRippleBlockDetailsByBlockHeightError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}", configuration.base_path, network=crate::apis::urlencode(network), blockHeight=crate::apis::urlencode(block_height));
+    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockHeight=crate::apis::urlencode(block_height));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -302,19 +306,20 @@ pub async fn get_xrp__ripple_block_details_by_block_height(configuration: &confi
 
 /// Through this endpoint customers can obtain details about a XRP transaction by the transaction's unique identifier.     Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 pub async fn get_xrp__ripple_transaction_details_by_transaction_id(configuration: &configuration::Configuration, network: &str, transaction_hash: &str, context: Option<&str>) -> Result<crate::models::GetXrpRippleTransactionDetailsByTransactionIdr, Error<GetXrpRippleTransactionDetailsByTransactionIdError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/transactions/{transactionHash}", configuration.base_path, network=crate::apis::urlencode(network), transactionHash=crate::apis::urlencode(transaction_hash));
+    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/transactions/{transactionHash}", local_var_configuration.base_path, network=crate::apis::urlencode(network), transactionHash=crate::apis::urlencode(transaction_hash));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -340,10 +345,11 @@ pub async fn get_xrp__ripple_transaction_details_by_transaction_id(configuration
 
 /// This endpoint will list XRP transactions by a attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 pub async fn list_xrp__ripple_transactions_by_address(configuration: &configuration::Configuration, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>, transaction_type: Option<&str>) -> Result<crate::models::ListXrpRippleTransactionsByAddressR, Error<ListXrpRippleTransactionsByAddressError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/addresses/{address}/transactions", configuration.base_path, network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/addresses/{address}/transactions", local_var_configuration.base_path, network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -358,10 +364,10 @@ pub async fn list_xrp__ripple_transactions_by_address(configuration: &configurat
     if let Some(ref local_var_str) = transaction_type {
         local_var_req_builder = local_var_req_builder.query(&[("transactionType", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -387,10 +393,11 @@ pub async fn list_xrp__ripple_transactions_by_address(configuration: &configurat
 
 /// This endpoint will list transactions by an attribute `blockHash`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 pub async fn list_xrp__ripple_transactions_by_block_hash(configuration: &configuration::Configuration, network: &str, block_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListXrpRippleTransactionsByBlockHashR, Error<ListXrpRippleTransactionsByBlockHashError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}/transactions", configuration.base_path, network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
+    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}/transactions", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -402,10 +409,10 @@ pub async fn list_xrp__ripple_transactions_by_block_hash(configuration: &configu
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -431,10 +438,11 @@ pub async fn list_xrp__ripple_transactions_by_block_hash(configuration: &configu
 
 /// This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.    Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 pub async fn list_xrp__ripple_transactions_by_block_height(configuration: &configuration::Configuration, network: &str, block_height: i32, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListXrpRippleTransactionsByBlockHeightR, Error<ListXrpRippleTransactionsByBlockHeightError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}/transactions", configuration.base_path, network=crate::apis::urlencode(network), blockHeight=block_height);
+    let local_var_uri_str = format!("{}/blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}/transactions", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockHeight=block_height);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -446,10 +454,10 @@ pub async fn list_xrp__ripple_transactions_by_block_height(configuration: &confi
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

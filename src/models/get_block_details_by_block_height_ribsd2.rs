@@ -12,18 +12,18 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetBlockDetailsByBlockHeightRibsd2 {
     /// Represents a mathematical value of how hard it is to find a valid hash for this block.
     #[serde(rename = "difficulty")]
     pub difficulty: String,
-    /// Represents a random value that can be adjusted to satisfy the Proof of Work
+    /// Represents a random value that can be adjusted to satisfy the Proof of Work.
     #[serde(rename = "nonce")]
-    pub nonce: i32,
+    pub nonce: String,
     /// Represents the total size of the block in Bytes.
     #[serde(rename = "size")]
     pub size: i32,
-    /// Represents a specific sub-unit of Dash. Bits have two-decimal precision.
+    /// A sub-unit of BTC equal to 0.000001 BTC, or 100 Satoshi, and is the same as microbitcoin (μBTC). Bits have two-decimal precision
     #[serde(rename = "bits")]
     pub bits: String,
     /// Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
@@ -42,7 +42,7 @@ pub struct GetBlockDetailsByBlockHeightRibsd2 {
 
 impl GetBlockDetailsByBlockHeightRibsd2 {
     /// Dash
-    pub fn new(difficulty: String, nonce: i32, size: i32, bits: String, chainwork: String, merkle_root: String, version: i32, version_hex: String) -> GetBlockDetailsByBlockHeightRibsd2 {
+    pub fn new(difficulty: String, nonce: String, size: i32, bits: String, chainwork: String, merkle_root: String, version: i32, version_hex: String) -> GetBlockDetailsByBlockHeightRibsd2 {
         GetBlockDetailsByBlockHeightRibsd2 {
             difficulty,
             nonce,

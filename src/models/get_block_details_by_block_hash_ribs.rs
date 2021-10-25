@@ -11,18 +11,18 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetBlockDetailsByBlockHashRibs {
     /// Represents a mathematical value of how hard it is to find a valid hash for this block.
     #[serde(rename = "difficulty")]
     pub difficulty: String,
     /// Represents a random value that can be adjusted to satisfy the Proof of Work.
     #[serde(rename = "nonce")]
-    pub nonce: i32,
+    pub nonce: String,
     /// Represents the total size of the block in Bytes.
     #[serde(rename = "size")]
     pub size: i32,
-    /// Represents a specific sub-unit of Dash. Bits have two-decimal precision.
+    /// Represents a specific sub-unit of Zcash. Bits have two-decimal precision
     #[serde(rename = "bits")]
     pub bits: String,
     /// Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
@@ -34,7 +34,7 @@ pub struct GetBlockDetailsByBlockHashRibs {
     /// Defines the numeric representation of the block size excluding the witness data.
     #[serde(rename = "strippedSize")]
     pub stripped_size: i32,
-    /// Represents the version of the specific block on the blockchain.
+    /// Represents the block version number.
     #[serde(rename = "version")]
     pub version: i32,
     /// Is the hexadecimal string representation of the block's version.
@@ -55,7 +55,7 @@ pub struct GetBlockDetailsByBlockHashRibs {
     /// Specifies the amount of time required for the block to be mined in seconds.
     #[serde(rename = "minedInSeconds")]
     pub mined_in_seconds: i32,
-    /// Defines the combined hash of all uncles for a given parent.
+    /// Defines the combined hash of all uncles for a given paren
     #[serde(rename = "sha3Uncles")]
     pub sha3_uncles: String,
     /// Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block.
@@ -69,7 +69,7 @@ pub struct GetBlockDetailsByBlockHashRibs {
 }
 
 impl GetBlockDetailsByBlockHashRibs {
-    pub fn new(difficulty: String, nonce: i32, size: i32, bits: String, chainwork: String, merkle_root: String, stripped_size: i32, version: i32, version_hex: String, weight: i32, extra_data: String, gas_limit: String, gas_used: String, mined_in_seconds: i32, sha3_uncles: String, total_difficulty: String, uncles: Vec<String>, merkleroot: String) -> GetBlockDetailsByBlockHashRibs {
+    pub fn new(difficulty: String, nonce: String, size: i32, bits: String, chainwork: String, merkle_root: String, stripped_size: i32, version: i32, version_hex: String, weight: i32, extra_data: String, gas_limit: String, gas_used: String, mined_in_seconds: i32, sha3_uncles: String, total_difficulty: String, uncles: Vec<String>, merkleroot: String) -> GetBlockDetailsByBlockHashRibs {
         GetBlockDetailsByBlockHashRibs {
             difficulty,
             nonce,

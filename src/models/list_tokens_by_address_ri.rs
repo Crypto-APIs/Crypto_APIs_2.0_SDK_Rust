@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListTokensByAddressRi {
     /// Defines the token balance that has been confirmed.
     #[serde(rename = "confirmedBalance")]

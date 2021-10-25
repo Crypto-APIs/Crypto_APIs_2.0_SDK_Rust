@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListTransactionsByBlockHeightRi {
     /// Represents the index position of the transaction in the specific block.
     #[serde(rename = "index")]

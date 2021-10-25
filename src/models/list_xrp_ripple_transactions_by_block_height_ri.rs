@@ -11,10 +11,12 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListXrpRippleTransactionsByBlockHeightRi {
     #[serde(rename = "additionalData", skip_serializing_if = "Option::is_none")]
     pub additional_data: Option<String>,
+    #[serde(rename = "destinationTag", skip_serializing_if = "Option::is_none")]
+    pub destination_tag: Option<i32>,
     #[serde(rename = "index")]
     pub index: i32,
     #[serde(rename = "minedInBlockHash")]
@@ -50,6 +52,7 @@ impl ListXrpRippleTransactionsByBlockHeightRi {
     pub fn new(index: i32, mined_in_block_hash: String, recipients: Vec<crate::models::ListXrpRippleTransactionsByBlockHeightRiRecipients>, senders: Vec<crate::models::ListXrpRippleTransactionsByBlockHeightRiSenders>, sequence: i32, status: String, timestamp: i32, transaction_hash: String, _type: String, fee: crate::models::ListXrpRippleTransactionsByBlockHeightRiFee, offer: crate::models::ListXrpRippleTransactionsByBlockHeightRiOffer, receive: crate::models::ListXrpRippleTransactionsByBlockHeightRiReceive, value: crate::models::ListXrpRippleTransactionsByBlockHeightRiValue) -> ListXrpRippleTransactionsByBlockHeightRi {
         ListXrpRippleTransactionsByBlockHeightRi {
             additional_data: None,
+            destination_tag: None,
             index,
             mined_in_block_hash,
             recipients,

@@ -15,7 +15,7 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `get_address_details`
+/// struct for typed errors of method [`get_address_details`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAddressDetailsError {
@@ -31,7 +31,7 @@ pub enum GetAddressDetailsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `get_block_details_by_block_hash`
+/// struct for typed errors of method [`get_block_details_by_block_hash`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetBlockDetailsByBlockHashError {
@@ -48,7 +48,7 @@ pub enum GetBlockDetailsByBlockHashError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `get_block_details_by_block_height`
+/// struct for typed errors of method [`get_block_details_by_block_height`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetBlockDetailsByBlockHeightError {
@@ -65,7 +65,7 @@ pub enum GetBlockDetailsByBlockHeightError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `get_fee_recommendations`
+/// struct for typed errors of method [`get_fee_recommendations`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetFeeRecommendationsError {
@@ -82,10 +82,10 @@ pub enum GetFeeRecommendationsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `get_latest_mined_block`
+/// struct for typed errors of method [`get_last_mined_block`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetLatestMinedBlockError {
+pub enum GetLastMinedBlockError {
     Status400(crate::models::InvalidPagination),
     Status401(crate::models::InvalidApiKey),
     Status402(crate::models::InsufficientCredits),
@@ -99,7 +99,7 @@ pub enum GetLatestMinedBlockError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `get_transaction_details_by_transaction_id`
+/// struct for typed errors of method [`get_transaction_details_by_transaction_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTransactionDetailsByTransactionIdError {
@@ -116,10 +116,10 @@ pub enum GetTransactionDetailsByTransactionIdError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `list_transactions_by_address`
+/// struct for typed errors of method [`list_all_unconfirmed_transactions`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ListTransactionsByAddressError {
+pub enum ListAllUnconfirmedTransactionsError {
     Status400(crate::models::InvalidPagination),
     Status401(crate::models::InvalidApiKey),
     Status402(crate::models::InsufficientCredits),
@@ -132,7 +132,40 @@ pub enum ListTransactionsByAddressError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `list_transactions_by_block_hash`
+/// struct for typed errors of method [`list_confirmed_transactions_by_address`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ListConfirmedTransactionsByAddressError {
+    Status400(crate::models::InvalidPagination),
+    Status401(crate::models::InvalidApiKey),
+    Status402(crate::models::InsufficientCredits),
+    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
+    Status409(crate::models::InvalidData),
+    Status415(crate::models::UnsupportedMediaType),
+    Status422(crate::models::InvalidRequestBodyStructure),
+    Status429(crate::models::RequestLimitReached),
+    Status500(crate::models::UnexpectedServerError),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`list_latest_mined_blocks`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ListLatestMinedBlocksError {
+    Status400(crate::models::InvalidPagination),
+    Status401(crate::models::InvalidApiKey),
+    Status402(crate::models::InsufficientCredits),
+    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
+    Status404(crate::models::ResourceNotFound),
+    Status409(crate::models::InvalidData),
+    Status415(crate::models::UnsupportedMediaType),
+    Status422(crate::models::InvalidRequestBodyStructure),
+    Status429(crate::models::RequestLimitReached),
+    Status500(crate::models::UnexpectedServerError),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`list_transactions_by_block_hash`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListTransactionsByBlockHashError {
@@ -148,7 +181,7 @@ pub enum ListTransactionsByBlockHashError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `list_transactions_by_block_height`
+/// struct for typed errors of method [`list_transactions_by_block_height`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListTransactionsByBlockHeightError {
@@ -165,22 +198,39 @@ pub enum ListTransactionsByBlockHeightError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`list_unconfirmed_transactions_by_address`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ListUnconfirmedTransactionsByAddressError {
+    Status400(crate::models::InvalidPagination),
+    Status401(crate::models::InvalidApiKey),
+    Status402(crate::models::InsufficientCredits),
+    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
+    Status409(crate::models::InvalidData),
+    Status415(crate::models::UnsupportedMediaType),
+    Status422(crate::models::InvalidRequestBodyStructure),
+    Status429(crate::models::RequestLimitReached),
+    Status500(crate::models::UnexpectedServerError),
+    UnknownValue(serde_json::Value),
+}
+
 
 /// Through this endpoint the customer can receive basic information about a given address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.
 pub async fn get_address_details(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>) -> Result<crate::models::GetAddressDetailsR, Error<GetAddressDetailsError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -206,19 +256,20 @@ pub async fn get_address_details(configuration: &configuration::Configuration, b
 
 /// Through this endpoint customers can obtain basic information about a given mined block, specifically by using the `hash` parameter. These block details could include the hash of the specific, the previous and the next block, its transactions count, its height, etc.     Blockchain specific data is information such as version, nonce, size, bits, merkleroot, etc.
 pub async fn get_block_details_by_block_hash(configuration: &configuration::Configuration, blockchain: &str, network: &str, block_hash: &str, context: Option<&str>) -> Result<crate::models::GetBlockDetailsByBlockHashR, Error<GetBlockDetailsByBlockHashError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/hash/{blockHash}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/hash/{blockHash}", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -244,19 +295,20 @@ pub async fn get_block_details_by_block_hash(configuration: &configuration::Conf
 
 /// Through this endpoint customers can obtain basic information about a given mined block, specifically by using the `height` parameter. These block details could include the hash of the specific, the previous and the next block, its transactions count, its height, etc.     Blockchain specific data is information such as version, nonce, size, bits, merkleroot, etc.
 pub async fn get_block_details_by_block_height(configuration: &configuration::Configuration, blockchain: &str, network: &str, height: i32, context: Option<&str>) -> Result<crate::models::GetBlockDetailsByBlockHeightR, Error<GetBlockDetailsByBlockHeightError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/height/{height}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), height=height);
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/height/{height}", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), height=height);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -282,19 +334,20 @@ pub async fn get_block_details_by_block_height(configuration: &configuration::Co
 
 /// Through this endpoint customers can obtain fee recommendations. Our fees recommendations are based on Mempool data which makes them much more accurate than fees based on already mined blocks. Calculations are done in real time live. Using this endpoint customers can get gas price for Ethereum, fee per byte for Bitcoin, etc.
 pub async fn get_fee_recommendations(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>) -> Result<crate::models::GetFeeRecommendationsR, Error<GetFeeRecommendationsError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/mempool/fees", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/mempool/fees", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -319,20 +372,21 @@ pub async fn get_fee_recommendations(configuration: &configuration::Configuratio
 }
 
 /// Through this endpoint customers can fetch the last mined block in a specific blockchain network, along with its details. These could include the hash of the specific, the previous and the next block, its transactions count, its height, etc.     Blockchain specific data is information such as version, nonce, size, bits, merkleroot, etc.
-pub async fn get_latest_mined_block(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>) -> Result<crate::models::GetLatestMinedBlockR, Error<GetLatestMinedBlockError>> {
+pub async fn get_last_mined_block(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>) -> Result<crate::models::GetLastMinedBlockR, Error<GetLastMinedBlockError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/last", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/last", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -350,7 +404,7 @@ pub async fn get_latest_mined_block(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetLatestMinedBlockError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetLastMinedBlockError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -358,19 +412,20 @@ pub async fn get_latest_mined_block(configuration: &configuration::Configuration
 
 /// Through this endpoint customers can obtain details about a transaction by the transaction's unique identifier. In UTXO-based protocols like BTC there are attributes such as `transactionId` and transaction `hash`. They still could be different. In protocols like Ethereum there is only one unique value and it's `hash`.
 pub async fn get_transaction_details_by_transaction_id(configuration: &configuration::Configuration, blockchain: &str, network: &str, transaction_id: &str, context: Option<&str>) -> Result<crate::models::GetTransactionDetailsByTransactionIdr, Error<GetTransactionDetailsByTransactionIdError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/transactions/{transactionId}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), transactionId=crate::apis::urlencode(transaction_id));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/transactions/{transactionId}", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), transactionId=crate::apis::urlencode(transaction_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -394,12 +449,13 @@ pub async fn get_transaction_details_by_transaction_id(configuration: &configura
     }
 }
 
-/// This endpoint will list transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
-pub async fn list_transactions_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByAddressR, Error<ListTransactionsByAddressError>> {
+/// Through this endpoint customers can list all **unconfirmed**  transactions for a specified blockchain and network.
+pub async fn list_all_unconfirmed_transactions(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListAllUnconfirmedTransactionsR, Error<ListAllUnconfirmedTransactionsError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}/transactions", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/address-transactions-unconfirmed", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -411,10 +467,10 @@ pub async fn list_transactions_by_address(configuration: &configuration::Configu
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -432,18 +488,19 @@ pub async fn list_transactions_by_address(configuration: &configuration::Configu
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ListTransactionsByAddressError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ListAllUnconfirmedTransactionsError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-/// This endpoint will list transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
-pub async fn list_transactions_by_block_hash(configuration: &configuration::Configuration, blockchain: &str, network: &str, block_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByBlockHashR, Error<ListTransactionsByBlockHashError>> {
+/// This endpoint will list transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
+pub async fn list_confirmed_transactions_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListConfirmedTransactionsByAddressR, Error<ListConfirmedTransactionsByAddressError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/hash/{blockHash}/transactions", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}/transactions", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -455,10 +512,94 @@ pub async fn list_transactions_by_block_hash(configuration: &configuration::Conf
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ListConfirmedTransactionsByAddressError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Through this endpoint customers can list the latest 50 blocks that were mined.
+pub async fn list_latest_mined_blocks(configuration: &configuration::Configuration, network: &str, blockchain: &str, count: i32, context: Option<&str>) -> Result<crate::models::ListLatestMinedBlocksR, Error<ListLatestMinedBlocksError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/last/{count}", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), count=count);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ListLatestMinedBlocksError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// This endpoint will list transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
+pub async fn list_transactions_by_block_hash(configuration: &configuration::Configuration, blockchain: &str, network: &str, block_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByBlockHashR, Error<ListTransactionsByBlockHashError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/hash/{blockHash}/transactions", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -484,10 +625,11 @@ pub async fn list_transactions_by_block_hash(configuration: &configuration::Conf
 
 /// This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
 pub async fn list_transactions_by_block_height(configuration: &configuration::Configuration, blockchain: &str, network: &str, height: i32, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByBlockHeightR, Error<ListTransactionsByBlockHeightError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/height/{height}/transactions", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), height=height);
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/blocks/height/{height}/transactions", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), height=height);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -499,10 +641,10 @@ pub async fn list_transactions_by_block_height(configuration: &configuration::Co
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -521,6 +663,51 @@ pub async fn list_transactions_by_block_height(configuration: &configuration::Co
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<ListTransactionsByBlockHeightError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Through this endpoint customers can list transactions by `address` that are **unconfirmed**.
+pub async fn list_unconfirmed_transactions_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListUnconfirmedTransactionsByAddressR, Error<ListUnconfirmedTransactionsByAddressError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/address-transactions-unconfirmed/{address}", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ListUnconfirmedTransactionsByAddressError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

@@ -11,17 +11,17 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct NewConfirmedTokensTransactionsRb {
     /// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "data")]
-    pub data: Box<crate::models::NewUnconfirmedTokensTransactionsRbData>,
+    pub data: Box<crate::models::NewConfirmedTokensTransactionsRbData>,
 }
 
 impl NewConfirmedTokensTransactionsRb {
-    pub fn new(data: crate::models::NewUnconfirmedTokensTransactionsRbData) -> NewConfirmedTokensTransactionsRb {
+    pub fn new(data: crate::models::NewConfirmedTokensTransactionsRbData) -> NewConfirmedTokensTransactionsRb {
         NewConfirmedTokensTransactionsRb {
             context: None,
             data: Box::new(data),

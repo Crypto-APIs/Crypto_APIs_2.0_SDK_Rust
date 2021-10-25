@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetTransactionDetailsByTransactionIdribsbcVout {
     /// Defines whether the output is spent or not.
     #[serde(rename = "isSpent")]

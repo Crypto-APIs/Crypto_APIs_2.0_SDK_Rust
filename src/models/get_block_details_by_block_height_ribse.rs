@@ -12,14 +12,14 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetBlockDetailsByBlockHeightRibse {
     /// Represents a mathematical value of how hard it is to find a valid hash for this block.
     #[serde(rename = "difficulty")]
     pub difficulty: String,
-    /// Represents a random value that can be adjusted to satisfy the Proof of Work
+    /// Represents a random value that can be adjusted to satisfy the Proof of Work.
     #[serde(rename = "nonce")]
-    pub nonce: i32,
+    pub nonce: String,
     /// Represents the total size of the block in Bytes.
     #[serde(rename = "size")]
     pub size: i32,
@@ -45,7 +45,7 @@ pub struct GetBlockDetailsByBlockHeightRibse {
 
 impl GetBlockDetailsByBlockHeightRibse {
     /// Ethereum
-    pub fn new(difficulty: String, nonce: i32, size: i32, extra_data: String, gas_limit: String, gas_used: String, mined_in_seconds: i32, sha3_uncles: String, total_difficulty: String) -> GetBlockDetailsByBlockHeightRibse {
+    pub fn new(difficulty: String, nonce: String, size: i32, extra_data: String, gas_limit: String, gas_used: String, mined_in_seconds: i32, sha3_uncles: String, total_difficulty: String) -> GetBlockDetailsByBlockHeightRibse {
         GetBlockDetailsByBlockHeightRibse {
             difficulty,
             nonce,

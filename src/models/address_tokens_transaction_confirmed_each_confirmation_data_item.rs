@@ -12,19 +12,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct AddressTokensTransactionConfirmedEachConfirmationDataItem {
     /// Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     #[serde(rename = "blockchain")]
     pub blockchain: String,
-    /// Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+    /// Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\",  are test networks.
     #[serde(rename = "network")]
     pub network: String,
     /// Defines the specific address to which the transaction has been sent.
     #[serde(rename = "address")]
     pub address: String,
     #[serde(rename = "minedInBlock")]
-    pub mined_in_block: Box<crate::models::AddressTokensTransactionConfirmedEachConfirmationDataItemMinedInBlock>,
+    pub mined_in_block: Box<crate::models::AddressTokensTransactionConfirmedDataItemMinedInBlock>,
     /// Defines the unique ID of the specific transaction, i.e. its identification number.
     #[serde(rename = "transactionId")]
     pub transaction_id: String,
@@ -46,7 +46,7 @@ pub struct AddressTokensTransactionConfirmedEachConfirmationDataItem {
 
 impl AddressTokensTransactionConfirmedEachConfirmationDataItem {
     /// Defines an `item` as one result.
-    pub fn new(blockchain: String, network: String, address: String, mined_in_block: crate::models::AddressTokensTransactionConfirmedEachConfirmationDataItemMinedInBlock, transaction_id: String, current_confirmations: i32, target_confirmations: i32, token_type: TokenType, token: crate::models::AddressTokensTransactionConfirmedEachConfirmationToken, direction: Direction) -> AddressTokensTransactionConfirmedEachConfirmationDataItem {
+    pub fn new(blockchain: String, network: String, address: String, mined_in_block: crate::models::AddressTokensTransactionConfirmedDataItemMinedInBlock, transaction_id: String, current_confirmations: i32, target_confirmations: i32, token_type: TokenType, token: crate::models::AddressTokensTransactionConfirmedEachConfirmationToken, direction: Direction) -> AddressTokensTransactionConfirmedEachConfirmationDataItem {
         AddressTokensTransactionConfirmedEachConfirmationDataItem {
             blockchain,
             network,
@@ -65,12 +65,14 @@ impl AddressTokensTransactionConfirmedEachConfirmationDataItem {
 /// Defines the type of token sent with the transaction, e.g. ERC 20.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum TokenType {
-    #[serde(rename = "ethereumERC20Token")]
-    EthereumERC20Token,
-    #[serde(rename = "ethereumERC721Token")]
-    EthereumERC721Token,
-    #[serde(rename = "omniLayerToken")]
-    OmniLayerToken,
+    #[serde(rename = "ERC-20")]
+    ERC20,
+    #[serde(rename = "ERC-721")]
+    ERC721,
+    #[serde(rename = "OMNI")]
+    OMNI,
+    #[serde(rename = "BEP-20")]
+    BEP20,
 }
 /// Defines whether the transaction is \"incoming\" or \"outgoing\".
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]

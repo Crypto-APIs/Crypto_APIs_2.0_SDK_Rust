@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct InvalidApiKey {
     /// Specifies the version of the API that incorporates this endpoint.
     #[serde(rename = "apiVersion")]

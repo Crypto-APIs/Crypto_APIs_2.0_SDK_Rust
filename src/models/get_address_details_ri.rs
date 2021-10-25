@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetAddressDetailsRi {
     /// Represents the total number of confirmed coins transactions for this address, both incoming and outgoing. Applies for coins only **and not** tokens transfers e.g. for Ethereum. `transactionsCount` could result as less than incoming and outgoing transactions put together (e.g. in Bitcoin), due to the fact that one and the same address could be in senders and receivers addresses.
     #[serde(rename = "transactionsCount")]
@@ -22,10 +22,10 @@ pub struct GetAddressDetailsRi {
     pub total_received: Box<crate::models::GetAddressDetailsRiTotalReceived>,
     #[serde(rename = "totalSpent")]
     pub total_spent: Box<crate::models::GetAddressDetailsRiTotalSpent>,
-    /// Numeric representation of the received transaction count of the address
+    /// Defines the count of the incoming transactions.
     #[serde(rename = "incomingTransactionsCount")]
     pub incoming_transactions_count: i32,
-    /// Numeric representation of the sent transaction count of the address
+    /// Defines the count of the outgoing transactions.
     #[serde(rename = "outgoingTransactionsCount")]
     pub outgoing_transactions_count: i32,
 }

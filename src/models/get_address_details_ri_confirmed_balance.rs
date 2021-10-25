@@ -11,11 +11,12 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetAddressDetailsRiConfirmedBalance {
     /// Defines the total balance of the address that is confirmed. It doesn't include unconfirmed transactions.
     #[serde(rename = "amount")]
     pub amount: String,
+    /// Represents the unit of the confirmed balance.
     #[serde(rename = "unit")]
     pub unit: String,
 }

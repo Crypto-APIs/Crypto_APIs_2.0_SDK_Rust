@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct AddressTokensTransactionConfirmedToken {
     /// Specifies the name of the token.
     #[serde(rename = "name")]
@@ -25,7 +25,7 @@ pub struct AddressTokensTransactionConfirmedToken {
     /// Defines the amount of tokens sent with the confirmed transaction.
     #[serde(rename = "amount")]
     pub amount: String,
-    /// Specifies the address of the contract.
+    /// Defines the address of the contract.
     #[serde(rename = "contractAddress")]
     pub contract_address: String,
     /// Specifies the ID of the token.

@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListXrpRippleTransactionsByAddressRiReceive {
     /// Defines the amount received.
     #[serde(rename = "amount")]

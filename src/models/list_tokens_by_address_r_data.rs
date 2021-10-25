@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListTokensByAddressRData {
     /// The starting index of the response items, i.e. where the response should start listing the returned items.
     #[serde(rename = "offset")]

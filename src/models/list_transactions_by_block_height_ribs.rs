@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListTransactionsByBlockHeightRibs {
     /// Represents the time at which a particular transaction can be added to the blockchain.
     #[serde(rename = "locktime")]
@@ -22,15 +22,15 @@ pub struct ListTransactionsByBlockHeightRibs {
     /// Represents the virtual size of this transaction.
     #[serde(rename = "vSize")]
     pub v_size: i32,
-    /// Represents the total size of this transaction.
+    /// Represents the transaction version number.
     #[serde(rename = "version")]
     pub version: i32,
-    /// Represents the transaction inputs.
+    /// Object Array representation of transaction inputs
     #[serde(rename = "vin")]
-    pub vin: Vec<crate::models::ListTransactionsByBlockHashRibsbcVin>,
-    /// Represents the transaction outputs.
+    pub vin: Vec<crate::models::ListTransactionsByBlockHeightRibszVin>,
+    /// Object Array representation of transaction outputs
     #[serde(rename = "vout")]
-    pub vout: Vec<crate::models::ListTransactionsByBlockHashRibsbcVout>,
+    pub vout: Vec<crate::models::ListTransactionsByBlockHeightRibszVout>,
     /// Represents the specific transaction contract.
     #[serde(rename = "contract")]
     pub contract: String,
@@ -38,7 +38,7 @@ pub struct ListTransactionsByBlockHeightRibs {
     #[serde(rename = "gasLimit")]
     pub gas_limit: String,
     #[serde(rename = "gasPrice")]
-    pub gas_price: Box<crate::models::ListTransactionsByBlockHeightRibsecGasPrice>,
+    pub gas_price: Box<crate::models::ListTransactionsByBlockHeightRibsbscGasPrice>,
     /// Represents the exact unit of gas that was used for the transaction.
     #[serde(rename = "gasUsed")]
     pub gas_used: String,
@@ -47,17 +47,44 @@ pub struct ListTransactionsByBlockHeightRibs {
     pub input_data: String,
     /// Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.
     #[serde(rename = "nonce")]
-    pub nonce: String,
-    /// Represents the status of this transaction.
+    pub nonce: i32,
+    /// Represents the status of this transaction
     #[serde(rename = "transactionStatus")]
     pub transaction_status: String,
-    /// Represents the virtual size of this transaction.
-    #[serde(rename = "vsize")]
-    pub vsize: i32,
+    /// It is used to enforce balance of Spend and Output transfers, in order to prevent their replay across transactions.
+    #[serde(rename = "bindingSig")]
+    pub binding_sig: String,
+    /// Represents a block height after which the transaction will expire.
+    #[serde(rename = "expiryHeight")]
+    pub expiry_height: i32,
+    /// Represents an encoding of a JoinSplitSig public validating key.
+    #[serde(rename = "joinSplitPubKey")]
+    pub join_split_pub_key: String,
+    /// Is used to sign transactions that contain at least one JoinSplit description.
+    #[serde(rename = "joinSplitSig")]
+    pub join_split_sig: String,
+    /// \"Overwinter\" is the network upgrade for the Zcash blockchain.
+    #[serde(rename = "overwintered")]
+    pub overwintered: bool,
+    /// Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
+    #[serde(rename = "vJoinSplit")]
+    pub v_join_split: Vec<crate::models::ListTransactionsByBlockHeightRibszVJoinSplit>,
+    /// Object Array representation of transaction output descriptions
+    #[serde(rename = "vShieldedOutput")]
+    pub v_shielded_output: Vec<crate::models::ListTransactionsByBlockHeightRibszVShieldedOutput>,
+    /// Object Array representation of transaction spend descriptions
+    #[serde(rename = "vShieldedSpend")]
+    pub v_shielded_spend: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedSpend>,
+    /// Defines the transaction value balance.
+    #[serde(rename = "valueBalance")]
+    pub value_balance: String,
+    /// Represents the transaction version group ID.
+    #[serde(rename = "versionGroupId")]
+    pub version_group_id: String,
 }
 
 impl ListTransactionsByBlockHeightRibs {
-    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::ListTransactionsByBlockHashRibsbcVin>, vout: Vec<crate::models::ListTransactionsByBlockHashRibsbcVout>, contract: String, gas_limit: String, gas_price: crate::models::ListTransactionsByBlockHeightRibsecGasPrice, gas_used: String, input_data: String, nonce: String, transaction_status: String, vsize: i32) -> ListTransactionsByBlockHeightRibs {
+    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::ListTransactionsByBlockHeightRibszVin>, vout: Vec<crate::models::ListTransactionsByBlockHeightRibszVout>, contract: String, gas_limit: String, gas_price: crate::models::ListTransactionsByBlockHeightRibsbscGasPrice, gas_used: String, input_data: String, nonce: i32, transaction_status: String, binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, overwintered: bool, v_join_split: Vec<crate::models::ListTransactionsByBlockHeightRibszVJoinSplit>, v_shielded_output: Vec<crate::models::ListTransactionsByBlockHeightRibszVShieldedOutput>, v_shielded_spend: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedSpend>, value_balance: String, version_group_id: String) -> ListTransactionsByBlockHeightRibs {
         ListTransactionsByBlockHeightRibs {
             locktime,
             size,
@@ -72,7 +99,16 @@ impl ListTransactionsByBlockHeightRibs {
             input_data,
             nonce,
             transaction_status,
-            vsize,
+            binding_sig,
+            expiry_height,
+            join_split_pub_key,
+            join_split_sig,
+            overwintered,
+            v_join_split,
+            v_shielded_output,
+            v_shielded_spend,
+            value_balance,
+            version_group_id,
         }
     }
 }

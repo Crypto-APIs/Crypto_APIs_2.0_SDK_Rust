@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct BlockMinedDataItem {
     /// Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     #[serde(rename = "blockchain")]

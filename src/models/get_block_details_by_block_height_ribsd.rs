@@ -12,14 +12,14 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetBlockDetailsByBlockHeightRibsd {
     /// Represents a mathematical value of how hard it is to find a valid hash for this block.
     #[serde(rename = "difficulty")]
     pub difficulty: String,
-    /// Represents a random value that can be adjusted to satisfy the Proof of Work
+    /// Represents a random value that can be adjusted to satisfy the Proof of Work.
     #[serde(rename = "nonce")]
-    pub nonce: i32,
+    pub nonce: String,
     /// Represents the total size of the block in Bytes.
     #[serde(rename = "size")]
     pub size: i32,
@@ -38,14 +38,14 @@ pub struct GetBlockDetailsByBlockHeightRibsd {
     /// Represents the version of the specific block on the blockchain.
     #[serde(rename = "version")]
     pub version: i32,
-    /// Represents a measurement to compare the size of different transactions to each other in proportion to the block size limit.
+    /// Represents a measurement to compare the size of different transactions to each other in proportion to the block size limi
     #[serde(rename = "weight")]
     pub weight: i32,
 }
 
 impl GetBlockDetailsByBlockHeightRibsd {
     /// Dogecoin
-    pub fn new(difficulty: String, nonce: i32, size: i32, bits: String, chainwork: String, merkle_root: String, stripped_size: i32, version: i32, weight: i32) -> GetBlockDetailsByBlockHeightRibsd {
+    pub fn new(difficulty: String, nonce: String, size: i32, bits: String, chainwork: String, merkle_root: String, stripped_size: i32, version: i32, weight: i32) -> GetBlockDetailsByBlockHeightRibsd {
         GetBlockDetailsByBlockHeightRibsd {
             difficulty,
             nonce,

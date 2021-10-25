@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListOmniTransactionsByBlockHeightRiFee {
     /// Defines the amount of the fee.
     #[serde(rename = "amount")]

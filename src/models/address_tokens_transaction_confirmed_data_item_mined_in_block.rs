@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct AddressTokensTransactionConfirmedDataItemMinedInBlock {
     /// Defines the number of blocks in the blockchain preceding this specific block.
     #[serde(rename = "height")]

@@ -11,17 +11,17 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DeleteAutomaticCoinsForwardingRi {
     /// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
     #[serde(rename = "callbackUrl")]
     pub callback_url: String,
     /// Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
     #[serde(rename = "confirmationsCount")]
-    pub confirmations_count: String,
+    pub confirmations_count: i32,
     /// Defines the specific time/date when the automatic forwarding was created in Unix Timestamp.
     #[serde(rename = "createdTimestamp")]
-    pub created_timestamp: String,
+    pub created_timestamp: i32,
     /// Represents the fee priority of the automation, whether it is \"SLOW\", \"STANDARD\" or \"FAST\".
     #[serde(rename = "feePriority")]
     pub fee_priority: FeePriority,
@@ -40,7 +40,7 @@ pub struct DeleteAutomaticCoinsForwardingRi {
 }
 
 impl DeleteAutomaticCoinsForwardingRi {
-    pub fn new(callback_url: String, confirmations_count: String, created_timestamp: String, fee_priority: FeePriority, from_address: String, minimum_transfer_amount: String, reference_id: String, to_address: String) -> DeleteAutomaticCoinsForwardingRi {
+    pub fn new(callback_url: String, confirmations_count: i32, created_timestamp: i32, fee_priority: FeePriority, from_address: String, minimum_transfer_amount: String, reference_id: String, to_address: String) -> DeleteAutomaticCoinsForwardingRi {
         DeleteAutomaticCoinsForwardingRi {
             callback_url,
             confirmations_count,

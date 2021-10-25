@@ -11,18 +11,18 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetFeeRecommendationsRi {
     /// Defines the unit of the fee, e.g. BTC.
     #[serde(rename = "unit")]
     pub unit: String,
-    /// Defines the fee priority as \"FAST\". It works per byte, for UTXO-based protocols like Bitcoin, or per gas price, for account-based protocols like Ethereum. These are calculated based on Mempool.
+    /// Fast fee per byte calculated from unconfirmed transactions
     #[serde(rename = "fast")]
     pub fast: String,
-    /// Defines the fee priority as \"SLOW\". It works per byte, for UTXO-based protocols like Bitcoin, or per gas price, for account-based protocols like Ethereum. These are calculated based on Mempool.
+    /// Slow fee per byte calculated from unconfirmed transactions
     #[serde(rename = "slow")]
     pub slow: String,
-    /// Defines the fee priority as \"STANDARD\". It works per byte, for UTXO-based protocols like Bitcoin, or per gas price, for account-based protocols like Ethereum. These are calculated based on Mempool.
+    /// Standard fee per byte calculated from unconfirmed transactions
     #[serde(rename = "standard")]
     pub standard: String,
 }

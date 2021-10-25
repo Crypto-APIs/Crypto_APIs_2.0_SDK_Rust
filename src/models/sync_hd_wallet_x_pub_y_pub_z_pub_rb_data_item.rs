@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SyncHdWalletXPubYPubZPubRbDataItem {
     /// Defines the account extended publicly known key which is used to derive all child public keys.
     #[serde(rename = "extendedPublicKey")]

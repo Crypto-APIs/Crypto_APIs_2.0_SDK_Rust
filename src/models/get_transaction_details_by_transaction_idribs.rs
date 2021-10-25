@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetTransactionDetailsByTransactionIdribs {
     /// Represents the time at which a particular transaction can be added to the blockchain.
     #[serde(rename = "locktime")]
@@ -31,18 +31,15 @@ pub struct GetTransactionDetailsByTransactionIdribs {
     /// Represents the transaction outputs.
     #[serde(rename = "vout")]
     pub vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribsd2Vout>,
-    /// Represents the virtual size of this transaction.
-    #[serde(rename = "vsize")]
-    pub vsize: i32,
-    /// Represents the specific transaction contract.
+    /// Represents the specific transaction contract
     #[serde(rename = "contract")]
     pub contract: String,
     /// Represents the amount of gas used by this specific transaction alone.
     #[serde(rename = "gasLimit")]
     pub gas_limit: String,
     #[serde(rename = "gasPrice")]
-    pub gas_price: Box<crate::models::GetTransactionDetailsByTransactionIdribsecGasPrice>,
-    /// Represents the exact unit of gas that was used for the transaction.
+    pub gas_price: Box<crate::models::GetTransactionDetailsByTransactionIdribsbscGasPrice>,
+    /// Defines the unit of the gas price amount, e.g. BTC, ETH, XRP.
     #[serde(rename = "gasUsed")]
     pub gas_used: String,
     /// Represents additional information that is required for the transaction.
@@ -50,14 +47,14 @@ pub struct GetTransactionDetailsByTransactionIdribs {
     pub input_data: String,
     /// Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.
     #[serde(rename = "nonce")]
-    pub nonce: String,
+    pub nonce: i32,
     /// Represents the status of this transaction.
     #[serde(rename = "transactionStatus")]
     pub transaction_status: String,
 }
 
 impl GetTransactionDetailsByTransactionIdribs {
-    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::GetTransactionDetailsByTransactionIdribsd2Vin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribsd2Vout>, vsize: i32, contract: String, gas_limit: String, gas_price: crate::models::GetTransactionDetailsByTransactionIdribsecGasPrice, gas_used: String, input_data: String, nonce: String, transaction_status: String) -> GetTransactionDetailsByTransactionIdribs {
+    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::GetTransactionDetailsByTransactionIdribsd2Vin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribsd2Vout>, contract: String, gas_limit: String, gas_price: crate::models::GetTransactionDetailsByTransactionIdribsbscGasPrice, gas_used: String, input_data: String, nonce: i32, transaction_status: String) -> GetTransactionDetailsByTransactionIdribs {
         GetTransactionDetailsByTransactionIdribs {
             locktime,
             size,
@@ -65,7 +62,6 @@ impl GetTransactionDetailsByTransactionIdribs {
             version,
             vin,
             vout,
-            vsize,
             contract,
             gas_limit,
             gas_price: Box::new(gas_price),

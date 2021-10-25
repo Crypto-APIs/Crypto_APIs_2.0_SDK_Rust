@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CreateAutomaticTokensForwardingRbTokenDataBitcoinOmniToken {
     /// Represents the specific `propertyId` of the token data that will be forwarded.
     #[serde(rename = "propertyId")]

@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetExchangeRateByAssetSymbolsRi {
     /// Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp.
     #[serde(rename = "calculationTimestamp")]

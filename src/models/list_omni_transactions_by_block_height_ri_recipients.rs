@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListOmniTransactionsByBlockHeightRiRecipients {
     /// Represents the hash of the address that receives the funds.
     #[serde(rename = "address")]

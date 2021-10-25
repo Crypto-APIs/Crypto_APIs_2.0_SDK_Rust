@@ -11,12 +11,12 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListTransactionsByBlockHeightRiFee {
     /// Defines the amount of the fee.
     #[serde(rename = "amount")]
     pub amount: String,
-    /// Defines the unit of the fee amount, e.g. BTC, ETH, XRP.
+    /// Defines the specific unit of the fee.
     #[serde(rename = "unit")]
     pub unit: String,
 }

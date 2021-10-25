@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct AddressTokensTransactionUnconfirmedDataItem {
     /// Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     #[serde(rename = "blockchain")]
@@ -58,12 +58,12 @@ impl AddressTokensTransactionUnconfirmedDataItem {
 /// Defines the type of token sent with the transaction, e.g. ERC 20.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum TokenType {
-    #[serde(rename = "ethereumERC20Token")]
-    EthereumERC20Token,
-    #[serde(rename = "ethereumERC721Token")]
-    EthereumERC721Token,
-    #[serde(rename = "omniLayerToken")]
-    OmniLayerToken,
+    #[serde(rename = "ERC-20")]
+    ERC20,
+    #[serde(rename = "ERC-721")]
+    ERC721,
+    #[serde(rename = "OMNI")]
+    OMNI,
 }
 /// Defines whether the transaction is \"incoming\" or \"outgoing\".
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]

@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListTransactionsByBlockHashRibseGasPrice {
     /// Represents the price offered to the miner to purchase this amount of gas.
     #[serde(rename = "amount")]

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **difficulty** | **String** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
-**nonce** | **i32** | Represents a random value that can be adjusted to satisfy the Proof of Work. | 
+**nonce** | **String** | Represents a random value that can be adjusted to satisfy the Proof of Work. | 
 **size** | **i32** | Represents the total size of the block in Bytes. | 
 **extra_data** | **String** | Represents any data that can be included by the miner in the block. | 
 **gas_limit** | **String** | Defines the total gas limit of all transactions in the block. | 

@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct EndpointNotAllowedForApiKeyError {
     /// Specifies an error code, e.g. error 404.
     #[serde(rename = "code")]

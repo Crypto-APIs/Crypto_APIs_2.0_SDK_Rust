@@ -15,7 +15,7 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `get_internal_transaction_by_transaction_hash_and_operation_id`
+/// struct for typed errors of method [`get_internal_transaction_by_transaction_hash_and_operation_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetInternalTransactionByTransactionHashAndOperationIdError {
@@ -32,7 +32,7 @@ pub enum GetInternalTransactionByTransactionHashAndOperationIdError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `list_internal_transaction_details_by_transaction_hash`
+/// struct for typed errors of method [`list_internal_transaction_details_by_transaction_hash`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListInternalTransactionDetailsByTransactionHashError {
@@ -48,22 +48,39 @@ pub enum ListInternalTransactionDetailsByTransactionHashError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`list_internal_transactions_by_address`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ListInternalTransactionsByAddressError {
+    Status400(crate::models::InvalidPagination),
+    Status401(crate::models::InvalidApiKey),
+    Status402(crate::models::InsufficientCredits),
+    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
+    Status409(crate::models::InvalidData),
+    Status415(crate::models::UnsupportedMediaType),
+    Status422(crate::models::InvalidRequestBodyStructure),
+    Status429(crate::models::RequestLimitReached),
+    Status500(crate::models::UnexpectedServerError),
+    UnknownValue(serde_json::Value),
+}
+
 
 /// Through this endpoint customers can obtain detailed information about a specific Internal Transaction by using the attributes `transactionHash`  (the parent transaction's Hash) and `operationId` (type trace address).    An internal transaction is the result of a smart contract being triggered by an EOA or a subsequent contract call.
 pub async fn get_internal_transaction_by_transaction_hash_and_operation_id(configuration: &configuration::Configuration, blockchain: &str, network: &str, operation_id: &str, transaction_hash: &str, context: Option<&str>) -> Result<crate::models::GetInternalTransactionByTransactionHashAndOperationIdR, Error<GetInternalTransactionByTransactionHashAndOperationIdError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/transactions/{transactionHash}/internal/{operationId}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), operationId=crate::apis::urlencode(operation_id), transactionHash=crate::apis::urlencode(transaction_hash));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/transactions/{transactionHash}/internal/{operationId}", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), operationId=crate::apis::urlencode(operation_id), transactionHash=crate::apis::urlencode(transaction_hash));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -89,10 +106,11 @@ pub async fn get_internal_transaction_by_transaction_hash_and_operation_id(confi
 
 /// Through this endpoint customers can list internal transactions along with their details by a specific attribute `transactionHash`, which is the parent transaction's Hash.    An internal transaction is the result of a smart contract being triggered by an EOA or a subsequent contract call.
 pub async fn list_internal_transaction_details_by_transaction_hash(configuration: &configuration::Configuration, blockchain: &str, network: &str, transaction_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListInternalTransactionDetailsByTransactionHashR, Error<ListInternalTransactionDetailsByTransactionHashError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/transactions/{transactionHash}/internal", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), transactionHash=crate::apis::urlencode(transaction_hash));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/transactions/{transactionHash}/internal", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), transactionHash=crate::apis::urlencode(transaction_hash));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -104,10 +122,10 @@ pub async fn list_internal_transaction_details_by_transaction_hash(configuration
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -126,6 +144,50 @@ pub async fn list_internal_transaction_details_by_transaction_hash(configuration
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<ListInternalTransactionDetailsByTransactionHashError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn list_internal_transactions_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListInternalTransactionsByAddressR, Error<ListInternalTransactionsByAddressError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}/internal", local_var_configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ListInternalTransactionsByAddressError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

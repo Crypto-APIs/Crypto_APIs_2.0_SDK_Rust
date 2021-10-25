@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct NewConfirmedTokensTransactionsRData {
     #[serde(rename = "item")]
     pub item: Box<crate::models::NewConfirmedTokensTransactionsRi>,

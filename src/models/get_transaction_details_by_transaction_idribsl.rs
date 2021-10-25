@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetTransactionDetailsByTransactionIdribsl {
     /// Represents the time at which a particular transaction can be added to the blockchain.
     #[serde(rename = "locktime")]
@@ -20,6 +20,9 @@ pub struct GetTransactionDetailsByTransactionIdribsl {
     /// Represents the total size of this transaction.
     #[serde(rename = "size")]
     pub size: i32,
+    /// Represents the virtual size of this transaction.
+    #[serde(rename = "vSize")]
+    pub v_size: i32,
     /// Represents transaction version number.
     #[serde(rename = "version")]
     pub version: i32,
@@ -29,21 +32,18 @@ pub struct GetTransactionDetailsByTransactionIdribsl {
     /// Represents the transaction outputs.
     #[serde(rename = "vout")]
     pub vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribslVout>,
-    /// Represents the virtual size of this transaction.
-    #[serde(rename = "vsize")]
-    pub vsize: i32,
 }
 
 impl GetTransactionDetailsByTransactionIdribsl {
     /// Litecoin
-    pub fn new(locktime: i32, size: i32, version: i32, vin: Vec<crate::models::GetTransactionDetailsByTransactionIdribslVin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribslVout>, vsize: i32) -> GetTransactionDetailsByTransactionIdribsl {
+    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::GetTransactionDetailsByTransactionIdribslVin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribslVout>) -> GetTransactionDetailsByTransactionIdribsl {
         GetTransactionDetailsByTransactionIdribsl {
             locktime,
             size,
+            v_size,
             version,
             vin,
             vout,
-            vsize,
         }
     }
 }

@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DeleteAutomaticTokensForwardingRitset {
     /// Represents the specific `contractAddress` of the Token that will be forwarded.
     #[serde(rename = "contractAddress")]

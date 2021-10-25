@@ -11,36 +11,44 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CreateCoinsTransactionRequestFromWalletRi {
-    /// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.
+    /// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.  For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
     #[serde(rename = "callbackSecretKey", skip_serializing_if = "Option::is_none")]
     pub callback_secret_key: Option<String>,
-    /// Verified URL for sending callbacks
+    /// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
     #[serde(rename = "callbackUrl", skip_serializing_if = "Option::is_none")]
     pub callback_url: Option<String>,
     /// Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
     #[serde(rename = "feePriority")]
     pub fee_priority: FeePriority,
+    /// Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request.
+    #[serde(rename = "note", skip_serializing_if = "Option::is_none")]
+    pub note: Option<String>,
     /// Defines the destination of the transaction, whether it is incoming or outgoing.
     #[serde(rename = "recipients")]
     pub recipients: Vec<crate::models::CreateCoinsTransactionRequestFromWalletRiRecipients>,
     /// Represents the specific amount of the transaction.
     #[serde(rename = "totalTransactionAmount")]
     pub total_transaction_amount: String,
+    /// Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which `referenceId` concern that specific transaction request.
+    #[serde(rename = "transactionRequestId")]
+    pub transaction_request_id: String,
     /// Defines the status of the transaction, e.g. \"created, \"await_approval\", \"pending\", \"prepared\", \"signed\", \"broadcasted\", \"success\", \"failed\", \"rejected\", mined\".
     #[serde(rename = "transactionRequestStatus")]
     pub transaction_request_status: TransactionRequestStatus,
 }
 
 impl CreateCoinsTransactionRequestFromWalletRi {
-    pub fn new(fee_priority: FeePriority, recipients: Vec<crate::models::CreateCoinsTransactionRequestFromWalletRiRecipients>, total_transaction_amount: String, transaction_request_status: TransactionRequestStatus) -> CreateCoinsTransactionRequestFromWalletRi {
+    pub fn new(fee_priority: FeePriority, recipients: Vec<crate::models::CreateCoinsTransactionRequestFromWalletRiRecipients>, total_transaction_amount: String, transaction_request_id: String, transaction_request_status: TransactionRequestStatus) -> CreateCoinsTransactionRequestFromWalletRi {
         CreateCoinsTransactionRequestFromWalletRi {
             callback_secret_key: None,
             callback_url: None,
             fee_priority,
+            note: None,
             recipients,
             total_transaction_amount,
+            transaction_request_id,
             transaction_request_status,
         }
     }

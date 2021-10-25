@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DeleteAutomaticTokensForwardingRi {
     /// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
     #[serde(rename = "callbackUrl")]

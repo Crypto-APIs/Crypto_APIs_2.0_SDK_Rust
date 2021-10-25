@@ -11,11 +11,13 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetXrpRippleTransactionDetailsByTransactionIdri {
     /// Represents additional data that may be needed.
     #[serde(rename = "additionalData")]
     pub additional_data: String,
+    #[serde(rename = "destinationTag", skip_serializing_if = "Option::is_none")]
+    pub destination_tag: Option<i32>,
     /// Defines the index of the transaction, i.e. the consecutive place it takes in the blockchain.
     #[serde(rename = "index")]
     pub index: String,
@@ -60,6 +62,7 @@ impl GetXrpRippleTransactionDetailsByTransactionIdri {
     pub fn new(additional_data: String, index: String, mined_in_block_hash: String, mined_in_block_height: String, offer: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriOffer, receive: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriReceive, recipients: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriRecipients>, senders: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriSenders>, sequence: i32, timestamp: i32, transaction_hash: String, _type: String, fee: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriFee, value: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriValue) -> GetXrpRippleTransactionDetailsByTransactionIdri {
         GetXrpRippleTransactionDetailsByTransactionIdri {
             additional_data,
+            destination_tag: None,
             index,
             mined_in_block_hash,
             mined_in_block_height,

@@ -11,11 +11,12 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetAddressDetailsRiTotalSpent {
     /// Defines the total amount of all spent by this address coins, based on confirmed transactions.
     #[serde(rename = "amount")]
     pub amount: String,
+    /// Represents the unit of the total spent amount.
     #[serde(rename = "unit")]
     pub unit: String,
 }

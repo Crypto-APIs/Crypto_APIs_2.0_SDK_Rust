@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **additional_data** | Option<**String**> | Represents any additional data that may be needed. | [optional]
+**destination_tag** | Option<**i32**> |  | [optional]
 **index** | **i32** | Represents the index position of the transaction in the specific block. | 
 **mined_in_block_height** | **i32** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | 
 **recipients** | [**Vec<crate::models::ListXrpRippleTransactionsByBlockHashRiRecipients>**](ListXRPRippleTransactionsByBlockHashRI_recipients.md) | Represents an object of addresses that receive the transactions. | 

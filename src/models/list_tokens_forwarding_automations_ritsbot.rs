@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListTokensForwardingAutomationsRitsbot {
     /// Defines the Property ID of the Omni Layer token.
     #[serde(rename = "propertyId")]

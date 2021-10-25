@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListZilliqaTransactionsByAddressRiSenders {
     /// Represents the sender's address.
     #[serde(rename = "address")]

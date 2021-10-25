@@ -12,12 +12,12 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct TokensForwardingSuccessDataItem {
     /// Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     #[serde(rename = "blockchain")]
     pub blockchain: String,
-    /// Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+    /// Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     #[serde(rename = "network")]
     pub network: String,
     /// Represents the hash of the address that provides the tokens.
@@ -66,11 +66,11 @@ impl TokensForwardingSuccessDataItem {
 /// Defines the type of token sent with the transaction, e.g. ERC 20.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum TokenType {
-    #[serde(rename = "ethereumERC20Token")]
-    EthereumERC20Token,
-    #[serde(rename = "ethereumERC721Token")]
-    EthereumERC721Token,
-    #[serde(rename = "omniLayerToken")]
-    OmniLayerToken,
+    #[serde(rename = "ERC-20")]
+    ERC20,
+    #[serde(rename = "ERC-721")]
+    ERC721,
+    #[serde(rename = "OMNI")]
+    OMNI,
 }
 

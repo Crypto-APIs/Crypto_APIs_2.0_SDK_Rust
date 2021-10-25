@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct AddressTokensTransactionUnconfirmedData {
     /// Represents the Crypto APIs 2.0 product which sends the callback.
     #[serde(rename = "product")]

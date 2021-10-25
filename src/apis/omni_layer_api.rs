@@ -15,7 +15,7 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `get_omni_transaction_details_by_transaction_id__txid`
+/// struct for typed errors of method [`get_omni_transaction_details_by_transaction_id__txid`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetOmniTransactionDetailsByTransactionIdTxidError {
@@ -32,7 +32,7 @@ pub enum GetOmniTransactionDetailsByTransactionIdTxidError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `get_unconfirmed_omni_transaction_by_transaction_id__txid`
+/// struct for typed errors of method [`get_unconfirmed_omni_transaction_by_transaction_id__txid`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUnconfirmedOmniTransactionByTransactionIdTxidError {
@@ -49,7 +49,7 @@ pub enum GetUnconfirmedOmniTransactionByTransactionIdTxidError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `list_omni_tokens_by_address`
+/// struct for typed errors of method [`list_omni_tokens_by_address`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListOmniTokensByAddressError {
@@ -65,7 +65,7 @@ pub enum ListOmniTokensByAddressError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `list_omni_transactions_by_address`
+/// struct for typed errors of method [`list_omni_transactions_by_address`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListOmniTransactionsByAddressError {
@@ -81,7 +81,7 @@ pub enum ListOmniTransactionsByAddressError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `list_omni_transactions_by_block_hash`
+/// struct for typed errors of method [`list_omni_transactions_by_block_hash`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListOmniTransactionsByBlockHashError {
@@ -97,7 +97,7 @@ pub enum ListOmniTransactionsByBlockHashError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `list_omni_transactions_by_block_height`
+/// struct for typed errors of method [`list_omni_transactions_by_block_height`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListOmniTransactionsByBlockHeightError {
@@ -113,7 +113,7 @@ pub enum ListOmniTransactionsByBlockHeightError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `list_unconfirmed_omni_transactions_by_address`
+/// struct for typed errors of method [`list_unconfirmed_omni_transactions_by_address`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListUnconfirmedOmniTransactionsByAddressError {
@@ -129,7 +129,7 @@ pub enum ListUnconfirmedOmniTransactionsByAddressError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `list_unconfirmed_omni_transactions_by_property_id`
+/// struct for typed errors of method [`list_unconfirmed_omni_transactions_by_property_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListUnconfirmedOmniTransactionsByPropertyIdError {
@@ -148,19 +148,20 @@ pub enum ListUnconfirmedOmniTransactionsByPropertyIdError {
 
 /// Through this endpoint customers can obtain details about an Omni transaction by the transaction's unique identifier. The transaction can return information such as hash, height, time of creation in Unix timestamp, etc.
 pub async fn get_omni_transaction_details_by_transaction_id__txid(configuration: &configuration::Configuration, network: &str, blockchain: &str, transaction_id: &str, context: Option<&str>) -> Result<crate::models::GetOmniTransactionDetailsByTransactionIdTxidR, Error<GetOmniTransactionDetailsByTransactionIdTxidError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/transactions/{transactionId}", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), transactionId=crate::apis::urlencode(transaction_id));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/transactions/{transactionId}", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), transactionId=crate::apis::urlencode(transaction_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -186,19 +187,20 @@ pub async fn get_omni_transaction_details_by_transaction_id__txid(configuration:
 
 /// Through this endpoint customers can obtain information on unconfirmed Omni transactions by an attribute `transactionId`. The transaction can have information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
 pub async fn get_unconfirmed_omni_transaction_by_transaction_id__txid(configuration: &configuration::Configuration, network: &str, blockchain: &str, transaction_id: &str, context: Option<&str>) -> Result<crate::models::GetUnconfirmedOmniTransactionByTransactionIdTxidR, Error<GetUnconfirmedOmniTransactionByTransactionIdTxidError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/transactions-unconfirmed/{transactionId}", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), transactionId=crate::apis::urlencode(transaction_id));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/transactions-unconfirmed/{transactionId}", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), transactionId=crate::apis::urlencode(transaction_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -224,19 +226,20 @@ pub async fn get_unconfirmed_omni_transaction_by_transaction_id__txid(configurat
 
 /// Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.
 pub async fn list_omni_tokens_by_address(configuration: &configuration::Configuration, network: &str, blockchain: &str, address: &str, context: Option<&str>) -> Result<crate::models::ListOmniTokensByAddressR, Error<ListOmniTokensByAddressError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/addresses/{address}", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), address=crate::apis::urlencode(address));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/addresses/{address}", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), address=crate::apis::urlencode(address));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
         local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -262,10 +265,11 @@ pub async fn list_omni_tokens_by_address(configuration: &configuration::Configur
 
 /// This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
 pub async fn list_omni_transactions_by_address(configuration: &configuration::Configuration, network: &str, blockchain: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListOmniTransactionsByAddressR, Error<ListOmniTransactionsByAddressError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/addresses/{address}/transactions", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), address=crate::apis::urlencode(address));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/addresses/{address}/transactions", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), address=crate::apis::urlencode(address));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -277,10 +281,10 @@ pub async fn list_omni_transactions_by_address(configuration: &configuration::Co
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -306,10 +310,11 @@ pub async fn list_omni_transactions_by_address(configuration: &configuration::Co
 
 /// This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
 pub async fn list_omni_transactions_by_block_hash(configuration: &configuration::Configuration, network: &str, blockchain: &str, block_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListOmniTransactionsByBlockHashR, Error<ListOmniTransactionsByBlockHashError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/blocks/hash/{blockHash}/transactions", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), blockHash=crate::apis::urlencode(block_hash));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/blocks/hash/{blockHash}/transactions", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), blockHash=crate::apis::urlencode(block_hash));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -321,10 +326,10 @@ pub async fn list_omni_transactions_by_block_hash(configuration: &configuration:
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -350,10 +355,11 @@ pub async fn list_omni_transactions_by_block_hash(configuration: &configuration:
 
 /// This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
 pub async fn list_omni_transactions_by_block_height(configuration: &configuration::Configuration, network: &str, blockchain: &str, block_height: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListOmniTransactionsByBlockHeightR, Error<ListOmniTransactionsByBlockHeightError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/blocks/height/{blockHeight}/transactions", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), blockHeight=crate::apis::urlencode(block_height));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/blocks/height/{blockHeight}/transactions", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), blockHeight=crate::apis::urlencode(block_height));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -365,10 +371,10 @@ pub async fn list_omni_transactions_by_block_height(configuration: &configuratio
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -394,10 +400,11 @@ pub async fn list_omni_transactions_by_block_height(configuration: &configuratio
 
 /// This endpoint will list unconfirmed Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
 pub async fn list_unconfirmed_omni_transactions_by_address(configuration: &configuration::Configuration, network: &str, blockchain: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListUnconfirmedOmniTransactionsByAddressR, Error<ListUnconfirmedOmniTransactionsByAddressError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/address-transactions-unconfirmed/{address}", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), address=crate::apis::urlencode(address));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/address-transactions-unconfirmed/{address}", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), address=crate::apis::urlencode(address));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -409,10 +416,10 @@ pub async fn list_unconfirmed_omni_transactions_by_address(configuration: &confi
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
@@ -438,10 +445,11 @@ pub async fn list_unconfirmed_omni_transactions_by_address(configuration: &confi
 
 /// This endpoint will list unconfirmed Omni transactions by an attribute `propertyId`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.    Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
 pub async fn list_unconfirmed_omni_transactions_by_property_id(configuration: &configuration::Configuration, network: &str, blockchain: &str, property_id: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListUnconfirmedOmniTransactionsByPropertyIdr, Error<ListUnconfirmedOmniTransactionsByPropertyIdError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/properties/{propertyId}/transactions", configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), propertyId=crate::apis::urlencode(property_id));
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/omni/properties/{propertyId}/transactions", local_var_configuration.base_path, network=crate::apis::urlencode(network), blockchain=crate::apis::urlencode(blockchain), propertyId=crate::apis::urlencode(property_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -453,10 +461,10 @@ pub async fn list_unconfirmed_omni_transactions_by_property_id(configuration: &c
     if let Some(ref local_var_str) = offset {
         local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_apikey) = configuration.api_key {
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
         let local_var_value = match local_var_apikey.prefix {
             Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),

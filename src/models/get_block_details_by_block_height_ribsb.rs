@@ -12,14 +12,14 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetBlockDetailsByBlockHeightRibsb {
     /// Represents a mathematical value of how hard it is to find a valid hash for this block.
     #[serde(rename = "difficulty")]
     pub difficulty: String,
-    /// Represents a random value that can be adjusted to satisfy the Proof of Work
+    /// Represents a random value that can be adjusted to satisfy the Proof of Work.
     #[serde(rename = "nonce")]
-    pub nonce: i32,
+    pub nonce: String,
     /// Represents the total size of the block in Bytes.
     #[serde(rename = "size")]
     pub size: i32,
@@ -48,7 +48,7 @@ pub struct GetBlockDetailsByBlockHeightRibsb {
 
 impl GetBlockDetailsByBlockHeightRibsb {
     /// Bitcoin
-    pub fn new(difficulty: String, nonce: i32, size: i32, bits: String, chainwork: String, merkle_root: String, stripped_size: i32, version: i32, version_hex: String, weight: i32) -> GetBlockDetailsByBlockHeightRibsb {
+    pub fn new(difficulty: String, nonce: String, size: i32, bits: String, chainwork: String, merkle_root: String, stripped_size: i32, version: i32, version_hex: String, weight: i32) -> GetBlockDetailsByBlockHeightRibsb {
         GetBlockDetailsByBlockHeightRibsb {
             difficulty,
             nonce,

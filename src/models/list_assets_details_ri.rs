@@ -11,7 +11,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListAssetsDetailsRi {
     /// Defines the unique ID of the specific asset.
     #[serde(rename = "assetId")]

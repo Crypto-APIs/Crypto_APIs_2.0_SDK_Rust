@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetZilliqaTransactionDetailsByTransactionIdriFee {
     /// Represents the amount of the transaction fee.
     #[serde(rename = "amount")]

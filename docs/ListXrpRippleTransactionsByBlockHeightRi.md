@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **additional_data** | Option<**String**> |  | [optional]
+**destination_tag** | Option<**i32**> |  | [optional]
 **index** | **i32** |  | 
 **mined_in_block_hash** | **String** |  | 
 **recipients** | [**Vec<crate::models::ListXrpRippleTransactionsByBlockHeightRiRecipients>**](ListXRPRippleTransactionsByBlockHeightRI_recipients.md) | Object Array representation of transaction receivers | 

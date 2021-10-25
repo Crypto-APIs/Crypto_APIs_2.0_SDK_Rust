@@ -11,18 +11,18 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetBlockDetailsByBlockHeightRibs {
     /// Represents a mathematical value of how hard it is to find a valid hash for this block.
     #[serde(rename = "difficulty")]
     pub difficulty: String,
-    /// Represents a random value that can be adjusted to satisfy the Proof of Work
+    /// Represents a random value that can be adjusted to satisfy the Proof of Work.
     #[serde(rename = "nonce")]
-    pub nonce: i32,
+    pub nonce: String,
     /// Represents the total size of the block in Bytes.
     #[serde(rename = "size")]
     pub size: i32,
-    /// Represents a specific sub-unit of Dash. Bits have two-decimal precision.
+    /// Represents a specific sub-unit of Zcash. Bits have two-decimal precision
     #[serde(rename = "bits")]
     pub bits: String,
     /// Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
@@ -34,13 +34,13 @@ pub struct GetBlockDetailsByBlockHeightRibs {
     /// Defines the numeric representation of the block size excluding the witness data.
     #[serde(rename = "strippedSize")]
     pub stripped_size: i32,
-    /// Represents the version of the specific block on the blockchain.
+    /// Represents the block version number.
     #[serde(rename = "version")]
     pub version: i32,
     /// Is the hexadecimal string representation of the block's version.
     #[serde(rename = "versionHex")]
     pub version_hex: String,
-    /// Represents a measurement to compare the size of different transactions to each other in proportion to the block size limit.
+    /// Represents a measurement to compare the size of different transactions to each other in proportion to the block size limi
     #[serde(rename = "weight")]
     pub weight: i32,
     /// Represents any data that can be included by the miner in the block.
@@ -61,10 +61,13 @@ pub struct GetBlockDetailsByBlockHeightRibs {
     /// Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block.
     #[serde(rename = "totalDifficulty")]
     pub total_difficulty: String,
+    /// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
+    #[serde(rename = "merkleroot")]
+    pub merkleroot: String,
 }
 
 impl GetBlockDetailsByBlockHeightRibs {
-    pub fn new(difficulty: String, nonce: i32, size: i32, bits: String, chainwork: String, merkle_root: String, stripped_size: i32, version: i32, version_hex: String, weight: i32, extra_data: String, gas_limit: String, gas_used: String, mined_in_seconds: i32, sha3_uncles: String, total_difficulty: String) -> GetBlockDetailsByBlockHeightRibs {
+    pub fn new(difficulty: String, nonce: String, size: i32, bits: String, chainwork: String, merkle_root: String, stripped_size: i32, version: i32, version_hex: String, weight: i32, extra_data: String, gas_limit: String, gas_used: String, mined_in_seconds: i32, sha3_uncles: String, total_difficulty: String, merkleroot: String) -> GetBlockDetailsByBlockHeightRibs {
         GetBlockDetailsByBlockHeightRibs {
             difficulty,
             nonce,
@@ -82,6 +85,7 @@ impl GetBlockDetailsByBlockHeightRibs {
             mined_in_seconds,
             sha3_uncles,
             total_difficulty,
+            merkleroot,
         }
     }
 }

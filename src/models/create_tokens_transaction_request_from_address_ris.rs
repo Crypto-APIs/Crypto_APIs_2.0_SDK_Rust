@@ -12,11 +12,8 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CreateTokensTransactionRequestFromAddressRis {
-    /// Defines the `propertyID` from Omni layer.
-    #[serde(rename = "propertyId")]
-    pub property_id: String,
     /// Defines the contract address in the blockchain for an ERC20 token.
     #[serde(rename = "contractAddress")]
     pub contract_address: String,
@@ -24,9 +21,8 @@ pub struct CreateTokensTransactionRequestFromAddressRis {
 
 impl CreateTokensTransactionRequestFromAddressRis {
     /// Represents the specific token data which depends on its type - if it is a Coin or Token.
-    pub fn new(property_id: String, contract_address: String) -> CreateTokensTransactionRequestFromAddressRis {
+    pub fn new(contract_address: String) -> CreateTokensTransactionRequestFromAddressRis {
         CreateTokensTransactionRequestFromAddressRis {
-            property_id,
             contract_address,
         }
     }

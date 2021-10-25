@@ -11,11 +11,14 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct GetTransactionDetailsByTransactionIdri {
     /// Represents the index position of the transaction in the specific block.
     #[serde(rename = "index")]
     pub index: i32,
+    /// Represents the state of the transaction whether it is confirmed or not confirmed.
+    #[serde(rename = "isConfirmed")]
+    pub is_confirmed: String,
     /// Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
     #[serde(rename = "minedInBlockHash", skip_serializing_if = "Option::is_none")]
     pub mined_in_block_hash: Option<String>,
@@ -39,17 +42,15 @@ pub struct GetTransactionDetailsByTransactionIdri {
     pub transaction_id: String,
     #[serde(rename = "fee")]
     pub fee: Box<crate::models::GetTransactionDetailsByTransactionIdriFee>,
-    /// Defines whether the transaction is mined/confirmed or not. If it is \"false\", it means the transaction is still in the Mempool waiting to be included in a block. Value \"true\" means that this transaction is already confirmed and included in a block.
-    #[serde(rename = "isConfirmed")]
-    pub is_confirmed: bool,
     #[serde(rename = "blockchainSpecific")]
     pub blockchain_specific: Box<crate::models::GetTransactionDetailsByTransactionIdribs>,
 }
 
 impl GetTransactionDetailsByTransactionIdri {
-    pub fn new(index: i32, recipients: Vec<crate::models::GetTransactionDetailsByTransactionIdriRecipients>, senders: Vec<crate::models::GetTransactionDetailsByTransactionIdriSenders>, timestamp: i32, transaction_hash: String, transaction_id: String, fee: crate::models::GetTransactionDetailsByTransactionIdriFee, is_confirmed: bool, blockchain_specific: crate::models::GetTransactionDetailsByTransactionIdribs) -> GetTransactionDetailsByTransactionIdri {
+    pub fn new(index: i32, is_confirmed: String, recipients: Vec<crate::models::GetTransactionDetailsByTransactionIdriRecipients>, senders: Vec<crate::models::GetTransactionDetailsByTransactionIdriSenders>, timestamp: i32, transaction_hash: String, transaction_id: String, fee: crate::models::GetTransactionDetailsByTransactionIdriFee, blockchain_specific: crate::models::GetTransactionDetailsByTransactionIdribs) -> GetTransactionDetailsByTransactionIdri {
         GetTransactionDetailsByTransactionIdri {
             index,
+            is_confirmed,
             mined_in_block_hash: None,
             mined_in_block_height: None,
             recipients,
@@ -58,7 +59,6 @@ impl GetTransactionDetailsByTransactionIdri {
             transaction_hash,
             transaction_id,
             fee: Box::new(fee),
-            is_confirmed,
             blockchain_specific: Box::new(blockchain_specific),
         }
     }
