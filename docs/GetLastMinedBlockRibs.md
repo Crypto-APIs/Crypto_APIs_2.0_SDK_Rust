@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **sha3_uncles** | **String** | Defines the combined hash of all uncles for a given parent. | 
 **total_difficulty** | **String** | Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block | 
 **uncles** | **Vec<String>** |  | 
-**merkleroot** | **String** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

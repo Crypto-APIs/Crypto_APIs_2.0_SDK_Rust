@@ -61,13 +61,10 @@ pub struct GetBlockDetailsByBlockHeightRibs {
     /// Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block.
     #[serde(rename = "totalDifficulty")]
     pub total_difficulty: String,
-    /// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
-    #[serde(rename = "merkleroot")]
-    pub merkleroot: String,
 }
 
 impl GetBlockDetailsByBlockHeightRibs {
-    pub fn new(difficulty: String, nonce: String, size: i32, bits: String, chainwork: String, merkle_root: String, stripped_size: i32, version: i32, version_hex: String, weight: i32, extra_data: String, gas_limit: String, gas_used: String, mined_in_seconds: i32, sha3_uncles: String, total_difficulty: String, merkleroot: String) -> GetBlockDetailsByBlockHeightRibs {
+    pub fn new(difficulty: String, nonce: String, size: i32, bits: String, chainwork: String, merkle_root: String, stripped_size: i32, version: i32, version_hex: String, weight: i32, extra_data: String, gas_limit: String, gas_used: String, mined_in_seconds: i32, sha3_uncles: String, total_difficulty: String) -> GetBlockDetailsByBlockHeightRibs {
         GetBlockDetailsByBlockHeightRibs {
             difficulty,
             nonce,
@@ -85,7 +82,6 @@ impl GetBlockDetailsByBlockHeightRibs {
             mined_in_seconds,
             sha3_uncles,
             total_difficulty,
-            merkleroot,
         }
     }
 }

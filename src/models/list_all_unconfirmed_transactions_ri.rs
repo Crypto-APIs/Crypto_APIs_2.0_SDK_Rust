@@ -22,6 +22,9 @@ pub struct ListAllUnconfirmedTransactionsRi {
     /// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
     #[serde(rename = "timestamp")]
     pub timestamp: i32,
+    /// String representation of the transaction hash
+    #[serde(rename = "transactionHash")]
+    pub transaction_hash: String,
     /// Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
     #[serde(rename = "transactionId")]
     pub transaction_id: String,
@@ -30,11 +33,12 @@ pub struct ListAllUnconfirmedTransactionsRi {
 }
 
 impl ListAllUnconfirmedTransactionsRi {
-    pub fn new(recipients: Vec<crate::models::ListUnconfirmedTransactionsByAddressRiRecipients>, senders: Vec<crate::models::ListUnconfirmedTransactionsByAddressRiSenders>, timestamp: i32, transaction_id: String, blockchain_specific: crate::models::ListAllUnconfirmedTransactionsRibs) -> ListAllUnconfirmedTransactionsRi {
+    pub fn new(recipients: Vec<crate::models::ListUnconfirmedTransactionsByAddressRiRecipients>, senders: Vec<crate::models::ListUnconfirmedTransactionsByAddressRiSenders>, timestamp: i32, transaction_hash: String, transaction_id: String, blockchain_specific: crate::models::ListAllUnconfirmedTransactionsRibs) -> ListAllUnconfirmedTransactionsRi {
         ListAllUnconfirmedTransactionsRi {
             recipients,
             senders,
             timestamp,
+            transaction_hash,
             transaction_id,
             blockchain_specific: Box::new(blockchain_specific),
         }

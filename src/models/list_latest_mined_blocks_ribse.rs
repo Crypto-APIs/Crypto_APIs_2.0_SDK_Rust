@@ -29,23 +29,35 @@ pub struct ListLatestMinedBlocksRibse {
     /// Specifies the amount of time required for the block to be mined in seconds.
     #[serde(rename = "minedInSeconds")]
     pub mined_in_seconds: i32,
+    /// Represents a random value that can be adjusted to satisfy the proof of work
+    #[serde(rename = "nonce")]
+    pub nonce: String,
     /// Defines the combined hash of all uncles for a given parent.
     #[serde(rename = "sha3Uncles")]
     pub sha3_uncles: String,
+    /// Represents the total size of the block in Bytes.
+    #[serde(rename = "size")]
+    pub size: i32,
+    /// Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block.
+    #[serde(rename = "totalDifficulty")]
+    pub total_difficulty: String,
     #[serde(rename = "uncles")]
     pub uncles: Vec<String>,
 }
 
 impl ListLatestMinedBlocksRibse {
     /// Ethereum
-    pub fn new(difficulty: String, extra_data: String, gas_limit: String, gas_used: String, mined_in_seconds: i32, sha3_uncles: String, uncles: Vec<String>) -> ListLatestMinedBlocksRibse {
+    pub fn new(difficulty: String, extra_data: String, gas_limit: String, gas_used: String, mined_in_seconds: i32, nonce: String, sha3_uncles: String, size: i32, total_difficulty: String, uncles: Vec<String>) -> ListLatestMinedBlocksRibse {
         ListLatestMinedBlocksRibse {
             difficulty,
             extra_data,
             gas_limit,
             gas_used,
             mined_in_seconds,
+            nonce,
             sha3_uncles,
+            size,
+            total_difficulty,
             uncles,
         }
     }

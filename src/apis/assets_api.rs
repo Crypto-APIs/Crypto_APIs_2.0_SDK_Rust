@@ -15,22 +15,130 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
+/// struct for typed errors of method `get_asset_details_by_asset_id`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetAssetDetailsByAssetIdError {
+    Status400(crate::models::InlineResponse40090),
+    Status401(crate::models::InlineResponse40190),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40390),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method `get_asset_details_by_asset_symbol`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetAssetDetailsByAssetSymbolError {
+    Status400(crate::models::InlineResponse40091),
+    Status401(crate::models::InlineResponse40191),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40391),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method `list_assets_details`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListAssetsDetailsError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40089),
+    Status401(crate::models::InlineResponse40189),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40389),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
+
+/// Through this endpoint users can obtain information on assets by `assetId`.    The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.
+pub async fn get_asset_details_by_asset_id(configuration: &configuration::Configuration, asset_id: &str, context: Option<&str>) -> Result<crate::models::GetAssetDetailsByAssetIdr, Error<GetAssetDetailsByAssetIdError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/market-data/assets/assetId/{assetId}", configuration.base_path, assetId=crate::apis::urlencode(asset_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetAssetDetailsByAssetIdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Through this endpoint users can obtain information on assets by asset symbol.    The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.
+pub async fn get_asset_details_by_asset_symbol(configuration: &configuration::Configuration, asset_symbol: &str, context: Option<&str>) -> Result<crate::models::GetAssetDetailsByAssetSymbolR, Error<GetAssetDetailsByAssetSymbolError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/market-data/assets/{assetSymbol}", configuration.base_path, assetSymbol=crate::apis::urlencode(asset_symbol));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetAssetDetailsByAssetSymbolError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
 
 /// This endpoint will return a list of details on assets. These could be cryptocurrencies or FIAT assets that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. \"BTC\".    The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.
 pub async fn list_assets_details(configuration: &configuration::Configuration, context: Option<&str>, asset_type: Option<&str>, crypto_type: Option<&str>, limit: Option<i32>, offset: Option<i32>, waas_enabled: Option<bool>) -> Result<crate::models::ListAssetsDetailsR, Error<ListAssetsDetailsError>> {

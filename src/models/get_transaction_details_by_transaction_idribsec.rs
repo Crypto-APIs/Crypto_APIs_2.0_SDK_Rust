@@ -30,12 +30,12 @@ pub struct GetTransactionDetailsByTransactionIdribsec {
     pub input_data: String,
     /// Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.
     #[serde(rename = "nonce")]
-    pub nonce: String,
+    pub nonce: i32,
 }
 
 impl GetTransactionDetailsByTransactionIdribsec {
     /// Ethereum Classic
-    pub fn new(contract: String, gas_limit: String, gas_price: crate::models::GetTransactionDetailsByTransactionIdribsecGasPrice, gas_used: String, input_data: String, nonce: String) -> GetTransactionDetailsByTransactionIdribsec {
+    pub fn new(contract: String, gas_limit: String, gas_price: crate::models::GetTransactionDetailsByTransactionIdribsecGasPrice, gas_used: String, input_data: String, nonce: i32) -> GetTransactionDetailsByTransactionIdribsec {
         GetTransactionDetailsByTransactionIdribsec {
             contract,
             gas_limit,

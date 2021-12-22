@@ -19,16 +19,16 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLatestMinedZilliqaBlockError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::BlockchainDataBlockNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40040),
+    Status401(crate::models::InlineResponse40140),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40340),
+    Status404(crate::models::InlineResponse4042),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -36,15 +36,15 @@ pub enum GetLatestMinedZilliqaBlockError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetZilliqaAddressDetailsError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse4003),
+    Status401(crate::models::InlineResponse4013),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse4033),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -52,16 +52,16 @@ pub enum GetZilliqaAddressDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetZilliqaBlockDetailsByBlockHashError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::BlockchainDataBlockNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40033),
+    Status401(crate::models::InlineResponse40133),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40333),
+    Status404(crate::models::InlineResponse4042),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -69,16 +69,16 @@ pub enum GetZilliqaBlockDetailsByBlockHashError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetZilliqaBlockDetailsByBlockHeightError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::BlockchainDataBlockNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40029),
+    Status401(crate::models::InlineResponse40129),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40329),
+    Status404(crate::models::InlineResponse4042),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,16 +86,16 @@ pub enum GetZilliqaBlockDetailsByBlockHeightError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetZilliqaTransactionDetailsByTransactionIdError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::BlockchainDataTransactionNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse4009),
+    Status401(crate::models::InlineResponse4019),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse4039),
+    Status404(crate::models::InlineResponse404),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -103,15 +103,15 @@ pub enum GetZilliqaTransactionDetailsByTransactionIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListZilliqaTransactionsByAddressError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40014),
+    Status401(crate::models::InlineResponse40114),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40314),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -119,15 +119,15 @@ pub enum ListZilliqaTransactionsByAddressError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListZilliqaTransactionsByBlockHashError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40021),
+    Status401(crate::models::InlineResponse40121),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40321),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -135,15 +135,15 @@ pub enum ListZilliqaTransactionsByBlockHashError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListZilliqaTransactionsByBlockHeightError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40022),
+    Status401(crate::models::InlineResponse40122),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40322),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 

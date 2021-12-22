@@ -19,32 +19,16 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BroadcastLocallySignedTransactionError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::ResourceNotFound),
-    Status409(crate::models::AlreadyExists),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method `generate_address`
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GenerateAddressError {
-    Status400(crate::models::InvalidNetwork),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40085),
+    Status401(crate::models::InlineResponse40185),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40385),
+    Status404(crate::models::InlineResponse4041),
+    Status409(crate::models::InlineResponse40917),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -52,16 +36,16 @@ pub enum GenerateAddressError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetEip1559FeeRecommendationsError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::ResourceNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40084),
+    Status401(crate::models::InlineResponse40184),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40384),
+    Status404(crate::models::InlineResponse4041),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -69,20 +53,20 @@ pub enum GetEip1559FeeRecommendationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ValidateAddressError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40083),
+    Status401(crate::models::InlineResponse40183),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40383),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
 
-/// Through this endpoint customers can broadcast transactions that have been already signed locally. Instead of using a node for broadcasting a signed transaction users can use this endpoint. We then keep the user posted about the status by sending you a callback with a success or failure status.
+/// Through this endpoint customers can broadcast transactions that have been already signed locally. Instead of using a node for broadcasting a signed transaction users can use this endpoint. We then keep the user posted about the status by sending you a callback with a success or failure status.    {warning}This can be prepared and signed **only** locally, not through the API. We can provide support only for the process of broadcasting.{/warning}
 pub async fn broadcast_locally_signed_transaction(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, broadcast_locally_signed_transaction_rb: Option<crate::models::BroadcastLocallySignedTransactionRb>) -> Result<crate::models::BroadcastLocallySignedTransactionR, Error<BroadcastLocallySignedTransactionError>> {
 
     let local_var_client = &configuration.client;
@@ -116,45 +100,6 @@ pub async fn broadcast_locally_signed_transaction(configuration: &configuration:
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<BroadcastLocallySignedTransactionError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// This endpoint will generate a unique address for the user along with the specific transaction script, e.g. P2PKH, a private and a public key, and WIF.     Users **must** keep their private keys and WIFs secure and accessible to only them at all times. Losing those exposes a risk of losing their funds associated with the respective address.     {warning}We generate, but **do not** save or record the response in any data base, log or anywhere else on our side! In the case a user loses their private key or WIF, Crypto APIs 2.0 **will not be able** to retrieve it.{/warning}
-pub async fn generate_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, generate_address_rb: Option<crate::models::GenerateAddressRb>) -> Result<crate::models::GenerateAddressR, Error<GenerateAddressError>> {
-
-    let local_var_client = &configuration.client;
-
-    let local_var_uri_str = format!("{}/blockchain-tools/{blockchain}/{network}/addresses/generate", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = context {
-        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_apikey) = configuration.api_key {
-        let local_var_key = local_var_apikey.key.clone();
-        let local_var_value = match local_var_apikey.prefix {
-            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
-            None => local_var_key,
-        };
-        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
-    };
-    local_var_req_builder = local_var_req_builder.json(&generate_address_rb);
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GenerateAddressError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

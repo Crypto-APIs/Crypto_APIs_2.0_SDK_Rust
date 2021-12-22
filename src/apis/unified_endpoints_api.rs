@@ -19,15 +19,15 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAddressDetailsError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse400),
+    Status401(crate::models::InlineResponse401),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse403),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -35,16 +35,16 @@ pub enum GetAddressDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetBlockDetailsByBlockHashError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::BlockchainDataBlockNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40030),
+    Status401(crate::models::InlineResponse40130),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40330),
+    Status404(crate::models::InlineResponse4042),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -52,16 +52,16 @@ pub enum GetBlockDetailsByBlockHashError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetBlockDetailsByBlockHeightError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::BlockchainDataBlockNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40026),
+    Status401(crate::models::InlineResponse40126),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40326),
+    Status404(crate::models::InlineResponse4042),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -69,16 +69,16 @@ pub enum GetBlockDetailsByBlockHeightError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetFeeRecommendationsError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::ResourceNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40053),
+    Status401(crate::models::InlineResponse40153),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40353),
+    Status404(crate::models::InlineResponse4041),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -86,16 +86,16 @@ pub enum GetFeeRecommendationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLastMinedBlockError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::BlockchainDataBlockNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40037),
+    Status401(crate::models::InlineResponse40137),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40337),
+    Status404(crate::models::InlineResponse4042),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -103,16 +103,16 @@ pub enum GetLastMinedBlockError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTransactionDetailsByTransactionIdError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::BlockchainDataTransactionNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse4004),
+    Status401(crate::models::InlineResponse4014),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse4034),
+    Status404(crate::models::InlineResponse404),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -120,15 +120,15 @@ pub enum GetTransactionDetailsByTransactionIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListAllUnconfirmedTransactionsError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40016),
+    Status401(crate::models::InlineResponse40116),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40316),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -136,15 +136,15 @@ pub enum ListAllUnconfirmedTransactionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListConfirmedTransactionsByAddressError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40010),
+    Status401(crate::models::InlineResponse40110),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40310),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -152,16 +152,16 @@ pub enum ListConfirmedTransactionsByAddressError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListLatestMinedBlocksError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::ResourceNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40042),
+    Status401(crate::models::InlineResponse40142),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40342),
+    Status404(crate::models::InlineResponse4041),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -169,15 +169,15 @@ pub enum ListLatestMinedBlocksError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListTransactionsByBlockHashError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40017),
+    Status401(crate::models::InlineResponse40117),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40317),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -185,16 +185,16 @@ pub enum ListTransactionsByBlockHashError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListTransactionsByBlockHeightError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::BlockchainDataBlockNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40024),
+    Status401(crate::models::InlineResponse40124),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40324),
+    Status404(crate::models::InlineResponse4042),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -202,20 +202,20 @@ pub enum ListTransactionsByBlockHeightError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListUnconfirmedTransactionsByAddressError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40015),
+    Status401(crate::models::InlineResponse40115),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40315),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
 
-/// Through this endpoint the customer can receive basic information about a given address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.
+/// Through this endpoint the customer can receive basic information about a given address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here. Applies only for coins.
 pub async fn get_address_details(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>) -> Result<crate::models::GetAddressDetailsR, Error<GetAddressDetailsError>> {
 
     let local_var_client = &configuration.client;
@@ -531,7 +531,7 @@ pub async fn list_confirmed_transactions_by_address(configuration: &configuratio
     }
 }
 
-/// Through this endpoint customers can list the latest 50 blocks that were mined.
+/// Through this endpoint customers can list **up to 50** from the latest blocks that were mined.
 pub async fn list_latest_mined_blocks(configuration: &configuration::Configuration, network: &str, blockchain: &str, count: i32, context: Option<&str>) -> Result<crate::models::ListLatestMinedBlocksR, Error<ListLatestMinedBlocksError>> {
 
     let local_var_client = &configuration.client;

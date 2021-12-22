@@ -30,8 +30,8 @@ pub struct GetBlockDetailsByBlockHashRibsbc {
     #[serde(rename = "chainwork")]
     pub chainwork: String,
     /// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
-    #[serde(rename = "merkleroot")]
-    pub merkleroot: String,
+    #[serde(rename = "merkleRoot")]
+    pub merkle_root: String,
     /// Represents the version of the specific block on the blockchain.
     #[serde(rename = "version")]
     pub version: i32,
@@ -42,14 +42,14 @@ pub struct GetBlockDetailsByBlockHashRibsbc {
 
 impl GetBlockDetailsByBlockHashRibsbc {
     /// Bitcoin Cash
-    pub fn new(difficulty: String, nonce: String, size: i32, bits: String, chainwork: String, merkleroot: String, version: i32, version_hex: String) -> GetBlockDetailsByBlockHashRibsbc {
+    pub fn new(difficulty: String, nonce: String, size: i32, bits: String, chainwork: String, merkle_root: String, version: i32, version_hex: String) -> GetBlockDetailsByBlockHashRibsbc {
         GetBlockDetailsByBlockHashRibsbc {
             difficulty,
             nonce,
             size,
             bits,
             chainwork,
-            merkleroot,
+            merkle_root,
             version,
             version_hex,
         }

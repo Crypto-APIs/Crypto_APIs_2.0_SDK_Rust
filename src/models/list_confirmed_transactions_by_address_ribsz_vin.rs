@@ -19,7 +19,7 @@ pub struct ListConfirmedTransactionsByAddressRibszVin {
     #[serde(rename = "coinbase")]
     pub coinbase: String,
     #[serde(rename = "scriptSig")]
-    pub script_sig: Box<crate::models::ListConfirmedTransactionsByAddressRibszScriptSig>,
+    pub script_sig: Box<crate::models::GetTransactionDetailsByTransactionIdribszScriptSig>,
     /// Represents the script sequence number.
     #[serde(rename = "sequence")]
     pub sequence: i32,
@@ -37,7 +37,7 @@ pub struct ListConfirmedTransactionsByAddressRibszVin {
 }
 
 impl ListConfirmedTransactionsByAddressRibszVin {
-    pub fn new(addresses: Vec<String>, coinbase: String, script_sig: crate::models::ListConfirmedTransactionsByAddressRibszScriptSig, sequence: i32, txid: String, txinwitness: Vec<String>, value: String, vout: i32) -> ListConfirmedTransactionsByAddressRibszVin {
+    pub fn new(addresses: Vec<String>, coinbase: String, script_sig: crate::models::GetTransactionDetailsByTransactionIdribszScriptSig, sequence: i32, txid: String, txinwitness: Vec<String>, value: String, vout: i32) -> ListConfirmedTransactionsByAddressRibszVin {
         ListConfirmedTransactionsByAddressRibszVin {
             addresses,
             coinbase,

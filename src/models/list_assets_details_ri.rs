@@ -32,7 +32,7 @@ pub struct ListAssetsDetailsRi {
     pub asset_type: AssetType,
     #[serde(rename = "latestRate")]
     pub latest_rate: Box<crate::models::ListAssetsDetailsRiLatestRate>,
-    /// Asset`s unique slug string in Crypto APIs listings
+    /// Represents the asset`s unique slug string in Crypto APIs listings.
     #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
     pub slug: Option<String>,
     #[serde(rename = "specificData")]

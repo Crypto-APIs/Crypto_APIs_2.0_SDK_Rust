@@ -19,16 +19,16 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetInternalTransactionByTransactionHashAndOperationIdError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::BlockchainDataInternalTransactionNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40050),
+    Status401(crate::models::InlineResponse40150),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40350),
+    Status404(crate::models::InlineResponse4043),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -36,15 +36,15 @@ pub enum GetInternalTransactionByTransactionHashAndOperationIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListInternalTransactionDetailsByTransactionHashError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40048),
+    Status401(crate::models::InlineResponse40148),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40348),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -52,15 +52,15 @@ pub enum ListInternalTransactionDetailsByTransactionHashError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListInternalTransactionsByAddressError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40051),
+    Status401(crate::models::InlineResponse40151),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40351),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -147,6 +147,7 @@ pub async fn list_internal_transaction_details_by_transaction_hash(configuration
     }
 }
 
+/// Through this endpoint customers can list internal transactions by the `address` attribute.
 pub async fn list_internal_transactions_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListInternalTransactionsByAddressR, Error<ListInternalTransactionsByAddressError>> {
 
     let local_var_client = &configuration.client;

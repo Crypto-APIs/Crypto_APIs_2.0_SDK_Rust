@@ -34,13 +34,10 @@ pub struct NewUnconfirmedTokensTransactionsRi {
     /// Represents a unique ID used to reference the specific callback subscription.
     #[serde(rename = "referenceId")]
     pub reference_id: String,
-    /// Represents the unique identification string that defines the transaction.
-    #[serde(rename = "transactionId")]
-    pub transaction_id: String,
 }
 
 impl NewUnconfirmedTokensTransactionsRi {
-    pub fn new(address: String, callback_secret_key: String, callback_url: String, created_timestamp: i32, event_type: String, is_active: bool, reference_id: String, transaction_id: String) -> NewUnconfirmedTokensTransactionsRi {
+    pub fn new(address: String, callback_secret_key: String, callback_url: String, created_timestamp: i32, event_type: String, is_active: bool, reference_id: String) -> NewUnconfirmedTokensTransactionsRi {
         NewUnconfirmedTokensTransactionsRi {
             address,
             callback_secret_key,
@@ -49,7 +46,6 @@ impl NewUnconfirmedTokensTransactionsRi {
             event_type,
             is_active,
             reference_id,
-            transaction_id,
         }
     }
 }

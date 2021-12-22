@@ -20,9 +20,18 @@ pub struct ListLatestMinedBlocksRibsl {
     /// Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
     #[serde(rename = "chainwork")]
     pub chainwork: String,
+    /// Represents a mathematical value of how hard it is to find a valid hash for this block.
+    #[serde(rename = "difficulty")]
+    pub difficulty: String,
     /// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
     #[serde(rename = "merkleRoot")]
     pub merkle_root: String,
+    /// Represents a random value that can be adjusted to satisfy the proof of work
+    #[serde(rename = "nonce")]
+    pub nonce: i32,
+    /// Represents the total size of the block in Bytes.
+    #[serde(rename = "size")]
+    pub size: i32,
     /// Defines the numeric representation of the block size excluding the witness data.
     #[serde(rename = "strippedSize")]
     pub stripped_size: i32,
@@ -39,11 +48,14 @@ pub struct ListLatestMinedBlocksRibsl {
 
 impl ListLatestMinedBlocksRibsl {
     /// Litecoin
-    pub fn new(bits: String, chainwork: String, merkle_root: String, stripped_size: i32, version: i32, version_hex: String, weight: i32) -> ListLatestMinedBlocksRibsl {
+    pub fn new(bits: String, chainwork: String, difficulty: String, merkle_root: String, nonce: i32, size: i32, stripped_size: i32, version: i32, version_hex: String, weight: i32) -> ListLatestMinedBlocksRibsl {
         ListLatestMinedBlocksRibsl {
             bits,
             chainwork,
+            difficulty,
             merkle_root,
+            nonce,
+            size,
             stripped_size,
             version,
             version_hex,

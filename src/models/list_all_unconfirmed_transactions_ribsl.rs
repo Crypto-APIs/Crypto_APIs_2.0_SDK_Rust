@@ -31,12 +31,12 @@ pub struct ListAllUnconfirmedTransactionsRibsl {
     pub vin: Vec<crate::models::ListAllUnconfirmedTransactionsRibslVin>,
     /// Represents the transaction outputs.
     #[serde(rename = "vout")]
-    pub vout: Vec<crate::models::ListAllUnconfirmedTransactionsRibslVout>,
+    pub vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribslVout>,
 }
 
 impl ListAllUnconfirmedTransactionsRibsl {
     /// Litecoin
-    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::ListAllUnconfirmedTransactionsRibslVin>, vout: Vec<crate::models::ListAllUnconfirmedTransactionsRibslVout>) -> ListAllUnconfirmedTransactionsRibsl {
+    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::ListAllUnconfirmedTransactionsRibslVin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribslVout>) -> ListAllUnconfirmedTransactionsRibsl {
         ListAllUnconfirmedTransactionsRibsl {
             locktime,
             size,

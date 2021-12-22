@@ -63,13 +63,10 @@ pub struct GetBlockDetailsByBlockHashRibs {
     pub total_difficulty: String,
     #[serde(rename = "uncles")]
     pub uncles: Vec<String>,
-    /// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
-    #[serde(rename = "merkleroot")]
-    pub merkleroot: String,
 }
 
 impl GetBlockDetailsByBlockHashRibs {
-    pub fn new(difficulty: String, nonce: String, size: i32, bits: String, chainwork: String, merkle_root: String, stripped_size: i32, version: i32, version_hex: String, weight: i32, extra_data: String, gas_limit: String, gas_used: String, mined_in_seconds: i32, sha3_uncles: String, total_difficulty: String, uncles: Vec<String>, merkleroot: String) -> GetBlockDetailsByBlockHashRibs {
+    pub fn new(difficulty: String, nonce: String, size: i32, bits: String, chainwork: String, merkle_root: String, stripped_size: i32, version: i32, version_hex: String, weight: i32, extra_data: String, gas_limit: String, gas_used: String, mined_in_seconds: i32, sha3_uncles: String, total_difficulty: String, uncles: Vec<String>) -> GetBlockDetailsByBlockHashRibs {
         GetBlockDetailsByBlockHashRibs {
             difficulty,
             nonce,
@@ -88,7 +85,6 @@ impl GetBlockDetailsByBlockHashRibs {
             sha3_uncles,
             total_difficulty,
             uncles,
-            merkleroot,
         }
     }
 }

@@ -19,15 +19,15 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTransactionRequestDetailsError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40041),
+    Status401(crate::models::InlineResponse40141),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40341),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -35,16 +35,33 @@ pub enum GetTransactionRequestDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetWalletAssetDetailsError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::ResourceNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40035),
+    Status401(crate::models::InlineResponse40135),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40335),
+    Status404(crate::models::InlineResponse4041),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method `get_wallet_transaction_details_by_transaction_id`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetWalletTransactionDetailsByTransactionIdError {
+    Status400(crate::models::InlineResponse40046),
+    Status401(crate::models::InlineResponse40146),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40346),
+    Status404(crate::models::InlineResponse4041),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -52,16 +69,16 @@ pub enum GetWalletAssetDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListDepositAddressesError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::ResourceNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse4007),
+    Status401(crate::models::InlineResponse4017),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse4037),
+    Status404(crate::models::InlineResponse4041),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -69,15 +86,15 @@ pub enum ListDepositAddressesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListSupportedTokensError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40034),
+    Status401(crate::models::InlineResponse40134),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40334),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -85,16 +102,16 @@ pub enum ListSupportedTokensError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListWalletTransactionsError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status404(crate::models::ResourceNotFound),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40045),
+    Status401(crate::models::InlineResponse40145),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40345),
+    Status404(crate::models::InlineResponse4041),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -170,6 +187,44 @@ pub async fn get_wallet_asset_details(configuration: &configuration::Configurati
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetWalletAssetDetailsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Through this endpoint users can obtain Wallet transaction information by providing a `transactionId`. Customers can receive information only for a transaction that has been made from their own wallet.
+pub async fn get_wallet_transaction_details_by_transaction_id(configuration: &configuration::Configuration, blockchain: &str, network: &str, transaction_id: &str, context: Option<&str>) -> Result<crate::models::GetWalletTransactionDetailsByTransactionIdr, Error<GetWalletTransactionDetailsByTransactionIdError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/wallet-as-a-service/wallets/{blockchain}/{network}/transactions/{transactionId}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), transactionId=crate::apis::urlencode(transaction_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetWalletTransactionDetailsByTransactionIdError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

@@ -64,6 +64,7 @@ pub fn urlencode<T: AsRef<str>>(s: T) -> String {
 pub mod assets_api;
 pub mod automatic_coins_forwarding_api;
 pub mod automatic_tokens_forwarding_api;
+pub mod callback_data_api;
 pub mod create_subscriptions_for_api;
 pub mod exchange_rates_api;
 pub mod features_api;

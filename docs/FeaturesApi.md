@@ -5,7 +5,6 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**broadcast_locally_signed_transaction**](FeaturesApi.md#broadcast_locally_signed_transaction) | **POST** /blockchain-tools/{blockchain}/{network}/transactions/broadcast | Broadcast Locally Signed Transaction
-[**generate_address**](FeaturesApi.md#generate_address) | **POST** /blockchain-tools/{blockchain}/{network}/addresses/generate | Generate Address
 [**get_eip_1559_fee_recommendations**](FeaturesApi.md#get_eip_1559_fee_recommendations) | **GET** /blockchain-tools/{blockchain}/{network}/fees/eip1559 | Get EIP 1559 Fee Recommendations
 [**validate_address**](FeaturesApi.md#validate_address) | **POST** /blockchain-tools/{blockchain}/{network}/addresses/validate | Validate Address
 
@@ -16,7 +15,7 @@ Method | HTTP request | Description
 > crate::models::BroadcastLocallySignedTransactionR broadcast_locally_signed_transaction(blockchain, network, context, broadcast_locally_signed_transaction_rb)
 Broadcast Locally Signed Transaction
 
-Through this endpoint customers can broadcast transactions that have been already signed locally. Instead of using a node for broadcasting a signed transaction users can use this endpoint. We then keep the user posted about the status by sending you a callback with a success or failure status.
+Through this endpoint customers can broadcast transactions that have been already signed locally. Instead of using a node for broadcasting a signed transaction users can use this endpoint. We then keep the user posted about the status by sending you a callback with a success or failure status.    {warning}This can be prepared and signed **only** locally, not through the API. We can provide support only for the process of broadcasting.{/warning}
 
 ### Parameters
 
@@ -31,39 +30,6 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::BroadcastLocallySignedTransactionR**](BroadcastLocallySignedTransactionR.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## generate_address
-
-> crate::models::GenerateAddressR generate_address(blockchain, network, context, generate_address_rb)
-Generate Address
-
-This endpoint will generate a unique address for the user along with the specific transaction script, e.g. P2PKH, a private and a public key, and WIF.     Users **must** keep their private keys and WIFs secure and accessible to only them at all times. Losing those exposes a risk of losing their funds associated with the respective address.     {warning}We generate, but **do not** save or record the response in any data base, log or anywhere else on our side! In the case a user loses their private key or WIF, Crypto APIs 2.0 **will not be able** to retrieve it.{/warning}
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [required] |
-**network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
-**context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
-**generate_address_rb** | Option<[**GenerateAddressRb**](GenerateAddressRb.md)> |  |  |
-
-### Return type
-
-[**crate::models::GenerateAddressR**](GenerateAddressR.md)
 
 ### Authorization
 

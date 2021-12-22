@@ -30,8 +30,8 @@ pub struct GetLastMinedBlockRibsz {
     #[serde(rename = "chainwork")]
     pub chainwork: String,
     /// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
-    #[serde(rename = "merkleroot")]
-    pub merkleroot: String,
+    #[serde(rename = "merkleRoot")]
+    pub merkle_root: String,
     /// Represents the transaction version number.
     #[serde(rename = "version")]
     pub version: i32,
@@ -39,14 +39,14 @@ pub struct GetLastMinedBlockRibsz {
 
 impl GetLastMinedBlockRibsz {
     /// Zcash
-    pub fn new(difficulty: String, nonce: String, size: i32, bits: String, chainwork: String, merkleroot: String, version: i32) -> GetLastMinedBlockRibsz {
+    pub fn new(difficulty: String, nonce: String, size: i32, bits: String, chainwork: String, merkle_root: String, version: i32) -> GetLastMinedBlockRibsz {
         GetLastMinedBlockRibsz {
             difficulty,
             nonce,
             size,
             bits,
             chainwork,
-            merkleroot,
+            merkle_root,
             version,
         }
     }

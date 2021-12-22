@@ -18,6 +18,14 @@ pub struct ListWalletTransactionsRi {
     pub direction: String,
     #[serde(rename = "fee")]
     pub fee: Box<crate::models::ListWalletTransactionsRiFee>,
+    /// Represents fungible tokens'es detailed information
+    #[serde(rename = "fungibleTokens", skip_serializing_if = "Option::is_none")]
+    pub fungible_tokens: Option<Vec<crate::models::ListWalletTransactionsRiFungibleTokens>>,
+    #[serde(rename = "internalTransactions", skip_serializing_if = "Option::is_none")]
+    pub internal_transactions: Option<Vec<crate::models::ListWalletTransactionsRiInternalTransactions>>,
+    /// Represents non-fungible tokens'es detailed information.
+    #[serde(rename = "nonFungibleTokens", skip_serializing_if = "Option::is_none")]
+    pub non_fungible_tokens: Option<Vec<crate::models::ListWalletTransactionsRiNonFungibleTokens>>,
     /// Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
     #[serde(rename = "recipients")]
     pub recipients: Vec<crate::models::ListWalletTransactionsRiRecipients>,
@@ -42,6 +50,9 @@ impl ListWalletTransactionsRi {
         ListWalletTransactionsRi {
             direction,
             fee: Box::new(fee),
+            fungible_tokens: None,
+            internal_transactions: None,
+            non_fungible_tokens: None,
             recipients,
             senders,
             status,

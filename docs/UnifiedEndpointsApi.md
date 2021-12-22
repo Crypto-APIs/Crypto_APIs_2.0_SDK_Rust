@@ -24,7 +24,7 @@ Method | HTTP request | Description
 > crate::models::GetAddressDetailsR get_address_details(blockchain, network, address, context)
 Get Address Details
 
-Through this endpoint the customer can receive basic information about a given address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.
+Through this endpoint the customer can receive basic information about a given address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here. Applies only for coins.
 
 ### Parameters
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListLatestMinedBlocksR list_latest_mined_blocks(network, blockchain, count, context)
 List Latest Mined Blocks
 
-Through this endpoint customers can list the latest 50 blocks that were mined.
+Through this endpoint customers can list **up to 50** from the latest blocks that were mined.
 
 ### Parameters
 

@@ -17,18 +17,18 @@ pub struct BroadcastLocallySignedTransactionRbDataItem {
     #[serde(rename = "callbackSecretKey", skip_serializing_if = "Option::is_none")]
     pub callback_secret_key: Option<String>,
     /// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
-    #[serde(rename = "callbackUrl")]
-    pub callback_url: String,
+    #[serde(rename = "callbackUrl", skip_serializing_if = "Option::is_none")]
+    pub callback_url: Option<String>,
     /// Represents the signed transaction's specific hex.
     #[serde(rename = "signedTransactionHex")]
     pub signed_transaction_hex: String,
 }
 
 impl BroadcastLocallySignedTransactionRbDataItem {
-    pub fn new(callback_url: String, signed_transaction_hex: String) -> BroadcastLocallySignedTransactionRbDataItem {
+    pub fn new(signed_transaction_hex: String) -> BroadcastLocallySignedTransactionRbDataItem {
         BroadcastLocallySignedTransactionRbDataItem {
             callback_secret_key: None,
-            callback_url,
+            callback_url: None,
             signed_transaction_hex,
         }
     }

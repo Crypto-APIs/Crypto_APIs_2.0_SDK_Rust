@@ -40,10 +40,10 @@ pub struct ListConfirmedTransactionsByAddressRibsz {
     pub v_join_split: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVJoinSplit>,
     /// Object Array representation of transaction output descriptions
     #[serde(rename = "vShieldedOutput")]
-    pub v_shielded_output: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedOutput>,
+    pub v_shielded_output: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>,
     /// Object Array representation of transaction spend descriptions
     #[serde(rename = "vShieldedSpend")]
-    pub v_shielded_spend: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedSpend>,
+    pub v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>,
     /// Defines the transaction value balance.
     #[serde(rename = "valueBalance")]
     pub value_balance: String,
@@ -58,12 +58,12 @@ pub struct ListConfirmedTransactionsByAddressRibsz {
     pub vin: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVin>,
     /// Object Array representation of transaction outputs
     #[serde(rename = "vout")]
-    pub vout: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVout>,
+    pub vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>,
 }
 
 impl ListConfirmedTransactionsByAddressRibsz {
     /// Zcash
-    pub fn new(binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, locktime: i32, overwintered: bool, size: i32, v_join_split: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVJoinSplit>, v_shielded_output: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedOutput>, v_shielded_spend: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedSpend>, value_balance: String, version: i32, version_group_id: String, vin: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVin>, vout: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVout>) -> ListConfirmedTransactionsByAddressRibsz {
+    pub fn new(binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, locktime: i32, overwintered: bool, size: i32, v_join_split: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVJoinSplit>, v_shielded_output: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>, v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>, value_balance: String, version: i32, version_group_id: String, vin: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>) -> ListConfirmedTransactionsByAddressRibsz {
         ListConfirmedTransactionsByAddressRibsz {
             binding_sig,
             expiry_height,

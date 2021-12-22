@@ -19,15 +19,15 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCoinsTransactionFromAddressForWholeAmountError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::WalletAsAServiceAddressBalanceNotEnough),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40025),
+    Status401(crate::models::InlineResponse40125),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40325),
+    Status409(crate::models::InlineResponse4093),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -35,15 +35,15 @@ pub enum CreateCoinsTransactionFromAddressForWholeAmountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCoinsTransactionRequestFromAddressError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::WalletAsAServiceAddressBalanceNotEnough),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40020),
+    Status401(crate::models::InlineResponse40120),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40320),
+    Status409(crate::models::InlineResponse4092),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,31 +51,31 @@ pub enum CreateCoinsTransactionRequestFromAddressError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCoinsTransactionRequestFromWalletError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::WalletAsAServiceNoDepositAddressesFound),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40013),
+    Status401(crate::models::InlineResponse40113),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40313),
+    Status409(crate::models::InlineResponse4091),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `create_tokens_transaction_request_from_address`
+/// struct for typed errors of method `create_fungible_tokens_transaction_request_from_address`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CreateTokensTransactionRequestFromAddressError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::WalletAsAServiceTokenNotSupported),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+pub enum CreateFungibleTokensTransactionRequestFromAddressError {
+    Status400(crate::models::InlineResponse40036),
+    Status401(crate::models::InlineResponse40136),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40336),
+    Status409(crate::models::InlineResponse4094),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -197,8 +197,8 @@ pub async fn create_coins_transaction_request_from_wallet(configuration: &config
     }
 }
 
-/// Through this endpoint users can make a single token transaction.    {warning}This applies only to **fungible** tokens, **not** NFTs (non-fungible tokens).{/warning}    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
-pub async fn create_tokens_transaction_request_from_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, sender_address: &str, wallet_id: &str, context: Option<&str>, create_tokens_transaction_request_from_address_rb: Option<crate::models::CreateTokensTransactionRequestFromAddressRb>) -> Result<crate::models::CreateTokensTransactionRequestFromAddressR, Error<CreateTokensTransactionRequestFromAddressError>> {
+/// Through this endpoint users can make a single token transaction.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
+pub async fn create_fungible_tokens_transaction_request_from_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, sender_address: &str, wallet_id: &str, context: Option<&str>, create_fungible_tokens_transaction_request_from_address_rb: Option<crate::models::CreateFungibleTokensTransactionRequestFromAddressRb>) -> Result<crate::models::CreateFungibleTokensTransactionRequestFromAddressR, Error<CreateFungibleTokensTransactionRequestFromAddressError>> {
 
     let local_var_client = &configuration.client;
 
@@ -219,7 +219,7 @@ pub async fn create_tokens_transaction_request_from_address(configuration: &conf
         };
         local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&create_tokens_transaction_request_from_address_rb);
+    local_var_req_builder = local_var_req_builder.json(&create_fungible_tokens_transaction_request_from_address_rb);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -230,7 +230,7 @@ pub async fn create_tokens_transaction_request_from_address(configuration: &conf
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateTokensTransactionRequestFromAddressError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateFungibleTokensTransactionRequestFromAddressError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

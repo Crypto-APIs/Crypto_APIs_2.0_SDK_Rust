@@ -19,9 +19,18 @@ pub struct ListLatestMinedBlocksRibs {
     /// Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
     #[serde(rename = "chainwork")]
     pub chainwork: String,
+    /// Represents a mathematical value of how hard it is to find a valid hash for this block.
+    #[serde(rename = "difficulty")]
+    pub difficulty: String,
     /// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
     #[serde(rename = "merkleRoot")]
     pub merkle_root: String,
+    /// Represents a random value that can be adjusted to satisfy the proof of work
+    #[serde(rename = "nonce")]
+    pub nonce: String,
+    /// Represents the total size of the block in Bytes.
+    #[serde(rename = "size")]
+    pub size: i32,
     /// Defines the numeric representation of the block size excluding the witness data.
     #[serde(rename = "strippedSize")]
     pub stripped_size: i32,
@@ -54,9 +63,6 @@ pub struct ListLatestMinedBlocksRibs {
     pub total_difficulty: String,
     #[serde(rename = "uncles")]
     pub uncles: Vec<String>,
-    /// Represents a mathematical value of how hard it is to find a valid hash for this block.
-    #[serde(rename = "difficulty")]
-    pub difficulty: String,
     /// Represents the Directory Service block which contains metadata about the miners who participate in the consensus protocol.
     #[serde(rename = "dsBlock")]
     pub ds_block: i32,
@@ -68,23 +74,17 @@ pub struct ListLatestMinedBlocksRibs {
     pub ds_leader: String,
     #[serde(rename = "microBlocks")]
     pub micro_blocks: Vec<String>,
-    /// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
-    #[serde(rename = "merkleroot")]
-    pub merkleroot: String,
-    /// Represents a random value that can be adjusted to satisfy the proof of work
-    #[serde(rename = "nonce")]
-    pub nonce: String,
-    /// Represents the total size of the block in Bytes.
-    #[serde(rename = "size")]
-    pub size: i32,
 }
 
 impl ListLatestMinedBlocksRibs {
-    pub fn new(bits: String, chainwork: String, merkle_root: String, stripped_size: i32, version: i32, version_hex: String, weight: i32, extra_data: String, gas_limit: i32, gas_used: i32, mined_in_seconds: i32, sha3_uncles: String, total_difficulty: String, uncles: Vec<String>, difficulty: String, ds_block: i32, ds_difficulty: String, ds_leader: String, micro_blocks: Vec<String>, merkleroot: String, nonce: String, size: i32) -> ListLatestMinedBlocksRibs {
+    pub fn new(bits: String, chainwork: String, difficulty: String, merkle_root: String, nonce: String, size: i32, stripped_size: i32, version: i32, version_hex: String, weight: i32, extra_data: String, gas_limit: i32, gas_used: i32, mined_in_seconds: i32, sha3_uncles: String, total_difficulty: String, uncles: Vec<String>, ds_block: i32, ds_difficulty: String, ds_leader: String, micro_blocks: Vec<String>) -> ListLatestMinedBlocksRibs {
         ListLatestMinedBlocksRibs {
             bits,
             chainwork,
+            difficulty,
             merkle_root,
+            nonce,
+            size,
             stripped_size,
             version,
             version_hex,
@@ -96,14 +96,10 @@ impl ListLatestMinedBlocksRibs {
             sha3_uncles,
             total_difficulty,
             uncles,
-            difficulty,
             ds_block,
             ds_difficulty,
             ds_leader,
             micro_blocks,
-            merkleroot,
-            nonce,
-            size,
         }
     }
 }

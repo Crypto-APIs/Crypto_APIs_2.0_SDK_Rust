@@ -28,6 +28,9 @@ pub struct ListConfirmedTokensTransfersByAddressRi {
     /// Defines the decimals of the token, i.e. the number of digits that come after the decimal coma of the token.
     #[serde(rename = "tokenDecimals")]
     pub token_decimals: i32,
+    /// Represents the unique token identifier.
+    #[serde(rename = "tokenId", skip_serializing_if = "Option::is_none")]
+    pub token_id: Option<String>,
     /// Defines the token's name as a string.
     #[serde(rename = "tokenName")]
     pub token_name: String,
@@ -38,8 +41,8 @@ pub struct ListConfirmedTokensTransfersByAddressRi {
     #[serde(rename = "tokenType")]
     pub token_type: String,
     /// Defines the token amount of the transfer.
-    #[serde(rename = "tokensAmount")]
-    pub tokens_amount: String,
+    #[serde(rename = "tokensAmount", skip_serializing_if = "Option::is_none")]
+    pub tokens_amount: Option<String>,
     /// Represents the hash of the transaction, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
     #[serde(rename = "transactionHash")]
     pub transaction_hash: String,
@@ -49,17 +52,18 @@ pub struct ListConfirmedTokensTransfersByAddressRi {
 }
 
 impl ListConfirmedTokensTransfersByAddressRi {
-    pub fn new(contract_address: String, mined_in_block_height: i32, recipient_address: String, sender_address: String, token_decimals: i32, token_name: String, token_symbol: String, token_type: String, tokens_amount: String, transaction_hash: String, transaction_timestamp: i32) -> ListConfirmedTokensTransfersByAddressRi {
+    pub fn new(contract_address: String, mined_in_block_height: i32, recipient_address: String, sender_address: String, token_decimals: i32, token_name: String, token_symbol: String, token_type: String, transaction_hash: String, transaction_timestamp: i32) -> ListConfirmedTokensTransfersByAddressRi {
         ListConfirmedTokensTransfersByAddressRi {
             contract_address,
             mined_in_block_height,
             recipient_address,
             sender_address,
             token_decimals,
+            token_id: None,
             token_name,
             token_symbol,
             token_type,
-            tokens_amount,
+            tokens_amount: None,
             transaction_hash,
             transaction_timestamp,
         }

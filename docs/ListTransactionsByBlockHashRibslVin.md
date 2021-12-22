@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addresses** | **Vec<String>** |  | 
 **coinbase** | Option<**String**> | Represents the coinbase hex. | [optional]
-**script_sig** | [**crate::models::GetTransactionDetailsByTransactionIdribslScriptSig**](GetTransactionDetailsByTransactionIDRIBSL_scriptSig.md) |  | 
+**script_sig** | [**crate::models::ListTransactionsByBlockHashRibslScriptSig**](ListTransactionsByBlockHashRIBSL_scriptSig.md) |  | 
 **sequence** | **String** | Represents the script sequence number. | 
 **txid** | **String** | Represents the reference transaction identifier. | 
 **txinwitness** | **Vec<String>** |  | 

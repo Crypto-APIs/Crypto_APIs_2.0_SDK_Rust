@@ -13,10 +13,10 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetTransactionDetailsByTransactionIdriFee {
-    /// Defines the amount of the transaction fee.
+    /// When isConfirmed is True - Defines the amount of the transaction fee  When isConfirmed is False - For ETH-based blockchains this attribute represents the max fee value.
     #[serde(rename = "amount")]
     pub amount: String,
-    /// Defines the unit of the fee amount, e.g. BTC, ETH, XRP.
+    /// Defines the fee unit.
     #[serde(rename = "unit")]
     pub unit: String,
 }

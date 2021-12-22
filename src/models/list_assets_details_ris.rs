@@ -26,7 +26,7 @@ pub struct ListAssetsDetailsRis {
     /// Represents the trading volume of the asset for the time frame of 24 hours.
     #[serde(rename = "24HoursTradingVolume")]
     pub var_24_hours_trading_volume: String,
-    /// Subtype of the crypto assets. Could be COIN or TOKEN
+    /// Represent a subtype of the crypto assets. Could be COIN or TOKEN.
     #[serde(rename = "assetType")]
     pub asset_type: AssetType,
     /// Represents the amount of the asset that is circulating on the market and in public hands.
@@ -56,7 +56,7 @@ impl ListAssetsDetailsRis {
     }
 }
 
-/// Subtype of the crypto assets. Could be COIN or TOKEN
+/// Represent a subtype of the crypto assets. Could be COIN or TOKEN.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum AssetType {
     #[serde(rename = "coin")]

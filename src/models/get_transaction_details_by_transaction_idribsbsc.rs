@@ -15,8 +15,8 @@
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetTransactionDetailsByTransactionIdribsbsc {
     /// Represents the specific transaction contract
-    #[serde(rename = "contract", skip_serializing_if = "Option::is_none")]
-    pub contract: Option<String>,
+    #[serde(rename = "contract")]
+    pub contract: String,
     /// Represents the amount of gas used by this specific transaction alone.
     #[serde(rename = "gasLimit")]
     pub gas_limit: String,
@@ -35,9 +35,9 @@ pub struct GetTransactionDetailsByTransactionIdribsbsc {
 
 impl GetTransactionDetailsByTransactionIdribsbsc {
     /// Binance Smart Chain
-    pub fn new(gas_limit: String, gas_price: crate::models::GetTransactionDetailsByTransactionIdribsbscGasPrice, gas_used: String, input_data: String, nonce: i32) -> GetTransactionDetailsByTransactionIdribsbsc {
+    pub fn new(contract: String, gas_limit: String, gas_price: crate::models::GetTransactionDetailsByTransactionIdribsbscGasPrice, gas_used: String, input_data: String, nonce: i32) -> GetTransactionDetailsByTransactionIdribsbsc {
         GetTransactionDetailsByTransactionIdribsbsc {
-            contract: None,
+            contract,
             gas_limit,
             gas_price: Box::new(gas_price),
             gas_used,

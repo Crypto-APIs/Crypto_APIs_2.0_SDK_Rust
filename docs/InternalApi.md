@@ -84,13 +84,15 @@ Name | Type | Description  | Required | Notes
 > crate::models::ListInternalTransactionsByAddressR list_internal_transactions_by_address(blockchain, network, address, context, limit, offset)
 List Internal Transactions By Address
 
+Through this endpoint customers can list internal transactions by the `address` attribute.
+
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [required] |
-**network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks. | [required] |
+**network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
 **address** | **String** | String identifier of the address document represented in CryptoAPIs | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
 **limit** | Option<**i32**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]

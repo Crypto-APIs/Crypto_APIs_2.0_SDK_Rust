@@ -27,10 +27,10 @@ pub struct ListUnconfirmedTransactionsByAddressRibs {
     pub version: i32,
     /// Object Array representation of transaction inputs
     #[serde(rename = "vin")]
-    pub vin: Vec<crate::models::ListUnconfirmedTransactionsByAddressRibszVin>,
+    pub vin: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVin>,
     /// Object Array representation of transaction outputs
     #[serde(rename = "vout")]
-    pub vout: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVout>,
+    pub vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>,
     #[serde(rename = "fee")]
     pub fee: Box<crate::models::ListUnconfirmedTransactionsByAddressRibsecFee>,
     /// Represents the amount of gas used by this specific transaction alone.
@@ -67,10 +67,10 @@ pub struct ListUnconfirmedTransactionsByAddressRibs {
     pub v_join_split: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVJoinSplit>,
     /// Object Array representation of transaction output descriptions
     #[serde(rename = "vShieldedOutput")]
-    pub v_shielded_output: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedOutput>,
+    pub v_shielded_output: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>,
     /// Object Array representation of transaction spend descriptions
     #[serde(rename = "vShieldedSpend")]
-    pub v_shielded_spend: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedSpend>,
+    pub v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>,
     /// Defines the transaction value balance.
     #[serde(rename = "valueBalance")]
     pub value_balance: String,
@@ -80,7 +80,7 @@ pub struct ListUnconfirmedTransactionsByAddressRibs {
 }
 
 impl ListUnconfirmedTransactionsByAddressRibs {
-    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::ListUnconfirmedTransactionsByAddressRibszVin>, vout: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVout>, fee: crate::models::ListUnconfirmedTransactionsByAddressRibsecFee, gas_limit: String, gas_price: crate::models::ListConfirmedTransactionsByAddressRibsbscGasPrice, input_data: String, nonce: i32, transaction_status: String, binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, overwintered: bool, v_join_split: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVJoinSplit>, v_shielded_output: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedOutput>, v_shielded_spend: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedSpend>, value_balance: String, version_group_id: String) -> ListUnconfirmedTransactionsByAddressRibs {
+    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>, fee: crate::models::ListUnconfirmedTransactionsByAddressRibsecFee, gas_limit: String, gas_price: crate::models::ListConfirmedTransactionsByAddressRibsbscGasPrice, input_data: String, nonce: i32, transaction_status: String, binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, overwintered: bool, v_join_split: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVJoinSplit>, v_shielded_output: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>, v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>, value_balance: String, version_group_id: String) -> ListUnconfirmedTransactionsByAddressRibs {
         ListUnconfirmedTransactionsByAddressRibs {
             locktime,
             size,

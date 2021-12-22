@@ -18,9 +18,15 @@ pub struct GetWalletAssetDetailsRi {
     /// Specifies the count of deposit addresses in the Wallet.
     #[serde(rename = "depositAddressesCount")]
     pub deposit_addresses_count: i32,
+    /// Represents fungible tokens'es detailed information
+    #[serde(rename = "fungibleTokens")]
+    pub fungible_tokens: Vec<crate::models::GetWalletAssetDetailsRiFungibleTokens>,
     /// Defines the name of the Wallet given to it by the user.
     #[serde(rename = "name")]
     pub name: String,
+    /// Represents non-fungible tokens'es detailed information.
+    #[serde(rename = "nonFungibleTokens")]
+    pub non_fungible_tokens: Vec<crate::models::GetWalletAssetDetailsRiNonFungibleTokens>,
     #[serde(rename = "recievedConfirmedAmount")]
     pub recieved_confirmed_amount: Box<crate::models::GetWalletAssetDetailsRiRecievedConfirmedAmount>,
     #[serde(rename = "sentConfirmedAmount")]
@@ -28,11 +34,13 @@ pub struct GetWalletAssetDetailsRi {
 }
 
 impl GetWalletAssetDetailsRi {
-    pub fn new(confirmed_balance: crate::models::GetWalletAssetDetailsRiConfirmedBalance, deposit_addresses_count: i32, name: String, recieved_confirmed_amount: crate::models::GetWalletAssetDetailsRiRecievedConfirmedAmount, sent_confirmed_amount: crate::models::GetWalletAssetDetailsRiSentConfirmedAmount) -> GetWalletAssetDetailsRi {
+    pub fn new(confirmed_balance: crate::models::GetWalletAssetDetailsRiConfirmedBalance, deposit_addresses_count: i32, fungible_tokens: Vec<crate::models::GetWalletAssetDetailsRiFungibleTokens>, name: String, non_fungible_tokens: Vec<crate::models::GetWalletAssetDetailsRiNonFungibleTokens>, recieved_confirmed_amount: crate::models::GetWalletAssetDetailsRiRecievedConfirmedAmount, sent_confirmed_amount: crate::models::GetWalletAssetDetailsRiSentConfirmedAmount) -> GetWalletAssetDetailsRi {
         GetWalletAssetDetailsRi {
             confirmed_balance: Box::new(confirmed_balance),
             deposit_addresses_count,
+            fungible_tokens,
             name,
+            non_fungible_tokens,
             recieved_confirmed_amount: Box::new(recieved_confirmed_amount),
             sent_confirmed_amount: Box::new(sent_confirmed_amount),
         }

@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**create_coins_transaction_from_address_for_whole_amount**](TransactionsApi.md#create_coins_transaction_from_address_for_whole_amount) | **POST** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/all-transaction-requests | Create Coins Transaction From Address For Whole Amount
 [**create_coins_transaction_request_from_address**](TransactionsApi.md#create_coins_transaction_request_from_address) | **POST** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/transaction-requests | Create Coins Transaction Request from Address
 [**create_coins_transaction_request_from_wallet**](TransactionsApi.md#create_coins_transaction_request_from_wallet) | **POST** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/transaction-requests | Create Coins Transaction Request from Wallet
-[**create_tokens_transaction_request_from_address**](TransactionsApi.md#create_tokens_transaction_request_from_address) | **POST** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{senderAddress}/token-transaction-requests | Create Tokens Transaction Request from Address
+[**create_fungible_tokens_transaction_request_from_address**](TransactionsApi.md#create_fungible_tokens_transaction_request_from_address) | **POST** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{senderAddress}/token-transaction-requests | Create Fungible Tokens Transaction Request from Address
 
 
 
@@ -115,12 +115,12 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## create_tokens_transaction_request_from_address
+## create_fungible_tokens_transaction_request_from_address
 
-> crate::models::CreateTokensTransactionRequestFromAddressR create_tokens_transaction_request_from_address(blockchain, network, sender_address, wallet_id, context, create_tokens_transaction_request_from_address_rb)
-Create Tokens Transaction Request from Address
+> crate::models::CreateFungibleTokensTransactionRequestFromAddressR create_fungible_tokens_transaction_request_from_address(blockchain, network, sender_address, wallet_id, context, create_fungible_tokens_transaction_request_from_address_rb)
+Create Fungible Tokens Transaction Request from Address
 
-Through this endpoint users can make a single token transaction.    {warning}This applies only to **fungible** tokens, **not** NFTs (non-fungible tokens).{/warning}    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
+Through this endpoint users can make a single token transaction.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
 ### Parameters
 
@@ -132,11 +132,11 @@ Name | Type | Description  | Required | Notes
 **sender_address** | **String** | Defines the specific source address for the transaction. | [required] |
 **wallet_id** | **String** | Defines the unique ID of the Wallet. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
-**create_tokens_transaction_request_from_address_rb** | Option<[**CreateTokensTransactionRequestFromAddressRb**](CreateTokensTransactionRequestFromAddressRb.md)> |  |  |
+**create_fungible_tokens_transaction_request_from_address_rb** | Option<[**CreateFungibleTokensTransactionRequestFromAddressRb**](CreateFungibleTokensTransactionRequestFromAddressRb.md)> |  |  |
 
 ### Return type
 
-[**crate::models::CreateTokensTransactionRequestFromAddressR**](CreateTokensTransactionRequestFromAddressR.md)
+[**crate::models::CreateFungibleTokensTransactionRequestFromAddressR**](CreateFungibleTokensTransactionRequestFromAddressR.md)
 
 ### Authorization
 

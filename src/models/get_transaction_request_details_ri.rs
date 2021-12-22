@@ -77,6 +77,8 @@ pub enum Blockchain {
     Dash,
     #[serde(rename = "ethereum")]
     Ethereum,
+    #[serde(rename = "ethereum-classic")]
+    EthereumClassic,
     #[serde(rename = "zcash")]
     Zcash,
 }
@@ -99,6 +101,8 @@ pub enum Network {
     Testnet,
     #[serde(rename = "ropsten")]
     Ropsten,
+    #[serde(rename = "mordor")]
+    Mordor,
 }
 /// Defines the status of the transaction request, e.g. pending.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]

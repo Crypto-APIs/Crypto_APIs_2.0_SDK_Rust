@@ -19,9 +19,6 @@ pub struct NewUnconfirmedCoinsTransactionsRi {
     /// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
     #[serde(rename = "callbackUrl")]
     pub callback_url: String,
-    /// Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
-    #[serde(rename = "confirmationsCount")]
-    pub confirmations_count: i32,
     /// Defines the specific time/date when the subscription was created in Unix Timestamp.
     #[serde(rename = "createdTimestamp")]
     pub created_timestamp: i32,
@@ -34,22 +31,17 @@ pub struct NewUnconfirmedCoinsTransactionsRi {
     /// Represents a unique ID used to reference the specific callback subscription.
     #[serde(rename = "referenceId")]
     pub reference_id: String,
-    /// Represents the unique identification string that defines the transaction.
-    #[serde(rename = "transactionId")]
-    pub transaction_id: String,
 }
 
 impl NewUnconfirmedCoinsTransactionsRi {
-    pub fn new(callback_secret_key: String, callback_url: String, confirmations_count: i32, created_timestamp: i32, event_type: String, is_active: bool, reference_id: String, transaction_id: String) -> NewUnconfirmedCoinsTransactionsRi {
+    pub fn new(callback_secret_key: String, callback_url: String, created_timestamp: i32, event_type: String, is_active: bool, reference_id: String) -> NewUnconfirmedCoinsTransactionsRi {
         NewUnconfirmedCoinsTransactionsRi {
             callback_secret_key,
             callback_url,
-            confirmations_count,
             created_timestamp,
             event_type,
             is_active,
             reference_id,
-            transaction_id,
         }
     }
 }

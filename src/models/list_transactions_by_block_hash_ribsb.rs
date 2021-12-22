@@ -31,12 +31,12 @@ pub struct ListTransactionsByBlockHashRibsb {
     pub vin: Vec<crate::models::ListTransactionsByBlockHashRibsbVin>,
     /// Represents the transaction outputs.
     #[serde(rename = "vout")]
-    pub vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribsbVout>,
+    pub vout: Vec<crate::models::ListTransactionsByBlockHashRibsbVout>,
 }
 
 impl ListTransactionsByBlockHashRibsb {
     /// Bitcoin
-    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::ListTransactionsByBlockHashRibsbVin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribsbVout>) -> ListTransactionsByBlockHashRibsb {
+    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::ListTransactionsByBlockHashRibsbVin>, vout: Vec<crate::models::ListTransactionsByBlockHashRibsbVout>) -> ListTransactionsByBlockHashRibsb {
         ListTransactionsByBlockHashRibsb {
             locktime,
             size,

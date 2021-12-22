@@ -19,15 +19,15 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum MinedTransactionError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::BlockchainEventsCallbacksLimitReached),
-    Status409(crate::models::AlreadyExists),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40064),
+    Status401(crate::models::InlineResponse40164),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40364),
+    Status409(crate::models::InlineResponse40912),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -35,15 +35,15 @@ pub enum MinedTransactionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewBlockError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::BlockchainEventsCallbacksLimitReached),
-    Status409(crate::models::AlreadyExists),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40065),
+    Status401(crate::models::InlineResponse40165),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40365),
+    Status409(crate::models::InlineResponse40913),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,15 +51,15 @@ pub enum NewBlockError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewConfirmedCoinsTransactionsError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::BlockchainEventsCallbacksLimitReached),
-    Status409(crate::models::AlreadyExists),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40060),
+    Status401(crate::models::InlineResponse40160),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40360),
+    Status409(crate::models::InlineResponse4098),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -67,15 +67,15 @@ pub enum NewConfirmedCoinsTransactionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewConfirmedCoinsTransactionsAndEachConfirmationError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::BlockchainEventsCallbacksLimitReached),
-    Status409(crate::models::AlreadyExists),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40063),
+    Status401(crate::models::InlineResponse40163),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40363),
+    Status409(crate::models::InlineResponse40911),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -83,15 +83,15 @@ pub enum NewConfirmedCoinsTransactionsAndEachConfirmationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewConfirmedInternalTransactionsError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::BlockchainEventsCallbacksLimitReached),
-    Status409(crate::models::AlreadyExists),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40073),
+    Status401(crate::models::InlineResponse40173),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40373),
+    Status409(crate::models::InlineResponse40914),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -99,15 +99,15 @@ pub enum NewConfirmedInternalTransactionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewConfirmedInternalTransactionsAndEachConfirmationError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::BlockchainEventsCallbacksLimitReached),
-    Status409(crate::models::AlreadyExists),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40074),
+    Status401(crate::models::InlineResponse40174),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40374),
+    Status409(crate::models::InlineResponse40915),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -115,15 +115,15 @@ pub enum NewConfirmedInternalTransactionsAndEachConfirmationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewConfirmedTokensTransactionsError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::BlockchainEventsCallbacksLimitReached),
-    Status409(crate::models::AlreadyExists),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40061),
+    Status401(crate::models::InlineResponse40161),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40361),
+    Status409(crate::models::InlineResponse4099),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -131,15 +131,15 @@ pub enum NewConfirmedTokensTransactionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewConfirmedTokensTransactionsAndEachConfirmationError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::BlockchainEventsCallbacksLimitReached),
-    Status409(crate::models::AlreadyExists),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40062),
+    Status401(crate::models::InlineResponse40162),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40362),
+    Status409(crate::models::InlineResponse40910),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -147,15 +147,15 @@ pub enum NewConfirmedTokensTransactionsAndEachConfirmationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewUnconfirmedCoinsTransactionsError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::BlockchainEventsCallbacksLimitReached),
-    Status409(crate::models::AlreadyExists),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40058),
+    Status401(crate::models::InlineResponse40158),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40358),
+    Status409(crate::models::InlineResponse4096),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -163,15 +163,15 @@ pub enum NewUnconfirmedCoinsTransactionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewUnconfirmedTokensTransactionsError {
-    Status400(crate::models::InvalidPagination),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::BlockchainEventsCallbacksLimitReached),
-    Status409(crate::models::AlreadyExists),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::InvalidRequestBodyStructure),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40059),
+    Status401(crate::models::InlineResponse40159),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40359),
+    Status409(crate::models::InlineResponse4097),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 

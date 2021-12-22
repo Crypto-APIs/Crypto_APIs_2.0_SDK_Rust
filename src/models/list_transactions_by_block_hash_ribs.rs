@@ -30,7 +30,7 @@ pub struct ListTransactionsByBlockHashRibs {
     pub vin: Vec<crate::models::ListTransactionsByBlockHashRibszVin>,
     /// Object Array representation of transaction outputs
     #[serde(rename = "vout")]
-    pub vout: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVout>,
+    pub vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>,
     /// Represents the specific transaction contract.
     #[serde(rename = "contract")]
     pub contract: String,
@@ -71,10 +71,10 @@ pub struct ListTransactionsByBlockHashRibs {
     pub v_join_split: Vec<crate::models::ListTransactionsByBlockHashRibszVJoinSplit>,
     /// Object Array representation of transaction output descriptions
     #[serde(rename = "vShieldedOutput")]
-    pub v_shielded_output: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedOutput>,
+    pub v_shielded_output: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>,
     /// Object Array representation of transaction spend descriptions
     #[serde(rename = "vShieldedSpend")]
-    pub v_shielded_spend: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedSpend>,
+    pub v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>,
     /// Defines the transaction value balance.
     #[serde(rename = "valueBalance")]
     pub value_balance: String,
@@ -84,7 +84,7 @@ pub struct ListTransactionsByBlockHashRibs {
 }
 
 impl ListTransactionsByBlockHashRibs {
-    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::ListTransactionsByBlockHashRibszVin>, vout: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVout>, contract: String, gas_limit: String, gas_price: crate::models::ListTransactionsByBlockHashRibsbscGasPrice, gas_used: String, input_data: String, nonce: i32, transaction_status: String, binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, overwintered: bool, v_join_split: Vec<crate::models::ListTransactionsByBlockHashRibszVJoinSplit>, v_shielded_output: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedOutput>, v_shielded_spend: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedSpend>, value_balance: String, version_group_id: String) -> ListTransactionsByBlockHashRibs {
+    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::ListTransactionsByBlockHashRibszVin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>, contract: String, gas_limit: String, gas_price: crate::models::ListTransactionsByBlockHashRibsbscGasPrice, gas_used: String, input_data: String, nonce: i32, transaction_status: String, binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, overwintered: bool, v_join_split: Vec<crate::models::ListTransactionsByBlockHashRibszVJoinSplit>, v_shielded_output: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>, v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>, value_balance: String, version_group_id: String) -> ListTransactionsByBlockHashRibs {
         ListTransactionsByBlockHashRibs {
             locktime,
             size,

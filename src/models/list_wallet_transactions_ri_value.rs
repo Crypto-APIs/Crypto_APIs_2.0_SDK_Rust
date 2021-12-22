@@ -25,9 +25,6 @@ pub struct ListWalletTransactionsRiValue {
     /// Defines the unit of the transaction's amount.
     #[serde(rename = "symbol")]
     pub symbol: String,
-    /// Defines the token's identifier of the transaction's amount.
-    #[serde(rename = "tokenIdentifier", skip_serializing_if = "Option::is_none")]
-    pub token_identifier: Option<String>,
 }
 
 impl ListWalletTransactionsRiValue {
@@ -37,7 +34,6 @@ impl ListWalletTransactionsRiValue {
             converted_amount,
             exchange_rate_unit,
             symbol,
-            token_identifier: None,
         }
     }
 }

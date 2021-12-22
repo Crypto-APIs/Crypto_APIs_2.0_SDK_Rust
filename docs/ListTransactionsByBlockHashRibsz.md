@@ -12,13 +12,13 @@ Name | Type | Description | Notes
 **overwintered** | **bool** | \"Overwinter\" is the network upgrade for the Zcash blockchain. | 
 **size** | **i32** | Represents the total size of this transaction. | 
 **v_join_split** | [**Vec<crate::models::ListTransactionsByBlockHashRibszVJoinSplit>**](ListTransactionsByBlockHashRIBSZ_vJoinSplit.md) | Represents a sequence of JoinSplit descriptions using BCTV14 proofs. | 
-**v_shielded_output** | [**Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedOutput>**](ListConfirmedTransactionsByAddressRIBSZ_vShieldedOutput.md) | Object Array representation of transaction output descriptions | 
-**v_shielded_spend** | [**Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedSpend>**](ListConfirmedTransactionsByAddressRIBSZ_vShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
+**v_shielded_output** | [**Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>**](GetTransactionDetailsByTransactionIDRIBSZ_vShieldedOutput.md) | Object Array representation of transaction output descriptions | 
+**v_shielded_spend** | [**Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>**](GetTransactionDetailsByTransactionIDRIBSZ_vShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
 **value_balance** | **String** | Defines the transaction value balance. | 
 **version** | **i32** | Numeric representation of the transaction Represents the transaction version number. | 
 **version_group_id** | **String** | Represents the transaction version group ID. | 
 **vin** | [**Vec<crate::models::ListTransactionsByBlockHashRibszVin>**](ListTransactionsByBlockHashRIBSZ_vin.md) | Object Array representation of transaction inputs | 
-**vout** | [**Vec<crate::models::ListConfirmedTransactionsByAddressRibszVout>**](ListConfirmedTransactionsByAddressRIBSZ_vout.md) | Object Array representation of transaction outputs | 
+**vout** | [**Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>**](GetTransactionDetailsByTransactionIDRIBSZ_vout.md) | Object Array representation of transaction outputs | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

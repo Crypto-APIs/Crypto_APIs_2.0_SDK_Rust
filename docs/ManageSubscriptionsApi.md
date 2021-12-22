@@ -4,9 +4,42 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**activate_blockchain_event_subscription**](ManageSubscriptionsApi.md#activate_blockchain_event_subscription) | **POST** /blockchain-events/subscriptions/{referenceId}/activate | Activate Blockchain Event Subscription
 [**delete_blockchain_event_subscription**](ManageSubscriptionsApi.md#delete_blockchain_event_subscription) | **DELETE** /blockchain-events/{blockchain}/{network}/subscriptions/{referenceId} | Delete Blockchain Event Subscription
 [**list_blockchain_events_subscriptions**](ManageSubscriptionsApi.md#list_blockchain_events_subscriptions) | **GET** /blockchain-events/{blockchain}/{network}/subscriptions | List Blockchain Events Subscriptions
 
+
+
+## activate_blockchain_event_subscription
+
+> crate::models::ActivateBlockchainEventSubscriptionR activate_blockchain_event_subscription(reference_id, context, activate_blockchain_event_subscription_rb)
+Activate Blockchain Event Subscription
+
+Through this endpoint customers can reactivate an event subscription (callback) which has been deactivated by the system. Deactivations could happen due to various reasons, most often \"maximum retry attempts reached\".
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**reference_id** | **String** | Represents a unique ID used to reference the specific callback subscription. | [required] |
+**context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+**activate_blockchain_event_subscription_rb** | Option<[**ActivateBlockchainEventSubscriptionRb**](ActivateBlockchainEventSubscriptionRb.md)> |  |  |
+
+### Return type
+
+[**crate::models::ActivateBlockchainEventSubscriptionR**](ActivateBlockchainEventSubscriptionR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## delete_blockchain_event_subscription

@@ -14,6 +14,9 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListLatestMinedBlocksRibsz {
+    /// Represents a mathematical value of how hard it is to find a valid hash for this block.
+    #[serde(rename = "difficulty")]
+    pub difficulty: String,
     /// Represents the Directory Service block which contains metadata about the miners who participate in the consensus protocol.
     #[serde(rename = "dsBlock")]
     pub ds_block: i32,
@@ -35,8 +38,9 @@ pub struct ListLatestMinedBlocksRibsz {
 
 impl ListLatestMinedBlocksRibsz {
     /// Zilliqa
-    pub fn new(ds_block: i32, ds_difficulty: String, ds_leader: String, gas_limit: i32, gas_used: i32, micro_blocks: Vec<String>) -> ListLatestMinedBlocksRibsz {
+    pub fn new(difficulty: String, ds_block: i32, ds_difficulty: String, ds_leader: String, gas_limit: i32, gas_used: i32, micro_blocks: Vec<String>) -> ListLatestMinedBlocksRibsz {
         ListLatestMinedBlocksRibsz {
+            difficulty,
             ds_block,
             ds_difficulty,
             ds_leader,

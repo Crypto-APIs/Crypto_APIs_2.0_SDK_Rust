@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**contract** | Option<**String**> | Represents the specific transaction contract | [optional]
+**contract** | **String** | Represents the specific transaction contract | 
 **gas_limit** | **String** | Represents the amount of gas used by this specific transaction alone. | 
 **gas_price** | [**crate::models::GetTransactionDetailsByTransactionIdribsbscGasPrice**](GetTransactionDetailsByTransactionIDRIBSBSC_gasPrice.md) |  | 
 **gas_used** | **String** | Defines the unit of the gas price amount, e.g. BTC, ETH, XRP. | 

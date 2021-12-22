@@ -14,6 +14,9 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListLatestMinedBlocksRibsec {
+    /// Represents a mathematical value of how hard it is to find a valid hash for this block.
+    #[serde(rename = "difficulty")]
+    pub difficulty: String,
     /// Represents any data that can be included by the miner in the block.
     #[serde(rename = "extraData")]
     pub extra_data: String,
@@ -26,9 +29,15 @@ pub struct ListLatestMinedBlocksRibsec {
     /// Specifies the amount of time required for the block to be mined in seconds.
     #[serde(rename = "minedInSeconds")]
     pub mined_in_seconds: i32,
+    /// Represents a random value that can be adjusted to satisfy the proof of work
+    #[serde(rename = "nonce")]
+    pub nonce: String,
     /// Defines the combined hash of all uncles for a given parent.
     #[serde(rename = "sha3Uncles")]
     pub sha3_uncles: String,
+    /// Represents the total size of the block in Bytes.
+    #[serde(rename = "size")]
+    pub size: i32,
     /// Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block.
     #[serde(rename = "totalDifficulty")]
     pub total_difficulty: String,
@@ -38,13 +47,16 @@ pub struct ListLatestMinedBlocksRibsec {
 
 impl ListLatestMinedBlocksRibsec {
     /// Ethereum Classic
-    pub fn new(extra_data: String, gas_limit: String, gas_used: String, mined_in_seconds: i32, sha3_uncles: String, total_difficulty: String, uncles: Vec<String>) -> ListLatestMinedBlocksRibsec {
+    pub fn new(difficulty: String, extra_data: String, gas_limit: String, gas_used: String, mined_in_seconds: i32, nonce: String, sha3_uncles: String, size: i32, total_difficulty: String, uncles: Vec<String>) -> ListLatestMinedBlocksRibsec {
         ListLatestMinedBlocksRibsec {
+            difficulty,
             extra_data,
             gas_limit,
             gas_used,
             mined_in_seconds,
+            nonce,
             sha3_uncles,
+            size,
             total_difficulty,
             uncles,
         }

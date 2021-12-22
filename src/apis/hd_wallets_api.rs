@@ -19,15 +19,15 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetHdWalletXPubYPubZPubDetailsError {
-    Status400(crate::models::XpubNotSynced),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::XpubSyncInProgress),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40047),
+    Status401(crate::models::InlineResponse40147),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40347),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse4222),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -35,15 +35,15 @@ pub enum GetHdWalletXPubYPubZPubDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListHdWalletXPubYPubZPubTransactionsError {
-    Status400(crate::models::XpubNotSynced),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::InvalidData),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::XpubSyncInProgress),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40049),
+    Status401(crate::models::InlineResponse40149),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40349),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse4223),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 
@@ -51,15 +51,15 @@ pub enum ListHdWalletXPubYPubZPubTransactionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SyncHdWalletXPubYPubZPubError {
-    Status400(crate::models::InvalidXpub),
-    Status401(crate::models::InvalidApiKey),
-    Status402(crate::models::InsufficientCredits),
-    Status403(crate::models::FeatureMainnetsNotAllowedForPlan),
-    Status409(crate::models::AlreadyExists),
-    Status415(crate::models::UnsupportedMediaType),
-    Status422(crate::models::XpubSyncInProgress),
-    Status429(crate::models::RequestLimitReached),
-    Status500(crate::models::UnexpectedServerError),
+    Status400(crate::models::InlineResponse40043),
+    Status401(crate::models::InlineResponse40143),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40343),
+    Status409(crate::models::InlineResponse4095),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse4221),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
     UnknownValue(serde_json::Value),
 }
 

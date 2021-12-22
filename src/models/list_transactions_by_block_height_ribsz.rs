@@ -43,7 +43,7 @@ pub struct ListTransactionsByBlockHeightRibsz {
     pub v_shielded_output: Vec<crate::models::ListTransactionsByBlockHeightRibszVShieldedOutput>,
     /// Object Array representation of transaction spend descriptions
     #[serde(rename = "vShieldedSpend")]
-    pub v_shielded_spend: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedSpend>,
+    pub v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>,
     /// Defines the transaction value balance.
     #[serde(rename = "valueBalance")]
     pub value_balance: String,
@@ -63,7 +63,7 @@ pub struct ListTransactionsByBlockHeightRibsz {
 
 impl ListTransactionsByBlockHeightRibsz {
     /// Zcash
-    pub fn new(binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, locktime: i32, overwintered: bool, size: i32, v_join_split: Vec<crate::models::ListTransactionsByBlockHeightRibszVJoinSplit>, v_shielded_output: Vec<crate::models::ListTransactionsByBlockHeightRibszVShieldedOutput>, v_shielded_spend: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedSpend>, value_balance: String, version: i32, version_group_id: String, vin: Vec<crate::models::ListTransactionsByBlockHeightRibszVin>, vout: Vec<crate::models::ListTransactionsByBlockHeightRibszVout>) -> ListTransactionsByBlockHeightRibsz {
+    pub fn new(binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, locktime: i32, overwintered: bool, size: i32, v_join_split: Vec<crate::models::ListTransactionsByBlockHeightRibszVJoinSplit>, v_shielded_output: Vec<crate::models::ListTransactionsByBlockHeightRibszVShieldedOutput>, v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>, value_balance: String, version: i32, version_group_id: String, vin: Vec<crate::models::ListTransactionsByBlockHeightRibszVin>, vout: Vec<crate::models::ListTransactionsByBlockHeightRibszVout>) -> ListTransactionsByBlockHeightRibsz {
         ListTransactionsByBlockHeightRibsz {
             binding_sig,
             expiry_height,

@@ -74,7 +74,7 @@ pub struct ListTransactionsByBlockHeightRibs {
     pub v_shielded_output: Vec<crate::models::ListTransactionsByBlockHeightRibszVShieldedOutput>,
     /// Object Array representation of transaction spend descriptions
     #[serde(rename = "vShieldedSpend")]
-    pub v_shielded_spend: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedSpend>,
+    pub v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>,
     /// Defines the transaction value balance.
     #[serde(rename = "valueBalance")]
     pub value_balance: String,
@@ -84,7 +84,7 @@ pub struct ListTransactionsByBlockHeightRibs {
 }
 
 impl ListTransactionsByBlockHeightRibs {
-    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::ListTransactionsByBlockHeightRibszVin>, vout: Vec<crate::models::ListTransactionsByBlockHeightRibszVout>, contract: String, gas_limit: String, gas_price: crate::models::ListTransactionsByBlockHeightRibsbscGasPrice, gas_used: String, input_data: String, nonce: i32, transaction_status: String, binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, overwintered: bool, v_join_split: Vec<crate::models::ListTransactionsByBlockHeightRibszVJoinSplit>, v_shielded_output: Vec<crate::models::ListTransactionsByBlockHeightRibszVShieldedOutput>, v_shielded_spend: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedSpend>, value_balance: String, version_group_id: String) -> ListTransactionsByBlockHeightRibs {
+    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::ListTransactionsByBlockHeightRibszVin>, vout: Vec<crate::models::ListTransactionsByBlockHeightRibszVout>, contract: String, gas_limit: String, gas_price: crate::models::ListTransactionsByBlockHeightRibsbscGasPrice, gas_used: String, input_data: String, nonce: i32, transaction_status: String, binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, overwintered: bool, v_join_split: Vec<crate::models::ListTransactionsByBlockHeightRibszVJoinSplit>, v_shielded_output: Vec<crate::models::ListTransactionsByBlockHeightRibszVShieldedOutput>, v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>, value_balance: String, version_group_id: String) -> ListTransactionsByBlockHeightRibs {
         ListTransactionsByBlockHeightRibs {
             locktime,
             size,

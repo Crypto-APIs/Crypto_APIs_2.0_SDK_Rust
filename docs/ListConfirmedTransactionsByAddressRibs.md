@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **v_size** | **i32** | Represents the virtual size of this transaction. | 
 **version** | **i32** | Defines the version of the transaction. | 
 **vin** | [**Vec<crate::models::ListConfirmedTransactionsByAddressRibszVin>**](ListConfirmedTransactionsByAddressRIBSZ_vin.md) | Object Array representation of transaction inputs | 
-**vout** | [**Vec<crate::models::ListConfirmedTransactionsByAddressRibszVout>**](ListConfirmedTransactionsByAddressRIBSZ_vout.md) | Object Array representation of transaction outputs | 
+**vout** | [**Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>**](GetTransactionDetailsByTransactionIDRIBSZ_vout.md) | Object Array representation of transaction outputs | 
 **contract** | **String** | Represents the specific transaction contract. | 
 **gas_limit** | **String** | Represents the amount of gas used by this specific transaction alone. | 
 **gas_price** | [**crate::models::ListConfirmedTransactionsByAddressRibsbscGasPrice**](ListConfirmedTransactionsByAddressRIBSBSC_gasPrice.md) |  | 
@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 **join_split_sig** | **String** | Is used to sign transactions that contain at least one JoinSplit description. | 
 **overwintered** | **bool** | \"Overwinter\" is the network upgrade for the Zcash blockchain. | 
 **v_join_split** | [**Vec<crate::models::ListConfirmedTransactionsByAddressRibszVJoinSplit>**](ListConfirmedTransactionsByAddressRIBSZ_vJoinSplit.md) | Represents a sequence of JoinSplit descriptions using BCTV14 proofs. | 
-**v_shielded_output** | [**Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedOutput>**](ListConfirmedTransactionsByAddressRIBSZ_vShieldedOutput.md) | Object Array representation of transaction output descriptions | 
-**v_shielded_spend** | [**Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedSpend>**](ListConfirmedTransactionsByAddressRIBSZ_vShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
+**v_shielded_output** | [**Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>**](GetTransactionDetailsByTransactionIDRIBSZ_vShieldedOutput.md) | Object Array representation of transaction output descriptions | 
+**v_shielded_spend** | [**Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>**](GetTransactionDetailsByTransactionIDRIBSZ_vShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
 **value_balance** | **String** | Defines the transaction value balance. | 
 **version_group_id** | **String** | Represents the transaction version group ID. | 
 

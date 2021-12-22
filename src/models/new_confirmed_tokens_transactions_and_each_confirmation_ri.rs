@@ -19,6 +19,9 @@ pub struct NewConfirmedTokensTransactionsAndEachConfirmationRi {
     /// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
     #[serde(rename = "callbackUrl")]
     pub callback_url: String,
+    /// Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
+    #[serde(rename = "confirmationsCount", skip_serializing_if = "Option::is_none")]
+    pub confirmations_count: Option<i32>,
     /// Defines the specific time/date when the subscription was created in Unix Timestamp.
     #[serde(rename = "createdTimestamp")]
     pub created_timestamp: i32,
@@ -35,6 +38,7 @@ impl NewConfirmedTokensTransactionsAndEachConfirmationRi {
         NewConfirmedTokensTransactionsAndEachConfirmationRi {
             address,
             callback_url,
+            confirmations_count: None,
             created_timestamp,
             event_type,
             reference_id,

@@ -36,7 +36,7 @@ pub struct ListUnspentTransactionOutputsByAddressRiBlockchainSpecific {
     pub v_join_split: Option<Vec<crate::models::ListUnspentTransactionOutputsByAddressRiBlockchainSpecificVJoinSplit>>,
     /// Object Array representation of transaction output descriptions
     #[serde(rename = "vShieldedOutput", skip_serializing_if = "Option::is_none")]
-    pub v_shielded_output: Option<Vec<crate::models::ListConfirmedTransactionsByAddressRibszVShieldedOutput>>,
+    pub v_shielded_output: Option<Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>>,
     /// Object Array representation of transaction spend descriptions
     #[serde(rename = "vShieldedSpend")]
     pub v_shielded_spend: Vec<crate::models::ListUnspentTransactionOutputsByAddressRiBlockchainSpecificVShieldedSpend>,

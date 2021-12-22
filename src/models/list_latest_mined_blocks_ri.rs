@@ -29,15 +29,15 @@ pub struct ListLatestMinedBlocksRi {
     #[serde(rename = "transactionsCount")]
     pub transactions_count: i32,
     #[serde(rename = "totalCoins")]
-    pub total_coins: Box<crate::models::GetLatestMinedXrpRippleBlockRiTotalCoins>,
+    pub total_coins: Box<crate::models::ListLatestMinedBlocksRiTotalCoins>,
     #[serde(rename = "totalFees")]
-    pub total_fees: Box<crate::models::GetLatestMinedXrpRippleBlockRiTotalFees>,
+    pub total_fees: Box<crate::models::ListLatestMinedBlocksRiTotalFees>,
     #[serde(rename = "blockchainSpecific")]
     pub blockchain_specific: Box<crate::models::ListLatestMinedBlocksRibs>,
 }
 
 impl ListLatestMinedBlocksRi {
-    pub fn new(hash: String, height: i32, previous_block_hash: String, timestamp: i32, transactions_count: i32, total_coins: crate::models::GetLatestMinedXrpRippleBlockRiTotalCoins, total_fees: crate::models::GetLatestMinedXrpRippleBlockRiTotalFees, blockchain_specific: crate::models::ListLatestMinedBlocksRibs) -> ListLatestMinedBlocksRi {
+    pub fn new(hash: String, height: i32, previous_block_hash: String, timestamp: i32, transactions_count: i32, total_coins: crate::models::ListLatestMinedBlocksRiTotalCoins, total_fees: crate::models::ListLatestMinedBlocksRiTotalFees, blockchain_specific: crate::models::ListLatestMinedBlocksRibs) -> ListLatestMinedBlocksRi {
         ListLatestMinedBlocksRi {
             hash,
             height,

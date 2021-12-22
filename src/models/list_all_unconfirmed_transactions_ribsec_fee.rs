@@ -17,13 +17,17 @@ pub struct ListAllUnconfirmedTransactionsRibsecFee {
     /// String representation of the fee value
     #[serde(rename = "amount")]
     pub amount: String,
+    /// Represents the fee unit.
+    #[serde(rename = "unit")]
+    pub unit: String,
 }
 
 impl ListAllUnconfirmedTransactionsRibsecFee {
     /// Object representation of the transaction fee
-    pub fn new(amount: String) -> ListAllUnconfirmedTransactionsRibsecFee {
+    pub fn new(amount: String, unit: String) -> ListAllUnconfirmedTransactionsRibsecFee {
         ListAllUnconfirmedTransactionsRibsecFee {
             amount,
+            unit,
         }
     }
 }
