@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **expiry_height** | **i32** | Represents a block height after which the transaction will expire. | 
 **join_split_pub_key** | **String** | Represents an encoding of a JoinSplitSig public validating key. | 
 **join_split_sig** | **String** | Is used to sign transactions that contain at least one JoinSplit description. | 
-**locktime** | **i32** | Represents the time at which a particular transaction can be added to the blockchain. | 
+**locktime** | **i64** | Represents the time at which a particular transaction can be added to the blockchain. | 
 **overwintered** | **bool** | \"Overwinter\" is the network upgrade for the Zcash blockchain. | 
 **size** | **i32** | Represents the total size of this transaction. | 
 **v_join_split** | [**Vec<crate::models::ListTransactionsByBlockHeightRibszVJoinSplit>**](ListTransactionsByBlockHeightRIBSZ_vJoinSplit.md) | Represents a sequence of JoinSplit descriptions using BCTV14 proofs. | 

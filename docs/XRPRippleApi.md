@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_xrp__ripple_block_details_by_block_height**](XRPRippleApi.md#get_xrp__ripple_block_details_by_block_height) | **GET** /blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight} | Get XRP (Ripple) Block Details By Block Height
 [**get_xrp__ripple_transaction_details_by_transaction_id**](XRPRippleApi.md#get_xrp__ripple_transaction_details_by_transaction_id) | **GET** /blockchain-data/xrp-specific/{network}/transactions/{transactionHash} | Get XRP (Ripple) Transaction Details By Transaction ID
 [**list_xrp__ripple_transactions_by_address**](XRPRippleApi.md#list_xrp__ripple_transactions_by_address) | **GET** /blockchain-data/xrp-specific/{network}/addresses/{address}/transactions | List XRP (Ripple) Transactions by Address
+[**list_xrp__ripple_transactions_by_address_and_time_range**](XRPRippleApi.md#list_xrp__ripple_transactions_by_address_and_time_range) | **GET** /blockchain-data/xrp-specific/{network}/addresses/{address}/transactions-by-time-range | List XRP (Ripple) Transactions By Address And Time Range
 [**list_xrp__ripple_transactions_by_block_hash**](XRPRippleApi.md#list_xrp__ripple_transactions_by_block_hash) | **GET** /blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}/transactions | List XRP (Ripple) Transactions By Block Hash
 [**list_xrp__ripple_transactions_by_block_height**](XRPRippleApi.md#list_xrp__ripple_transactions_by_block_height) | **GET** /blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}/transactions | List XRP (Ripple) Transactions By Block Height
 
@@ -189,13 +190,50 @@ Name | Type | Description  | Required | Notes
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
 **address** | **String** | Represents the public address, which is a compressed and shortened form of a public key. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
-**limit** | Option<**i32**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
-**offset** | Option<**i32**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+**limit** | Option<**i64**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
+**offset** | Option<**i64**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
 **transaction_type** | Option<**String**> |  |  |
 
 ### Return type
 
 [**crate::models::ListXrpRippleTransactionsByAddressR**](ListXRPRippleTransactionsByAddressR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## list_xrp__ripple_transactions_by_address_and_time_range
+
+> crate::models::ListXrpRippleTransactionsByAddressAndTimeRangeR list_xrp__ripple_transactions_by_address_and_time_range(network, address, from_timestamp, to_timestamp, context, limit, offset, transaction_type)
+List XRP (Ripple) Transactions By Address And Time Range
+
+Тhis endpoint lists XRP transactions by the attribute `address` and the query parameters `fromTimestamp` and `toTimestamp`  which gives customers the opportunity to filter the results by a specified time period.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
+**address** | **String** | Represents the public address, which is a compressed and shortened form of a public key. | [required] |
+**from_timestamp** | **i32** | Defines the specific time/date from which the results will start being listed. | [required] |
+**to_timestamp** | **i32** | Defines the specific time/date to which the results will be listed. | [required] |
+**context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+**limit** | Option<**i64**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
+**offset** | Option<**i64**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+**transaction_type** | Option<**String**> | Defines the transaction type. |  |
+
+### Return type
+
+[**crate::models::ListXrpRippleTransactionsByAddressAndTimeRangeR**](ListXRPRippleTransactionsByAddressAndTimeRangeR.md)
 
 ### Authorization
 
@@ -224,8 +262,8 @@ Name | Type | Description  | Required | Notes
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
 **block_hash** | **String** | Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
-**limit** | Option<**i32**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
-**offset** | Option<**i32**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+**limit** | Option<**i64**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
+**offset** | Option<**i64**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
 
 ### Return type
 
@@ -256,10 +294,10 @@ This endpoint will list transactions by an attribute `blockHeight`. The transact
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
-**block_height** | **i32** |  | [required] |
+**block_height** | **i64** |  | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
-**limit** | Option<**i32**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
-**offset** | Option<**i32**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+**limit** | Option<**i64**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
+**offset** | Option<**i64**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
 
 ### Return type
 

@@ -23,11 +23,11 @@ pub struct InlineResponse40322 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::ListZilliqaTransactionsByBlockHeightE403>,
+    pub error: Box<crate::models::ListZilliqaTransactionsByBlockHashE403>,
 }
 
 impl InlineResponse40322 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::ListZilliqaTransactionsByBlockHeightE403) -> InlineResponse40322 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::ListZilliqaTransactionsByBlockHashE403) -> InlineResponse40322 {
         InlineResponse40322 {
             api_version,
             request_id,

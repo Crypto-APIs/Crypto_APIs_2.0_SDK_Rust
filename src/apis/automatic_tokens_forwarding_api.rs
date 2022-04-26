@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AddTokensToExistingFromAddressError {
-    Status400(crate::models::InlineResponse40080),
-    Status401(crate::models::InlineResponse40180),
+    Status400(crate::models::InlineResponse40094),
+    Status401(crate::models::InlineResponse40194),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40380),
+    Status403(crate::models::InlineResponse40394),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -36,10 +36,10 @@ pub enum AddTokensToExistingFromAddressError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateAutomaticTokensForwardingError {
-    Status400(crate::models::InlineResponse40079),
-    Status401(crate::models::InlineResponse40179),
+    Status400(crate::models::InlineResponse40093),
+    Status401(crate::models::InlineResponse40193),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40379),
+    Status403(crate::models::InlineResponse40393),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -53,10 +53,10 @@ pub enum CreateAutomaticTokensForwardingError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteAutomaticTokensForwardingError {
-    Status400(crate::models::InlineResponse40082),
-    Status401(crate::models::InlineResponse40182),
+    Status400(crate::models::InlineResponse40096),
+    Status401(crate::models::InlineResponse40196),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40382),
+    Status403(crate::models::InlineResponse40396),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -70,10 +70,10 @@ pub enum DeleteAutomaticTokensForwardingError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetFeeAddressDetailsError {
-    Status400(crate::models::InlineResponse40081),
-    Status401(crate::models::InlineResponse40181),
+    Status400(crate::models::InlineResponse40095),
+    Status401(crate::models::InlineResponse40195),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40381),
+    Status403(crate::models::InlineResponse40395),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -87,10 +87,10 @@ pub enum GetFeeAddressDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListTokensForwardingAutomationsError {
-    Status400(crate::models::InlineResponse40078),
-    Status401(crate::models::InlineResponse40178),
+    Status400(crate::models::InlineResponse40092),
+    Status401(crate::models::InlineResponse40192),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40378),
+    Status403(crate::models::InlineResponse40392),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),

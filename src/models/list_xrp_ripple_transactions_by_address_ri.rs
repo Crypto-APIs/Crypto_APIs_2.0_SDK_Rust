@@ -14,7 +14,7 @@
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListXrpRippleTransactionsByAddressRi {
     #[serde(rename = "destinationTag", skip_serializing_if = "Option::is_none")]
-    pub destination_tag: Option<i32>,
+    pub destination_tag: Option<i64>,
     /// Represents the index position of the transaction in the block.
     #[serde(rename = "index")]
     pub index: i32,
@@ -32,7 +32,7 @@ pub struct ListXrpRippleTransactionsByAddressRi {
     pub senders: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriSenders>,
     /// Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
     #[serde(rename = "sequence")]
-    pub sequence: i32,
+    pub sequence: i64,
     /// Defines the status of the transaction.
     #[serde(rename = "status")]
     pub status: String,
@@ -56,7 +56,7 @@ pub struct ListXrpRippleTransactionsByAddressRi {
 }
 
 impl ListXrpRippleTransactionsByAddressRi {
-    pub fn new(index: i32, mined_in_block_hash: String, mined_in_block_height: i32, recipients: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriRecipients>, senders: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriSenders>, sequence: i32, status: String, timestamp: i32, transaction_hash: String, _type: String, fee: crate::models::ListXrpRippleTransactionsByAddressRiFee, offer: crate::models::ListXrpRippleTransactionsByAddressRiOffer, receive: crate::models::ListXrpRippleTransactionsByAddressRiReceive, value: crate::models::ListXrpRippleTransactionsByAddressRiValue) -> ListXrpRippleTransactionsByAddressRi {
+    pub fn new(index: i32, mined_in_block_hash: String, mined_in_block_height: i32, recipients: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriRecipients>, senders: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriSenders>, sequence: i64, status: String, timestamp: i32, transaction_hash: String, _type: String, fee: crate::models::ListXrpRippleTransactionsByAddressRiFee, offer: crate::models::ListXrpRippleTransactionsByAddressRiOffer, receive: crate::models::ListXrpRippleTransactionsByAddressRiReceive, value: crate::models::ListXrpRippleTransactionsByAddressRiValue) -> ListXrpRippleTransactionsByAddressRi {
         ListXrpRippleTransactionsByAddressRi {
             destination_tag: None,
             index,

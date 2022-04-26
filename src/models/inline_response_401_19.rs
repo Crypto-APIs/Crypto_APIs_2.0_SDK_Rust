@@ -23,11 +23,11 @@ pub struct InlineResponse40119 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::GetUnconfirmedOmniTransactionByTransactionIdTxidE401>,
+    pub error: Box<crate::models::ListXrpRippleTransactionsByBlockHashE401>,
 }
 
 impl InlineResponse40119 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::GetUnconfirmedOmniTransactionByTransactionIdTxidE401) -> InlineResponse40119 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::ListXrpRippleTransactionsByBlockHashE401) -> InlineResponse40119 {
         InlineResponse40119 {
             api_version,
             request_id,

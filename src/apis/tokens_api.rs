@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTokenDetailsByContractAddressError {
-    Status400(crate::models::InlineResponse40057),
-    Status401(crate::models::InlineResponse40157),
+    Status400(crate::models::InlineResponse40069),
+    Status401(crate::models::InlineResponse40169),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40357),
+    Status403(crate::models::InlineResponse40369),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -35,10 +35,10 @@ pub enum GetTokenDetailsByContractAddressError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListConfirmedTokensTransfersByAddressError {
-    Status400(crate::models::InlineResponse40055),
-    Status401(crate::models::InlineResponse40155),
+    Status400(crate::models::InlineResponse40064),
+    Status401(crate::models::InlineResponse40164),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40355),
+    Status403(crate::models::InlineResponse40364),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -51,10 +51,10 @@ pub enum ListConfirmedTokensTransfersByAddressError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListTokensByAddressError {
-    Status400(crate::models::InlineResponse40056),
-    Status401(crate::models::InlineResponse40156),
+    Status400(crate::models::InlineResponse40067),
+    Status401(crate::models::InlineResponse40167),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40356),
+    Status403(crate::models::InlineResponse40367),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -67,10 +67,26 @@ pub enum ListTokensByAddressError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListTokensTransfersByTransactionHashError {
-    Status400(crate::models::InlineResponse40054),
-    Status401(crate::models::InlineResponse40154),
+    Status400(crate::models::InlineResponse40060),
+    Status401(crate::models::InlineResponse40160),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40354),
+    Status403(crate::models::InlineResponse40360),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method `list_unconfirmed_tokens_transfers_by_address`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ListUnconfirmedTokensTransfersByAddressError {
+    Status400(crate::models::InlineResponse40066),
+    Status401(crate::models::InlineResponse40166),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40366),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -245,6 +261,50 @@ pub async fn list_tokens_transfers_by_transaction_hash(configuration: &configura
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<ListTokensTransfersByTransactionHashError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Through this endpoint customers can obtain a list with **unconfirmed** token transfers by the `address` attribute. Token transfers may include information such as addresses of the sender and recipient, token name, token symbol, etc.    {note}This refers only to transfers done for **unconfirmed tokens** not coins.{/note}
+pub async fn list_unconfirmed_tokens_transfers_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListUnconfirmedTokensTransfersByAddressR, Error<ListUnconfirmedTokensTransfersByAddressError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}/tokens-transfers-unconfirmed", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ListUnconfirmedTokensTransfersByAddressError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

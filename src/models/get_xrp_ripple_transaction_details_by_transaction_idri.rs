@@ -17,7 +17,7 @@ pub struct GetXrpRippleTransactionDetailsByTransactionIdri {
     #[serde(rename = "additionalData")]
     pub additional_data: String,
     #[serde(rename = "destinationTag", skip_serializing_if = "Option::is_none")]
-    pub destination_tag: Option<i32>,
+    pub destination_tag: Option<i64>,
     /// Defines the index of the transaction, i.e. the consecutive place it takes in the blockchain.
     #[serde(rename = "index")]
     pub index: String,
@@ -39,7 +39,7 @@ pub struct GetXrpRippleTransactionDetailsByTransactionIdri {
     pub senders: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriSenders>,
     /// Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
     #[serde(rename = "sequence")]
-    pub sequence: i32,
+    pub sequence: i64,
     /// Defines the status of the transaction.
     #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
     pub status: Option<String>,
@@ -59,7 +59,7 @@ pub struct GetXrpRippleTransactionDetailsByTransactionIdri {
 }
 
 impl GetXrpRippleTransactionDetailsByTransactionIdri {
-    pub fn new(additional_data: String, index: String, mined_in_block_hash: String, mined_in_block_height: String, offer: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriOffer, receive: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriReceive, recipients: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriRecipients>, senders: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriSenders>, sequence: i32, timestamp: i32, transaction_hash: String, _type: String, fee: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriFee, value: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriValue) -> GetXrpRippleTransactionDetailsByTransactionIdri {
+    pub fn new(additional_data: String, index: String, mined_in_block_hash: String, mined_in_block_height: String, offer: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriOffer, receive: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriReceive, recipients: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriRecipients>, senders: Vec<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriSenders>, sequence: i64, timestamp: i32, transaction_hash: String, _type: String, fee: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriFee, value: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriValue) -> GetXrpRippleTransactionDetailsByTransactionIdri {
         GetXrpRippleTransactionDetailsByTransactionIdri {
             additional_data,
             destination_tag: None,

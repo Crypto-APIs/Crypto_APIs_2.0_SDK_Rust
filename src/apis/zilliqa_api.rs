@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLatestMinedZilliqaBlockError {
-    Status400(crate::models::InlineResponse40040),
-    Status401(crate::models::InlineResponse40140),
+    Status400(crate::models::InlineResponse40043),
+    Status401(crate::models::InlineResponse40143),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40340),
+    Status403(crate::models::InlineResponse40343),
     Status404(crate::models::InlineResponse4042),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -52,10 +52,10 @@ pub enum GetZilliqaAddressDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetZilliqaBlockDetailsByBlockHashError {
-    Status400(crate::models::InlineResponse40033),
-    Status401(crate::models::InlineResponse40133),
+    Status400(crate::models::InlineResponse40034),
+    Status401(crate::models::InlineResponse40134),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40333),
+    Status403(crate::models::InlineResponse40334),
     Status404(crate::models::InlineResponse4042),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -69,10 +69,10 @@ pub enum GetZilliqaBlockDetailsByBlockHashError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetZilliqaBlockDetailsByBlockHeightError {
-    Status400(crate::models::InlineResponse40029),
-    Status401(crate::models::InlineResponse40129),
+    Status400(crate::models::InlineResponse40030),
+    Status401(crate::models::InlineResponse40130),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40329),
+    Status403(crate::models::InlineResponse40330),
     Status404(crate::models::InlineResponse4042),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -119,10 +119,10 @@ pub enum ListZilliqaTransactionsByAddressError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListZilliqaTransactionsByBlockHashError {
-    Status400(crate::models::InlineResponse40021),
-    Status401(crate::models::InlineResponse40121),
+    Status400(crate::models::InlineResponse40022),
+    Status401(crate::models::InlineResponse40122),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40321),
+    Status403(crate::models::InlineResponse40322),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -135,10 +135,10 @@ pub enum ListZilliqaTransactionsByBlockHashError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListZilliqaTransactionsByBlockHeightError {
-    Status400(crate::models::InlineResponse40022),
-    Status401(crate::models::InlineResponse40122),
+    Status400(crate::models::InlineResponse40023),
+    Status401(crate::models::InlineResponse40123),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40322),
+    Status403(crate::models::InlineResponse40323),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),

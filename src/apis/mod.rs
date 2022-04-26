@@ -77,7 +77,6 @@ pub mod metadata_api;
 pub mod omni_layer_api;
 pub mod tokens_api;
 pub mod transactions_api;
-pub mod utxo_based_api;
 pub mod unified_endpoints_api;
 pub mod xrp_ripple_api;
 pub mod zilliqa_api;

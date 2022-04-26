@@ -17,19 +17,19 @@ pub struct GetHdWalletXPubYPubZPubDetailsRi {
     #[serde(rename = "confirmedBalance")]
     pub confirmed_balance: String,
     /// Defines the total currency received to the Wallet.
-    #[serde(rename = "totalReceived")]
-    pub total_received: String,
+    #[serde(rename = "totalReceived", skip_serializing_if = "Option::is_none")]
+    pub total_received: Option<String>,
     /// Defines the total currency spent from the Wallet.
-    #[serde(rename = "totalSpent")]
-    pub total_spent: String,
+    #[serde(rename = "totalSpent", skip_serializing_if = "Option::is_none")]
+    pub total_spent: Option<String>,
 }
 
 impl GetHdWalletXPubYPubZPubDetailsRi {
-    pub fn new(confirmed_balance: String, total_received: String, total_spent: String) -> GetHdWalletXPubYPubZPubDetailsRi {
+    pub fn new(confirmed_balance: String) -> GetHdWalletXPubYPubZPubDetailsRi {
         GetHdWalletXPubYPubZPubDetailsRi {
             confirmed_balance,
-            total_received,
-            total_spent,
+            total_received: None,
+            total_spent: None,
         }
     }
 }

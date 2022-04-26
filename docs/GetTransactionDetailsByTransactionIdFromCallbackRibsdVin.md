@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **addresses** | **Vec<String>** |  | 
 **coinbase** | Option<**String**> | Represents the coinbase hex. | [optional]
 **script_sig** | [**crate::models::GetTransactionDetailsByTransactionIdribsd2ScriptSig**](GetTransactionDetailsByTransactionIDRIBSD2_scriptSig.md) |  | 
-**sequence** | **i32** | Represents the script sequence number. | 
+**sequence** | **i64** | Represents the script sequence number. | 
 **txid** | Option<**String**> | String representation of the txid | [optional]
 **txinwitness** | **Vec<String>** |  | 
 **value** | Option<**String**> | Represents the sent/received amount. | [optional]

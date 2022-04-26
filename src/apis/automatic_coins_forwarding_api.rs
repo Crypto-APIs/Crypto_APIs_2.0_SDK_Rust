@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateAutomaticCoinsForwardingError {
-    Status400(crate::models::InlineResponse40076),
-    Status401(crate::models::InlineResponse40176),
+    Status400(crate::models::InlineResponse40090),
+    Status401(crate::models::InlineResponse40190),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40376),
+    Status403(crate::models::InlineResponse40390),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse40916),
     Status415(crate::models::InlineResponse415),
@@ -36,10 +36,10 @@ pub enum CreateAutomaticCoinsForwardingError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteAutomaticCoinsForwardingError {
-    Status400(crate::models::InlineResponse40077),
-    Status401(crate::models::InlineResponse40177),
+    Status400(crate::models::InlineResponse40091),
+    Status401(crate::models::InlineResponse40191),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40377),
+    Status403(crate::models::InlineResponse40391),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -53,10 +53,10 @@ pub enum DeleteAutomaticCoinsForwardingError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListCoinsForwardingAutomationsError {
-    Status400(crate::models::InlineResponse40075),
-    Status401(crate::models::InlineResponse40175),
+    Status400(crate::models::InlineResponse40089),
+    Status401(crate::models::InlineResponse40189),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40375),
+    Status403(crate::models::InlineResponse40389),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),

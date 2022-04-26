@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetOmniTransactionDetailsByTransactionIdTxidError {
-    Status400(crate::models::InlineResponse40032),
-    Status401(crate::models::InlineResponse40132),
+    Status400(crate::models::InlineResponse40033),
+    Status401(crate::models::InlineResponse40133),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40332),
+    Status403(crate::models::InlineResponse40333),
     Status404(crate::models::InlineResponse404),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -36,10 +36,10 @@ pub enum GetOmniTransactionDetailsByTransactionIdTxidError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUnconfirmedOmniTransactionByTransactionIdTxidError {
-    Status400(crate::models::InlineResponse40019),
-    Status401(crate::models::InlineResponse40119),
+    Status400(crate::models::InlineResponse40020),
+    Status401(crate::models::InlineResponse40120),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40319),
+    Status403(crate::models::InlineResponse40320),
     Status404(crate::models::InlineResponse404),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -85,10 +85,10 @@ pub enum ListOmniTransactionsByAddressError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListOmniTransactionsByBlockHashError {
-    Status400(crate::models::InlineResponse40044),
-    Status401(crate::models::InlineResponse40144),
+    Status400(crate::models::InlineResponse40047),
+    Status401(crate::models::InlineResponse40147),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40344),
+    Status403(crate::models::InlineResponse40347),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -101,10 +101,10 @@ pub enum ListOmniTransactionsByBlockHashError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListOmniTransactionsByBlockHeightError {
-    Status400(crate::models::InlineResponse40038),
-    Status401(crate::models::InlineResponse40138),
+    Status400(crate::models::InlineResponse40041),
+    Status401(crate::models::InlineResponse40141),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40338),
+    Status403(crate::models::InlineResponse40341),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -133,10 +133,10 @@ pub enum ListUnconfirmedOmniTransactionsByAddressError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListUnconfirmedOmniTransactionsByPropertyIdError {
-    Status400(crate::models::InlineResponse40028),
-    Status401(crate::models::InlineResponse40128),
+    Status400(crate::models::InlineResponse40029),
+    Status401(crate::models::InlineResponse40129),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40328),
+    Status403(crate::models::InlineResponse40329),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),

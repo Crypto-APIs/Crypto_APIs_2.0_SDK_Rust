@@ -23,11 +23,11 @@ pub struct InlineResponse40044 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::ListOmniTransactionsByBlockHashE400>,
+    pub error: Box<crate::models::GetTransactionRequestDetailsE400>,
 }
 
 impl InlineResponse40044 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::ListOmniTransactionsByBlockHashE400) -> InlineResponse40044 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::GetTransactionRequestDetailsE400) -> InlineResponse40044 {
         InlineResponse40044 {
             api_version,
             request_id,

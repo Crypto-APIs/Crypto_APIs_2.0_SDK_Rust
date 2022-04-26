@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locktime** | **i32** | Represents the time at which a particular transaction can be added to the blockchain. | 
+**locktime** | **i64** | Represents the time at which a particular transaction can be added to the blockchain. | 
 **size** | **i32** | Represents the total size of this transaction. | 
 **version** | **i32** | Represents transaction version number. | 
 **vin** | [**Vec<crate::models::GetTransactionDetailsByTransactionIdribsd2Vin>**](GetTransactionDetailsByTransactionIDRIBSD2_vin.md) | Represents the transaction inputs. | 

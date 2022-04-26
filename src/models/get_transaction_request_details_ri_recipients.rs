@@ -16,9 +16,15 @@ pub struct GetTransactionRequestDetailsRiRecipients {
     /// The address which receives this transaction. In UTXO-based protocols like Bitcoin there could be several senders while in account-based protocols like Ethereum there is always only one recipient.
     #[serde(rename = "address")]
     pub address: String,
+    /// Defines a specific Tag that is an additional XRP address feature. It helps identify a transaction recipient beyond a wallet address. The tag that was encoded into the x-Address along with the Classic Address.
+    #[serde(rename = "addressTag", skip_serializing_if = "Option::is_none")]
+    pub address_tag: Option<i32>,
     /// Represents the amount received to this address.
     #[serde(rename = "amount")]
     pub amount: String,
+    /// Represents the public address, which is a compressed and shortened form of a public key. A classic address is shown when the destination address is an x-Address.
+    #[serde(rename = "classicAddress", skip_serializing_if = "Option::is_none")]
+    pub classic_address: Option<String>,
     /// Defines the unit of the amount.
     #[serde(rename = "unit")]
     pub unit: String,
@@ -28,7 +34,9 @@ impl GetTransactionRequestDetailsRiRecipients {
     pub fn new(address: String, amount: String, unit: String) -> GetTransactionRequestDetailsRiRecipients {
         GetTransactionRequestDetailsRiRecipients {
             address,
+            address_tag: None,
             amount,
+            classic_address: None,
             unit,
         }
     }

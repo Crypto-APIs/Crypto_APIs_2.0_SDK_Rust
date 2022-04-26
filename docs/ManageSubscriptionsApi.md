@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**activate_blockchain_event_subscription**](ManageSubscriptionsApi.md#activate_blockchain_event_subscription) | **POST** /blockchain-events/subscriptions/{referenceId}/activate | Activate Blockchain Event Subscription
 [**delete_blockchain_event_subscription**](ManageSubscriptionsApi.md#delete_blockchain_event_subscription) | **DELETE** /blockchain-events/{blockchain}/{network}/subscriptions/{referenceId} | Delete Blockchain Event Subscription
+[**get_blockchain_event_subscription_details_by_reference_id**](ManageSubscriptionsApi.md#get_blockchain_event_subscription_details_by_reference_id) | **GET** /blockchain-events/subscriptions/{referenceId} | Get Blockchain Event Subscription Details By Reference ID
 [**list_blockchain_events_subscriptions**](ManageSubscriptionsApi.md#list_blockchain_events_subscriptions) | **GET** /blockchain-events/{blockchain}/{network}/subscriptions | List Blockchain Events Subscriptions
 
 
@@ -62,6 +63,37 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::DeleteBlockchainEventSubscriptionR**](DeleteBlockchainEventSubscriptionR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_blockchain_event_subscription_details_by_reference_id
+
+> crate::models::GetBlockchainEventSubscriptionDetailsByReferenceIdr get_blockchain_event_subscription_details_by_reference_id(reference_id, context)
+Get Blockchain Event Subscription Details By Reference ID
+
+Through this endpoint the customer can get detailed information for a callback subscription by providing its reference ID.    Currently Crypto APIs 2.0 offers certain Blockchain event endpoints which allow the user to subscribe for one/a few/all and receive callback notifications when the specific event occurs.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**reference_id** | **String** | Represents a unique ID used to reference the specific callback subscription. | [required] |
+**context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+
+### Return type
+
+[**crate::models::GetBlockchainEventSubscriptionDetailsByReferenceIdr**](GetBlockchainEventSubscriptionDetailsByReferenceIDR.md)
 
 ### Authorization
 

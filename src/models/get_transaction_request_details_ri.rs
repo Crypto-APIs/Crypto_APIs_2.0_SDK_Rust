@@ -31,6 +31,9 @@ pub struct GetTransactionRequestDetailsRi {
     /// Defines the total transaction amount.
     #[serde(rename = "totalTransactionAmount")]
     pub total_transaction_amount: String,
+    /// Represents the unique identifier of a transaction, i.e. it could be transactionId in UTXO-based protocols like Bitcoin, and transaction hash in Ethereum blockchain.
+    #[serde(rename = "transactionId", skip_serializing_if = "Option::is_none")]
+    pub transaction_id: Option<String>,
     /// Defines the status of the transaction request, e.g. pending.
     #[serde(rename = "transactionRequestStatus")]
     pub transaction_request_status: TransactionRequestStatus,
@@ -54,6 +57,7 @@ impl GetTransactionRequestDetailsRi {
             network,
             recipients,
             total_transaction_amount,
+            transaction_id: None,
             transaction_request_status,
             transaction_type,
             unit,
@@ -79,6 +83,8 @@ pub enum Blockchain {
     Ethereum,
     #[serde(rename = "ethereum-classic")]
     EthereumClassic,
+    #[serde(rename = "xrp")]
+    Xrp,
     #[serde(rename = "zcash")]
     Zcash,
 }

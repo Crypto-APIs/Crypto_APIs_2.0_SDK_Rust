@@ -19,7 +19,7 @@ pub struct NewConfirmedInternalTransactionsRi {
     /// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs 2.0. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
     #[serde(rename = "callbackSecretKey")]
     pub callback_secret_key: String,
-    /// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+    /// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
     #[serde(rename = "callbackUrl")]
     pub callback_url: String,
     /// Defines the specific time/date when the subscription was created in Unix Timestamp.
@@ -31,13 +31,16 @@ pub struct NewConfirmedInternalTransactionsRi {
     /// Defines whether the subscription is active or not. Set as boolean.
     #[serde(rename = "isActive")]
     pub is_active: bool,
+    /// Represents the exact confirmation, on which the user wants to receive callback.
+    #[serde(rename = "receiveCallbackOn")]
+    pub receive_callback_on: i32,
     /// Represents a unique ID used to reference the specific callback subscription.
     #[serde(rename = "referenceId")]
     pub reference_id: String,
 }
 
 impl NewConfirmedInternalTransactionsRi {
-    pub fn new(address: String, callback_secret_key: String, callback_url: String, created_timestamp: i32, event_type: String, is_active: bool, reference_id: String) -> NewConfirmedInternalTransactionsRi {
+    pub fn new(address: String, callback_secret_key: String, callback_url: String, created_timestamp: i32, event_type: String, is_active: bool, receive_callback_on: i32, reference_id: String) -> NewConfirmedInternalTransactionsRi {
         NewConfirmedInternalTransactionsRi {
             address,
             callback_secret_key,
@@ -45,6 +48,7 @@ impl NewConfirmedInternalTransactionsRi {
             created_timestamp,
             event_type,
             is_active,
+            receive_callback_on,
             reference_id,
         }
     }

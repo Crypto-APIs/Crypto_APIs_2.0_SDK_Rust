@@ -15,7 +15,7 @@
 pub struct ListAllUnconfirmedTransactionsRibs {
     /// Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.
     #[serde(rename = "locktime")]
-    pub locktime: i32,
+    pub locktime: i64,
     /// Represents the total size of this transaction.
     #[serde(rename = "size")]
     pub size: i32,
@@ -80,7 +80,7 @@ pub struct ListAllUnconfirmedTransactionsRibs {
 }
 
 impl ListAllUnconfirmedTransactionsRibs {
-    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>, fee: crate::models::ListAllUnconfirmedTransactionsRibsecFee, gas_limit: String, gas_price: crate::models::ListConfirmedTransactionsByAddressRibsbscGasPrice, input_data: String, nonce: i32, transaction_status: String, binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, overwintered: bool, v_join_split: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVJoinSplit>, v_shielded_output: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>, v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>, value_balance: String, version_group_id: String) -> ListAllUnconfirmedTransactionsRibs {
+    pub fn new(locktime: i64, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>, fee: crate::models::ListAllUnconfirmedTransactionsRibsecFee, gas_limit: String, gas_price: crate::models::ListConfirmedTransactionsByAddressRibsbscGasPrice, input_data: String, nonce: i32, transaction_status: String, binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, overwintered: bool, v_join_split: Vec<crate::models::ListConfirmedTransactionsByAddressRibszVJoinSplit>, v_shielded_output: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>, v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>, value_balance: String, version_group_id: String) -> ListAllUnconfirmedTransactionsRibs {
         ListAllUnconfirmedTransactionsRibs {
             locktime,
             size,

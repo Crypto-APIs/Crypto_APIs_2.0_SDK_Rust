@@ -23,11 +23,11 @@ pub struct InlineResponse40136 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::CreateFungibleTokensTransactionRequestFromAddressE401>,
+    pub error: Box<crate::models::GetWalletAssetDetailsE401>,
 }
 
 impl InlineResponse40136 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::CreateFungibleTokensTransactionRequestFromAddressE401) -> InlineResponse40136 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::GetWalletAssetDetailsE401) -> InlineResponse40136 {
         InlineResponse40136 {
             api_version,
             request_id,

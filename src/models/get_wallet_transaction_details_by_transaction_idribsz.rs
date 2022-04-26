@@ -28,7 +28,7 @@ pub struct GetWalletTransactionDetailsByTransactionIdribsz {
     pub join_split_sig: String,
     /// Represents the time at which a particular transaction can be added to the blockchain.
     #[serde(rename = "locktime")]
-    pub locktime: i32,
+    pub locktime: i64,
     /// \"Overwinter\" is the network upgrade for the Zcash blockchain.
     #[serde(rename = "overwintered")]
     pub overwintered: bool,
@@ -63,7 +63,7 @@ pub struct GetWalletTransactionDetailsByTransactionIdribsz {
 
 impl GetWalletTransactionDetailsByTransactionIdribsz {
     /// Zcash
-    pub fn new(binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, locktime: i32, overwintered: bool, size: i32, value_balance: String, version: i32, version_group_id: String, vin: Vec<crate::models::GetWalletTransactionDetailsByTransactionIdribszVin>, vout: Vec<crate::models::ListTransactionsByBlockHeightRibszVout>) -> GetWalletTransactionDetailsByTransactionIdribsz {
+    pub fn new(binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, locktime: i64, overwintered: bool, size: i32, value_balance: String, version: i32, version_group_id: String, vin: Vec<crate::models::GetWalletTransactionDetailsByTransactionIdribszVin>, vout: Vec<crate::models::ListTransactionsByBlockHeightRibszVout>) -> GetWalletTransactionDetailsByTransactionIdribsz {
         GetWalletTransactionDetailsByTransactionIdribsz {
             binding_sig,
             expiry_height,

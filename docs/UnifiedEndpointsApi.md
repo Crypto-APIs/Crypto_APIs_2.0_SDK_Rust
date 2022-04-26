@@ -4,19 +4,60 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**estimate_transaction_smart_fee**](UnifiedEndpointsApi.md#estimate_transaction_smart_fee) | **GET** /blockchain-data/{blockchain}/{network}/estimate-transaction-smart-fee | Estimate Transaction Smart Fee
 [**get_address_details**](UnifiedEndpointsApi.md#get_address_details) | **GET** /blockchain-data/{blockchain}/{network}/addresses/{address} | Get Address Details
 [**get_block_details_by_block_hash**](UnifiedEndpointsApi.md#get_block_details_by_block_hash) | **GET** /blockchain-data/{blockchain}/{network}/blocks/hash/{blockHash} | Get Block Details By Block Hash
 [**get_block_details_by_block_height**](UnifiedEndpointsApi.md#get_block_details_by_block_height) | **GET** /blockchain-data/{blockchain}/{network}/blocks/height/{height} | Get Block Details By Block Height
 [**get_fee_recommendations**](UnifiedEndpointsApi.md#get_fee_recommendations) | **GET** /blockchain-data/{blockchain}/{network}/mempool/fees | Get Fee Recommendations
 [**get_last_mined_block**](UnifiedEndpointsApi.md#get_last_mined_block) | **GET** /blockchain-data/{blockchain}/{network}/blocks/last | Get Last Mined Block
+[**get_next_available_nonce**](UnifiedEndpointsApi.md#get_next_available_nonce) | **GET** /blockchain-data/{blockchain}/{network}/addresses/{address}/next-available-nonce | Get Next Available Nonce
+[**get_raw_transaction_data**](UnifiedEndpointsApi.md#get_raw_transaction_data) | **GET** /blockchain-data/{blockchain}/{network}/transactions/{transactionId}/raw-data | Get Raw Transaction Data
 [**get_transaction_details_by_transaction_id**](UnifiedEndpointsApi.md#get_transaction_details_by_transaction_id) | **GET** /blockchain-data/{blockchain}/{network}/transactions/{transactionId} | Get Transaction Details By Transaction ID
 [**list_all_unconfirmed_transactions**](UnifiedEndpointsApi.md#list_all_unconfirmed_transactions) | **GET** /blockchain-data/{blockchain}/{network}/address-transactions-unconfirmed | List All Unconfirmed Transactions
+[**list_confirmed_tokens_transfers_by_address_and_time_range**](UnifiedEndpointsApi.md#list_confirmed_tokens_transfers_by_address_and_time_range) | **GET** /blockchain-data/{blockchain}/{network}/addresses/{address}/tokens-transfers-by-time-range | List Confirmed Tokens Transfers By Address And Time Range
 [**list_confirmed_transactions_by_address**](UnifiedEndpointsApi.md#list_confirmed_transactions_by_address) | **GET** /blockchain-data/{blockchain}/{network}/addresses/{address}/transactions | List Confirmed Transactions By Address
+[**list_confirmed_transactions_by_address_and_time_range**](UnifiedEndpointsApi.md#list_confirmed_transactions_by_address_and_time_range) | **GET** /blockchain-data/{blockchain}/{network}/addresses/{address}/transactions-by-time-range | List Confirmed Transactions By Address And Time Range
+[**list_internal_transactions_by_address_and_time_range**](UnifiedEndpointsApi.md#list_internal_transactions_by_address_and_time_range) | **GET** /blockchain-data/{blockchain}/{network}/addresses/{address}/internal-by-time-range | List Internal Transactions By Address And Time Range
 [**list_latest_mined_blocks**](UnifiedEndpointsApi.md#list_latest_mined_blocks) | **GET** /blockchain-data/{blockchain}/{network}/blocks/last/{count} | List Latest Mined Blocks
 [**list_transactions_by_block_hash**](UnifiedEndpointsApi.md#list_transactions_by_block_hash) | **GET** /blockchain-data/{blockchain}/{network}/blocks/hash/{blockHash}/transactions | List Transactions by Block Hash
 [**list_transactions_by_block_height**](UnifiedEndpointsApi.md#list_transactions_by_block_height) | **GET** /blockchain-data/{blockchain}/{network}/blocks/height/{height}/transactions | List Transactions by Block Height
 [**list_unconfirmed_transactions_by_address**](UnifiedEndpointsApi.md#list_unconfirmed_transactions_by_address) | **GET** /blockchain-data/{blockchain}/{network}/address-transactions-unconfirmed/{address} | List Unconfirmed Transactions by Address
+[**list_unspent_transaction_outputs_by_address**](UnifiedEndpointsApi.md#list_unspent_transaction_outputs_by_address) | **GET** /blockchain-data/{blockchain}/{network}/addresses/{address}/unspent-outputs | List Unspent Transaction Outputs By Address
 
+
+
+## estimate_transaction_smart_fee
+
+> crate::models::EstimateTransactionSmartFeeR estimate_transaction_smart_fee(blockchain, network, context, confirmation_target, estimate_mode)
+Estimate Transaction Smart Fee
+
+Through this endpoint, customers can estimate the approximate fee per kilobyte needed for a transaction to begin confirmation within the `confirmationTarget` blocks when possible. After which it will return the number of blocks for which the estimate is valid.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**blockchain** | **String** |  | [required] |
+**network** | **String** |  | [required] |
+**context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+**confirmation_target** | Option<**i32**> | Integer representation of confirmation target in blocks that estimation will be valid for |  |
+**estimate_mode** | Option<**String**> | String representation of the address |  |
+
+### Return type
+
+[**crate::models::EstimateTransactionSmartFeeR**](EstimateTransactionSmartFeeR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## get_address_details
@@ -182,6 +223,72 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## get_next_available_nonce
+
+> crate::models::GetNextAvailableNonceR get_next_available_nonce(blockchain, network, address, context)
+Get Next Available Nonce
+
+Through this endpoint customers can get information about the next available nonce by providing the specific blockchain, network and address.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [required] |
+**network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
+**address** | **String** | Represents the public address, which is a compressed and shortened form of a public key. | [required] |
+**context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+
+### Return type
+
+[**crate::models::GetNextAvailableNonceR**](GetNextAvailableNonceR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_raw_transaction_data
+
+> crate::models::GetRawTransactionDataR get_raw_transaction_data(blockchain, network, transaction_id, context)
+Get Raw Transaction Data
+
+Through this endpoint customers can get information on a transaction in its raw format by providing its `transactionId`.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [required] |
+**network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
+**transaction_id** | **String** | Represents the unique identifier of a transaction, i.e. it could be transactionId in UTXO-based protocols like Bitcoin, and transaction hash in Ethereum blockchain. | [required] |
+**context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+
+### Return type
+
+[**crate::models::GetRawTransactionDataR**](GetRawTransactionDataR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## get_transaction_details_by_transaction_id
 
 > crate::models::GetTransactionDetailsByTransactionIdr get_transaction_details_by_transaction_id(blockchain, network, transaction_id, context)
@@ -230,12 +337,49 @@ Name | Type | Description  | Required | Notes
 **blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [required] |
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+**limit** | Option<**i64**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
+**offset** | Option<**i64**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+
+### Return type
+
+[**crate::models::ListAllUnconfirmedTransactionsR**](ListAllUnconfirmedTransactionsR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## list_confirmed_tokens_transfers_by_address_and_time_range
+
+> crate::models::ListConfirmedTokensTransfersByAddressAndTimeRangeR list_confirmed_tokens_transfers_by_address_and_time_range(blockchain, network, address, from_timestamp, to_timestamp, context, limit, offset)
+List Confirmed Tokens Transfers By Address And Time Range
+
+Through this endpoint customers can obtain a list with **confirmed** token transfers by the `address` attribute and the query parameters `fromTimestamp` and `toTimestamp` which gives customers the opportunity to filter the results by a specified time period.    {note}This refers only to transfers done for **confirmed tokens** not coins.{/note}
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Ethereum Classic, etc. | [required] |
+**network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
+**address** | **String** | Represents the public address, which is a compressed and shortened form of a public key. | [required] |
+**from_timestamp** | **i32** | Defines the specific time/date from which the results will start being listed. | [required] |
+**to_timestamp** | **i32** | Defines the specific time/date to which the results will be listed. | [required] |
+**context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
 **limit** | Option<**i32**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
 **offset** | Option<**i32**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
 
 ### Return type
 
-[**crate::models::ListAllUnconfirmedTransactionsR**](ListAllUnconfirmedTransactionsR.md)
+[**crate::models::ListConfirmedTokensTransfersByAddressAndTimeRangeR**](ListConfirmedTokensTransfersByAddressAndTimeRangeR.md)
 
 ### Authorization
 
@@ -265,12 +409,86 @@ Name | Type | Description  | Required | Notes
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
 **address** | **String** | Represents the public address, which is a compressed and shortened form of a public key. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+**limit** | Option<**i64**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
+**offset** | Option<**i64**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+
+### Return type
+
+[**crate::models::ListConfirmedTransactionsByAddressR**](ListConfirmedTransactionsByAddressR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## list_confirmed_transactions_by_address_and_time_range
+
+> crate::models::ListConfirmedTransactionsByAddressAndTimeRangeR list_confirmed_transactions_by_address_and_time_range(blockchain, network, address, from_timestamp, to_timestamp, context, limit, offset)
+List Confirmed Transactions By Address And Time Range
+
+This endpoint will list confirmed transactions by the attribute `address` and the query parameters `fromTimestamp` and `toTimestamp` which gives customers the opportunity to filter the results by a specified time period.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [required] |
+**network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
+**address** | **String** | Represents the public address, which is a compressed and shortened form of a public key. | [required] |
+**from_timestamp** | **i32** | Defines the specific time/date from which the results will start being listed. | [required] |
+**to_timestamp** | **i32** | Defines the specific time/date to which the results will be listed. | [required] |
+**context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+**limit** | Option<**i64**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
+**offset** | Option<**i64**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+
+### Return type
+
+[**crate::models::ListConfirmedTransactionsByAddressAndTimeRangeR**](ListConfirmedTransactionsByAddressAndTimeRangeR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## list_internal_transactions_by_address_and_time_range
+
+> crate::models::ListInternalTransactionsByAddressAndTimeRangeR list_internal_transactions_by_address_and_time_range(blockchain, network, address, from_timestamp, to_timestamp, context, limit, offset)
+List Internal Transactions By Address And Time Range
+
+Through this endpoint customers can list internal transactions by the `address` attribute and the query parameters `fromTimestamp` and `toTimestamp`  which gives customers the opportunity to filter the results by a specified time period.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [required] |
+**network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
+**address** | **String** | String identifier of the address document represented in CryptoAPIs | [required] |
+**from_timestamp** | **i32** | Defines the specific time/date from which the results will start being listed. | [required] |
+**to_timestamp** | **i32** | Defines the specific time/date to which the results will be listed. | [required] |
+**context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
 **limit** | Option<**i32**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
 **offset** | Option<**i32**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
 
 ### Return type
 
-[**crate::models::ListConfirmedTransactionsByAddressR**](ListConfirmedTransactionsByAddressR.md)
+[**crate::models::ListInternalTransactionsByAddressAndTimeRangeR**](ListInternalTransactionsByAddressAndTimeRangeR.md)
 
 ### Authorization
 
@@ -333,8 +551,8 @@ Name | Type | Description  | Required | Notes
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
 **block_hash** | **String** | Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
-**limit** | Option<**i32**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
-**offset** | Option<**i32**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+**limit** | Option<**i64**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
+**offset** | Option<**i64**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
 
 ### Return type
 
@@ -366,10 +584,10 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [required] |
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
-**height** | **i32** | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\". | [required] |
+**height** | **i64** | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\". | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
-**limit** | Option<**i32**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
-**offset** | Option<**i32**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+**limit** | Option<**i64**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
+**offset** | Option<**i64**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
 
 ### Return type
 
@@ -403,12 +621,47 @@ Name | Type | Description  | Required | Notes
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
 **address** | **String** | Represents the public address, which is a compressed and shortened form of a public key. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+**limit** | Option<**i64**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
+**offset** | Option<**i64**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+
+### Return type
+
+[**crate::models::ListUnconfirmedTransactionsByAddressR**](ListUnconfirmedTransactionsByAddressR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## list_unspent_transaction_outputs_by_address
+
+> crate::models::ListUnspentTransactionOutputsByAddressR list_unspent_transaction_outputs_by_address(blockchain, network, address, context, limit, offset)
+List Unspent Transaction Outputs By Address
+
+Through this endpoint customers can list their transactions' unspent outputs by `address`.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [required] |
+**network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
+**address** | **String** | Represents the address that has unspend funds per which the result is returned. | [required] |
+**context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
 **limit** | Option<**i32**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
 **offset** | Option<**i32**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
 
 ### Return type
 
-[**crate::models::ListUnconfirmedTransactionsByAddressR**](ListUnconfirmedTransactionsByAddressR.md)
+[**crate::models::ListUnspentTransactionOutputsByAddressR**](ListUnspentTransactionOutputsByAddressR.md)
 
 ### Authorization
 

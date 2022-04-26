@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ActivateBlockchainEventSubscriptionError {
-    Status400(crate::models::InlineResponse40067),
-    Status401(crate::models::InlineResponse40167),
+    Status400(crate::models::InlineResponse40081),
+    Status401(crate::models::InlineResponse40181),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40367),
+    Status403(crate::models::InlineResponse40381),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -36,10 +36,27 @@ pub enum ActivateBlockchainEventSubscriptionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteBlockchainEventSubscriptionError {
-    Status400(crate::models::InlineResponse40068),
-    Status401(crate::models::InlineResponse40168),
+    Status400(crate::models::InlineResponse40082),
+    Status401(crate::models::InlineResponse40182),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40368),
+    Status403(crate::models::InlineResponse40382),
+    Status404(crate::models::InlineResponse4041),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method `get_blockchain_event_subscription_details_by_reference_id`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetBlockchainEventSubscriptionDetailsByReferenceIdError {
+    Status400(crate::models::InlineResponse40080),
+    Status401(crate::models::InlineResponse40180),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40380),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -53,10 +70,10 @@ pub enum DeleteBlockchainEventSubscriptionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListBlockchainEventsSubscriptionsError {
-    Status400(crate::models::InlineResponse40066),
-    Status401(crate::models::InlineResponse40166),
+    Status400(crate::models::InlineResponse40079),
+    Status401(crate::models::InlineResponse40179),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40366),
+    Status403(crate::models::InlineResponse40379),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -138,6 +155,44 @@ pub async fn delete_blockchain_event_subscription(configuration: &configuration:
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<DeleteBlockchainEventSubscriptionError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Through this endpoint the customer can get detailed information for a callback subscription by providing its reference ID.    Currently Crypto APIs 2.0 offers certain Blockchain event endpoints which allow the user to subscribe for one/a few/all and receive callback notifications when the specific event occurs.
+pub async fn get_blockchain_event_subscription_details_by_reference_id(configuration: &configuration::Configuration, reference_id: &str, context: Option<&str>) -> Result<crate::models::GetBlockchainEventSubscriptionDetailsByReferenceIdr, Error<GetBlockchainEventSubscriptionDetailsByReferenceIdError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-events/subscriptions/{referenceId}", configuration.base_path, referenceId=crate::apis::urlencode(reference_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetBlockchainEventSubscriptionDetailsByReferenceIdError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

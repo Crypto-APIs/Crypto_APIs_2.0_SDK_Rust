@@ -23,11 +23,11 @@ pub struct InlineResponse40367 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::ActivateBlockchainEventSubscriptionE403>,
+    pub error: Box<crate::models::ListTokensByAddressE403>,
 }
 
 impl InlineResponse40367 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::ActivateBlockchainEventSubscriptionE403) -> InlineResponse40367 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::ListTokensByAddressE403) -> InlineResponse40367 {
         InlineResponse40367 {
             api_version,
             request_id,

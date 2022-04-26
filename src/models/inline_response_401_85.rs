@@ -23,11 +23,11 @@ pub struct InlineResponse40185 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::BroadcastLocallySignedTransactionE401>,
+    pub error: Box<crate::models::GetBlockDetailsByBlockHashFromCallbackE401>,
 }
 
 impl InlineResponse40185 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::BroadcastLocallySignedTransactionE401) -> InlineResponse40185 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::GetBlockDetailsByBlockHashFromCallbackE401) -> InlineResponse40185 {
         InlineResponse40185 {
             api_version,
             request_id,

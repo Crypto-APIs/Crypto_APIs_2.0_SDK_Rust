@@ -16,16 +16,24 @@ pub struct CreateCoinsTransactionRequestFromAddressRiRecipients {
     /// Defines the destination address.
     #[serde(rename = "address")]
     pub address: String,
+    /// Defines a specific Tag that is an additional XRP address feature. It helps identify a transaction recipient beyond a wallet address. The tag that was encoded into the x-Address along with the Source Classic Address.
+    #[serde(rename = "addressTag", skip_serializing_if = "Option::is_none")]
+    pub address_tag: Option<i32>,
     /// Defines the amount sent to the destination address.
     #[serde(rename = "amount")]
     pub amount: String,
+    /// Represents the public address, which is a compressed and shortened form of a public key. The classic address is shown when the source address is an x-Address.
+    #[serde(rename = "classicAddress", skip_serializing_if = "Option::is_none")]
+    pub classic_address: Option<String>,
 }
 
 impl CreateCoinsTransactionRequestFromAddressRiRecipients {
     pub fn new(address: String, amount: String) -> CreateCoinsTransactionRequestFromAddressRiRecipients {
         CreateCoinsTransactionRequestFromAddressRiRecipients {
             address,
+            address_tag: None,
             amount,
+            classic_address: None,
         }
     }
 }

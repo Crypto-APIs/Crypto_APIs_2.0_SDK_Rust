@@ -22,10 +22,10 @@ pub struct GetAddressDetailsRi {
     pub total_received: Box<crate::models::GetAddressDetailsRiTotalReceived>,
     #[serde(rename = "totalSpent")]
     pub total_spent: Box<crate::models::GetAddressDetailsRiTotalSpent>,
-    /// Defines the count of the incoming transactions.
+    /// Defines the received transaction count to the address.
     #[serde(rename = "incomingTransactionsCount")]
     pub incoming_transactions_count: i32,
-    /// Defines the count of the outgoing transactions.
+    /// Defines the sent transaction count from the address.
     #[serde(rename = "outgoingTransactionsCount")]
     pub outgoing_transactions_count: i32,
 }

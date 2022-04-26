@@ -19,14 +19,14 @@ pub struct GetTransactionDetailsByTransactionIdFromCallbackRibsx {
     pub additional_data: String,
     /// Defines the destination tag value.
     #[serde(rename = "destinationTag", skip_serializing_if = "Option::is_none")]
-    pub destination_tag: Option<i32>,
+    pub destination_tag: Option<i64>,
     #[serde(rename = "offer")]
     pub offer: Box<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriOffer>,
     #[serde(rename = "receive")]
     pub receive: Box<crate::models::GetXrpRippleTransactionDetailsByTransactionIdriReceive>,
     /// Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
     #[serde(rename = "sequence")]
-    pub sequence: i32,
+    pub sequence: i64,
     /// Defines the status of the transaction.
     #[serde(rename = "status")]
     pub status: String,
@@ -39,7 +39,7 @@ pub struct GetTransactionDetailsByTransactionIdFromCallbackRibsx {
 
 impl GetTransactionDetailsByTransactionIdFromCallbackRibsx {
     /// XRP
-    pub fn new(additional_data: String, offer: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriOffer, receive: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriReceive, sequence: i32, status: String, _type: String, value: crate::models::GetTransactionDetailsByTransactionIdFromCallbackRibsxValue) -> GetTransactionDetailsByTransactionIdFromCallbackRibsx {
+    pub fn new(additional_data: String, offer: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriOffer, receive: crate::models::GetXrpRippleTransactionDetailsByTransactionIdriReceive, sequence: i64, status: String, _type: String, value: crate::models::GetTransactionDetailsByTransactionIdFromCallbackRibsxValue) -> GetTransactionDetailsByTransactionIdFromCallbackRibsx {
         GetTransactionDetailsByTransactionIdFromCallbackRibsx {
             additional_data,
             destination_tag: None,

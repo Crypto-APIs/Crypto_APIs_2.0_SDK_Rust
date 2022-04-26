@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locktime** | **i32** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
+**locktime** | **i64** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
 **size** | **i32** | Represents the total size of this transaction. | 
 **v_size** | **i32** | Represents the virtual size of this transaction. | 
 **version** | **i32** | Defines the version of the transaction. | 
@@ -28,10 +28,10 @@ Name | Type | Description | Notes
 **value_balance** | **String** | String representation of the transaction value balance | 
 **version_group_id** | **String** | Represents the transaction version group ID | 
 **additional_data** | **String** | Represents additional data that may be needed. | 
-**destination_tag** | Option<**i32**> | Defines the destination tag value. | [optional]
+**destination_tag** | Option<**i64**> | Defines the destination tag value. | [optional]
 **offer** | [**crate::models::GetXrpRippleTransactionDetailsByTransactionIdriOffer**](GetXRPRippleTransactionDetailsByTransactionIDRI_offer.md) |  | 
 **receive** | [**crate::models::GetXrpRippleTransactionDetailsByTransactionIdriReceive**](GetXRPRippleTransactionDetailsByTransactionIDRI_receive.md) |  | 
-**sequence** | **i32** | Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
+**sequence** | **i64** | Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
 **status** | **String** | Defines the status of the transaction. | 
 **_type** | **String** | Defines the type of the transaction. | 
 **value** | [**crate::models::GetTransactionDetailsByTransactionIdFromCallbackRibsxValue**](GetTransactionDetailsByTransactionIDFromCallbackRIBSX_value.md) |  | 

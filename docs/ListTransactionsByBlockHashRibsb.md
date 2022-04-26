@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locktime** | **i32** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
+**locktime** | **i64** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
 **size** | **i32** | Represents the total size of this transaction. | 
 **v_size** | **i32** | Represents the virtual size of this transaction. | 
 **version** | **i32** | Represents the transaction version number. | 

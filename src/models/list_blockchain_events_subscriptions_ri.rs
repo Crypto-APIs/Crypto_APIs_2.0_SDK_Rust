@@ -17,9 +17,9 @@ pub struct ListBlockchainEventsSubscriptionsRi {
     #[serde(rename = "address")]
     pub address: String,
     /// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
-    #[serde(rename = "callbackSecretKey")]
-    pub callback_secret_key: String,
-    /// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+    #[serde(rename = "callbackSecretKey", skip_serializing_if = "Option::is_none")]
+    pub callback_secret_key: Option<String>,
+    /// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
     #[serde(rename = "callbackUrl")]
     pub callback_url: String,
     /// Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
@@ -28,6 +28,9 @@ pub struct ListBlockchainEventsSubscriptionsRi {
     /// Defines the specific time/date when the subscription was created in Unix Timestamp.
     #[serde(rename = "createdTimestamp")]
     pub created_timestamp: i32,
+    /// Represents the deactivation reason details, available when a blockchain event subscription has status isActive - false.
+    #[serde(rename = "deactivationReasons", skip_serializing_if = "Option::is_none")]
+    pub deactivation_reasons: Option<Vec<crate::models::ListBlockchainEventsSubscriptionsRiDeactivationReasons>>,
     /// Defines the type of the specific event available for the customer to subscribe to for callback notification.
     #[serde(rename = "eventType")]
     pub event_type: String,
@@ -38,22 +41,23 @@ pub struct ListBlockchainEventsSubscriptionsRi {
     #[serde(rename = "referenceId")]
     pub reference_id: String,
     /// Represents the unique identification string that defines the transaction.
-    #[serde(rename = "transactionId")]
-    pub transaction_id: String,
+    #[serde(rename = "transactionId", skip_serializing_if = "Option::is_none")]
+    pub transaction_id: Option<String>,
 }
 
 impl ListBlockchainEventsSubscriptionsRi {
-    pub fn new(address: String, callback_secret_key: String, callback_url: String, confirmations_count: i32, created_timestamp: i32, event_type: String, is_active: bool, reference_id: String, transaction_id: String) -> ListBlockchainEventsSubscriptionsRi {
+    pub fn new(address: String, callback_url: String, confirmations_count: i32, created_timestamp: i32, event_type: String, is_active: bool, reference_id: String) -> ListBlockchainEventsSubscriptionsRi {
         ListBlockchainEventsSubscriptionsRi {
             address,
-            callback_secret_key,
+            callback_secret_key: None,
             callback_url,
             confirmations_count,
             created_timestamp,
+            deactivation_reasons: None,
             event_type,
             is_active,
             reference_id,
-            transaction_id,
+            transaction_id: None,
         }
     }
 }

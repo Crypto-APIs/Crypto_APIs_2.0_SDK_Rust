@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum MinedTransactionError {
-    Status400(crate::models::InlineResponse40064),
-    Status401(crate::models::InlineResponse40164),
+    Status400(crate::models::InlineResponse40077),
+    Status401(crate::models::InlineResponse40177),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40364),
+    Status403(crate::models::InlineResponse40377),
     Status409(crate::models::InlineResponse40912),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -35,10 +35,10 @@ pub enum MinedTransactionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewBlockError {
-    Status400(crate::models::InlineResponse40065),
-    Status401(crate::models::InlineResponse40165),
+    Status400(crate::models::InlineResponse40078),
+    Status401(crate::models::InlineResponse40178),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40365),
+    Status403(crate::models::InlineResponse40378),
     Status409(crate::models::InlineResponse40913),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -51,10 +51,10 @@ pub enum NewBlockError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewConfirmedCoinsTransactionsError {
-    Status400(crate::models::InlineResponse40060),
-    Status401(crate::models::InlineResponse40160),
+    Status400(crate::models::InlineResponse40073),
+    Status401(crate::models::InlineResponse40173),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40360),
+    Status403(crate::models::InlineResponse40373),
     Status409(crate::models::InlineResponse4098),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -67,10 +67,10 @@ pub enum NewConfirmedCoinsTransactionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewConfirmedCoinsTransactionsAndEachConfirmationError {
-    Status400(crate::models::InlineResponse40063),
-    Status401(crate::models::InlineResponse40163),
+    Status400(crate::models::InlineResponse40076),
+    Status401(crate::models::InlineResponse40176),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40363),
+    Status403(crate::models::InlineResponse40376),
     Status409(crate::models::InlineResponse40911),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -83,10 +83,10 @@ pub enum NewConfirmedCoinsTransactionsAndEachConfirmationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewConfirmedInternalTransactionsError {
-    Status400(crate::models::InlineResponse40073),
-    Status401(crate::models::InlineResponse40173),
+    Status400(crate::models::InlineResponse40087),
+    Status401(crate::models::InlineResponse40187),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40373),
+    Status403(crate::models::InlineResponse40387),
     Status409(crate::models::InlineResponse40914),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -99,10 +99,10 @@ pub enum NewConfirmedInternalTransactionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewConfirmedInternalTransactionsAndEachConfirmationError {
-    Status400(crate::models::InlineResponse40074),
-    Status401(crate::models::InlineResponse40174),
+    Status400(crate::models::InlineResponse40088),
+    Status401(crate::models::InlineResponse40188),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40374),
+    Status403(crate::models::InlineResponse40388),
     Status409(crate::models::InlineResponse40915),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -115,10 +115,10 @@ pub enum NewConfirmedInternalTransactionsAndEachConfirmationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewConfirmedTokensTransactionsError {
-    Status400(crate::models::InlineResponse40061),
-    Status401(crate::models::InlineResponse40161),
+    Status400(crate::models::InlineResponse40074),
+    Status401(crate::models::InlineResponse40174),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40361),
+    Status403(crate::models::InlineResponse40374),
     Status409(crate::models::InlineResponse4099),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -131,10 +131,10 @@ pub enum NewConfirmedTokensTransactionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewConfirmedTokensTransactionsAndEachConfirmationError {
-    Status400(crate::models::InlineResponse40062),
-    Status401(crate::models::InlineResponse40162),
+    Status400(crate::models::InlineResponse40075),
+    Status401(crate::models::InlineResponse40175),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40362),
+    Status403(crate::models::InlineResponse40375),
     Status409(crate::models::InlineResponse40910),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -147,10 +147,10 @@ pub enum NewConfirmedTokensTransactionsAndEachConfirmationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewUnconfirmedCoinsTransactionsError {
-    Status400(crate::models::InlineResponse40058),
-    Status401(crate::models::InlineResponse40158),
+    Status400(crate::models::InlineResponse40071),
+    Status401(crate::models::InlineResponse40171),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40358),
+    Status403(crate::models::InlineResponse40371),
     Status409(crate::models::InlineResponse4096),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -163,10 +163,10 @@ pub enum NewUnconfirmedCoinsTransactionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum NewUnconfirmedTokensTransactionsError {
-    Status400(crate::models::InlineResponse40059),
-    Status401(crate::models::InlineResponse40159),
+    Status400(crate::models::InlineResponse40072),
+    Status401(crate::models::InlineResponse40172),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40359),
+    Status403(crate::models::InlineResponse40372),
     Status409(crate::models::InlineResponse4097),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),

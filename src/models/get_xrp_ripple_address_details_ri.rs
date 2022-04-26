@@ -23,14 +23,14 @@ pub struct GetXrpRippleAddressDetailsRi {
     pub outgoing_transactions_count: i32,
     /// Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
     #[serde(rename = "sequence")]
-    pub sequence: i32,
+    pub sequence: i64,
     /// Represents the total number of all transactions as part of this block.
     #[serde(rename = "transactionsCount")]
     pub transactions_count: i32,
 }
 
 impl GetXrpRippleAddressDetailsRi {
-    pub fn new(balance: crate::models::GetXrpRippleAddressDetailsRiBalance, incoming_transactions_count: i32, outgoing_transactions_count: i32, sequence: i32, transactions_count: i32) -> GetXrpRippleAddressDetailsRi {
+    pub fn new(balance: crate::models::GetXrpRippleAddressDetailsRiBalance, incoming_transactions_count: i32, outgoing_transactions_count: i32, sequence: i64, transactions_count: i32) -> GetXrpRippleAddressDetailsRi {
         GetXrpRippleAddressDetailsRi {
             balance: Box::new(balance),
             incoming_transactions_count,

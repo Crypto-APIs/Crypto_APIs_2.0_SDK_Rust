@@ -25,15 +25,19 @@ pub struct GetFeeRecommendationsRi {
     /// Standard fee per byte calculated from unconfirmed transactions
     #[serde(rename = "standard")]
     pub standard: String,
+    /// Represents the fee cushion multiplier used to multiply the base fee.
+    #[serde(rename = "feeCushionMultiplier")]
+    pub fee_cushion_multiplier: String,
 }
 
 impl GetFeeRecommendationsRi {
-    pub fn new(unit: String, fast: String, slow: String, standard: String) -> GetFeeRecommendationsRi {
+    pub fn new(unit: String, fast: String, slow: String, standard: String, fee_cushion_multiplier: String) -> GetFeeRecommendationsRi {
         GetFeeRecommendationsRi {
             unit,
             fast,
             slow,
             standard,
+            fee_cushion_multiplier,
         }
     }
 }

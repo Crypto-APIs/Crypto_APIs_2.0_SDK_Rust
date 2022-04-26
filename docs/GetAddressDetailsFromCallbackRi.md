@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **confirmed_balance** | [**crate::models::GetAddressDetailsRiConfirmedBalance**](GetAddressDetailsRI_confirmedBalance.md) |  | 
 **total_received** | Option<[**crate::models::GetAddressDetailsFromCallbackRiTotalReceived**](GetAddressDetailsFromCallbackRI_totalReceived.md)> |  | [optional]
 **total_spent** | Option<[**crate::models::GetAddressDetailsFromCallbackRiTotalSpent**](GetAddressDetailsFromCallbackRI_totalSpent.md)> |  | [optional]
-**sequence** | Option<**i32**> | Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | [optional]
+**sequence** | Option<**i64**> | Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

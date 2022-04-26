@@ -23,11 +23,11 @@ pub struct InlineResponse40140 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::GetLatestMinedZilliqaBlockE401>,
+    pub error: Box<crate::models::GetLastMinedBlockE401>,
 }
 
 impl InlineResponse40140 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::GetLatestMinedZilliqaBlockE401) -> InlineResponse40140 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::GetLastMinedBlockE401) -> InlineResponse40140 {
         InlineResponse40140 {
             api_version,
             request_id,

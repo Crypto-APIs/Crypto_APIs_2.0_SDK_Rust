@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCoinsTransactionFromAddressForWholeAmountError {
-    Status400(crate::models::InlineResponse40025),
-    Status401(crate::models::InlineResponse40125),
+    Status400(crate::models::InlineResponse40026),
+    Status401(crate::models::InlineResponse40126),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40325),
+    Status403(crate::models::InlineResponse40326),
     Status409(crate::models::InlineResponse4093),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -35,10 +35,10 @@ pub enum CreateCoinsTransactionFromAddressForWholeAmountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateCoinsTransactionRequestFromAddressError {
-    Status400(crate::models::InlineResponse40020),
-    Status401(crate::models::InlineResponse40120),
+    Status400(crate::models::InlineResponse40021),
+    Status401(crate::models::InlineResponse40121),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40320),
+    Status403(crate::models::InlineResponse40321),
     Status409(crate::models::InlineResponse4092),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -67,10 +67,10 @@ pub enum CreateCoinsTransactionRequestFromWalletError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateFungibleTokensTransactionRequestFromAddressError {
-    Status400(crate::models::InlineResponse40036),
-    Status401(crate::models::InlineResponse40136),
+    Status400(crate::models::InlineResponse40037),
+    Status401(crate::models::InlineResponse40137),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40336),
+    Status403(crate::models::InlineResponse40337),
     Status409(crate::models::InlineResponse4094),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),

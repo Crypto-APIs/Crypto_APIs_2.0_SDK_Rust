@@ -13,69 +13,35 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListUnspentTransactionOutputsByAddressRi {
+    /// Represents the address that has unspend funds per which the result is returned.
+    #[serde(rename = "address")]
+    pub address: String,
+    /// Represents the sent/received amount.
+    #[serde(rename = "amount")]
+    pub amount: String,
     /// Represents the index position of the transaction in the block.
     #[serde(rename = "index")]
     pub index: i32,
-    /// Represents the time at which a particular transaction can be added to the blockchain
-    #[serde(rename = "locktime")]
-    pub locktime: i32,
-    /// Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
-    #[serde(rename = "minedInBlockHash")]
-    pub mined_in_block_hash: String,
-    /// Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
-    #[serde(rename = "minedInBlockHeight")]
-    pub mined_in_block_height: i32,
-    /// Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-    #[serde(rename = "recipients")]
-    pub recipients: Vec<crate::models::GetTransactionDetailsByTransactionIdriRecipients>,
-    /// Object Array representation of transaction senders
-    #[serde(rename = "senders")]
-    pub senders: Vec<crate::models::ListUnspentTransactionOutputsByAddressRiSenders>,
-    /// Represents the total size of this transaction
-    #[serde(rename = "size")]
-    pub size: i32,
+    /// Represents the state of the transaction whether it is confirmed or not confirmed.
+    #[serde(rename = "isConfirmed")]
+    pub is_confirmed: bool,
     /// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
     #[serde(rename = "timestamp")]
     pub timestamp: i32,
-    /// Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
-    #[serde(rename = "transactionHash")]
-    pub transaction_hash: String,
     /// Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
     #[serde(rename = "transactionId")]
     pub transaction_id: String,
-    /// Represents the transaction version number.
-    #[serde(rename = "version")]
-    pub version: i32,
-    /// Represents the transaction inputs.
-    #[serde(rename = "vin")]
-    pub vin: Vec<crate::models::ListUnspentTransactionOutputsByAddressRiVin>,
-    /// Represents the transaction outputs.
-    #[serde(rename = "vout")]
-    pub vout: Vec<crate::models::ListConfirmedTransactionsByAddressRibsbVout>,
-    #[serde(rename = "fee")]
-    pub fee: Box<crate::models::ListUnspentTransactionOutputsByAddressRiFee>,
-    #[serde(rename = "blockchainSpecific")]
-    pub blockchain_specific: Box<crate::models::ListUnspentTransactionOutputsByAddressRiBlockchainSpecific>,
 }
 
 impl ListUnspentTransactionOutputsByAddressRi {
-    pub fn new(index: i32, locktime: i32, mined_in_block_hash: String, mined_in_block_height: i32, recipients: Vec<crate::models::GetTransactionDetailsByTransactionIdriRecipients>, senders: Vec<crate::models::ListUnspentTransactionOutputsByAddressRiSenders>, size: i32, timestamp: i32, transaction_hash: String, transaction_id: String, version: i32, vin: Vec<crate::models::ListUnspentTransactionOutputsByAddressRiVin>, vout: Vec<crate::models::ListConfirmedTransactionsByAddressRibsbVout>, fee: crate::models::ListUnspentTransactionOutputsByAddressRiFee, blockchain_specific: crate::models::ListUnspentTransactionOutputsByAddressRiBlockchainSpecific) -> ListUnspentTransactionOutputsByAddressRi {
+    pub fn new(address: String, amount: String, index: i32, is_confirmed: bool, timestamp: i32, transaction_id: String) -> ListUnspentTransactionOutputsByAddressRi {
         ListUnspentTransactionOutputsByAddressRi {
+            address,
+            amount,
             index,
-            locktime,
-            mined_in_block_hash,
-            mined_in_block_height,
-            recipients,
-            senders,
-            size,
+            is_confirmed,
             timestamp,
-            transaction_hash,
             transaction_id,
-            version,
-            vin,
-            vout,
-            fee: Box::new(fee),
-            blockchain_specific: Box::new(blockchain_specific),
         }
     }
 }

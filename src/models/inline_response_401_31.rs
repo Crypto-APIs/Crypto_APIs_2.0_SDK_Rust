@@ -23,11 +23,11 @@ pub struct InlineResponse40131 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::GetXrpRippleBlockDetailsByBlockHashE401>,
+    pub error: Box<crate::models::GetBlockDetailsByBlockHashE401>,
 }
 
 impl InlineResponse40131 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::GetXrpRippleBlockDetailsByBlockHashE401) -> InlineResponse40131 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::GetBlockDetailsByBlockHashE401) -> InlineResponse40131 {
         InlineResponse40131 {
             api_version,
             request_id,

@@ -28,7 +28,7 @@ pub struct GetTransactionDetailsByTransactionIdribsz {
     pub join_split_sig: String,
     /// Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.
     #[serde(rename = "locktime")]
-    pub locktime: i32,
+    pub locktime: i64,
     /// \"Overwinter\" is the network upgrade for the Zcash blockchain.
     #[serde(rename = "overwintered")]
     pub overwintered: bool,
@@ -63,7 +63,7 @@ pub struct GetTransactionDetailsByTransactionIdribsz {
 
 impl GetTransactionDetailsByTransactionIdribsz {
     /// Zcash
-    pub fn new(binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, locktime: i32, overwintered: bool, size: i32, v_join_split: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVJoinSplit>, v_shielded_output: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>, v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>, value_balance: String, version: i32, version_group_id: String, vin: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>) -> GetTransactionDetailsByTransactionIdribsz {
+    pub fn new(binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, locktime: i64, overwintered: bool, size: i32, v_join_split: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVJoinSplit>, v_shielded_output: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>, v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>, value_balance: String, version: i32, version_group_id: String, vin: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>) -> GetTransactionDetailsByTransactionIdribsz {
         GetTransactionDetailsByTransactionIdribsz {
             binding_sig,
             expiry_height,

@@ -15,6 +15,23 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
+/// struct for typed errors of method `estimate_transaction_smart_fee`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum EstimateTransactionSmartFeeError {
+    Status400(crate::models::InlineResponse40068),
+    Status401(crate::models::InlineResponse40168),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40368),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    Status501(crate::models::InlineResponse501),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method `get_address_details`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -35,10 +52,10 @@ pub enum GetAddressDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetBlockDetailsByBlockHashError {
-    Status400(crate::models::InlineResponse40030),
-    Status401(crate::models::InlineResponse40130),
+    Status400(crate::models::InlineResponse40031),
+    Status401(crate::models::InlineResponse40131),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40330),
+    Status403(crate::models::InlineResponse40331),
     Status404(crate::models::InlineResponse4042),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -52,10 +69,10 @@ pub enum GetBlockDetailsByBlockHashError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetBlockDetailsByBlockHeightError {
-    Status400(crate::models::InlineResponse40026),
-    Status401(crate::models::InlineResponse40126),
+    Status400(crate::models::InlineResponse40027),
+    Status401(crate::models::InlineResponse40127),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40326),
+    Status403(crate::models::InlineResponse40327),
     Status404(crate::models::InlineResponse4042),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -69,10 +86,10 @@ pub enum GetBlockDetailsByBlockHeightError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetFeeRecommendationsError {
-    Status400(crate::models::InlineResponse40053),
-    Status401(crate::models::InlineResponse40153),
+    Status400(crate::models::InlineResponse40057),
+    Status401(crate::models::InlineResponse40157),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40353),
+    Status403(crate::models::InlineResponse40357),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -86,11 +103,44 @@ pub enum GetFeeRecommendationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLastMinedBlockError {
-    Status400(crate::models::InlineResponse40037),
-    Status401(crate::models::InlineResponse40137),
+    Status400(crate::models::InlineResponse40040),
+    Status401(crate::models::InlineResponse40140),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40337),
+    Status403(crate::models::InlineResponse40340),
     Status404(crate::models::InlineResponse4042),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method `get_next_available_nonce`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetNextAvailableNonceError {
+    Status400(crate::models::InlineResponse40058),
+    Status401(crate::models::InlineResponse40158),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40358),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method `get_raw_transaction_data`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetRawTransactionDataError {
+    Status400(crate::models::InlineResponse40065),
+    Status401(crate::models::InlineResponse40165),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40365),
+    Status404(crate::models::InlineResponse404),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -120,10 +170,26 @@ pub enum GetTransactionDetailsByTransactionIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListAllUnconfirmedTransactionsError {
-    Status400(crate::models::InlineResponse40016),
-    Status401(crate::models::InlineResponse40116),
+    Status400(crate::models::InlineResponse40017),
+    Status401(crate::models::InlineResponse40117),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40316),
+    Status403(crate::models::InlineResponse40317),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method `list_confirmed_tokens_transfers_by_address_and_time_range`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ListConfirmedTokensTransfersByAddressAndTimeRangeError {
+    Status400(crate::models::InlineResponse40062),
+    Status401(crate::models::InlineResponse40162),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40362),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -148,14 +214,46 @@ pub enum ListConfirmedTransactionsByAddressError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method `list_confirmed_transactions_by_address_and_time_range`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ListConfirmedTransactionsByAddressAndTimeRangeError {
+    Status400(crate::models::InlineResponse40061),
+    Status401(crate::models::InlineResponse40161),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40361),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method `list_internal_transactions_by_address_and_time_range`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ListInternalTransactionsByAddressAndTimeRangeError {
+    Status400(crate::models::InlineResponse40063),
+    Status401(crate::models::InlineResponse40163),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40363),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method `list_latest_mined_blocks`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListLatestMinedBlocksError {
-    Status400(crate::models::InlineResponse40042),
-    Status401(crate::models::InlineResponse40142),
+    Status400(crate::models::InlineResponse40045),
+    Status401(crate::models::InlineResponse40145),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40342),
+    Status403(crate::models::InlineResponse40345),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -169,10 +267,10 @@ pub enum ListLatestMinedBlocksError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListTransactionsByBlockHashError {
-    Status400(crate::models::InlineResponse40017),
-    Status401(crate::models::InlineResponse40117),
+    Status400(crate::models::InlineResponse40018),
+    Status401(crate::models::InlineResponse40118),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40317),
+    Status403(crate::models::InlineResponse40318),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -185,10 +283,10 @@ pub enum ListTransactionsByBlockHashError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListTransactionsByBlockHeightError {
-    Status400(crate::models::InlineResponse40024),
-    Status401(crate::models::InlineResponse40124),
+    Status400(crate::models::InlineResponse40025),
+    Status401(crate::models::InlineResponse40125),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40324),
+    Status403(crate::models::InlineResponse40325),
     Status404(crate::models::InlineResponse4042),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -214,6 +312,66 @@ pub enum ListUnconfirmedTransactionsByAddressError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method `list_unspent_transaction_outputs_by_address`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ListUnspentTransactionOutputsByAddressError {
+    Status400(crate::models::InlineResponse40059),
+    Status401(crate::models::InlineResponse40159),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40359),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
+
+/// Through this endpoint, customers can estimate the approximate fee per kilobyte needed for a transaction to begin confirmation within the `confirmationTarget` blocks when possible. After which it will return the number of blocks for which the estimate is valid.
+pub async fn estimate_transaction_smart_fee(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, confirmation_target: Option<i32>, estimate_mode: Option<&str>) -> Result<crate::models::EstimateTransactionSmartFeeR, Error<EstimateTransactionSmartFeeError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/estimate-transaction-smart-fee", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = confirmation_target {
+        local_var_req_builder = local_var_req_builder.query(&[("confirmationTarget", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = estimate_mode {
+        local_var_req_builder = local_var_req_builder.query(&[("estimateMode", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<EstimateTransactionSmartFeeError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
 
 /// Through this endpoint the customer can receive basic information about a given address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here. Applies only for coins.
 pub async fn get_address_details(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>) -> Result<crate::models::GetAddressDetailsR, Error<GetAddressDetailsError>> {
@@ -405,6 +563,82 @@ pub async fn get_last_mined_block(configuration: &configuration::Configuration, 
     }
 }
 
+/// Through this endpoint customers can get information about the next available nonce by providing the specific blockchain, network and address.
+pub async fn get_next_available_nonce(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>) -> Result<crate::models::GetNextAvailableNonceR, Error<GetNextAvailableNonceError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}/next-available-nonce", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetNextAvailableNonceError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Through this endpoint customers can get information on a transaction in its raw format by providing its `transactionId`.
+pub async fn get_raw_transaction_data(configuration: &configuration::Configuration, blockchain: &str, network: &str, transaction_id: &str, context: Option<&str>) -> Result<crate::models::GetRawTransactionDataR, Error<GetRawTransactionDataError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/transactions/{transactionId}/raw-data", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), transactionId=crate::apis::urlencode(transaction_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetRawTransactionDataError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 /// Through this endpoint customers can obtain details about a transaction by the transaction's unique identifier. In UTXO-based protocols like BTC there are attributes such as `transactionId` and transaction `hash`. They still could be different. In protocols like Ethereum there is only one unique value and it's `hash`.
 pub async fn get_transaction_details_by_transaction_id(configuration: &configuration::Configuration, blockchain: &str, network: &str, transaction_id: &str, context: Option<&str>) -> Result<crate::models::GetTransactionDetailsByTransactionIdr, Error<GetTransactionDetailsByTransactionIdError>> {
 
@@ -444,7 +678,7 @@ pub async fn get_transaction_details_by_transaction_id(configuration: &configura
 }
 
 /// Through this endpoint customers can list all **unconfirmed**  transactions for a specified blockchain and network.
-pub async fn list_all_unconfirmed_transactions(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListAllUnconfirmedTransactionsR, Error<ListAllUnconfirmedTransactionsError>> {
+pub async fn list_all_unconfirmed_transactions(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, limit: Option<i64>, offset: Option<i64>) -> Result<crate::models::ListAllUnconfirmedTransactionsR, Error<ListAllUnconfirmedTransactionsError>> {
 
     let local_var_client = &configuration.client;
 
@@ -487,8 +721,54 @@ pub async fn list_all_unconfirmed_transactions(configuration: &configuration::Co
     }
 }
 
+/// Through this endpoint customers can obtain a list with **confirmed** token transfers by the `address` attribute and the query parameters `fromTimestamp` and `toTimestamp` which gives customers the opportunity to filter the results by a specified time period.    {note}This refers only to transfers done for **confirmed tokens** not coins.{/note}
+pub async fn list_confirmed_tokens_transfers_by_address_and_time_range(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, from_timestamp: i32, to_timestamp: i32, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListConfirmedTokensTransfersByAddressAndTimeRangeR, Error<ListConfirmedTokensTransfersByAddressAndTimeRangeError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}/tokens-transfers-by-time-range", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    local_var_req_builder = local_var_req_builder.query(&[("fromTimestamp", &from_timestamp.to_string())]);
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    local_var_req_builder = local_var_req_builder.query(&[("toTimestamp", &to_timestamp.to_string())]);
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ListConfirmedTokensTransfersByAddressAndTimeRangeError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 /// This endpoint will list transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
-pub async fn list_confirmed_transactions_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListConfirmedTransactionsByAddressR, Error<ListConfirmedTransactionsByAddressError>> {
+pub async fn list_confirmed_transactions_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i64>, offset: Option<i64>) -> Result<crate::models::ListConfirmedTransactionsByAddressR, Error<ListConfirmedTransactionsByAddressError>> {
 
     let local_var_client = &configuration.client;
 
@@ -526,6 +806,98 @@ pub async fn list_confirmed_transactions_by_address(configuration: &configuratio
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<ListConfirmedTransactionsByAddressError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// This endpoint will list confirmed transactions by the attribute `address` and the query parameters `fromTimestamp` and `toTimestamp` which gives customers the opportunity to filter the results by a specified time period.
+pub async fn list_confirmed_transactions_by_address_and_time_range(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, from_timestamp: i32, to_timestamp: i32, context: Option<&str>, limit: Option<i64>, offset: Option<i64>) -> Result<crate::models::ListConfirmedTransactionsByAddressAndTimeRangeR, Error<ListConfirmedTransactionsByAddressAndTimeRangeError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}/transactions-by-time-range", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    local_var_req_builder = local_var_req_builder.query(&[("fromTimestamp", &from_timestamp.to_string())]);
+    local_var_req_builder = local_var_req_builder.query(&[("toTimestamp", &to_timestamp.to_string())]);
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ListConfirmedTransactionsByAddressAndTimeRangeError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Through this endpoint customers can list internal transactions by the `address` attribute and the query parameters `fromTimestamp` and `toTimestamp`  which gives customers the opportunity to filter the results by a specified time period.
+pub async fn list_internal_transactions_by_address_and_time_range(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, from_timestamp: i32, to_timestamp: i32, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListInternalTransactionsByAddressAndTimeRangeR, Error<ListInternalTransactionsByAddressAndTimeRangeError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}/internal-by-time-range", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    local_var_req_builder = local_var_req_builder.query(&[("fromTimestamp", &from_timestamp.to_string())]);
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    local_var_req_builder = local_var_req_builder.query(&[("toTimestamp", &to_timestamp.to_string())]);
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ListInternalTransactionsByAddressAndTimeRangeError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -570,7 +942,7 @@ pub async fn list_latest_mined_blocks(configuration: &configuration::Configurati
 }
 
 /// This endpoint will list transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
-pub async fn list_transactions_by_block_hash(configuration: &configuration::Configuration, blockchain: &str, network: &str, block_hash: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByBlockHashR, Error<ListTransactionsByBlockHashError>> {
+pub async fn list_transactions_by_block_hash(configuration: &configuration::Configuration, blockchain: &str, network: &str, block_hash: &str, context: Option<&str>, limit: Option<i64>, offset: Option<i64>) -> Result<crate::models::ListTransactionsByBlockHashR, Error<ListTransactionsByBlockHashError>> {
 
     let local_var_client = &configuration.client;
 
@@ -614,7 +986,7 @@ pub async fn list_transactions_by_block_hash(configuration: &configuration::Conf
 }
 
 /// This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
-pub async fn list_transactions_by_block_height(configuration: &configuration::Configuration, blockchain: &str, network: &str, height: i32, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTransactionsByBlockHeightR, Error<ListTransactionsByBlockHeightError>> {
+pub async fn list_transactions_by_block_height(configuration: &configuration::Configuration, blockchain: &str, network: &str, height: i64, context: Option<&str>, limit: Option<i64>, offset: Option<i64>) -> Result<crate::models::ListTransactionsByBlockHeightR, Error<ListTransactionsByBlockHeightError>> {
 
     let local_var_client = &configuration.client;
 
@@ -658,7 +1030,7 @@ pub async fn list_transactions_by_block_height(configuration: &configuration::Co
 }
 
 /// Through this endpoint customers can list transactions by `address` that are **unconfirmed**.
-pub async fn list_unconfirmed_transactions_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListUnconfirmedTransactionsByAddressR, Error<ListUnconfirmedTransactionsByAddressError>> {
+pub async fn list_unconfirmed_transactions_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i64>, offset: Option<i64>) -> Result<crate::models::ListUnconfirmedTransactionsByAddressR, Error<ListUnconfirmedTransactionsByAddressError>> {
 
     let local_var_client = &configuration.client;
 
@@ -696,6 +1068,50 @@ pub async fn list_unconfirmed_transactions_by_address(configuration: &configurat
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<ListUnconfirmedTransactionsByAddressError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Through this endpoint customers can list their transactions' unspent outputs by `address`.
+pub async fn list_unspent_transaction_outputs_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListUnspentTransactionOutputsByAddressR, Error<ListUnspentTransactionOutputsByAddressError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-data/{blockchain}/{network}/addresses/{address}/unspent-outputs", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), address=crate::apis::urlencode(address));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = limit {
+        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = offset {
+        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ListUnspentTransactionOutputsByAddressError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

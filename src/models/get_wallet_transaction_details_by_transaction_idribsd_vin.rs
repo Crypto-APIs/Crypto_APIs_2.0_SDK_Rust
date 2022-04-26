@@ -22,7 +22,7 @@ pub struct GetWalletTransactionDetailsByTransactionIdribsdVin {
     pub script_sig: Box<crate::models::GetWalletTransactionDetailsByTransactionIdribsdScriptSig>,
     /// Represents the script sequence number.
     #[serde(rename = "sequence")]
-    pub sequence: i32,
+    pub sequence: i64,
     /// Represents the reference transaction identifier.
     #[serde(rename = "txid", skip_serializing_if = "Option::is_none")]
     pub txid: Option<String>,
@@ -37,7 +37,7 @@ pub struct GetWalletTransactionDetailsByTransactionIdribsdVin {
 }
 
 impl GetWalletTransactionDetailsByTransactionIdribsdVin {
-    pub fn new(addresses: Vec<String>, script_sig: crate::models::GetWalletTransactionDetailsByTransactionIdribsdScriptSig, sequence: i32, value: String) -> GetWalletTransactionDetailsByTransactionIdribsdVin {
+    pub fn new(addresses: Vec<String>, script_sig: crate::models::GetWalletTransactionDetailsByTransactionIdribsdScriptSig, sequence: i64, value: String) -> GetWalletTransactionDetailsByTransactionIdribsdVin {
         GetWalletTransactionDetailsByTransactionIdribsdVin {
             addresses,
             coinbase: None,

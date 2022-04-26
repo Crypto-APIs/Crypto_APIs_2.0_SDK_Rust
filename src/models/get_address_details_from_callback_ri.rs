@@ -30,7 +30,7 @@ pub struct GetAddressDetailsFromCallbackRi {
     pub total_spent: Option<Box<crate::models::GetAddressDetailsFromCallbackRiTotalSpent>>,
     /// Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
     #[serde(rename = "sequence", skip_serializing_if = "Option::is_none")]
-    pub sequence: Option<i32>,
+    pub sequence: Option<i64>,
 }
 
 impl GetAddressDetailsFromCallbackRi {

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addresses** | **Vec<String>** |  | 
 **script_sig** | [**crate::models::GetTransactionDetailsByTransactionIdribszScriptSig**](GetTransactionDetailsByTransactionIDRIBSZ_scriptSig.md) |  | 
-**sequence** | **i32** | Represents the script sequence number. | 
+**sequence** | **i64** | Represents the script sequence number. | 
 **txid** | **String** | Represents the reference transaction identifier. | 
 **txinwitness** | **Vec<String>** |  | 
 **value** | **String** | Defines the specific amount. | 

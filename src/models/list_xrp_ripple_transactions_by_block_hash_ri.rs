@@ -17,7 +17,7 @@ pub struct ListXrpRippleTransactionsByBlockHashRi {
     #[serde(rename = "additionalData", skip_serializing_if = "Option::is_none")]
     pub additional_data: Option<String>,
     #[serde(rename = "destinationTag", skip_serializing_if = "Option::is_none")]
-    pub destination_tag: Option<i32>,
+    pub destination_tag: Option<i64>,
     /// Represents the index position of the transaction in the specific block.
     #[serde(rename = "index")]
     pub index: i32,
@@ -32,7 +32,7 @@ pub struct ListXrpRippleTransactionsByBlockHashRi {
     pub senders: Vec<crate::models::ListXrpRippleTransactionsByBlockHashRiSenders>,
     /// Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
     #[serde(rename = "sequence")]
-    pub sequence: i32,
+    pub sequence: i64,
     /// Defines the status of the transaction.
     #[serde(rename = "status")]
     pub status: String,
@@ -56,7 +56,7 @@ pub struct ListXrpRippleTransactionsByBlockHashRi {
 }
 
 impl ListXrpRippleTransactionsByBlockHashRi {
-    pub fn new(index: i32, mined_in_block_height: i32, recipients: Vec<crate::models::ListXrpRippleTransactionsByBlockHashRiRecipients>, senders: Vec<crate::models::ListXrpRippleTransactionsByBlockHashRiSenders>, sequence: i32, status: String, timestamp: i32, transaction_hash: String, _type: String, fee: crate::models::ListXrpRippleTransactionsByBlockHashRiFee, offer: crate::models::ListXrpRippleTransactionsByBlockHashRiOffer, receive: crate::models::ListXrpRippleTransactionsByBlockHashRiReceive, value: crate::models::ListXrpRippleTransactionsByBlockHashRiValue) -> ListXrpRippleTransactionsByBlockHashRi {
+    pub fn new(index: i32, mined_in_block_height: i32, recipients: Vec<crate::models::ListXrpRippleTransactionsByBlockHashRiRecipients>, senders: Vec<crate::models::ListXrpRippleTransactionsByBlockHashRiSenders>, sequence: i64, status: String, timestamp: i32, transaction_hash: String, _type: String, fee: crate::models::ListXrpRippleTransactionsByBlockHashRiFee, offer: crate::models::ListXrpRippleTransactionsByBlockHashRiOffer, receive: crate::models::ListXrpRippleTransactionsByBlockHashRiReceive, value: crate::models::ListXrpRippleTransactionsByBlockHashRiValue) -> ListXrpRippleTransactionsByBlockHashRi {
         ListXrpRippleTransactionsByBlockHashRi {
             additional_data: None,
             destination_tag: None,

@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAddressDetailsFromCallbackError {
-    Status400(crate::models::InlineResponse40069),
-    Status401(crate::models::InlineResponse40169),
+    Status400(crate::models::InlineResponse40083),
+    Status401(crate::models::InlineResponse40183),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40369),
+    Status403(crate::models::InlineResponse40383),
     Status404(crate::models::InlineResponse4044),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -36,10 +36,10 @@ pub enum GetAddressDetailsFromCallbackError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetBlockDetailsByBlockHashFromCallbackError {
-    Status400(crate::models::InlineResponse40071),
-    Status401(crate::models::InlineResponse40171),
+    Status400(crate::models::InlineResponse40085),
+    Status401(crate::models::InlineResponse40185),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40371),
+    Status403(crate::models::InlineResponse40385),
     Status404(crate::models::InlineResponse4042),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -53,10 +53,10 @@ pub enum GetBlockDetailsByBlockHashFromCallbackError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetBlockDetailsByBlockHeightFromCallbackError {
-    Status400(crate::models::InlineResponse40072),
-    Status401(crate::models::InlineResponse40172),
+    Status400(crate::models::InlineResponse40086),
+    Status401(crate::models::InlineResponse40186),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40372),
+    Status403(crate::models::InlineResponse40386),
     Status404(crate::models::InlineResponse4042),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -70,10 +70,10 @@ pub enum GetBlockDetailsByBlockHeightFromCallbackError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTransactionDetailsByTransactionIdFromCallbackError {
-    Status400(crate::models::InlineResponse40070),
-    Status401(crate::models::InlineResponse40170),
+    Status400(crate::models::InlineResponse40084),
+    Status401(crate::models::InlineResponse40184),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40370),
+    Status403(crate::models::InlineResponse40384),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),

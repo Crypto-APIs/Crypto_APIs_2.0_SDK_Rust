@@ -16,7 +16,7 @@
 pub struct GetWalletTransactionDetailsByTransactionIdribsb {
     /// Represents the time at which a particular transaction can be added to the blockchain.
     #[serde(rename = "locktime")]
-    pub locktime: i32,
+    pub locktime: i64,
     /// Represents the total size of this transaction.
     #[serde(rename = "size")]
     pub size: i32,
@@ -36,7 +36,7 @@ pub struct GetWalletTransactionDetailsByTransactionIdribsb {
 
 impl GetWalletTransactionDetailsByTransactionIdribsb {
     /// Bitcoin
-    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::GetWalletTransactionDetailsByTransactionIdribsbVin>, vout: Vec<crate::models::GetWalletTransactionDetailsByTransactionIdribsbVout>) -> GetWalletTransactionDetailsByTransactionIdribsb {
+    pub fn new(locktime: i64, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::GetWalletTransactionDetailsByTransactionIdribsbVin>, vout: Vec<crate::models::GetWalletTransactionDetailsByTransactionIdribsbVout>) -> GetWalletTransactionDetailsByTransactionIdribsb {
         GetWalletTransactionDetailsByTransactionIdribsb {
             locktime,
             size,

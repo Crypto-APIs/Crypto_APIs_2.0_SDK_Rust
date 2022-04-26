@@ -16,7 +16,7 @@ pub struct ListXrpRippleTransactionsByBlockHeightRi {
     #[serde(rename = "additionalData", skip_serializing_if = "Option::is_none")]
     pub additional_data: Option<String>,
     #[serde(rename = "destinationTag", skip_serializing_if = "Option::is_none")]
-    pub destination_tag: Option<i32>,
+    pub destination_tag: Option<i64>,
     #[serde(rename = "index")]
     pub index: i32,
     #[serde(rename = "minedInBlockHash")]
@@ -28,7 +28,7 @@ pub struct ListXrpRippleTransactionsByBlockHeightRi {
     #[serde(rename = "senders")]
     pub senders: Vec<crate::models::ListXrpRippleTransactionsByBlockHeightRiSenders>,
     #[serde(rename = "sequence")]
-    pub sequence: i32,
+    pub sequence: i64,
     #[serde(rename = "status")]
     pub status: String,
     /// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
@@ -49,7 +49,7 @@ pub struct ListXrpRippleTransactionsByBlockHeightRi {
 }
 
 impl ListXrpRippleTransactionsByBlockHeightRi {
-    pub fn new(index: i32, mined_in_block_hash: String, recipients: Vec<crate::models::ListXrpRippleTransactionsByBlockHeightRiRecipients>, senders: Vec<crate::models::ListXrpRippleTransactionsByBlockHeightRiSenders>, sequence: i32, status: String, timestamp: i32, transaction_hash: String, _type: String, fee: crate::models::ListXrpRippleTransactionsByBlockHeightRiFee, offer: crate::models::ListXrpRippleTransactionsByBlockHeightRiOffer, receive: crate::models::ListXrpRippleTransactionsByBlockHeightRiReceive, value: crate::models::ListXrpRippleTransactionsByBlockHeightRiValue) -> ListXrpRippleTransactionsByBlockHeightRi {
+    pub fn new(index: i32, mined_in_block_hash: String, recipients: Vec<crate::models::ListXrpRippleTransactionsByBlockHeightRiRecipients>, senders: Vec<crate::models::ListXrpRippleTransactionsByBlockHeightRiSenders>, sequence: i64, status: String, timestamp: i32, transaction_hash: String, _type: String, fee: crate::models::ListXrpRippleTransactionsByBlockHeightRiFee, offer: crate::models::ListXrpRippleTransactionsByBlockHeightRiOffer, receive: crate::models::ListXrpRippleTransactionsByBlockHeightRiReceive, value: crate::models::ListXrpRippleTransactionsByBlockHeightRiValue) -> ListXrpRippleTransactionsByBlockHeightRi {
         ListXrpRippleTransactionsByBlockHeightRi {
             additional_data: None,
             destination_tag: None,

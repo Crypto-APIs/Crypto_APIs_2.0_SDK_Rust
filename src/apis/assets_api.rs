@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAssetDetailsByAssetIdError {
-    Status400(crate::models::InlineResponse40090),
-    Status401(crate::models::InlineResponse40190),
+    Status400(crate::models::InlineResponse400109),
+    Status401(crate::models::InlineResponse401109),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40390),
+    Status403(crate::models::InlineResponse403109),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -35,10 +35,10 @@ pub enum GetAssetDetailsByAssetIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAssetDetailsByAssetSymbolError {
-    Status400(crate::models::InlineResponse40091),
-    Status401(crate::models::InlineResponse40191),
+    Status400(crate::models::InlineResponse400110),
+    Status401(crate::models::InlineResponse401110),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40391),
+    Status403(crate::models::InlineResponse403110),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -51,10 +51,10 @@ pub enum GetAssetDetailsByAssetSymbolError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListAssetsDetailsError {
-    Status400(crate::models::InlineResponse40089),
-    Status401(crate::models::InlineResponse40189),
+    Status400(crate::models::InlineResponse400108),
+    Status401(crate::models::InlineResponse401108),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40389),
+    Status403(crate::models::InlineResponse403108),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),

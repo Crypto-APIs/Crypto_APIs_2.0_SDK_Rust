@@ -58,7 +58,7 @@ Through this endpoint users can create a new single transaction request from one
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**address** | **String** | Defines the specific source address for the transaction. | [required] |
+**address** | **String** | Defines the specific source address for the transaction. For XRP we also support the X-address format. | [required] |
 **blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [required] |
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
 **wallet_id** | **String** | Represents the sender's specific and unique Wallet ID of the sender. | [required] |

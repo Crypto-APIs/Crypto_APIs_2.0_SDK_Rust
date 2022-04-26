@@ -28,7 +28,7 @@ pub struct ListTransactionsByBlockHashRibsz {
     pub join_split_sig: String,
     /// Represents the time at which a particular transaction can be added to the blockchain.
     #[serde(rename = "locktime")]
-    pub locktime: i32,
+    pub locktime: i64,
     /// \"Overwinter\" is the network upgrade for the Zcash blockchain.
     #[serde(rename = "overwintered")]
     pub overwintered: bool,
@@ -63,7 +63,7 @@ pub struct ListTransactionsByBlockHashRibsz {
 
 impl ListTransactionsByBlockHashRibsz {
     /// Zcash
-    pub fn new(binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, locktime: i32, overwintered: bool, size: i32, v_join_split: Vec<crate::models::ListTransactionsByBlockHashRibszVJoinSplit>, v_shielded_output: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>, v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>, value_balance: String, version: i32, version_group_id: String, vin: Vec<crate::models::ListTransactionsByBlockHashRibszVin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>) -> ListTransactionsByBlockHashRibsz {
+    pub fn new(binding_sig: String, expiry_height: i32, join_split_pub_key: String, join_split_sig: String, locktime: i64, overwintered: bool, size: i32, v_join_split: Vec<crate::models::ListTransactionsByBlockHashRibszVJoinSplit>, v_shielded_output: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedOutput>, v_shielded_spend: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVShieldedSpend>, value_balance: String, version: i32, version_group_id: String, vin: Vec<crate::models::ListTransactionsByBlockHashRibszVin>, vout: Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>) -> ListTransactionsByBlockHashRibsz {
         ListTransactionsByBlockHashRibsz {
             binding_sig,
             expiry_height,

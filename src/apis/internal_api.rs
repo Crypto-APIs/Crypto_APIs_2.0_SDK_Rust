@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetInternalTransactionByTransactionHashAndOperationIdError {
-    Status400(crate::models::InlineResponse40050),
-    Status401(crate::models::InlineResponse40150),
+    Status400(crate::models::InlineResponse40054),
+    Status401(crate::models::InlineResponse40154),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40350),
+    Status403(crate::models::InlineResponse40354),
     Status404(crate::models::InlineResponse4043),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -36,10 +36,10 @@ pub enum GetInternalTransactionByTransactionHashAndOperationIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListInternalTransactionDetailsByTransactionHashError {
-    Status400(crate::models::InlineResponse40048),
-    Status401(crate::models::InlineResponse40148),
+    Status400(crate::models::InlineResponse40052),
+    Status401(crate::models::InlineResponse40152),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40348),
+    Status403(crate::models::InlineResponse40352),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -52,10 +52,10 @@ pub enum ListInternalTransactionDetailsByTransactionHashError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListInternalTransactionsByAddressError {
-    Status400(crate::models::InlineResponse40051),
-    Status401(crate::models::InlineResponse40151),
+    Status400(crate::models::InlineResponse40056),
+    Status401(crate::models::InlineResponse40156),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40351),
+    Status403(crate::models::InlineResponse40356),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),

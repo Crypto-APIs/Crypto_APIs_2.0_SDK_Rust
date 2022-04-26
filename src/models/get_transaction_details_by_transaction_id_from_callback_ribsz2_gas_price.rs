@@ -15,14 +15,14 @@
 pub struct GetTransactionDetailsByTransactionIdFromCallbackRibsz2GasPrice {
     /// Defines the price of the gas.
     #[serde(rename = "amount")]
-    pub amount: i32,
+    pub amount: i64,
     /// Defines the unit of the gas price amount, e.g. BTC, ETH, XRP.
     #[serde(rename = "unit")]
     pub unit: String,
 }
 
 impl GetTransactionDetailsByTransactionIdFromCallbackRibsz2GasPrice {
-    pub fn new(amount: i32, unit: String) -> GetTransactionDetailsByTransactionIdFromCallbackRibsz2GasPrice {
+    pub fn new(amount: i64, unit: String) -> GetTransactionDetailsByTransactionIdFromCallbackRibsz2GasPrice {
         GetTransactionDetailsByTransactionIdFromCallbackRibsz2GasPrice {
             amount,
             unit,

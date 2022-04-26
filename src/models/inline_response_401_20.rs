@@ -23,11 +23,11 @@ pub struct InlineResponse40120 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::CreateCoinsTransactionRequestFromAddressE401>,
+    pub error: Box<crate::models::GetUnconfirmedOmniTransactionByTransactionIdTxidE401>,
 }
 
 impl InlineResponse40120 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::CreateCoinsTransactionRequestFromAddressE401) -> InlineResponse40120 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::GetUnconfirmedOmniTransactionByTransactionIdTxidE401) -> InlineResponse40120 {
         InlineResponse40120 {
             api_version,
             request_id,

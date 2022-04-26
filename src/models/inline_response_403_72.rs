@@ -23,11 +23,11 @@ pub struct InlineResponse40372 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::GetBlockDetailsByBlockHeightFromCallbackE403>,
+    pub error: Box<crate::models::NewUnconfirmedTokensTransactionsE403>,
 }
 
 impl InlineResponse40372 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::GetBlockDetailsByBlockHeightFromCallbackE403) -> InlineResponse40372 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::NewUnconfirmedTokensTransactionsE403) -> InlineResponse40372 {
         InlineResponse40372 {
             api_version,
             request_id,

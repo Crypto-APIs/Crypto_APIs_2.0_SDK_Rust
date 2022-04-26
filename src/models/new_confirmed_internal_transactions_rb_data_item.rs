@@ -22,9 +22,12 @@ pub struct NewConfirmedInternalTransactionsRbDataItem {
     /// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
     #[serde(rename = "callbackSecretKey")]
     pub callback_secret_key: String,
-    /// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+    /// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
     #[serde(rename = "callbackUrl")]
     pub callback_url: String,
+    /// Represents the exact confirmation, on which the user wants to receive callback.
+    #[serde(rename = "receiveCallbackOn", skip_serializing_if = "Option::is_none")]
+    pub receive_callback_on: Option<i32>,
 }
 
 impl NewConfirmedInternalTransactionsRbDataItem {
@@ -34,6 +37,7 @@ impl NewConfirmedInternalTransactionsRbDataItem {
             allow_duplicates,
             callback_secret_key,
             callback_url,
+            receive_callback_on: None,
         }
     }
 }

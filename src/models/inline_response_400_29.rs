@@ -23,11 +23,11 @@ pub struct InlineResponse40029 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::GetZilliqaBlockDetailsByBlockHeightE400>,
+    pub error: Box<crate::models::ListUnconfirmedOmniTransactionsByPropertyIde400>,
 }
 
 impl InlineResponse40029 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::GetZilliqaBlockDetailsByBlockHeightE400) -> InlineResponse40029 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::ListUnconfirmedOmniTransactionsByPropertyIde400) -> InlineResponse40029 {
         InlineResponse40029 {
             api_version,
             request_id,

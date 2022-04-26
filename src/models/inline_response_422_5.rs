@@ -23,11 +23,11 @@ pub struct InlineResponse4225 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::GetExchangeRateByAssetsIdsE422>,
+    pub error: Box<crate::models::ListHdWalletXPubYPubZPubUtxosE422>,
 }
 
 impl InlineResponse4225 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::GetExchangeRateByAssetsIdsE422) -> InlineResponse4225 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::ListHdWalletXPubYPubZPubUtxosE422) -> InlineResponse4225 {
         InlineResponse4225 {
             api_version,
             request_id,

@@ -13,12 +13,12 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ListSupportedTokensRData {
-    /// The starting index of the response items, i.e. where the response should start listing the returned items.
-    #[serde(rename = "offset")]
-    pub offset: i32,
     /// Defines how many items should be returned in the response per page basis.
     #[serde(rename = "limit")]
     pub limit: i32,
+    /// The starting index of the response items, i.e. where the response should start listing the returned items.
+    #[serde(rename = "offset")]
+    pub offset: i32,
     /// Defines the total number of items returned in the response.
     #[serde(rename = "total")]
     pub total: i32,
@@ -27,10 +27,10 @@ pub struct ListSupportedTokensRData {
 }
 
 impl ListSupportedTokensRData {
-    pub fn new(offset: i32, limit: i32, total: i32, items: Vec<crate::models::ListSupportedTokensRi>) -> ListSupportedTokensRData {
+    pub fn new(limit: i32, offset: i32, total: i32, items: Vec<crate::models::ListSupportedTokensRi>) -> ListSupportedTokensRData {
         ListSupportedTokensRData {
-            offset,
             limit,
+            offset,
             total,
             items,
         }

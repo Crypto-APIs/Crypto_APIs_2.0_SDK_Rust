@@ -22,7 +22,7 @@ pub struct ListTransactionsByBlockHeightRibszVin {
     pub script_sig: Box<crate::models::ListTransactionsByBlockHeightRibszScriptSig>,
     /// Represents the script sequence number.
     #[serde(rename = "sequence")]
-    pub sequence: i32,
+    pub sequence: i64,
     /// Represents the reference transaction identifier.
     #[serde(rename = "txid")]
     pub txid: String,
@@ -37,7 +37,7 @@ pub struct ListTransactionsByBlockHeightRibszVin {
 }
 
 impl ListTransactionsByBlockHeightRibszVin {
-    pub fn new(addresses: Vec<String>, coinbase: String, script_sig: crate::models::ListTransactionsByBlockHeightRibszScriptSig, sequence: i32, txid: String, txinwitness: Vec<String>, value: String, vout: i32) -> ListTransactionsByBlockHeightRibszVin {
+    pub fn new(addresses: Vec<String>, coinbase: String, script_sig: crate::models::ListTransactionsByBlockHeightRibszScriptSig, sequence: i64, txid: String, txinwitness: Vec<String>, value: String, vout: i32) -> ListTransactionsByBlockHeightRibszVin {
         ListTransactionsByBlockHeightRibszVin {
             addresses,
             coinbase,

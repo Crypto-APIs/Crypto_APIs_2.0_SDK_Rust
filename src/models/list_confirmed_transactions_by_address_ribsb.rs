@@ -16,7 +16,7 @@
 pub struct ListConfirmedTransactionsByAddressRibsb {
     /// Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.
     #[serde(rename = "locktime")]
-    pub locktime: i32,
+    pub locktime: i64,
     /// Represents the total size of this transaction.
     #[serde(rename = "size")]
     pub size: i32,
@@ -36,7 +36,7 @@ pub struct ListConfirmedTransactionsByAddressRibsb {
 
 impl ListConfirmedTransactionsByAddressRibsb {
     /// Bitcoin
-    pub fn new(locktime: i32, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::ListConfirmedTransactionsByAddressRibsbVin>, vout: Vec<crate::models::ListConfirmedTransactionsByAddressRibsbVout>) -> ListConfirmedTransactionsByAddressRibsb {
+    pub fn new(locktime: i64, size: i32, v_size: i32, version: i32, vin: Vec<crate::models::ListConfirmedTransactionsByAddressRibsbVin>, vout: Vec<crate::models::ListConfirmedTransactionsByAddressRibsbVout>) -> ListConfirmedTransactionsByAddressRibsb {
         ListConfirmedTransactionsByAddressRibsb {
             locktime,
             size,

@@ -7,6 +7,8 @@ Method | HTTP request | Description
 [**get_transaction_request_details**](InformativeApi.md#get_transaction_request_details) | **GET** /wallet-as-a-service/transactionRequests/{transactionRequestId} | Get Transaction Request Details
 [**get_wallet_asset_details**](InformativeApi.md#get_wallet_asset_details) | **GET** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network} | Get Wallet Asset Details
 [**get_wallet_transaction_details_by_transaction_id**](InformativeApi.md#get_wallet_transaction_details_by_transaction_id) | **GET** /wallet-as-a-service/wallets/{blockchain}/{network}/transactions/{transactionId} | Get Wallet Transaction Details By Transaction ID
+[**list_all_assets_by_wallet_id**](InformativeApi.md#list_all_assets_by_wallet_id) | **GET** /wallet-as-a-service/wallets/{walletId}/assets | List All Assets By Wallet ID
+[**list_all_assets_from_all_wallets**](InformativeApi.md#list_all_assets_from_all_wallets) | **GET** /wallet-as-a-service/wallets/all-assets | List All Assets From All Wallets
 [**list_deposit_addresses**](InformativeApi.md#list_deposit_addresses) | **GET** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses | List Deposit Addresses
 [**list_supported_tokens**](InformativeApi.md#list_supported_tokens) | **GET** /wallet-as-a-service/info/{blockchain}/{network}/supported-tokens | List Supported Tokens
 [**list_wallet_transactions**](InformativeApi.md#list_wallet_transactions) | **GET** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/transactions | List Wallet Transactions
@@ -49,7 +51,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::GetWalletAssetDetailsR get_wallet_asset_details(blockchain, network, wallet_id, context)
 Get Wallet Asset Details
 
-Through this endpoint customers can obtain details about a specific Wallet/Vault.
+Through this endpoint customers can obtain details on all assets (coins, fungible tokens, non-fungible tokens) for the entire Wallet.
 
 ### Parameters
 
@@ -97,6 +99,69 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::GetWalletTransactionDetailsByTransactionIdr**](GetWalletTransactionDetailsByTransactionIDR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## list_all_assets_by_wallet_id
+
+> crate::models::ListAllAssetsByWalletIdr list_all_assets_by_wallet_id(wallet_id, context)
+List All Assets By Wallet ID
+
+Through this endpoint customers can obtain information about available assets in one of their wallets, regardless of the blockchain protocol or network, by providing walletId.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**wallet_id** | **String** | Defines the unique ID of the Wallet. | [required] |
+**context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+
+### Return type
+
+[**crate::models::ListAllAssetsByWalletIdr**](ListAllAssetsByWalletIDR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## list_all_assets_from_all_wallets
+
+> crate::models::ListAllAssetsFromAllWalletsR list_all_assets_from_all_wallets(context, limit, offset)
+List All Assets From All Wallets
+
+Through this endpoint customers can obtain information about available assets in all of their wallets, regardless of the blockchain protocol or network.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+**limit** | Option<**i32**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
+**offset** | Option<**i32**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+
+### Return type
+
+[**crate::models::ListAllAssetsFromAllWalletsR**](ListAllAssetsFromAllWalletsR.md)
 
 ### Authorization
 

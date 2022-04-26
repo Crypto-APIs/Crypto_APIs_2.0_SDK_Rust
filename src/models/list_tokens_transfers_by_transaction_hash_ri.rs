@@ -46,10 +46,12 @@ pub struct ListTokensTransfersByTransactionHashRi {
     /// Defines the specific time/date when the transaction was created in Unix Timestamp.
     #[serde(rename = "transactionTimestamp")]
     pub transaction_timestamp: i32,
+    #[serde(rename = "transactionFee")]
+    pub transaction_fee: Box<crate::models::ListTokensTransfersByTransactionHashRiTransactionFee>,
 }
 
 impl ListTokensTransfersByTransactionHashRi {
-    pub fn new(contract_address: String, mined_in_block_height: i32, recipient_address: String, sender_address: String, token_decimals: i32, token_name: String, token_symbol: String, token_type: String, tokens_amount: String, transaction_hash: String, transaction_timestamp: i32) -> ListTokensTransfersByTransactionHashRi {
+    pub fn new(contract_address: String, mined_in_block_height: i32, recipient_address: String, sender_address: String, token_decimals: i32, token_name: String, token_symbol: String, token_type: String, tokens_amount: String, transaction_hash: String, transaction_timestamp: i32, transaction_fee: crate::models::ListTokensTransfersByTransactionHashRiTransactionFee) -> ListTokensTransfersByTransactionHashRi {
         ListTokensTransfersByTransactionHashRi {
             contract_address,
             mined_in_block_height,
@@ -62,6 +64,7 @@ impl ListTokensTransfersByTransactionHashRi {
             tokens_amount,
             transaction_hash,
             transaction_timestamp,
+            transaction_fee: Box::new(transaction_fee),
         }
     }
 }

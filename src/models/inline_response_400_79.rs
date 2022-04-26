@@ -23,11 +23,11 @@ pub struct InlineResponse40079 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::CreateAutomaticTokensForwardingE400>,
+    pub error: Box<crate::models::ListBlockchainEventsSubscriptionsE400>,
 }
 
 impl InlineResponse40079 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::CreateAutomaticTokensForwardingE400) -> InlineResponse40079 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::ListBlockchainEventsSubscriptionsE400) -> InlineResponse40079 {
         InlineResponse40079 {
             api_version,
             request_id,
