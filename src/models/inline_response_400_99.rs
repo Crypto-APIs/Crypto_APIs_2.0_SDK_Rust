@@ -23,11 +23,11 @@ pub struct InlineResponse40099 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::BroadcastLocallySignedTransactionE400>,
+    pub error: Box<crate::models::DeleteAutomaticTokensForwardingE400>,
 }
 
 impl InlineResponse40099 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::BroadcastLocallySignedTransactionE400) -> InlineResponse40099 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::DeleteAutomaticTokensForwardingE400) -> InlineResponse40099 {
         InlineResponse40099 {
             api_version,
             request_id,

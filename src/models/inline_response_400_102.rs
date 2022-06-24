@@ -23,11 +23,11 @@ pub struct InlineResponse400102 {
     #[serde(rename = "context", skip_serializing_if = "Option::is_none")]
     pub context: Option<String>,
     #[serde(rename = "error")]
-    pub error: Box<crate::models::DecodeRawTransactionHexE400>,
+    pub error: Box<crate::models::BroadcastLocallySignedTransactionE400>,
 }
 
 impl InlineResponse400102 {
-    pub fn new(api_version: String, request_id: String, error: crate::models::DecodeRawTransactionHexE400) -> InlineResponse400102 {
+    pub fn new(api_version: String, request_id: String, error: crate::models::BroadcastLocallySignedTransactionE400) -> InlineResponse400102 {
         InlineResponse400102 {
             api_version,
             request_id,

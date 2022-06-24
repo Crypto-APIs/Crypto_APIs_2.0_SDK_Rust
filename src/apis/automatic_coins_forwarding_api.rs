@@ -19,12 +19,12 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateAutomaticCoinsForwardingError {
-    Status400(crate::models::InlineResponse40090),
-    Status401(crate::models::InlineResponse40190),
+    Status400(crate::models::InlineResponse40093),
+    Status401(crate::models::InlineResponse40193),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40390),
+    Status403(crate::models::InlineResponse40393),
     Status404(crate::models::InlineResponse4041),
-    Status409(crate::models::InlineResponse40916),
+    Status409(crate::models::InlineResponse40919),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
     Status429(crate::models::InlineResponse429),
@@ -36,10 +36,10 @@ pub enum CreateAutomaticCoinsForwardingError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteAutomaticCoinsForwardingError {
-    Status400(crate::models::InlineResponse40091),
-    Status401(crate::models::InlineResponse40191),
+    Status400(crate::models::InlineResponse40094),
+    Status401(crate::models::InlineResponse40194),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40391),
+    Status403(crate::models::InlineResponse40394),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -53,10 +53,10 @@ pub enum DeleteAutomaticCoinsForwardingError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListCoinsForwardingAutomationsError {
-    Status400(crate::models::InlineResponse40089),
-    Status401(crate::models::InlineResponse40189),
+    Status400(crate::models::InlineResponse40092),
+    Status401(crate::models::InlineResponse40192),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40389),
+    Status403(crate::models::InlineResponse40392),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),

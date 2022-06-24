@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAssetDetailsByAssetIdError {
-    Status400(crate::models::InlineResponse400109),
-    Status401(crate::models::InlineResponse401109),
+    Status400(crate::models::InlineResponse400112),
+    Status401(crate::models::InlineResponse401112),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse403109),
+    Status403(crate::models::InlineResponse403112),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -35,10 +35,10 @@ pub enum GetAssetDetailsByAssetIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAssetDetailsByAssetSymbolError {
-    Status400(crate::models::InlineResponse400110),
-    Status401(crate::models::InlineResponse401110),
+    Status400(crate::models::InlineResponse400113),
+    Status401(crate::models::InlineResponse401113),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse403110),
+    Status403(crate::models::InlineResponse403113),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -51,10 +51,10 @@ pub enum GetAssetDetailsByAssetSymbolError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListAssetsDetailsError {
-    Status400(crate::models::InlineResponse400108),
-    Status401(crate::models::InlineResponse401108),
+    Status400(crate::models::InlineResponse400111),
+    Status401(crate::models::InlineResponse401111),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse403108),
+    Status403(crate::models::InlineResponse403111),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),

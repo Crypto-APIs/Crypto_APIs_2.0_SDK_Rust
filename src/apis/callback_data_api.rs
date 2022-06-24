@@ -127,7 +127,7 @@ pub async fn get_block_details_by_block_hash_from_callback(configuration: &confi
 
     let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockcain-events/{blockchain}/{network}/blocks/hash/{blockHash}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
+    let local_var_uri_str = format!("{}/blockchain-events/{blockchain}/{network}/blocks/hash/{blockHash}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), blockHash=crate::apis::urlencode(block_hash));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {
@@ -165,7 +165,7 @@ pub async fn get_block_details_by_block_height_from_callback(configuration: &con
 
     let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/blockcain-events/{blockchain}/{network}/blocks/height/{blockHeight}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), blockHeight=crate::apis::urlencode(block_height));
+    let local_var_uri_str = format!("{}/blockchain-events/{blockchain}/{network}/blocks/height/{blockHeight}", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network), blockHeight=crate::apis::urlencode(block_height));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = context {

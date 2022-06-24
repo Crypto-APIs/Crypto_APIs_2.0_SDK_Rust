@@ -79,6 +79,22 @@ pub enum NewConfirmedCoinsTransactionsAndEachConfirmationError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method `new_confirmed_coins_transactions_for_specific_amount`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum NewConfirmedCoinsTransactionsForSpecificAmountError {
+    Status400(crate::models::InlineResponse40089),
+    Status401(crate::models::InlineResponse40189),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40389),
+    Status409(crate::models::InlineResponse40916),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method `new_confirmed_internal_transactions`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -104,6 +120,39 @@ pub enum NewConfirmedInternalTransactionsAndEachConfirmationError {
     Status402(crate::models::InlineResponse402),
     Status403(crate::models::InlineResponse40388),
     Status409(crate::models::InlineResponse40915),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method `new_confirmed_internal_transactions_for_specific_amount`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum NewConfirmedInternalTransactionsForSpecificAmountError {
+    Status400(crate::models::InlineResponse40091),
+    Status401(crate::models::InlineResponse40191),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40391),
+    Status409(crate::models::InlineResponse40918),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method `new_confirmed_token_transactions_for_specific_amount`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum NewConfirmedTokenTransactionsForSpecificAmountError {
+    Status400(crate::models::InlineResponse40090),
+    Status401(crate::models::InlineResponse40190),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40390),
+    Status404(crate::models::InlineResponse4041),
+    Status409(crate::models::InlineResponse40917),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
     Status429(crate::models::InlineResponse429),
@@ -332,6 +381,45 @@ pub async fn new_confirmed_coins_transactions_and_each_confirmation(configuratio
     }
 }
 
+/// Through this endpoint customers can create callback subscriptions for a specific event and \"amountHigherThan\" value. In this case the event is when there are new incoming or outgoing confirmed coins transactions for the specified blockchain and the amount is equal or higher than the value specified.  By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs  filtered for the specified amount. The information is returned per specified address.    Being confirmed means that the transactions are verified by miners and added to the next block.
+pub async fn new_confirmed_coins_transactions_for_specific_amount(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, new_confirmed_coins_transactions_for_specific_amount_rb: Option<crate::models::NewConfirmedCoinsTransactionsForSpecificAmountRb>) -> Result<crate::models::NewConfirmedCoinsTransactionsForSpecificAmountR, Error<NewConfirmedCoinsTransactionsForSpecificAmountError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-events/{blockchain}/{network}/subscriptions/coins-transactions-for-specific-amount", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+    local_var_req_builder = local_var_req_builder.json(&new_confirmed_coins_transactions_for_specific_amount_rb);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<NewConfirmedCoinsTransactionsForSpecificAmountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 /// Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new confirmed internal transactions. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs.    Being confirmed means that the transactions are verified by miners and added to the next block.    {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}    {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 pub async fn new_confirmed_internal_transactions(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, new_confirmed_internal_transactions_rb: Option<crate::models::NewConfirmedInternalTransactionsRb>) -> Result<crate::models::NewConfirmedInternalTransactionsR, Error<NewConfirmedInternalTransactionsError>> {
 
@@ -405,6 +493,84 @@ pub async fn new_confirmed_internal_transactions_and_each_confirmation(configura
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<NewConfirmedInternalTransactionsAndEachConfirmationError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Through this endpoint customers can create callback subscriptions for a specific event and \"amountHigherThan\" value. In this case the event is when there are new confirmed internal transactions and the amount is equal or higher than a value, specified by the customer. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs, filtered for the specified amount.  Being confirmed means that the transactions are verified by miners and added to the next block
+pub async fn new_confirmed_internal_transactions_for_specific_amount(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, new_confirmed_internal_transactions_for_specific_amount_rb: Option<crate::models::NewConfirmedInternalTransactionsForSpecificAmountRb>) -> Result<crate::models::NewConfirmedInternalTransactionsForSpecificAmountR, Error<NewConfirmedInternalTransactionsForSpecificAmountError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-events/{blockchain}/{network}/subscriptions/internal-transactions-for-specific-amount", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+    local_var_req_builder = local_var_req_builder.json(&new_confirmed_internal_transactions_for_specific_amount_rb);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<NewConfirmedInternalTransactionsForSpecificAmountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Through this endpoint customers can create callback subscriptions for a specific event and \"amountHigherThan\" value. In this case the event is when there are new incoming or outgoing confirmed token transactions for the specified blockchain and the amount is equal or higher than the value specified. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs, filtered for the specified amount.  Being confirmed means that the transactions are verified by miners and added to the next block. This endpoint refers to tokens transactions only, not coins.
+pub async fn new_confirmed_token_transactions_for_specific_amount(configuration: &configuration::Configuration, blockchain: &str, network: &str, context: Option<&str>, new_confirmed_token_transactions_for_specific_amount_rb: Option<crate::models::NewConfirmedTokenTransactionsForSpecificAmountRb>) -> Result<crate::models::NewConfirmedTokenTransactionsForSpecificAmountR, Error<NewConfirmedTokenTransactionsForSpecificAmountError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/blockchain-events/{blockchain}/{network}/subscriptions/tokens-transfers-for-specific-amount", configuration.base_path, blockchain=crate::apis::urlencode(blockchain), network=crate::apis::urlencode(network));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = context {
+        local_var_req_builder = local_var_req_builder.query(&[("context", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("x-api-key", local_var_value);
+    };
+    local_var_req_builder = local_var_req_builder.json(&new_confirmed_token_transactions_for_specific_amount_rb);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<NewConfirmedTokenTransactionsForSpecificAmountError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

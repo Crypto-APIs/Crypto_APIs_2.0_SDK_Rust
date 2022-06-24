@@ -179,7 +179,7 @@ pub async fn list_confirmed_tokens_transfers_by_address(configuration: &configur
 }
 
 /// Through this endpoint customers can obtain token data by providing an attribute - `address`.  The information that can be returned can include the contract address, the token symbol, type and balance.
-pub async fn list_tokens_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<crate::models::ListTokensByAddressR, Error<ListTokensByAddressError>> {
+pub async fn list_tokens_by_address(configuration: &configuration::Configuration, blockchain: &str, network: &str, address: &str, context: Option<&str>, limit: Option<i64>, offset: Option<i64>) -> Result<crate::models::ListTokensByAddressR, Error<ListTokensByAddressError>> {
 
     let local_var_client = &configuration.client;
 

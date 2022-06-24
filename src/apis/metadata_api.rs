@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListSupportedAssetsError {
-    Status400(crate::models::InlineResponse400105),
-    Status401(crate::models::InlineResponse401105),
+    Status400(crate::models::InlineResponse400108),
+    Status401(crate::models::InlineResponse401108),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse403105),
+    Status403(crate::models::InlineResponse403108),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),

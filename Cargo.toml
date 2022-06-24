@@ -1,6 +1,6 @@
 [package]
 name = "cryptoapis"
-version = "1.5.0"
+version = "1.6.0"
 description = "Rust library/SDK for Crypto APIs 2.0"
 authors = ["CryptoAPIs"]
 edition = "2018"

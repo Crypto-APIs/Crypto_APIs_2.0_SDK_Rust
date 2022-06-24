@@ -19,12 +19,12 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BroadcastLocallySignedTransactionError {
-    Status400(crate::models::InlineResponse40099),
-    Status401(crate::models::InlineResponse40199),
+    Status400(crate::models::InlineResponse400102),
+    Status401(crate::models::InlineResponse401102),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40399),
+    Status403(crate::models::InlineResponse403102),
     Status404(crate::models::InlineResponse4041),
-    Status409(crate::models::InlineResponse40917),
+    Status409(crate::models::InlineResponse40920),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
     Status429(crate::models::InlineResponse429),
@@ -36,10 +36,10 @@ pub enum BroadcastLocallySignedTransactionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DecodeRawTransactionHexError {
-    Status400(crate::models::InlineResponse400102),
-    Status401(crate::models::InlineResponse401102),
+    Status400(crate::models::InlineResponse400105),
+    Status401(crate::models::InlineResponse401105),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse403102),
+    Status403(crate::models::InlineResponse403105),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -52,10 +52,10 @@ pub enum DecodeRawTransactionHexError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DecodeXAddressError {
-    Status400(crate::models::InlineResponse400103),
-    Status401(crate::models::InlineResponse401103),
+    Status400(crate::models::InlineResponse400106),
+    Status401(crate::models::InlineResponse401106),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse403103),
+    Status403(crate::models::InlineResponse403106),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -84,10 +84,10 @@ pub enum DeriveHdWalletXPubYPubZPubChangeOrReceivingAddressesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EncodeXAddressError {
-    Status400(crate::models::InlineResponse400104),
-    Status401(crate::models::InlineResponse401104),
+    Status400(crate::models::InlineResponse400107),
+    Status401(crate::models::InlineResponse401107),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse403104),
+    Status403(crate::models::InlineResponse403107),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -100,10 +100,10 @@ pub enum EncodeXAddressError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EstimateGasLimitError {
-    Status400(crate::models::InlineResponse400100),
-    Status401(crate::models::InlineResponse401100),
+    Status400(crate::models::InlineResponse400103),
+    Status401(crate::models::InlineResponse401103),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse403100),
+    Status403(crate::models::InlineResponse403103),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -117,10 +117,10 @@ pub enum EstimateGasLimitError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum EstimateTokenGasLimitError {
-    Status400(crate::models::InlineResponse400101),
-    Status401(crate::models::InlineResponse401101),
+    Status400(crate::models::InlineResponse400104),
+    Status401(crate::models::InlineResponse401104),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse403101),
+    Status403(crate::models::InlineResponse403104),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),
@@ -133,10 +133,10 @@ pub enum EstimateTokenGasLimitError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetEip1559FeeRecommendationsError {
-    Status400(crate::models::InlineResponse40098),
-    Status401(crate::models::InlineResponse40198),
+    Status400(crate::models::InlineResponse400101),
+    Status401(crate::models::InlineResponse401101),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40398),
+    Status403(crate::models::InlineResponse403101),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -150,10 +150,10 @@ pub enum GetEip1559FeeRecommendationsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ValidateAddressError {
-    Status400(crate::models::InlineResponse40097),
-    Status401(crate::models::InlineResponse40197),
+    Status400(crate::models::InlineResponse400100),
+    Status401(crate::models::InlineResponse401100),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40397),
+    Status403(crate::models::InlineResponse403100),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse422),

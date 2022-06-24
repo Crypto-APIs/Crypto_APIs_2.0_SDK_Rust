@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetExchangeRateByAssetSymbolsError {
-    Status400(crate::models::InlineResponse400106),
-    Status401(crate::models::InlineResponse401106),
+    Status400(crate::models::InlineResponse400109),
+    Status401(crate::models::InlineResponse401109),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse403106),
+    Status403(crate::models::InlineResponse403109),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse4226),
@@ -35,10 +35,10 @@ pub enum GetExchangeRateByAssetSymbolsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetExchangeRateByAssetsIdsError {
-    Status400(crate::models::InlineResponse400107),
-    Status401(crate::models::InlineResponse401107),
+    Status400(crate::models::InlineResponse400110),
+    Status401(crate::models::InlineResponse401110),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse403107),
+    Status403(crate::models::InlineResponse403110),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
     Status422(crate::models::InlineResponse4227),

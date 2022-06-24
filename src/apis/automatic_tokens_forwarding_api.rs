@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AddTokensToExistingFromAddressError {
-    Status400(crate::models::InlineResponse40094),
-    Status401(crate::models::InlineResponse40194),
+    Status400(crate::models::InlineResponse40097),
+    Status401(crate::models::InlineResponse40197),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40394),
+    Status403(crate::models::InlineResponse40397),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -36,23 +36,6 @@ pub enum AddTokensToExistingFromAddressError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateAutomaticTokensForwardingError {
-    Status400(crate::models::InlineResponse40093),
-    Status401(crate::models::InlineResponse40193),
-    Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40393),
-    Status404(crate::models::InlineResponse4041),
-    Status409(crate::models::InlineResponse409),
-    Status415(crate::models::InlineResponse415),
-    Status422(crate::models::InlineResponse422),
-    Status429(crate::models::InlineResponse429),
-    Status500(crate::models::InlineResponse500),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method `delete_automatic_tokens_forwarding`
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum DeleteAutomaticTokensForwardingError {
     Status400(crate::models::InlineResponse40096),
     Status401(crate::models::InlineResponse40196),
     Status402(crate::models::InlineResponse402),
@@ -66,14 +49,31 @@ pub enum DeleteAutomaticTokensForwardingError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method `delete_automatic_tokens_forwarding`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteAutomaticTokensForwardingError {
+    Status400(crate::models::InlineResponse40099),
+    Status401(crate::models::InlineResponse40199),
+    Status402(crate::models::InlineResponse402),
+    Status403(crate::models::InlineResponse40399),
+    Status404(crate::models::InlineResponse4041),
+    Status409(crate::models::InlineResponse409),
+    Status415(crate::models::InlineResponse415),
+    Status422(crate::models::InlineResponse422),
+    Status429(crate::models::InlineResponse429),
+    Status500(crate::models::InlineResponse500),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method `get_fee_address_details`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetFeeAddressDetailsError {
-    Status400(crate::models::InlineResponse40095),
-    Status401(crate::models::InlineResponse40195),
+    Status400(crate::models::InlineResponse40098),
+    Status401(crate::models::InlineResponse40198),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40395),
+    Status403(crate::models::InlineResponse40398),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
@@ -87,10 +87,10 @@ pub enum GetFeeAddressDetailsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ListTokensForwardingAutomationsError {
-    Status400(crate::models::InlineResponse40092),
-    Status401(crate::models::InlineResponse40192),
+    Status400(crate::models::InlineResponse40095),
+    Status401(crate::models::InlineResponse40195),
     Status402(crate::models::InlineResponse402),
-    Status403(crate::models::InlineResponse40392),
+    Status403(crate::models::InlineResponse40395),
     Status404(crate::models::InlineResponse4041),
     Status409(crate::models::InlineResponse409),
     Status415(crate::models::InlineResponse415),
