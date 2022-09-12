@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **timestamp** | **i32** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
 **transaction_hash** | **String** | Represents the same as transactionId for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols hash is different from transactionId for SegWit transactions. | 
 **fee** | [**crate::models::GetTransactionDetailsByTransactionIdFromCallbackRiFee**](GetTransactionDetailsByTransactionIDFromCallbackRI_fee.md) |  | 
-**is_confirmed** | **bool** |  | 
+**is_confirmed** | **bool** | Represents the state of the transaction whether it is confirmed or not confirmed. | 
 **blockchain_specific** | [**crate::models::GetTransactionDetailsByTransactionIdFromCallbackRibs**](GetTransactionDetailsByTransactionIDFromCallbackRIBS.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

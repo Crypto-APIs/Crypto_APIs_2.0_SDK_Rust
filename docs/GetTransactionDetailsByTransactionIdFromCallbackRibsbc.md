@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **size** | **i32** | Represents the total size of this transaction. | 
 **version** | **i32** | Represents transaction version number. | 
 **vin** | [**Vec<crate::models::GetTransactionDetailsByTransactionIdribsbcVin>**](GetTransactionDetailsByTransactionIDRIBSBC_vin.md) | Represents the transaction inputs. | 
-**vout** | [**Vec<crate::models::GetTransactionDetailsByTransactionIdribsbcVout>**](GetTransactionDetailsByTransactionIDRIBSBC_vout.md) | Represents the transaction outputs. | 
+**vout** | [**Vec<crate::models::GetTransactionDetailsByTransactionIdFromCallbackRibsbcVout>**](GetTransactionDetailsByTransactionIDFromCallbackRIBSBC_vout.md) | Represents the transaction outputs. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

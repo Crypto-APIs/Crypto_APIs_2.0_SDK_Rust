@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **ds_difficulty** | **String** | Defines how difficult it is to mine the dsBlocks. | 
 **ds_leader** | **String** | Represents a part of the DS Committee which leads the consensus protocol for the epoch. | 
 **micro_blocks** | **Vec<String>** |  | 
+**total_coins** | Option<[**crate::models::ListLatestMinedBlocksRibsxTotalCoins**](ListLatestMinedBlocksRIBSX_totalCoins.md)> |  | [optional]
+**total_fees** | [**crate::models::ListLatestMinedBlocksRibsxTotalFees**](ListLatestMinedBlocksRIBSX_totalFees.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

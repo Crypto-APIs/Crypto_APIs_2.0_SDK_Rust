@@ -15,7 +15,9 @@ Name | Type | Description | Notes
 **gas_price** | [**crate::models::ListConfirmedTransactionsByAddressRibsbscGasPrice**](ListConfirmedTransactionsByAddressRIBSBSC_gasPrice.md) |  | 
 **gas_used** | **String** | Represents the exact unit of gas that was used for the transaction. | 
 **input_data** | **String** | Represents additional information that is required for the transaction. | 
+**internal_transactions_count** | **i32** | Represents the total internal transactions count. | 
 **nonce** | **i32** | Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address. | 
+**token_transfers_count** | **i32** | Represents the total token transfers count. | 
 **transaction_status** | **String** | String representation of the transaction status | 
 **binding_sig** | **String** | It is used to enforce balance of Spend and Output transfers, in order to prevent their replay across transactions. | 
 **expiry_height** | **i32** | Represents a block height after which the transaction will expire. | 

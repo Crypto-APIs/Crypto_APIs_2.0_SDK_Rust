@@ -1,6 +1,6 @@
 # \ExchangeRatesApi
 
-All URIs are relative to *https://rest.cryptoapis.io/v2*
+All URIs are relative to *https://rest.cryptoapis.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,7 +24,7 @@ Name | Type | Description  | Required | Notes
 **from_asset_symbol** | **String** | Defines the base asset symbol to get a rate for. | [required] |
 **to_asset_symbol** | **String** | Defines the relation asset symbol in which the base asset rate will be displayed. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
-**calculation_timestamp** | Option<**i32**> | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. |  |
+**calculation_timestamp** | Option<**i32**> | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. Oldest possible timestamp is 30 days. |  |
 
 ### Return type
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Required | Notes
 **from_asset_id** | **String** | Defines the base asset Reference ID to get a rate for. | [required] |
 **to_asset_id** | **String** | Defines the relation asset Reference ID in which the base asset rate will be displayed. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
-**calculation_timestamp** | Option<**i32**> | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. |  |
+**calculation_timestamp** | Option<**i32**> | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. Oldest possible timestamp is 30 days. |  |
 
 ### Return type
 

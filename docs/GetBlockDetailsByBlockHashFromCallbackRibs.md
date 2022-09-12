@@ -28,6 +28,9 @@ Name | Type | Description | Notes
 **micro_blocks** | **Vec<String>** |  | 
 **total_coins** | [**crate::models::GetLatestMinedXrpRippleBlockRiTotalCoins**](GetLatestMinedXRPRippleBlockRI_totalCoins.md) |  | 
 **total_fees** | [**crate::models::GetLatestMinedXrpRippleBlockRiTotalFees**](GetLatestMinedXRPRippleBlockRI_totalFees.md) |  | 
+**bandwidth_used** | **String** | Represents the bandwidth used for the transaction. | 
+**burned_trx** | **String** | Represents the block burned TRX. | 
+**energy_used** | **String** | Representats the used energy for the transaction. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

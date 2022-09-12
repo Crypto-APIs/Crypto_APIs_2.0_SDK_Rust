@@ -1,10 +1,11 @@
 # \FeaturesApi
 
-All URIs are relative to *https://rest.cryptoapis.io/v2*
+All URIs are relative to *https://rest.cryptoapis.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**broadcast_locally_signed_transaction**](FeaturesApi.md#broadcast_locally_signed_transaction) | **POST** /blockchain-tools/{blockchain}/{network}/transactions/broadcast | Broadcast Locally Signed Transaction
+[**convert_bitcoin_cash_address**](FeaturesApi.md#convert_bitcoin_cash_address) | **POST** /blockchain-tools/{blockchain}/{network}/address/convert | Convert Bitcoin Cash Address
 [**decode_raw_transaction_hex**](FeaturesApi.md#decode_raw_transaction_hex) | **POST** /blockchain-tools/{blockchain}/{network}/decode-raw-transaction | Decode Raw Transaction Hex
 [**decode_x_address**](FeaturesApi.md#decode_x_address) | **GET** /blockchain-tools/{blockchain}/{network}/decode-x-address/{xAddress} | Decode X-Address
 [**derive_hd_wallet__x_pub_y_pub_z_pub_change_or_receiving_addresses**](FeaturesApi.md#derive_hd_wallet__x_pub_y_pub_z_pub_change_or_receiving_addresses) | **GET** /blockchain-tools/{blockchain}/{network}/hd/{extendedPublicKey}/addresses/derive-address | Derive HD Wallet (xPub, yPub, zPub) Change Or Receiving Addresses
@@ -36,6 +37,39 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::BroadcastLocallySignedTransactionR**](BroadcastLocallySignedTransactionR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## convert_bitcoin_cash_address
+
+> crate::models::ConvertBitcoinCashAddressR convert_bitcoin_cash_address(blockchain, network, context, convert_bitcoin_cash_address_rb)
+Convert Bitcoin Cash Address
+
+Through this endpoint customers will be able to convert addresses for the BCH (Bitcoin Cash) protocol from BCH legacy to cash address and vice versa.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [required] |
+**network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
+**context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
+**convert_bitcoin_cash_address_rb** | Option<[**ConvertBitcoinCashAddressRb**](ConvertBitcoinCashAddressRb.md)> |  |  |
+
+### Return type
+
+[**crate::models::ConvertBitcoinCashAddressR**](ConvertBitcoinCashAddressR.md)
 
 ### Authorization
 
@@ -132,9 +166,9 @@ Name | Type | Description  | Required | Notes
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
 **address_format** | Option<**String**> | Represents the format of the address. |  |
-**addresses_count** | Option<**i32**> | Represents the addresses count. |  |
+**addresses_count** | Option<**i64**> | Represents the addresses count. |  |
 **is_change** | Option<**bool**> | Defines if the specific address is a change or deposit address. If the value is True - it is a change address, if it is False - it is a Deposit address. |  |
-**start_index** | Option<**i32**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |
+**start_index** | Option<**i64**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |
 
 ### Return type
 

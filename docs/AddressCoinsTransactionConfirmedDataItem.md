@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **blockchain** | **String** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
-**network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks. | 
+**network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"mordor\" are test networks. | 
 **address** | **String** | Defines the specific address to which the coin transaction has been sent and is confirmed. | 
 **mined_in_block** | [**crate::models::AddressCoinsTransactionConfirmedDataItemMinedInBlock**](AddressCoinsTransactionConfirmed_data_item_minedInBlock.md) |  | 
 **transaction_id** | **String** | Defines the unique ID of the specific transaction, i.e. its identification number. | 

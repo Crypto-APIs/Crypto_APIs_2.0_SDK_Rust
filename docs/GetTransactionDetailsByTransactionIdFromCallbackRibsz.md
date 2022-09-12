@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **version** | **i32** | Defines the version of the transaction. | 
 **version_group_id** | **String** | Represents the transaction version group ID | 
 **vin** | [**Vec<crate::models::GetTransactionDetailsByTransactionIdribszVin>**](GetTransactionDetailsByTransactionIDRIBSZ_vin.md) | Object Array representation of transaction inputs | 
-**vout** | [**Vec<crate::models::GetTransactionDetailsByTransactionIdribszVout>**](GetTransactionDetailsByTransactionIDRIBSZ_vout.md) | Object Array representation of transaction outputs | 
+**vout** | [**Vec<crate::models::GetTransactionDetailsByTransactionIdFromCallbackRibszVout>**](GetTransactionDetailsByTransactionIDFromCallbackRIBSZ_vout.md) | Object Array representation of transaction outputs | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

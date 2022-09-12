@@ -9,8 +9,6 @@ Name | Type | Description | Notes
 **previous_block_hash** | **String** | Represents the hash of the previous block, also known as the parent block. | 
 **timestamp** | **i32** | Defines the exact date/time when this block was mined in Unix Timestamp. | 
 **transactions_count** | **i32** | Represents the total number of all transactions as part of this block. | 
-**total_coins** | [**crate::models::ListLatestMinedBlocksRiTotalCoins**](ListLatestMinedBlocksRI_totalCoins.md) |  | 
-**total_fees** | [**crate::models::ListLatestMinedBlocksRiTotalFees**](ListLatestMinedBlocksRI_totalFees.md) |  | 
 **blockchain_specific** | [**crate::models::ListLatestMinedBlocksRibs**](ListLatestMinedBlocksRIBS.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

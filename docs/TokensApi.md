@@ -1,6 +1,6 @@
 # \TokensApi
 
-All URIs are relative to *https://rest.cryptoapis.io/v2*
+All URIs are relative to *https://rest.cryptoapis.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -61,8 +61,8 @@ Name | Type | Description  | Required | Notes
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
 **address** | **String** | Represents the public address, which is a compressed and shortened form of a public key. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
-**limit** | Option<**i32**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
-**offset** | Option<**i32**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+**limit** | Option<**i64**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
+**offset** | Option<**i64**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
 
 ### Return type
 
@@ -131,8 +131,8 @@ Name | Type | Description  | Required | Notes
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
 **transaction_hash** | **String** | Represents the hash of the transaction, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
-**limit** | Option<**i32**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
-**offset** | Option<**i32**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+**limit** | Option<**i64**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
+**offset** | Option<**i64**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
 
 ### Return type
 
@@ -166,8 +166,8 @@ Name | Type | Description  | Required | Notes
 **network** | **String** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks. | [required] |
 **address** | **String** | Represents the public address, which is a compressed and shortened form of a public key. | [required] |
 **context** | Option<**String**> | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. |  |
-**limit** | Option<**i32**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
-**offset** | Option<**i32**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
+**limit** | Option<**i64**> | Defines how many items should be returned in the response per page basis. |  |[default to 50]
+**offset** | Option<**i64**> | The starting index of the response items, i.e. where the response should start listing the returned items. |  |[default to 0]
 
 ### Return type
 

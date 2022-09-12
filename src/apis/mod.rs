@@ -74,7 +74,6 @@ pub mod informative_api;
 pub mod internal_api;
 pub mod manage_subscriptions_api;
 pub mod metadata_api;
-pub mod omni_layer_api;
 pub mod tokens_api;
 pub mod transactions_api;
 pub mod unified_endpoints_api;
